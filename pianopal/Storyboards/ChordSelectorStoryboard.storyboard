@@ -8,7 +8,7 @@
         <!--ChordSelectorViewController-->
         <scene sceneID="rdf-jy-i8n">
             <objects>
-                <viewController storyboardIdentifier="chordSelectorStoryboard" title="ChordSelectorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qMK-qR-yTn" customClass="ChordSelectorViewController" customModule="pianotools" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chordSelectorStoryboard" title="ChordSelectorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qMK-qR-yTn" customClass="ChordSelectorViewController" customModule="pianopal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XBy-At-Sdf"/>
                         <viewControllerLayoutGuide type="bottom" id="C2o-eI-Gkh"/>

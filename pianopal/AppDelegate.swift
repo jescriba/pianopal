@@ -12,15 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var chordSelectorStoryboard: UIStoryboard?
-
+    let pianoViewController = PianoViewController(chord: ChordGenerator.generateChord(.C, chordType: .Major))
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        chordSelectorStoryboard = UIStoryboard.init(name: "ChordSelectorStoryboard", bundle: nil)
-        window?.rootViewController = chordSelectorStoryboard?.instantiateViewControllerWithIdentifier("chordSelectorStoryboard")
+        
+        window?.rootViewController = pianoViewController
         window?.makeKeyAndVisible()
         return true
     }

@@ -31,6 +31,8 @@
 		42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E75ACB1D10E61000D9A840 /* Constants.swift */; };
 		42E8EA581D204756004757D1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA571D204756004757D1 /* Colors.swift */; };
 		42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA591D204A2A004757D1 /* Fonts.swift */; };
+		42FB3D821D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */; };
+		42FB3D841D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */; };
 		B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */; };
 		B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */; };
 		B28267E71D10965000A9ADE2 /* RootNotePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */; };
@@ -87,6 +89,8 @@
 		42E75ACB1D10E61000D9A840 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42E8EA571D204756004757D1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		42E8EA591D204A2A004757D1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordProgressionListStoryboard.storyboard; sourceTree = "<group>"; };
+		42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleProgressionListStoryboard.storyboard; sourceTree = "<group>"; };
 		B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSelectorViewController.swift; sourceTree = "<group>"; };
 		B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarActionType.swift; sourceTree = "<group>"; };
 		B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNotePickerViewDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 			children = (
 				42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */,
 				423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */,
+				42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */,
+				42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			path = pianopal/Storyboards;
@@ -354,7 +360,9 @@
 			files = (
 				42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */,
 				42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */,
+				42FB3D841D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard in Resources */,
 				42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */,
+				42FB3D821D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard in Resources */,
 				423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
