@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */; };
+		423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */; };
+		423AA3411D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */; };
+		423AA3431D122E3E009494F1 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA3421D122E3E009494F1 /* Scale.swift */; };
+		423CA0231D0F0EBD0005CD4B /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0221D0F0EBD0005CD4B /* NoteButton.swift */; };
+		423CA0251D0F77A80005CD4B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0241D0F77A80005CD4B /* Note.swift */; };
+		423CA0271D0F780A0005CD4B /* KeyProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0261D0F780A0005CD4B /* KeyProperties.swift */; };
+		423CA0291D0F95120005CD4B /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0281D0F95120005CD4B /* Chord.swift */; };
+		423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA02A1D0F96630005CD4B /* ChordType.swift */; };
+		423CA02D1D0F97500005CD4B /* ChordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA02C1D0F97500005CD4B /* ChordGenerator.swift */; };
+		423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */; };
+		423CA0311D0F9CEF0005CD4B /* ScaleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0301D0F9CEF0005CD4B /* ScaleType.swift */; };
+		423CA0331D0FB4A20005CD4B /* ChordSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */; };
+		4262555B1D0E2C2D00B43EB3 /* PianoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262555A1D0E2C2D00B43EB3 /* PianoViewController.swift */; };
+		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
+		42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */; };
+		42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268C51D0E15ED00725499 /* AppDelegate.swift */; };
+		42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CC1D0E15ED00725499 /* Assets.xcassets */; };
+		42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */; };
+		42B268DB1D0E15ED00725499 /* pianotoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268DA1D0E15ED00725499 /* pianotoolsTests.swift */; };
+		42B268E61D0E15ED00725499 /* pianotoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268E51D0E15ED00725499 /* pianotoolsUITests.swift */; };
+		42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E75ACB1D10E61000D9A840 /* Constants.swift */; };
+		42E8EA581D204756004757D1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA571D204756004757D1 /* Colors.swift */; };
+		42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA591D204A2A004757D1 /* Fonts.swift */; };
+		B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */; };
+		B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */; };
+		B28267E71D10965000A9ADE2 /* RootNotePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */; };
+		B28267E91D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28267E81D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift */; };
+		B28267EB1D10969A00A9ADE2 /* RootNotePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28267EA1D10969A00A9ADE2 /* RootNotePickerViewDataSource.swift */; };
+		B28267ED1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28267EC1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42B268D71D0E15ED00725499 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42B268BA1D0E15ED00725499 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42B268C11D0E15ED00725499;
+			remoteInfo = pianopal;
+		};
+		42B268E21D0E15ED00725499 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42B268BA1D0E15ED00725499 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42B268C11D0E15ED00725499;
+			remoteInfo = pianopal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleSelectorStoryboard.storyboard; sourceTree = "<group>"; };
+		423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDelegate.swift; sourceTree = "<group>"; };
+		423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDataSource.swift; sourceTree = "<group>"; };
+		423AA3421D122E3E009494F1 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
+		423CA0221D0F0EBD0005CD4B /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
+		423CA0241D0F77A80005CD4B /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		423CA0261D0F780A0005CD4B /* KeyProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyProperties.swift; sourceTree = "<group>"; };
+		423CA0281D0F95120005CD4B /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
+		423CA02A1D0F96630005CD4B /* ChordType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordType.swift; sourceTree = "<group>"; };
+		423CA02C1D0F97500005CD4B /* ChordGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordGenerator.swift; sourceTree = "<group>"; };
+		423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleGenerator.swift; sourceTree = "<group>"; };
+		423CA0301D0F9CEF0005CD4B /* ScaleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleType.swift; sourceTree = "<group>"; };
+		423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSelectorViewController.swift; sourceTree = "<group>"; };
+		4262555A1D0E2C2D00B43EB3 /* PianoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoViewController.swift; sourceTree = "<group>"; };
+		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
+		42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordIdentifier.swift; sourceTree = "<group>"; };
+		42B268C21D0E15ED00725499 /* pianopal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pianopal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B268C51D0E15ED00725499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pianopal/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		42B268CC1D0E15ED00725499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pianopal/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		42B268CF1D0E15ED00725499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		42B268D11D0E15ED00725499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = pianopal/Info.plist; sourceTree = SOURCE_ROOT; };
+		42B268D61D0E15ED00725499 /* pianopal.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pianopal.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B268DA1D0E15ED00725499 /* pianotoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = pianotoolsTests.swift; path = pianopalTests/pianotoolsTests.swift; sourceTree = SOURCE_ROOT; };
+		42B268DC1D0E15ED00725499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = pianopalTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		42B268E11D0E15ED00725499 /* pianopal.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pianopal.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B268E51D0E15ED00725499 /* pianotoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = pianotoolsUITests.swift; path = pianopalUITests/pianotoolsUITests.swift; sourceTree = SOURCE_ROOT; };
+		42B268E71D0E15ED00725499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = pianopalUITests/Info.plist; sourceTree = SOURCE_ROOT; };
+		42E75ACB1D10E61000D9A840 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		42E8EA571D204756004757D1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		42E8EA591D204A2A004757D1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSelectorViewController.swift; sourceTree = "<group>"; };
+		B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarActionType.swift; sourceTree = "<group>"; };
+		B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNotePickerViewDelegate.swift; sourceTree = "<group>"; };
+		B28267E81D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordTypePickerViewDelegate.swift; sourceTree = "<group>"; };
+		B28267EA1D10969A00A9ADE2 /* RootNotePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNotePickerViewDataSource.swift; sourceTree = "<group>"; };
+		B28267EC1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordTypePickerViewDataSource.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42B268BF1D0E15ED00725499 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B268D31D0E15ED00725499 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B268DE1D0E15ED00725499 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42B268B91D0E15ED00725499 = {
+			isa = PBXGroup;
+			children = (
+				42B268C41D0E15ED00725499 /* pianopal */,
+				42B268D91D0E15ED00725499 /* pianopalTests */,
+				42B268E41D0E15ED00725499 /* pianopalUITests */,
+				42B268C31D0E15ED00725499 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42B268C31D0E15ED00725499 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42B268C21D0E15ED00725499 /* pianopal.app */,
+				42B268D61D0E15ED00725499 /* pianopal.xctest */,
+				42B268E11D0E15ED00725499 /* pianopal.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42B268C41D0E15ED00725499 /* pianopal */ = {
+			isa = PBXGroup;
+			children = (
+				42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */,
+				42E8EA601D204FE1004757D1 /* UI */,
+				42E8EA5F1D204F21004757D1 /* Helpers */,
+				42E8EA5E1D204E63004757D1 /* Models */,
+				42E8EA5D1D204E03004757D1 /* Storyboards */,
+				42E8EA5C1D204DE3004757D1 /* Constants */,
+				42E8EA5B1D204CEF004757D1 /* ViewControllers */,
+				42B268C51D0E15ED00725499 /* AppDelegate.swift */,
+				42B268CC1D0E15ED00725499 /* Assets.xcassets */,
+				42B268D11D0E15ED00725499 /* Info.plist */,
+			);
+			path = pianopal;
+			sourceTree = "<group>";
+		};
+		42B268D91D0E15ED00725499 /* pianopalTests */ = {
+			isa = PBXGroup;
+			children = (
+				42B268DA1D0E15ED00725499 /* pianotoolsTests.swift */,
+				42B268DC1D0E15ED00725499 /* Info.plist */,
+			);
+			path = pianopalTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		42B268E41D0E15ED00725499 /* pianopalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				42B268E51D0E15ED00725499 /* pianotoolsUITests.swift */,
+				42B268E71D0E15ED00725499 /* Info.plist */,
+			);
+			path = pianopalUITests;
+			sourceTree = SOURCE_ROOT;
+		};
+		42E8EA5B1D204CEF004757D1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */,
+				4262555A1D0E2C2D00B43EB3 /* PianoViewController.swift */,
+				423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */,
+			);
+			name = ViewControllers;
+			path = pianopal/ViewControllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		42E8EA5C1D204DE3004757D1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				42E75ACB1D10E61000D9A840 /* Constants.swift */,
+				42E8EA571D204756004757D1 /* Colors.swift */,
+				42E8EA591D204A2A004757D1 /* Fonts.swift */,
+				423CA0261D0F780A0005CD4B /* KeyProperties.swift */,
+			);
+			name = Constants;
+			path = pianopal/Constants;
+			sourceTree = SOURCE_ROOT;
+		};
+		42E8EA5D1D204E03004757D1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */,
+				423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */,
+			);
+			name = Storyboards;
+			path = pianopal/Storyboards;
+			sourceTree = SOURCE_ROOT;
+		};
+		42E8EA5E1D204E63004757D1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */,
+				423CA0241D0F77A80005CD4B /* Note.swift */,
+				423CA0281D0F95120005CD4B /* Chord.swift */,
+				423CA02A1D0F96630005CD4B /* ChordType.swift */,
+				423CA0301D0F9CEF0005CD4B /* ScaleType.swift */,
+				423AA3421D122E3E009494F1 /* Scale.swift */,
+			);
+			name = Models;
+			path = pianopal/Models;
+			sourceTree = SOURCE_ROOT;
+		};
+		42E8EA5F1D204F21004757D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				423CA02C1D0F97500005CD4B /* ChordGenerator.swift */,
+				423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */,
+				42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */,
+			);
+			name = Helpers;
+			path = pianopal/Helpers;
+			sourceTree = SOURCE_ROOT;
+		};
+		42E8EA601D204FE1004757D1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				423CA0221D0F0EBD0005CD4B /* NoteButton.swift */,
+				B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */,
+				B28267E81D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift */,
+				B28267EA1D10969A00A9ADE2 /* RootNotePickerViewDataSource.swift */,
+				B28267EC1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift */,
+				423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */,
+				423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */,
+			);
+			name = UI;
+			path = pianopal/UI;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42B268C11D0E15ED00725499 /* pianopal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B268EA1D0E15ED00725499 /* Build configuration list for PBXNativeTarget "pianopal" */;
+			buildPhases = (
+				42B268BE1D0E15ED00725499 /* Sources */,
+				42B268BF1D0E15ED00725499 /* Frameworks */,
+				42B268C01D0E15ED00725499 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pianopal;
+			productName = pianopal;
+			productReference = 42B268C21D0E15ED00725499 /* pianopal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		42B268D51D0E15ED00725499 /* pianopalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B268ED1D0E15ED00725499 /* Build configuration list for PBXNativeTarget "pianopalTests" */;
+			buildPhases = (
+				42B268D21D0E15ED00725499 /* Sources */,
+				42B268D31D0E15ED00725499 /* Frameworks */,
+				42B268D41D0E15ED00725499 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42B268D81D0E15ED00725499 /* PBXTargetDependency */,
+			);
+			name = pianopalTests;
+			productName = pianopalTests;
+			productReference = 42B268D61D0E15ED00725499 /* pianopal.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		42B268E01D0E15ED00725499 /* pianopalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B268F01D0E15ED00725499 /* Build configuration list for PBXNativeTarget "pianopalUITests" */;
+			buildPhases = (
+				42B268DD1D0E15ED00725499 /* Sources */,
+				42B268DE1D0E15ED00725499 /* Frameworks */,
+				42B268DF1D0E15ED00725499 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42B268E31D0E15ED00725499 /* PBXTargetDependency */,
+			);
+			name = pianopalUITests;
+			productName = pianopalUITests;
+			productReference = 42B268E11D0E15ED00725499 /* pianopal.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42B268BA1D0E15ED00725499 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Joshua Escribano";
+				TargetAttributes = {
+					42B268C11D0E15ED00725499 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					42B268D51D0E15ED00725499 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 42B268C11D0E15ED00725499;
+					};
+					42B268E01D0E15ED00725499 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 42B268C11D0E15ED00725499;
+					};
+				};
+			};
+			buildConfigurationList = 42B268BD1D0E15ED00725499 /* Build configuration list for PBXProject "pianopal" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 42B268B91D0E15ED00725499;
+			productRefGroup = 42B268C31D0E15ED00725499 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42B268C11D0E15ED00725499 /* pianopal */,
+				42B268D51D0E15ED00725499 /* pianopalTests */,
+				42B268E01D0E15ED00725499 /* pianopalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42B268C01D0E15ED00725499 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */,
+				42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */,
+				42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */,
+				423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B268D41D0E15ED00725499 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B268DF1D0E15ED00725499 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42B268BE1D0E15ED00725499 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				423CA0291D0F95120005CD4B /* Chord.swift in Sources */,
+				423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */,
+				B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */,
+				4262555B1D0E2C2D00B43EB3 /* PianoViewController.swift in Sources */,
+				423AA3431D122E3E009494F1 /* Scale.swift in Sources */,
+				423CA0231D0F0EBD0005CD4B /* NoteButton.swift in Sources */,
+				B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */,
+				423CA0311D0F9CEF0005CD4B /* ScaleType.swift in Sources */,
+				423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */,
+				B28267E91D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift in Sources */,
+				423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */,
+				42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */,
+				42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */,
+				42E8EA581D204756004757D1 /* Colors.swift in Sources */,
+				42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */,
+				423CA0271D0F780A0005CD4B /* KeyProperties.swift in Sources */,
+				42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */,
+				B28267ED1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift in Sources */,
+				423CA0331D0FB4A20005CD4B /* ChordSelectorViewController.swift in Sources */,
+				423CA02D1D0F97500005CD4B /* ChordGenerator.swift in Sources */,
+				423AA3411D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift in Sources */,
+				B28267E71D10965000A9ADE2 /* RootNotePickerViewDelegate.swift in Sources */,
+				423CA0251D0F77A80005CD4B /* Note.swift in Sources */,
+				B28267EB1D10969A00A9ADE2 /* RootNotePickerViewDataSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B268D21D0E15ED00725499 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B268DB1D0E15ED00725499 /* pianotoolsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B268DD1D0E15ED00725499 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B268E61D0E15ED00725499 /* pianotoolsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42B268D81D0E15ED00725499 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42B268C11D0E15ED00725499 /* pianopal */;
+			targetProxy = 42B268D71D0E15ED00725499 /* PBXContainerItemProxy */;
+		};
+		42B268E31D0E15ED00725499 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42B268C11D0E15ED00725499 /* pianopal */;
+			targetProxy = 42B268E21D0E15ED00725499 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42B268CF1D0E15ED00725499 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = pianopal;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		42B268E81D0E15ED00725499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42B268E91D0E15ED00725499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42B268EB1D0E15ED00725499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pianopal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.pianopal;
+				PRODUCT_NAME = pianopal;
+			};
+			name = Debug;
+		};
+		42B268EC1D0E15ED00725499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pianopal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.pianopal;
+				PRODUCT_NAME = pianopal;
+			};
+			name = Release;
+		};
+		42B268EE1D0E15ED00725499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = pianopalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.pianopalTests;
+				PRODUCT_NAME = pianopal;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pianopal.app/pianopal";
+			};
+			name = Debug;
+		};
+		42B268EF1D0E15ED00725499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = pianopalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.pianopalTests;
+				PRODUCT_NAME = pianopal;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pianopal.app/pianopal";
+			};
+			name = Release;
+		};
+		42B268F11D0E15ED00725499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = pianopalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.pianopalUITests;
+				PRODUCT_NAME = pianopal;
+				TEST_TARGET_NAME = pianopal;
+			};
+			name = Debug;
+		};
+		42B268F21D0E15ED00725499 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = pianopalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.pianopalUITests;
+				PRODUCT_NAME = pianopal;
+				TEST_TARGET_NAME = pianopal;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42B268BD1D0E15ED00725499 /* Build configuration list for PBXProject "pianopal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B268E81D0E15ED00725499 /* Debug */,
+				42B268E91D0E15ED00725499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B268EA1D0E15ED00725499 /* Build configuration list for PBXNativeTarget "pianopal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B268EB1D0E15ED00725499 /* Debug */,
+				42B268EC1D0E15ED00725499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B268ED1D0E15ED00725499 /* Build configuration list for PBXNativeTarget "pianopalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B268EE1D0E15ED00725499 /* Debug */,
+				42B268EF1D0E15ED00725499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B268F01D0E15ED00725499 /* Build configuration list for PBXNativeTarget "pianopalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B268F11D0E15ED00725499 /* Debug */,
+				42B268F21D0E15ED00725499 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42B268BA1D0E15ED00725499 /* Project object */;
+}
