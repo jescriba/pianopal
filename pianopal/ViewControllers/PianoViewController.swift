@@ -23,6 +23,8 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
     var selectedNotesToIdentify = [Note]()
     var chord: Chord?
     var scale: Scale?
+    var chords: [Chord]?
+    var scales: [Scale]?
     
     convenience init(scale: Scale) {
         self.init(nibName: nil, bundle: nil)
@@ -52,6 +54,14 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
         toolbarView.backgroundColor = Colors.toolBarBackground
         toolbarActionButton.backgroundColor = Colors.toolBarBackground
         changeToolbarActionButton.backgroundColor = Colors.toolBarBackground
+        let changeModeButton = UIButton(frame: CGRect(x: UIScreen.mainScreen().bounds.width - 50, y: 0, width: 50, height: UIScreen.mainScreen().bounds.height / CGFloat(8)))
+        changeModeButton.backgroundColor = Colors.toolBarBackground
+        changeModeButton.titleLabel?.font = Fonts.changeModeButton
+        changeModeButton.setTitle("\u{f105}", forState: UIControlState.Normal)
+        changeModeButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
+        changeModeButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        changeModeButton.addTarget(self, action: #selector(changeToolbarAction), forControlEvents: UIControlEvents.TouchUpInside)
+        toolbarView.addSubview(changeModeButton)
         var centerDescription: String?
         if self.chord != nil {
             centerDescription = self.chord!.simpleDescription()

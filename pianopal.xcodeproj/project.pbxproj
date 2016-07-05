@@ -33,6 +33,7 @@
 		42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA591D204A2A004757D1 /* Fonts.swift */; };
 		42FB3D821D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */; };
 		42FB3D841D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */; };
+		42FB3D861D2B429B008A6C1A /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D851D2B429B008A6C1A /* fontawesome-webfont.ttf */; };
 		B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */; };
 		B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */; };
 		B28267E71D10965000A9ADE2 /* RootNotePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */; };
@@ -91,6 +92,7 @@
 		42E8EA591D204A2A004757D1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordProgressionListStoryboard.storyboard; sourceTree = "<group>"; };
 		42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleProgressionListStoryboard.storyboard; sourceTree = "<group>"; };
+		42FB3D851D2B429B008A6C1A /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "../../../Downloads/font-awesome-4.6.3/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSelectorViewController.swift; sourceTree = "<group>"; };
 		B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarActionType.swift; sourceTree = "<group>"; };
 		B28267E61D10965000A9ADE2 /* RootNotePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNotePickerViewDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		42B268C41D0E15ED00725499 /* pianopal */ = {
 			isa = PBXGroup;
 			children = (
+				42FB3D851D2B429B008A6C1A /* fontawesome-webfont.ttf */,
 				42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */,
 				42E8EA601D204FE1004757D1 /* UI */,
 				42E8EA5F1D204F21004757D1 /* Helpers */,
@@ -360,6 +363,7 @@
 			files = (
 				42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */,
 				42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */,
+				42FB3D861D2B429B008A6C1A /* fontawesome-webfont.ttf in Resources */,
 				42FB3D841D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard in Resources */,
 				42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */,
 				42FB3D821D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard in Resources */,

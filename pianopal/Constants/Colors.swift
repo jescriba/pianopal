@@ -18,4 +18,6 @@ class Colors {
     static let chordColor = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
     static let scaleColor = UIColor(red: 0.0, green: 0.6, blue: 0.75, alpha: 1)
     static let identificationColor = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
+    static let normalChangeModeColor = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
+    static let pressedChangeModeColor = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
 }

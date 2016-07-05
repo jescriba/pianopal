@@ -15,4 +15,5 @@ class Fonts {
     static let pickerSectionDescription = UIFont (name: "HelveticaNeue-Light", size: 22)
     static let pickerItem = UIFont (name: "HelveticaNeue-Light", size: 20)
     static let generateButton = UIFont (name: "HelveticaNeue-Light", size: 25)
+    static let changeModeButton = UIFont(name: "FontAwesome", size: 25)
 }
