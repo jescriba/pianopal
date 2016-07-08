@@ -62,6 +62,14 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
         changeModeButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
         changeModeButton.addTarget(self, action: #selector(changeToolbarAction), forControlEvents: UIControlEvents.TouchUpInside)
         toolbarView.addSubview(changeModeButton)
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: UIScreen.mainScreen().bounds.height / CGFloat(8)))
+        menuButton.backgroundColor = Colors.toolBarBackground
+        menuButton.titleLabel?.font = Fonts.menuButton
+        menuButton.setTitle("\u{f0c9}", forState: UIControlState.Normal)
+        menuButton.setTitleColor(Colors.normalMenuButtonColor, forState: UIControlState.Normal)
+        menuButton.setTitleColor(Colors.presssedMenuButtonColor, forState: UIControlState.Highlighted)
+        menuButton.addTarget(self, action: #selector(changeToolbarAction), forControlEvents: UIControlEvents.TouchUpInside)
+        toolbarView.addSubview(menuButton)
         var centerDescription: String?
         if self.chord != nil {
             centerDescription = self.chord!.simpleDescription()
