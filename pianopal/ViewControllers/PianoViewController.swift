@@ -68,7 +68,7 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
         menuButton.setTitle("\u{f0c9}", forState: UIControlState.Normal)
         menuButton.setTitleColor(Colors.normalMenuButtonColor, forState: UIControlState.Normal)
         menuButton.setTitleColor(Colors.presssedMenuButtonColor, forState: UIControlState.Highlighted)
-        menuButton.addTarget(self, action: #selector(changeToolbarAction), forControlEvents: UIControlEvents.TouchUpInside)
+        menuButton.addTarget(self, action: #selector(menuAction), forControlEvents: UIControlEvents.TouchUpInside)
         toolbarView.addSubview(menuButton)
         var centerDescription: String?
         if self.chord != nil {
@@ -141,6 +141,17 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
             changeToolbarActionButton.frame.origin.x = toolbarActionButton.frame.maxX + 10.0
         }
 
+    }
+    
+    func menuAction() {
+        switch toolbarActionType {
+        case .Chord:
+            goToChordMenuViewController()
+        case .Scale:
+            goToScaleMenuViewController()
+        case .Identify:
+            goToIdentifyMenuViewController()
+        }
     }
     
     func toolbarAction() {
@@ -283,6 +294,18 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
         let scaleSelectorStoryboard = UIStoryboard.init(name: "ScaleSelectorStoryboard", bundle: nil)
         let scaleSelectorViewController = scaleSelectorStoryboard.instantiateViewControllerWithIdentifier("scaleSelectorStoryboard")
         UIApplication.sharedApplication().delegate!.window!?.rootViewController = scaleSelectorViewController
+    }
+    
+    func goToChordMenuViewController() {
+        
+    }
+    
+    func goToScaleMenuViewController() {
+        
+    }
+    
+    func goToIdentifyMenuViewController() {
+        
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
