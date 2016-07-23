@@ -30,7 +30,6 @@
 		42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */; };
 		42B268DB1D0E15ED00725499 /* pianotoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268DA1D0E15ED00725499 /* pianotoolsTests.swift */; };
 		42B268E61D0E15ED00725499 /* pianotoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268E51D0E15ED00725499 /* pianotoolsUITests.swift */; };
-		42BC42DA1D4335AC005B0257 /* PianoNavigationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BC42D91D4335AC005B0257 /* PianoNavigationStoryboard.storyboard */; };
 		42BC42DC1D43BF7E005B0257 /* PianoNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42DB1D43BF7E005B0257 /* PianoNavigationViewController.swift */; };
 		42BC42DE1D43C899005B0257 /* ChordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42DD1D43C899005B0257 /* ChordViewController.swift */; };
 		42BC42E01D43C8C5005B0257 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42DF1D43C8C5005B0257 /* ScaleViewController.swift */; };
@@ -41,8 +40,6 @@
 		42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E75ACB1D10E61000D9A840 /* Constants.swift */; };
 		42E8EA581D204756004757D1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA571D204756004757D1 /* Colors.swift */; };
 		42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA591D204A2A004757D1 /* Fonts.swift */; };
-		42FB3D821D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */; };
-		42FB3D841D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */; };
 		42FB3D861D2B429B008A6C1A /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42FB3D851D2B429B008A6C1A /* fontawesome-webfont.ttf */; };
 		B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */; };
 		B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */; };
@@ -99,7 +96,6 @@
 		42B268E11D0E15ED00725499 /* pianopal.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pianopal.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B268E51D0E15ED00725499 /* pianotoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = pianotoolsUITests.swift; path = pianopalUITests/pianotoolsUITests.swift; sourceTree = SOURCE_ROOT; };
 		42B268E71D0E15ED00725499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = pianopalUITests/Info.plist; sourceTree = SOURCE_ROOT; };
-		42BC42D91D4335AC005B0257 /* PianoNavigationStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PianoNavigationStoryboard.storyboard; sourceTree = "<group>"; };
 		42BC42DB1D43BF7E005B0257 /* PianoNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoNavigationViewController.swift; sourceTree = "<group>"; };
 		42BC42DD1D43C899005B0257 /* ChordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordViewController.swift; sourceTree = "<group>"; };
 		42BC42DF1D43C8C5005B0257 /* ScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +106,6 @@
 		42E75ACB1D10E61000D9A840 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42E8EA571D204756004757D1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		42E8EA591D204A2A004757D1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordProgressionListStoryboard.storyboard; sourceTree = "<group>"; };
-		42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleProgressionListStoryboard.storyboard; sourceTree = "<group>"; };
 		42FB3D851D2B429B008A6C1A /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "../../../Downloads/font-awesome-4.6.3/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSelectorViewController.swift; sourceTree = "<group>"; };
 		B2555EE91D11C2BC00E2269C /* ToolbarActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarActionType.swift; sourceTree = "<group>"; };
@@ -237,9 +231,6 @@
 			children = (
 				42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */,
 				423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */,
-				42FB3D811D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard */,
-				42FB3D831D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard */,
-				42BC42D91D4335AC005B0257 /* PianoNavigationStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			path = pianopal/Storyboards;
@@ -394,10 +385,7 @@
 				42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */,
 				42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */,
 				42FB3D861D2B429B008A6C1A /* fontawesome-webfont.ttf in Resources */,
-				42BC42DA1D4335AC005B0257 /* PianoNavigationStoryboard.storyboard in Resources */,
-				42FB3D841D2B3CE4008A6C1A /* ScaleProgressionListStoryboard.storyboard in Resources */,
 				42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */,
-				42FB3D821D2B3CC4008A6C1A /* ChordProgressionListStoryboard.storyboard in Resources */,
 				423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

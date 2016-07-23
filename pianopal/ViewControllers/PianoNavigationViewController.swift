@@ -38,7 +38,16 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToMenu() {
-        // TODO
+        switch topViewController {
+        case _ as ChordViewController:
+            break;
+        case _ as ScaleViewController:
+            break;
+        case _ as IdentifyViewController:
+            break;
+        default:
+            break
+        }
     }
     
     func changeMode() {
