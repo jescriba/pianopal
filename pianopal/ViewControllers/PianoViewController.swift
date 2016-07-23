@@ -40,6 +40,15 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
         setToolbarTitleAndResizeToolbar(chord.simpleDescription())
     }
     
+    convenience init(chords: [Chord]) {
+        self.init(nibName: nil, bundle: nil)
+        self.chord = chords.first
+        self.chords = chords
+        self.toolbarActionType = ToolbarActionType.Chord
+        // TODO
+        // Implement ScrollView Toolbar
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -297,7 +306,9 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
     }
     
     func goToChordMenuViewController() {
-        
+        let chordMenuStoryboard = UIStoryboard.init(name: "ChordProgressionListStoryboard", bundle: nil)
+        let chordMenuViewController = chordMenuStoryboard.instantiateViewControllerWithIdentifier("chordProgressionListStoryboard")
+        UIApplication.sharedApplication().delegate!.window?!.rootViewController = ChordMenuNavigationController(rootViewController: chordMenuViewController)
     }
     
     func goToScaleMenuViewController() {

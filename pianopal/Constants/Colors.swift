@@ -22,4 +22,5 @@ class Colors {
     static let pressedChangeModeColor = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
     static let normalMenuButtonColor = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
     static let presssedMenuButtonColor = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
+    static let chordTableSeparatorColor = UIColor(red: 0.9, green: 0.80, blue: 0.9, alpha: 1)
 }
