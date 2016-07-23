@@ -17,6 +17,7 @@ class ChordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        automaticallyAdjustsScrollViewInsets = false
         pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
         changeModeBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.changeModeButton)
