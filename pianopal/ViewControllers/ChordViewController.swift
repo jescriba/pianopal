@@ -47,5 +47,17 @@ class ChordViewController: UIViewController, PianoNavigationProtocol {
     
     func highlightChord() {
         // TODO
+        let chord = chords.first
+        if (chord == nil) {
+            return
+        }
+        for noteButton in pianoView.noteButtons {
+            if chord!.notes.contains(noteButton.note!) {
+                pianoView.highlightedNoteButtons.append(noteButton)
+                dispatch_async(dispatch_get_main_queue(), {
+                    noteButton.backgroundColor = Colors.chordColor
+                })
+            }
+        }
     }
 }
