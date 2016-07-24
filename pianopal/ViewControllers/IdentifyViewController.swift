@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IdentifyViewController: UIViewController {
+class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     let pianoView = PianoView(frame: Dimensions.pianoRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuBarButton: UIBarButtonItem?
@@ -24,6 +24,10 @@ class IdentifyViewController: UIViewController {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
         pianoNavigationViewController!.customNavigationItem.title = "Identify Chords"
         view.addSubview(pianoView)
+    }
+    
+    func updateNavigationItem() {
+        // TODO
     }
 
 }

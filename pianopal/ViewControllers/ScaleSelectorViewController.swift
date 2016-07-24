@@ -25,7 +25,7 @@ class ScaleSelectorViewController : UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.pickerBackground
 
-        rootNotePickerViewDelegate = RootNotePickerViewDelegate(nameLabel: scaleNameLabel)
+        rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: UINavigationItem())
         scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(scaleNameLabel: scaleNameLabel)
         scaleNameLabel.text = "C Major"
         scaleNameLabel.font = Fonts.toolbarAction

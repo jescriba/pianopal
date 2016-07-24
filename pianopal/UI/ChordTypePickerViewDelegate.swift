@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 class ChordTypePickerViewDelegate : NSObject, UIPickerViewDelegate {
-    var chordNameLabel: UILabel?
+    var navigationItem: UINavigationItem?
     
-    init(chordNameLabel: UILabel) {
-        self.chordNameLabel = chordNameLabel
+    init(navigationItem: UINavigationItem) {
+        self.navigationItem = navigationItem
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let splitName = chordNameLabel!.text?.componentsSeparatedByString(" ")
-        chordNameLabel!.text = splitName![0] + " " + "\(ChordType(rawValue: row)!)"
+        let splitName = navigationItem!.title!.componentsSeparatedByString(" ")
+        navigationItem!.title = splitName[0] + " " + "\(ChordType(rawValue: row)!)"
     }
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {

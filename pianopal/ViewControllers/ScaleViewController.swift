@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScaleViewController: UIViewController {
+class ScaleViewController: UIViewController, PianoNavigationProtocol {
     let pianoView = PianoView(frame: Dimensions.pianoRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuBarButton: UIBarButtonItem?
@@ -24,6 +24,10 @@ class ScaleViewController: UIViewController {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
         pianoNavigationViewController!.customNavigationItem.title = "Piano Scales"
         view.addSubview(pianoView)
+    }
+    
+    func updateNavigationItem() {
+        // TODO
     }
 
 }
