@@ -80,8 +80,4 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         highlightChord(chords[item])
     }
-    
-    func reloadChords() {
-        chordsPickerView
-    }
 }
