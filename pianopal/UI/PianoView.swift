@@ -32,9 +32,7 @@ class PianoView: UIView, UIScrollViewDelegate {
         scrollView!.decelerationRate = 0.98
         scrollView!.bounces = false
         scrollView!.delegate = self
-    }
-    
-    override func layoutSubviews() {
+        
         scrollView!.addSubview(setUpOctaveView(2))
         scrollView!.addSubview(setUpOctaveView(1))
         scrollView!.addSubview(setUpOctaveView(0))
