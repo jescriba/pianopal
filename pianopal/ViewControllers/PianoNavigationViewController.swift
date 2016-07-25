@@ -86,7 +86,7 @@ class PianoNavigationViewController: UINavigationController {
             popToRootViewControllerAnimated(false)
             chordViewController?.chords = (chordTableViewController?.chords)!
             chordViewController?.updateNavigationItem()
-            chordViewController?.highlightChord()
+            chordViewController?.highlightChord(nil)
         default:
             break
         }

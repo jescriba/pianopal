@@ -11,6 +11,7 @@ import UIKit
 class PianoView: UIView, UIScrollViewDelegate {
     var scrollView: UIScrollView?
     var noteButtons = [NoteButton]()
+    var highlightedNoteButtons = [NoteButton]()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

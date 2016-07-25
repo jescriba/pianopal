@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ChordViewController: UIViewController, PianoNavigationProtocol {
+class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate, PianoNavigationProtocol {
     let pianoView = PianoView(frame: Dimensions.pianoRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuBarButton: UIBarButtonItem?
     var changeModeBarButton: UIBarButtonItem?
     var chords = [Chord]()
-    var chordsScrollView: UIScrollView?
+    var chordsPickerView: AKPickerView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,19 +38,17 @@ class ChordViewController: UIViewController, PianoNavigationProtocol {
     }
     
     func setUpChordScrollView() {
-        chordsScrollView = UIScrollView(frame: CGRect(x: 10, y: 10, width: 10, height: 10))
-//        chordsScrollView?.delegate = self
-//        chordsScrollView?.
-        chordsScrollView!.backgroundColor = UIColor.blueColor()
-        pianoNavigationViewController!.customNavigationItem.titleView = chordsScrollView!
+        chordsPickerView = AKPickerView(frame: Dimensions.titleScrollViewRect)
+        chordsPickerView?.dataSource = self
+        chordsPickerView?.delegate = self
+        pianoNavigationViewController!.customNavigationItem.titleView = chordsPickerView!
     }
     
-    func highlightChord() {
-        // TODO
-        let chord = chords.first
+    func highlightChord(chord: Chord?) {
         if (chord == nil) {
             return
         }
+        clearHighlighting()
         for noteButton in pianoView.noteButtons {
             if chord!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
@@ -59,5 +57,31 @@ class ChordViewController: UIViewController, PianoNavigationProtocol {
                 })
             }
         }
+    }
+    
+    func clearHighlighting() {
+        for noteButton in pianoView.highlightedNoteButtons {
+            dispatch_async(dispatch_get_main_queue(), {
+                noteButton.backgroundColor = noteButton.determineNoteColor(noteButton.note!)
+            })
+        }
+        pianoView.highlightedNoteButtons.removeAll()
+    }
+    
+    func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
+        return chords.count
+    }
+    
+    
+    func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return chords[item].simpleDescription()
+    }
+    
+    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+        highlightChord(chords[item])
+    }
+    
+    func reloadChords() {
+        chordsPickerView
     }
 }
