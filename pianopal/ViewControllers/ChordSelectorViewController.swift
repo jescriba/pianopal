@@ -45,7 +45,7 @@ class ChordSelectorViewController : UIViewController, PianoNavigationProtocol {
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = nil
         let saveChordButton = pianoNavigationViewController?.saveChordButton
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveChordButton!)
-        let cancelChordButton = pianoNavigationViewController?.cancelChordbutton
+        let cancelChordButton = pianoNavigationViewController?.cancelChordButton
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelChordButton!)
     }
 

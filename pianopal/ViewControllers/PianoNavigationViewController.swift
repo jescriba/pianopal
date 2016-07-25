@@ -14,12 +14,17 @@ class PianoNavigationViewController: UINavigationController {
     let menuButton = UIButton(frame: Dimensions.menuButtonRect)
     let changeModeButton = UIButton(frame: Dimensions.changeModeButtonRect)
     let addChordButton = UIButton(frame: Dimensions.changeModeButtonRect)
-    let cancelChordbutton = UIButton(frame: Dimensions.menuButtonRect)
+    let cancelChordButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveChordButton = UIButton(frame: Dimensions.changeModeButtonRect)
+    let addScaleButton = UIButton(frame: Dimensions.changeModeButtonRect)
+    let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
+    let saveScaleButton = UIButton(frame: Dimensions.changeModeButtonRect)
     var chordTableViewController: ChordTableViewController?
     var chordSelectorViewController: ChordSelectorViewController?
     var chordViewController: ChordViewController?
     var identifyViewController: IdentifyViewController?
+    var scaleTableViewController: ScaleTableViewController?
+    var scaleSelectorViewController: ScaleSelectorViewController?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,19 +62,33 @@ class PianoNavigationViewController: UINavigationController {
         changeModeButton.addTarget(self, action: #selector(changeMode), forControlEvents: UIControlEvents.TouchUpInside)
         
         addChordButton.addTarget(self, action: #selector(goToChordSelector), forControlEvents: UIControlEvents.TouchUpInside)
-        cancelChordbutton.setTitle("Cancel", forState: UIControlState.Normal)
-        cancelChordbutton.sizeToFit()
-        cancelChordbutton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        cancelChordbutton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
-        cancelChordbutton.addTarget(self, action: #selector(cancelChordToProgression), forControlEvents: UIControlEvents.TouchUpInside)
+        cancelChordButton.setTitle("Cancel", forState: UIControlState.Normal)
+        cancelChordButton.sizeToFit()
+        cancelChordButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
+        cancelChordButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        cancelChordButton.addTarget(self, action: #selector(cancelChordToProgression), forControlEvents: UIControlEvents.TouchUpInside)
         saveChordButton.setTitle("Save", forState: UIControlState.Normal)
         saveChordButton.sizeToFit()
         saveChordButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
         saveChordButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
         saveChordButton.addTarget(self, action: #selector(addChordToProgression), forControlEvents: UIControlEvents.TouchUpInside)
         
+        addScaleButton.addTarget(self, action: #selector(goToScaleSelector), forControlEvents: UIControlEvents.TouchUpInside)
+        cancelScaleButton.setTitle("Cancel", forState: UIControlState.Normal)
+        cancelScaleButton.sizeToFit()
+        cancelScaleButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
+        cancelScaleButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        cancelScaleButton.addTarget(self, action: #selector(cancelScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
+        saveScaleButton.setTitle("Save", forState: UIControlState.Normal)
+        saveScaleButton.sizeToFit()
+        saveScaleButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
+        saveScaleButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
+
+        
         // Create Controllers
         chordTableViewController = ChordTableViewController()
+        scaleTableViewController = ScaleTableViewController()
         identifyViewController = IdentifyViewController()
     }
     
@@ -81,6 +100,10 @@ class PianoNavigationViewController: UINavigationController {
             pushViewController(chordTableViewController!, animated: false)
             chordTableViewController?.updateNavigationItem()
         case _ as ScaleViewController:
+            customNavigationItem.titleView = nil
+            popViewControllerAnimated(false)
+            pushViewController(scaleTableViewController!, animated: false)
+            scaleTableViewController?.updateNavigationItem()
             break;
         case _ as IdentifyViewController:
             break;
@@ -124,6 +147,17 @@ class PianoNavigationViewController: UINavigationController {
         chordSelectorViewController?.updateNavigationItem()
     }
     
+    func goToScaleSelector() {
+        popViewControllerAnimated(false)
+        if (scaleSelectorViewController == nil) {
+            let storyboard = UIStoryboard(name: "ScaleSelectorStoryboard", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("scaleSelectorStoryboard")
+            scaleSelectorViewController = vc as? ScaleSelectorViewController
+        }
+        pushViewController(scaleSelectorViewController!, animated: false)
+        scaleSelectorViewController?.updateNavigationItem()
+    }
+    
     func addChordToProgression() {
         let rootNote = chordSelectorViewController?.rootNotePickerView.selectedRowInComponent(0)
         let chordType = chordSelectorViewController?.chordTypePickerView.selectedRowInComponent(0)
@@ -139,6 +173,22 @@ class PianoNavigationViewController: UINavigationController {
         popViewControllerAnimated(false)
         pushViewController(chordTableViewController!, animated: false)
         chordTableViewController?.updateNavigationItem()
-        customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+    }
+    
+    func addScaleToProgression() {
+        let rootNote = scaleSelectorViewController?.rootNotePickerView.selectedRowInComponent(0)
+        let scaleType = scaleSelectorViewController?.scaleTypePickerView.selectedRowInComponent(0)
+        let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote!)!, scaleType: ScaleType(rawValue: scaleType!)!)
+        scaleTableViewController?.scales.append(scale)
+        scaleTableViewController?.tableView.reloadData()
+        popViewControllerAnimated(false)
+        pushViewController(scaleTableViewController!, animated: false)
+        scaleTableViewController?.updateNavigationItem()
+    }
+    
+    func cancelScaleToProgression() {
+        popViewControllerAnimated(false)
+        pushViewController(scaleTableViewController!, animated: false)
+        scaleTableViewController?.updateNavigationItem()
     }
 }

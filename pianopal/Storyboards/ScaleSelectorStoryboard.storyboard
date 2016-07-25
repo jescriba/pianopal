@@ -35,10 +35,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kou-EC-sZg">
-                                <rect key="frame" x="243" y="413" width="113" height="167"/>
-                                <state key="normal" title="Generate Scales"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -48,17 +44,13 @@
                             <constraint firstItem="hJZ-YN-Jlt" firstAttribute="centerX" secondItem="pNH-bK-gHd" secondAttribute="centerX" id="6cq-zi-PsU"/>
                             <constraint firstAttribute="trailing" secondItem="4ZS-eY-Niz" secondAttribute="trailing" constant="20" symbolic="YES" id="8hW-CG-FbM"/>
                             <constraint firstItem="4ZS-eY-Niz" firstAttribute="width" secondItem="pNH-bK-gHd" secondAttribute="width" id="9fq-fo-Gr5"/>
-                            <constraint firstItem="kou-EC-sZg" firstAttribute="centerX" secondItem="jtT-dS-JnZ" secondAttribute="centerX" id="Gdi-xw-Dvl"/>
                             <constraint firstItem="4ZS-eY-Niz" firstAttribute="height" secondItem="pNH-bK-gHd" secondAttribute="height" id="Pp4-0p-rPH"/>
                             <constraint firstItem="pNH-bK-gHd" firstAttribute="leading" secondItem="jtT-dS-JnZ" secondAttribute="leading" constant="20" symbolic="YES" id="aUh-ZD-ng1"/>
-                            <constraint firstItem="kou-EC-sZg" firstAttribute="top" secondItem="4ZS-eY-Niz" secondAttribute="bottom" constant="5" id="aYt-fL-nl6"/>
-                            <constraint firstAttribute="bottom" secondItem="kou-EC-sZg" secondAttribute="bottom" constant="20" symbolic="YES" id="bGy-zF-GjE"/>
                             <constraint firstItem="4ZS-eY-Niz" firstAttribute="centerY" secondItem="jtT-dS-JnZ" secondAttribute="centerY" id="ecu-Yh-guV"/>
                             <constraint firstItem="4ZS-eY-Niz" firstAttribute="top" secondItem="1Rq-zu-8Ou" secondAttribute="bottom" constant="5" id="syX-B8-hki"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="generateScalesButton" destination="kou-EC-sZg" id="U0u-dr-AqZ"/>
                         <outlet property="rootNoteLabel" destination="hJZ-YN-Jlt" id="kBn-5Y-d3c"/>
                         <outlet property="rootNotePickerView" destination="pNH-bK-gHd" id="6dS-6B-s2a"/>
                         <outlet property="scaleTypeLabel" destination="1Rq-zu-8Ou" id="jZZ-7d-xol"/>

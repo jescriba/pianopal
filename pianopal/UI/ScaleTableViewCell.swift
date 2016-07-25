@@ -1,15 +1,15 @@
 //
-//  ChordTableViewCell.swift
+//  ScaleTableViewCell.swift
 //  pianopal
 //
-//  Created by Joshua Escribano on 7/17/16.
+//  Created by Joshua Escribano on 7/24/16.
 //  Copyright © 2016 Joshua Escribano. All rights reserved.
 //
 
 import UIKit
 
-class ChordTableViewCell: UITableViewCell {
-    var chordLabel: UILabel?
+class ScaleTableViewCell: UITableViewCell {
+    var scaleLabel: UILabel?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -17,10 +17,10 @@ class ChordTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         backgroundColor = Colors.chordTableBackgroundColor
-        chordLabel = self.textLabel
-        chordLabel!.font = Fonts.chordListItem
-        chordLabel!.textAlignment = NSTextAlignment.Center
+        scaleLabel = self.textLabel
+        scaleLabel!.font = Fonts.chordListItem
+        scaleLabel!.textAlignment = NSTextAlignment.Center
     }
 }
