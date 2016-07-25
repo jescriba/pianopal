@@ -103,7 +103,8 @@ class PianoNavigationViewController: UINavigationController {
             pushViewController(IdentifyViewController(), animated: false)
         case _ as IdentifyViewController:
             popViewControllerAnimated(false)
-            pushViewController(ChordViewController(), animated: false)
+            popToRootViewControllerAnimated(false)
+            chordViewController?.updateNavigationItem()
         default:
             break
         }

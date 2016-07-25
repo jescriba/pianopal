@@ -72,7 +72,6 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         return chords.count
     }
     
-    
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
         return chords[item].simpleDescription()
     }
