@@ -19,6 +19,7 @@ class PianoNavigationViewController: UINavigationController {
     var chordTableViewController: ChordTableViewController?
     var chordSelectorViewController: ChordSelectorViewController?
     var chordViewController: ChordViewController?
+    var identifyViewController: IdentifyViewController?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -69,6 +70,7 @@ class PianoNavigationViewController: UINavigationController {
         
         // Create Controllers
         chordTableViewController = ChordTableViewController()
+        identifyViewController = IdentifyViewController()
     }
     
     func goToMenu() {
@@ -100,7 +102,8 @@ class PianoNavigationViewController: UINavigationController {
             pushViewController(ScaleViewController(), animated: false)
         case _ as ScaleViewController:
             popViewControllerAnimated(false)
-            pushViewController(IdentifyViewController(), animated: false)
+            pushViewController(identifyViewController!, animated: false)
+            identifyViewController?.updateNavigationItem()
         case _ as IdentifyViewController:
             popViewControllerAnimated(false)
             popToRootViewControllerAnimated(false)
