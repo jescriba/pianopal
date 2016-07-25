@@ -17,17 +17,15 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
-        menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
-        changeModeBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.changeModeButton)
-        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
-        pianoNavigationViewController!.customNavigationItem.title = "Identify Chords"
         view.addSubview(pianoView)
     }
     
     func updateNavigationItem() {
-        // TODO
+        pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
+        changeModeBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.changeModeButton)
+        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = nil
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
+        pianoNavigationViewController!.customNavigationItem.title = "Identify Chords"
     }
 
 }

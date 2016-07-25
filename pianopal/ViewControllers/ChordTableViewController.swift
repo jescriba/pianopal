@@ -21,6 +21,7 @@ class ChordTableViewController: UITableViewController, PianoNavigationProtocol {
         tableView.separatorColor = Colors.chordTableSeparatorColor
         tableView.rowHeight = 90
         tableView.backgroundColor = Colors.chordTableBackgroundColor
+        tableView.allowsSelectionDuringEditing = true
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -37,6 +38,31 @@ class ChordTableViewController: UITableViewController, PianoNavigationProtocol {
         return chords.count
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            chords.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let chord = chords[sourceIndexPath.row]
+        chords.removeAtIndex(sourceIndexPath.row)
+        chords.insert(chord, atIndex: destinationIndexPath.row)
+    }
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        editing = !editing
+    }
+
     func updateNavigationItem() {
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil

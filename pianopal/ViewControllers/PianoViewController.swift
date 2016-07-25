@@ -308,7 +308,7 @@ class PianoViewController : UIViewController, UIScrollViewDelegate {
     func goToChordMenuViewController() {
         let chordMenuStoryboard = UIStoryboard.init(name: "ChordProgressionListStoryboard", bundle: nil)
         let chordMenuViewController = chordMenuStoryboard.instantiateViewControllerWithIdentifier("chordProgressionListStoryboard")
-        UIApplication.sharedApplication().delegate!.window?!.rootViewController = ChordMenuNavigationController(rootViewController: chordMenuViewController)
+        //UIApplication.sharedApplication().delegate!.window?!.rootViewController = ChordMenuNavigationController(rootViewController: chordMenuViewController)
     }
     
     func goToScaleMenuViewController() {
