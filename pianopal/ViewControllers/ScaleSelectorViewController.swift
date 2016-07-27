@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-class ScaleSelectorViewController : UIViewController {
-    @IBOutlet weak var scaleNameLabel: UILabel!
-    @IBOutlet weak var generateScalesButton: UIButton!
+class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
     @IBOutlet weak var rootNoteLabel: UILabel!
     @IBOutlet weak var scaleTypeLabel: UILabel!
     @IBOutlet weak var scaleTypePickerView: UIPickerView!
@@ -20,29 +18,32 @@ class ScaleSelectorViewController : UIViewController {
     let rootNotePickerViewDataSource = RootNotePickerViewDataSource()
     var scaleTypePickerViewDelegate: ScaleTypePickerViewDelegate?
     let scaleTypePickerViewDataSource = ScaleTypePickerViewDataSource()
+    var pianoNavigationViewController: PianoNavigationViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.pickerBackground
 
-        rootNotePickerViewDelegate = RootNotePickerViewDelegate(nameLabel: scaleNameLabel)
-        scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(scaleNameLabel: scaleNameLabel)
-        scaleNameLabel.text = "C Major"
-        scaleNameLabel.font = Fonts.toolbarAction
-        generateScalesButton.titleLabel!.font = Fonts.generateButton
+        updateNavigationItem()
+        let navigationItem = pianoNavigationViewController?.customNavigationItem
+        rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)
+        scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(navigationItem: navigationItem!)
         scaleTypeLabel.font = Fonts.pickerSectionDescription
         rootNoteLabel.font = Fonts.pickerSectionDescription
         rootNotePickerView.delegate = rootNotePickerViewDelegate
         rootNotePickerView.dataSource = rootNotePickerViewDataSource
         scaleTypePickerView.delegate = scaleTypePickerViewDelegate
         scaleTypePickerView.dataSource = scaleTypePickerViewDataSource
-        generateScalesButton.addTarget(self, action: #selector(generateScales), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
-    func generateScales() {
-        let rootNote = rootNotePickerView.selectedRowInComponent(0)
-        let scaleType = scaleTypePickerView.selectedRowInComponent(0)
-        let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote)!, scaleType: ScaleType(rawValue: scaleType)!)
-        UIApplication.sharedApplication().delegate?.window?!.rootViewController = PianoViewController(scale: scale)
+    func updateNavigationItem() {
+        pianoNavigationViewController = navigationController as? PianoNavigationViewController
+        pianoNavigationViewController?.customNavigationItem.title = "Select Scale"
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
+        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = nil
+        let saveScaleButton = pianoNavigationViewController?.saveScaleButton
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveScaleButton!)
+        let cancelScaleButton = pianoNavigationViewController?.cancelScaleButton
+        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelScaleButton!)
     }
 }

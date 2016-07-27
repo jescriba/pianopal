@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 class ScaleTypePickerViewDelegate : NSObject, UIPickerViewDelegate {
-    var scaleNameLabel: UILabel?
+    var navigationItem: UINavigationItem?
     
-    init(scaleNameLabel: UILabel) {
-        self.scaleNameLabel = scaleNameLabel
+    init(navigationItem: UINavigationItem) {
+        self.navigationItem = navigationItem
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let splitName = scaleNameLabel!.text?.componentsSeparatedByString(" ")
-        scaleNameLabel!.text = splitName![0] + " " + "\(ScaleType(rawValue: row)!)"
+        let splitName = navigationItem!.title?.componentsSeparatedByString(" ")
+        navigationItem!.title = splitName![0] + " " + "\(ScaleType(rawValue: row)!)"
     }
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {

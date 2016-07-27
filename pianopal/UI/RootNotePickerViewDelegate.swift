@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 class RootNotePickerViewDelegate : NSObject, UIPickerViewDelegate {
-    var nameLabel: UILabel?
+    var navigationItem: UINavigationItem?
     
-    init(nameLabel: UILabel) {
-        self.nameLabel = nameLabel
+    init(navigationItem: UINavigationItem) {
+        self.navigationItem = navigationItem
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let splitName = nameLabel!.text?.componentsSeparatedByString(" ")
-        nameLabel!.text = (Note(rawValue: row)?.simpleDescription())! + " " + splitName![1]
+        let splitName = navigationItem!.title!.componentsSeparatedByString(" ")
+        navigationItem!.title = (Note(rawValue: row)?.simpleDescription())! + " " + splitName[1]
     }
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
