@@ -25,6 +25,7 @@ class PianoNavigationViewController: UINavigationController {
     var identifyViewController: IdentifyViewController?
     var scaleTableViewController: ScaleTableViewController?
     var scaleSelectorViewController: ScaleSelectorViewController?
+    var scaleViewController: ScaleViewController?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -89,6 +90,7 @@ class PianoNavigationViewController: UINavigationController {
         // Create Controllers
         chordTableViewController = ChordTableViewController()
         scaleTableViewController = ScaleTableViewController()
+        scaleViewController = ScaleViewController()
         identifyViewController = IdentifyViewController()
     }
     
@@ -112,6 +114,12 @@ class PianoNavigationViewController: UINavigationController {
             chordViewController?.chords = (chordTableViewController?.chords)!
             chordViewController?.updateNavigationItem()
             chordViewController?.highlightChord(nil)
+        case _ as ScaleTableViewController:
+            popViewControllerAnimated(false)
+            pushViewController(scaleViewController!, animated: false)
+            scaleViewController?.scales = (scaleTableViewController?.scales)!
+            scaleViewController?.updateNavigationItem()
+            scaleViewController?.highlightScale(nil)
         default:
             break
         }
@@ -122,7 +130,8 @@ class PianoNavigationViewController: UINavigationController {
         case _ as ChordViewController:
             customNavigationItem.titleView = nil
             popViewControllerAnimated(false)
-            pushViewController(ScaleViewController(), animated: false)
+            pushViewController(scaleViewController!, animated: false)
+            scaleViewController?.updateNavigationItem()
         case _ as ScaleViewController:
             popViewControllerAnimated(false)
             pushViewController(identifyViewController!, animated: false)
