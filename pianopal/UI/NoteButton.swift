@@ -18,10 +18,10 @@ class NoteButton: UIButton {
     init(frame: CGRect, note: Note) {
         super.init(frame: frame)
         self.note = note
-        self.setTitle(note.simpleDescription(), forState: UIControlState.Normal)
-        if note.isWhiteKey() {
-            self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        }
+//        self.setTitle(note.simpleDescription(), forState: UIControlState.Normal)
+//        if note.isWhiteKey() {
+//            self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+//        }
         self.backgroundColor = determineNoteColor(note)
         self.layer.borderWidth = 1
         self.layer.borderColor = Colors.keyBorder

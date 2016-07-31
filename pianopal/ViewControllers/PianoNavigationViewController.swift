@@ -12,13 +12,12 @@ class PianoNavigationViewController: UINavigationController {
     let customNavigationBar = UINavigationBar(frame: Dimensions.toolbarRect)
     let customNavigationItem = UINavigationItem(title: "Piano")
     let menuButton = UIButton(frame: Dimensions.menuButtonRect)
-    let changeModeButton = UIButton(frame: Dimensions.changeModeButtonRect)
-    let addChordButton = UIButton(frame: Dimensions.changeModeButtonRect)
+    let addChordButton = UIButton(frame: Dimensions.rightBarButtonRect)
     let cancelChordButton = UIButton(frame: Dimensions.menuButtonRect)
-    let saveChordButton = UIButton(frame: Dimensions.changeModeButtonRect)
-    let addScaleButton = UIButton(frame: Dimensions.changeModeButtonRect)
+    let saveChordButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let addScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
-    let saveScaleButton = UIButton(frame: Dimensions.changeModeButtonRect)
+    let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var chordTableViewController: ChordTableViewController?
     var chordSelectorViewController: ChordSelectorViewController?
     var chordViewController: ChordViewController?
@@ -26,6 +25,7 @@ class PianoNavigationViewController: UINavigationController {
     var scaleTableViewController: ScaleTableViewController?
     var scaleSelectorViewController: ScaleSelectorViewController?
     var scaleViewController: ScaleViewController?
+    var slideMenuViewController: SlideMenuViewController?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -56,34 +56,28 @@ class PianoNavigationViewController: UINavigationController {
         menuButton.setTitleColor(Colors.presssedMenuButtonColor, forState: UIControlState.Highlighted)
         menuButton.addTarget(self, action: #selector(goToMenu), forControlEvents: UIControlEvents.TouchUpInside)
         
-        changeModeButton.setTitle("\u{f105}", forState: UIControlState.Normal)
-        changeModeButton.titleLabel!.font = Fonts.changeModeButton
-        changeModeButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        changeModeButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
-        changeModeButton.addTarget(self, action: #selector(changeMode), forControlEvents: UIControlEvents.TouchUpInside)
-        
         addChordButton.addTarget(self, action: #selector(goToChordSelector), forControlEvents: UIControlEvents.TouchUpInside)
         cancelChordButton.setTitle("Cancel", forState: UIControlState.Normal)
         cancelChordButton.sizeToFit()
-        cancelChordButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        cancelChordButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        cancelChordButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        cancelChordButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         cancelChordButton.addTarget(self, action: #selector(cancelChordToProgression), forControlEvents: UIControlEvents.TouchUpInside)
         saveChordButton.setTitle("Save", forState: UIControlState.Normal)
         saveChordButton.sizeToFit()
-        saveChordButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        saveChordButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        saveChordButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        saveChordButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         saveChordButton.addTarget(self, action: #selector(addChordToProgression), forControlEvents: UIControlEvents.TouchUpInside)
         
         addScaleButton.addTarget(self, action: #selector(goToScaleSelector), forControlEvents: UIControlEvents.TouchUpInside)
         cancelScaleButton.setTitle("Cancel", forState: UIControlState.Normal)
         cancelScaleButton.sizeToFit()
-        cancelScaleButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        cancelScaleButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        cancelScaleButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        cancelScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         cancelScaleButton.addTarget(self, action: #selector(cancelScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
         saveScaleButton.setTitle("Save", forState: UIControlState.Normal)
         saveScaleButton.sizeToFit()
-        saveScaleButton.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        saveScaleButton.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        saveScaleButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        saveScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
 
         
@@ -92,37 +86,49 @@ class PianoNavigationViewController: UINavigationController {
         scaleTableViewController = ScaleTableViewController()
         scaleViewController = ScaleViewController()
         identifyViewController = IdentifyViewController()
+        slideMenuViewController = SlideMenuViewController()
+        slideMenuViewController!.pianoNavigationController = self
     }
     
     func goToMenu() {
-        switch topViewController {
-        case _ as ChordViewController:
-            customNavigationItem.titleView = nil
-            popViewControllerAnimated(false)
-            pushViewController(chordTableViewController!, animated: false)
-            chordTableViewController?.updateNavigationItem()
-        case _ as ScaleViewController:
-            customNavigationItem.titleView = nil
-            popViewControllerAnimated(false)
-            pushViewController(scaleTableViewController!, animated: false)
-            scaleTableViewController?.updateNavigationItem()
-            break;
-        case _ as IdentifyViewController:
-            break;
-        case _ as ChordTableViewController:
-            popToRootViewControllerAnimated(false)
-            chordViewController?.chords = (chordTableViewController?.chords)!
-            chordViewController?.updateNavigationItem()
-            chordViewController?.highlightChord(nil)
-        case _ as ScaleTableViewController:
-            popViewControllerAnimated(false)
-            pushViewController(scaleViewController!, animated: false)
-            scaleViewController?.scales = (scaleTableViewController?.scales)!
-            scaleViewController?.updateNavigationItem()
-            scaleViewController?.highlightScale(nil)
-        default:
-            break
+        toggleSlideMenuPanel()
+//        switch topViewController {
+//        case _ as ChordViewController:
+//            customNavigationItem.titleView = nil
+//            popViewControllerAnimated(false)
+//            pushViewController(chordTableViewController!, animated: false)
+//            chordTableViewController?.updateNavigationItem()
+//        case _ as ScaleViewController:
+//            customNavigationItem.titleView = nil
+//            popViewControllerAnimated(false)
+//            pushViewController(scaleTableViewController!, animated: false)
+//            scaleTableViewController?.updateNavigationItem()
+//            break;
+//        case _ as IdentifyViewController:
+//            break;
+//        case _ as ChordTableViewController:
+//            popToRootViewControllerAnimated(false)
+//            chordViewController?.chords = (chordTableViewController?.chords)!
+//            chordViewController?.updateNavigationItem()
+//            chordViewController?.highlightChord(nil)
+//        case _ as ScaleTableViewController:
+//            popViewControllerAnimated(false)
+//            pushViewController(scaleViewController!, animated: false)
+//            scaleViewController?.scales = (scaleTableViewController?.scales)!
+//            scaleViewController?.updateNavigationItem()
+//            scaleViewController?.highlightScale(nil)
+//        default:
+//            break
+//        }
+    }
+    
+    func toggleSlideMenuPanel() {
+        if (!slideMenuViewController!.expanded) {
+            parentViewController!.addChildViewController(slideMenuViewController!)
+            parentViewController!.view.insertSubview((slideMenuViewController?.view)!, atIndex: 0)
+            slideMenuViewController?.didMoveToParentViewController(self)
         }
+        slideMenuViewController?.togglePanel()
     }
     
     func changeMode() {

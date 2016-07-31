@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var pianoNavigationViewController: PianoNavigationViewController?
+    let wrapperViewController = UIViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,7 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         pianoNavigationViewController = PianoNavigationViewController.init(rootViewController: ChordViewController())
-        window?.rootViewController = pianoNavigationViewController
+        
+        wrapperViewController.addChildViewController(pianoNavigationViewController!)
+        wrapperViewController.view.addSubview(pianoNavigationViewController!.view)
+        
+        window?.rootViewController = wrapperViewController
         window?.makeKeyAndVisible()
         return true
     }

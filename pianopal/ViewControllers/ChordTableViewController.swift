@@ -68,8 +68,8 @@ class ChordTableViewController: UITableViewController, PianoNavigationProtocol {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         let plusButton = pianoNavigationViewController?.addChordButton
         plusButton!.setTitle("\u{f196}", forState: UIControlState.Normal)
-        plusButton!.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        plusButton!.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         plusButton!.titleLabel!.font = Fonts.changeModeButton
         let plusBarButtonItem = UIBarButtonItem(customView: plusButton!)
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem

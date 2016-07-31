@@ -28,10 +28,9 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     func updateNavigationItem() {
         pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
         pianoNavigationViewController?.customNavigationItem.titleView = nil
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
-        changeModeBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.changeModeButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
         if scales.isEmpty {
             pianoNavigationViewController!.customNavigationItem.title = "Piano Scales"
         } else {

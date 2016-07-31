@@ -22,6 +22,7 @@
 		423CA0331D0FB4A20005CD4B /* ChordSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */; };
 		424D950A1D426DFF00ED7364 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D95091D426DFF00ED7364 /* Dimensions.swift */; };
 		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
+		42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */; };
 		42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */; };
 		42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268C51D0E15ED00725499 /* AppDelegate.swift */; };
 		42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CC1D0E15ED00725499 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSelectorViewController.swift; sourceTree = "<group>"; };
 		424D95091D426DFF00ED7364 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
+		42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordIdentifier.swift; sourceTree = "<group>"; };
 		42B268C21D0E15ED00725499 /* pianopal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pianopal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B268C51D0E15ED00725499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pianopal/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -212,6 +214,7 @@
 				42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */,
 				42BC42EE1D45E38E005B0257 /* ScaleTableViewController.swift */,
 				B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */,
+				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
 			);
 			name = ViewControllers;
 			path = pianopal/ViewControllers;
@@ -430,6 +433,7 @@
 				42BC42DE1D43C899005B0257 /* ChordViewController.swift in Sources */,
 				B28267E91D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift in Sources */,
 				42BC42EF1D45E38E005B0257 /* ScaleTableViewController.swift in Sources */,
+				42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */,
 				42BC42E61D43D64D005B0257 /* PianoView.swift in Sources */,
 				42BC42E01D43C8C5005B0257 /* ScaleViewController.swift in Sources */,
 				423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */,

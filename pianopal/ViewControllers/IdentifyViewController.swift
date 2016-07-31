@@ -54,9 +54,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     func updateNavigationItem() {
         pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
         pianoNavigationViewController?.customNavigationItem.titleView = nil
-        changeModeBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.changeModeButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = nil
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
         pianoNavigationViewController!.customNavigationItem.title = "Identify Chords"
         setUpIdentifyMode()
     }
