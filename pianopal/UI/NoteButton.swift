@@ -10,6 +10,7 @@ import UIKit
 
 class NoteButton: UIButton {
     var note: Note?
+    var illuminated = false
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -32,5 +33,19 @@ class NoteButton: UIButton {
             return UIColor.whiteColor()
         }
         return UIColor.blackColor()
+    }
+    
+    func illuminate() {
+        if (self.note!.isWhiteKey()) {
+            self.backgroundColor = Colors.highlightedWhiteKeyColor
+        } else {
+            self.backgroundColor = Colors.highlightedBlackKeyColor
+        }
+        illuminated = true
+    }
+    
+    func deIlluminate() {
+        self.backgroundColor = determineNoteColor(note!)
+        illuminated = false
     }
 }

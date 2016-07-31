@@ -24,21 +24,18 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     }
     
     func setUpIdentifyMode() {
+        clearHighlighting()
         for noteButton in pianoView.noteButtons {
             noteButton.addTarget(self, action: #selector(noteSelectedForIdentification), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
     
     func noteSelectedForIdentification(sender: NoteButton) {
-        if !sender.highlighted {
-            sender.backgroundColor = sender.determineNoteColor(sender.note!)
+        if sender.illuminated {
+            sender.deIlluminate()
             notesToIdentify.removeAtIndex(notesToIdentify.indexOf(sender.note!)!)
         } else {
-            if (sender.note!.isWhiteKey()) {
-                sender.backgroundColor = Colors.highlightedWhiteKeyColor
-            } else {
-                sender.backgroundColor = Colors.highlightedBlackKeyColor
-            }
+            sender.illuminate()
             notesToIdentify.append(sender.note!)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
@@ -55,6 +52,15 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
         }
     }
     
+    func clearHighlighting() {
+        for noteButton in pianoView.highlightedNoteButtons {
+            dispatch_async(dispatch_get_main_queue(), {
+                noteButton.deIlluminate()
+            })
+        }
+        pianoView.highlightedNoteButtons.removeAll()
+    }
+    
     func updateNavigationItem() {
         pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
         pianoNavigationViewController?.customNavigationItem.titleView = nil
@@ -62,6 +68,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
 
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         setUpIdentifyMode()
     }
 
