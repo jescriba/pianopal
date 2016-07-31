@@ -54,7 +54,7 @@ class PianoNavigationViewController: UINavigationController {
         menuButton.titleLabel!.font = Fonts.menuButton
         menuButton.setTitleColor(Colors.normalMenuButtonColor, forState: UIControlState.Normal)
         menuButton.setTitleColor(Colors.presssedMenuButtonColor, forState: UIControlState.Highlighted)
-        menuButton.addTarget(self, action: #selector(goToMenu), forControlEvents: UIControlEvents.TouchUpInside)
+        menuButton.addTarget(self, action: #selector(toggleSlideMenuPanel), forControlEvents: UIControlEvents.TouchUpInside)
         
         addChordButton.addTarget(self, action: #selector(goToChordSelector), forControlEvents: UIControlEvents.TouchUpInside)
         cancelChordButton.setTitle("Cancel", forState: UIControlState.Normal)
@@ -90,65 +90,53 @@ class PianoNavigationViewController: UINavigationController {
         slideMenuViewController!.pianoNavigationController = self
     }
     
-    func goToMenu() {
-        toggleSlideMenuPanel()
-//        switch topViewController {
-//        case _ as ChordViewController:
-//            customNavigationItem.titleView = nil
-//            popViewControllerAnimated(false)
-//            pushViewController(chordTableViewController!, animated: false)
-//            chordTableViewController?.updateNavigationItem()
-//        case _ as ScaleViewController:
-//            customNavigationItem.titleView = nil
-//            popViewControllerAnimated(false)
-//            pushViewController(scaleTableViewController!, animated: false)
-//            scaleTableViewController?.updateNavigationItem()
-//            break;
-//        case _ as IdentifyViewController:
-//            break;
-//        case _ as ChordTableViewController:
-//            popToRootViewControllerAnimated(false)
-//            chordViewController?.chords = (chordTableViewController?.chords)!
-//            chordViewController?.updateNavigationItem()
-//            chordViewController?.highlightChord(nil)
-//        case _ as ScaleTableViewController:
-//            popViewControllerAnimated(false)
-//            pushViewController(scaleViewController!, animated: false)
-//            scaleViewController?.scales = (scaleTableViewController?.scales)!
-//            scaleViewController?.updateNavigationItem()
-//            scaleViewController?.highlightScale(nil)
-//        default:
-//            break
-//        }
-    }
-    
     func toggleSlideMenuPanel() {
         if (!slideMenuViewController!.expanded) {
             parentViewController!.addChildViewController(slideMenuViewController!)
             parentViewController!.view.insertSubview((slideMenuViewController?.view)!, atIndex: 0)
             slideMenuViewController?.didMoveToParentViewController(self)
         }
+        
         slideMenuViewController?.togglePanel()
     }
     
-    func changeMode() {
-        switch topViewController {
-        case _ as ChordViewController:
-            customNavigationItem.titleView = nil
-            popViewControllerAnimated(false)
-            pushViewController(scaleViewController!, animated: false)
-            scaleViewController?.updateNavigationItem()
-        case _ as ScaleViewController:
-            popViewControllerAnimated(false)
-            pushViewController(identifyViewController!, animated: false)
-            identifyViewController?.updateNavigationItem()
-        case _ as IdentifyViewController:
-            popViewControllerAnimated(false)
-            popToRootViewControllerAnimated(false)
-            chordViewController?.updateNavigationItem()
-        default:
-            break
-        }
+    func goToChordTableView() {
+        customNavigationItem.titleView = nil
+        popViewControllerAnimated(false)
+        pushViewController(chordTableViewController!, animated: false)
+        chordTableViewController?.updateNavigationItem()
+    }
+    
+    func goToScaleTableView() {
+        customNavigationItem.titleView = nil
+        popViewControllerAnimated(false)
+        pushViewController(scaleTableViewController!, animated: false)
+        scaleTableViewController?.updateNavigationItem()
+    }
+    
+    func goToScaleView() {
+        popViewControllerAnimated(false)
+        pushViewController(scaleViewController!, animated: false)
+        scaleViewController?.scales = (scaleTableViewController?.scales)!
+        scaleViewController?.updateNavigationItem()
+        scaleViewController?.highlightScale(nil)
+    }
+    
+    func goToChordView() {
+        popToRootViewControllerAnimated(false)
+        chordViewController?.chords = (chordTableViewController?.chords)!
+        chordViewController?.updateNavigationItem()
+        chordViewController?.highlightChord(nil)
+    }
+    
+    func goToIdentifyView() {
+        popViewControllerAnimated(false)
+        pushViewController(identifyViewController!, animated: false)
+        identifyViewController?.updateNavigationItem()
+    }
+    
+    func goToSettingsView() {
+        
     }
     
     func goToChordSelector() {

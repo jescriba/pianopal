@@ -8,9 +8,23 @@
 
 import UIKit
 
+enum NavigationPage : Int {
+    case ChordProgression, Chord, Scale, ScaleProgression, Identify, Settings
+    
+    func simpleDescription() -> String {
+        if (self == NavigationPage.ChordProgression) {
+            return "Chord Progression"
+        } else if (self == NavigationPage.ScaleProgression) {
+            return "Scale Progression"
+        } else {
+            return "\(self)"
+        }
+    }
+}
+
 class SlideMenuViewController: UITableViewController {
     let offset: CGFloat = 200
-    let navigationItems = ["Chord Progression", "Scale", "Scale Progression", "Identify", "Settings"]
+    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.Chord, NavigationPage.Scale, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Settings]
     var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
     
@@ -22,7 +36,7 @@ class SlideMenuViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let tableViewCell =  UITableViewCell(style: .Default, reuseIdentifier: "navigationPage")
-        tableViewCell.textLabel!.text = navigationItems[indexPath.row]
+        tableViewCell.textLabel!.text = navigationItems[indexPath.row].simpleDescription()
         tableViewCell.textLabel!.font = Fonts.chordListItem
         tableViewCell.backgroundColor = Colors.slideMenuBackgroundColor
         return tableViewCell
@@ -30,6 +44,24 @@ class SlideMenuViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return navigationItems.count
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch navigationItems[indexPath.row] {
+            case .ChordProgression:
+                pianoNavigationController!.goToChordTableView()
+            case .ScaleProgression:
+                pianoNavigationController!.goToScaleTableView()
+            case .Chord:
+                pianoNavigationController!.goToChordView()
+            case .Scale:
+                pianoNavigationController!.goToScaleView()
+            case .Identify:
+                pianoNavigationController!.goToIdentifyView()
+            case .Settings:
+                pianoNavigationController!.goToSettingsView()
+        }
+        pianoNavigationController!.toggleSlideMenuPanel()
     }
     
     func togglePanel() {
