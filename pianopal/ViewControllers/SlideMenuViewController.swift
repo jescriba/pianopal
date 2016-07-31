@@ -9,7 +9,7 @@
 import UIKit
 
 enum NavigationPage : Int {
-    case ChordProgression, Chord, Scale, ScaleProgression, Identify, Settings
+    case ChordProgression, Chords, Scales, ScaleProgression, Identify, Settings
     
     func simpleDescription() -> String {
         if (self == NavigationPage.ChordProgression) {
@@ -24,11 +24,12 @@ enum NavigationPage : Int {
 
 class SlideMenuViewController: UITableViewController {
     let offset: CGFloat = 200
-    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.Chord, NavigationPage.Scale, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Settings]
+    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Settings]
     var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
     
     override func viewDidLoad() {
+        tableView!.rowHeight = 60
         tableView!.tableFooterView = UIView(frame: CGRectZero)
         tableView!.backgroundColor = Colors.slideMenuBackgroundColor
         tableView.dataSource = self
@@ -52,9 +53,9 @@ class SlideMenuViewController: UITableViewController {
                 pianoNavigationController!.goToChordTableView()
             case .ScaleProgression:
                 pianoNavigationController!.goToScaleTableView()
-            case .Chord:
+            case .Chords:
                 pianoNavigationController!.goToChordView()
-            case .Scale:
+            case .Scales:
                 pianoNavigationController!.goToScaleView()
             case .Identify:
                 pianoNavigationController!.goToIdentifyView()
