@@ -30,11 +30,15 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     }
     
     func noteSelectedForIdentification(sender: NoteButton) {
-        if sender.backgroundColor == Colors.identificationColor {
+        if !sender.highlighted {
             sender.backgroundColor = sender.determineNoteColor(sender.note!)
             notesToIdentify.removeAtIndex(notesToIdentify.indexOf(sender.note!)!)
         } else {
-            sender.backgroundColor = Colors.identificationColor
+            if (sender.note!.isWhiteKey()) {
+                sender.backgroundColor = Colors.highlightedWhiteKeyColor
+            } else {
+                sender.backgroundColor = Colors.highlightedBlackKeyColor
+            }
             notesToIdentify.append(sender.note!)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)

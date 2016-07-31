@@ -54,7 +54,11 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
             if scale!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 dispatch_async(dispatch_get_main_queue(), {
-                    noteButton.backgroundColor = Colors.chordColor
+                    if noteButton.note!.isWhiteKey() {
+                        noteButton.backgroundColor = Colors.highlightedWhiteKeyColor
+                    } else {
+                       noteButton.backgroundColor = Colors.highlightedBlackKeyColor
+                    }
                 })
             }
         }
