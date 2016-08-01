@@ -26,6 +26,7 @@ class PianoNavigationViewController: UINavigationController {
     var scaleSelectorViewController: ScaleSelectorViewController?
     var scaleViewController: ScaleViewController?
     var slideMenuViewController: SlideMenuViewController?
+    var settingsViewController: SettingsViewController?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -87,6 +88,8 @@ class PianoNavigationViewController: UINavigationController {
         scaleViewController = ScaleViewController()
         identifyViewController = IdentifyViewController()
         slideMenuViewController = SlideMenuViewController()
+        let storyboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        settingsViewController = storyboard.instantiateViewControllerWithIdentifier("settingsStoryboard") as? SettingsViewController
         slideMenuViewController!.pianoNavigationController = self
     }
     
@@ -136,7 +139,9 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToSettingsView() {
-        
+        popViewControllerAnimated(false)
+        pushViewController(settingsViewController!, animated: false)
+        settingsViewController?.updateNavigationItem()
     }
     
     func goToChordSelector() {

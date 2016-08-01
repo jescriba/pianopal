@@ -25,4 +25,5 @@ class Colors {
     static let chordTableBackgroundColor = UIColor(red: 1, green: 0.92, blue: 0.81, alpha: 1)
     static let tableViewCellSelectedColor = UIColor(red: 1, green: 0.82, blue: 0.81, alpha: 1)
     static let slideMenuBackgroundColor =  UIColor(red: 0.94, green: 0.84, blue: 0.97, alpha: 1)
+    static let settingsSwitchTintColor = UIColor(red: 0.93, green: 0.55, blue: 0.72, alpha: 1)
 }

@@ -23,6 +23,8 @@
 		424D950A1D426DFF00ED7364 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D95091D426DFF00ED7364 /* Dimensions.swift */; };
 		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
 		42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */; };
+		42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */; };
+		42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */; };
 		42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */; };
 		42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268C51D0E15ED00725499 /* AppDelegate.swift */; };
 		42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CC1D0E15ED00725499 /* Assets.xcassets */; };
@@ -86,6 +88,8 @@
 		424D95091D426DFF00ED7364 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordIdentifier.swift; sourceTree = "<group>"; };
 		42B268C21D0E15ED00725499 /* pianopal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pianopal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B268C51D0E15ED00725499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pianopal/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -215,6 +219,7 @@
 				42BC42EE1D45E38E005B0257 /* ScaleTableViewController.swift */,
 				B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */,
 				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
+				42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */,
 			);
 			name = ViewControllers;
 			path = pianopal/ViewControllers;
@@ -238,6 +243,7 @@
 			children = (
 				42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */,
 				423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */,
+				42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			path = pianopal/Storyboards;
@@ -391,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */,
 				42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */,
 				42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */,
 				42FB3D861D2B429B008A6C1A /* fontawesome-webfont.ttf in Resources */,
@@ -445,6 +452,7 @@
 				42E8EA581D204756004757D1 /* Colors.swift in Sources */,
 				42BC42E81D453868005B0257 /* PianoNavigationProtocol.swift in Sources */,
 				42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */,
+				42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */,
 				423CA0271D0F780A0005CD4B /* KeyProperties.swift in Sources */,
 				42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */,
 				42C19D701D3C39E20052D623 /* ChordTableViewCell.swift in Sources */,
