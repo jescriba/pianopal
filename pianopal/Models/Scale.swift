@@ -17,6 +17,10 @@ struct Scale {
         self.scaleType = scaleType
     }
     
+    func indexOf(note: Note) -> Int? {
+        return notes.indexOf(note)
+    }
+    
     func simpleDescription() -> String {
         return "\(self.notes.first!.simpleDescription())\(self.scaleType!)"
     }

@@ -15,6 +15,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var changeModeBarButton: UIBarButtonItem?
     var chords = [Chord]()
     var chordsPickerView: AKPickerView?
+    var highlightedChord: Chord?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         if (chord == nil) {
             return
         }
+        highlightedChord = chord
         clearHighlighting()
         for noteButton in pianoView.noteButtons {
             labelForPreferences(noteButton)
@@ -93,10 +95,12 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         if Preferences.labelNoteLetter {
             title = (noteButton.note?.simpleDescription())!
         }
-        if Preferences.labelNoteNumber {
-            // TODO
-            title += "1"
-        }
+//        if Preferences.labelNoteNumber {
+//            let index = highlightedChord?.indexOf(noteButton.note!)
+//            if (highlightedChord != nil && index != nil) {
+//                title += String(index! + 1)
+//            }
+//        }
         noteButton.label(title)
     }
     

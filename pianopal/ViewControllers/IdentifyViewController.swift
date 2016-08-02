@@ -81,7 +81,6 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     func labelForPreferences(noteButton: NoteButton) {
         var title = ""
         if Preferences.labelNoteLetter {
-            // TODO
             title += (noteButton.note?.simpleDescription())!
         }
         noteButton.label(title)

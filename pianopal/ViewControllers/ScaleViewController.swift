@@ -15,6 +15,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var changeModeBarButton: UIBarButtonItem?
     var scales = [Scale]()
     var scalesPickerView: AKPickerView?
+    var highlightedScale: Scale?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +50,10 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         if (scale == nil) {
             return
         }
+        highlightedScale = scale
         clearHighlighting()
         for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
             if scale!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 dispatch_async(dispatch_get_main_queue(), {
@@ -94,11 +97,12 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         }
         if Preferences.labelNoteNumber {
             // TODO
-            title += "1"
+            let index = highlightedScale?.indexOf(noteButton.note!)
+            if (highlightedScale != nil && index != nil) {
+                title += String(index! + 1)
+            }
         }
         noteButton.label(title)
-        
-        // TODO: Triads
     }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
