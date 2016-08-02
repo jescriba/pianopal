@@ -54,12 +54,21 @@
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-CD-42S">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="NoteNumberSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="LOl-M0-9aB"/>
+                                                </connections>
                                             </switch>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0h-fS-8PA">
                                                 <rect key="frame" x="0.0" y="91" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="NoteLetterSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="7l9-3n-mJf"/>
+                                                </connections>
                                             </switch>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-wo-O2p">
                                                 <rect key="frame" x="0.0" y="182" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="HighlightTriadsSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="Dxz-PE-gXL"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>

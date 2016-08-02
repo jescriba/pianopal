@@ -19,6 +19,18 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
     @IBOutlet weak var NoteLetterSwitch: UISwitch!
     @IBOutlet weak var NoteNumberSwitch: UISwitch!
     
+    @IBAction func NoteNumberSwitched(sender: AnyObject) {
+        Preferences.labelNoteNumber = NoteNumberSwitch.on
+    }
+    
+    @IBAction func NoteLetterSwitched(sender: AnyObject) {
+        Preferences.labelNoteLetter = NoteLetterSwitch.on
+    }
+    
+    @IBAction func HighlightTriadsSwitched(sender: AnyObject) {
+        Preferences.highlightTriads = TriadSwitch.on
+    }
+    
     override func viewDidLoad() {
         view.backgroundColor = Colors.chordTableBackgroundColor
         NoteLetterSwitch.onTintColor = Colors.settingsSwitchTintColor
@@ -28,6 +40,10 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
         TriadLabel.font = Fonts.chordListItem
         NoteNumberLabel.font = Fonts.chordListItem
         NoteLetterLabel.font = Fonts.chordListItem
+        
+        NoteLetterSwitch.on = Preferences.labelNoteLetter
+        NoteNumberSwitch.on = Preferences.labelNoteNumber
+        TriadSwitch.on = Preferences.highlightTriads
     }
 
     func updateNavigationItem() {

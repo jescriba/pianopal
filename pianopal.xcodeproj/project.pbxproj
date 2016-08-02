@@ -26,6 +26,7 @@
 		42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */; };
 		42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */; };
 		42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */; };
+		42A86E661D4F221C00DA49BD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A86E651D4F221C00DA49BD /* Preferences.swift */; };
 		42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268C51D0E15ED00725499 /* AppDelegate.swift */; };
 		42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CC1D0E15ED00725499 /* Assets.xcassets */; };
 		42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */; };
@@ -91,6 +92,7 @@
 		42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordIdentifier.swift; sourceTree = "<group>"; };
+		42A86E651D4F221C00DA49BD /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = pianopal/Preferences.swift; sourceTree = "<group>"; };
 		42B268C21D0E15ED00725499 /* pianopal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pianopal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B268C51D0E15ED00725499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pianopal/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		42B268CC1D0E15ED00725499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pianopal/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -153,6 +155,7 @@
 		42B268B91D0E15ED00725499 = {
 			isa = PBXGroup;
 			children = (
+				42A86E651D4F221C00DA49BD /* Preferences.swift */,
 				42B268C41D0E15ED00725499 /* pianopal */,
 				42B268D91D0E15ED00725499 /* pianopalTests */,
 				42B268E41D0E15ED00725499 /* pianopalUITests */,
@@ -437,6 +440,7 @@
 				423CA0311D0F9CEF0005CD4B /* ScaleType.swift in Sources */,
 				423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */,
 				42BC42F11D45E45E005B0257 /* ScaleTableViewCell.swift in Sources */,
+				42A86E661D4F221C00DA49BD /* Preferences.swift in Sources */,
 				42BC42DE1D43C899005B0257 /* ChordViewController.swift in Sources */,
 				B28267E91D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift in Sources */,
 				42BC42EF1D45E38E005B0257 /* ScaleTableViewController.swift in Sources */,
