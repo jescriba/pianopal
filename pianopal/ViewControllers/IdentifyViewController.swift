@@ -71,5 +71,24 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         setUpIdentifyMode()
     }
+    
+    func labelNotes() {
+        for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
+        }
+    }
+    
+    func labelForPreferences(noteButton: NoteButton) {
+        var title = ""
+        if Preferences.labelNoteLetter {
+            // TODO
+            title += (noteButton.note?.simpleDescription())!
+        }
+        noteButton.label(title)
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        labelNotes()
+    }
 
 }

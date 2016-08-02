@@ -21,6 +21,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         
         automaticallyAdjustsScrollViewInsets = false
         updateNavigationItem()
+        labelNotes()
         view.addSubview(pianoView)
     }
     
@@ -50,6 +51,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         }
         clearHighlighting()
         for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
             if chord!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 dispatch_async(dispatch_get_main_queue(), {
@@ -78,5 +80,27 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         highlightChord(chords[item])
+    }
+    
+    func labelNotes() {
+        for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
+        }
+    }
+    
+    func labelForPreferences(noteButton: NoteButton) {
+        var title = ""
+        if Preferences.labelNoteLetter {
+            title = (noteButton.note?.simpleDescription())!
+        }
+        if Preferences.labelNoteNumber {
+            // TODO
+            title += "1"
+        }
+        noteButton.label(title)
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        labelNotes()
     }
 }

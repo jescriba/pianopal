@@ -80,5 +80,29 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         highlightScale(scales[item])
     }
+    
+    func labelNotes() {
+        for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
+        }
+    }
+    
+    func labelForPreferences(noteButton: NoteButton) {
+        var title = ""
+        if Preferences.labelNoteLetter {
+            title = (noteButton.note?.simpleDescription())!
+        }
+        if Preferences.labelNoteNumber {
+            // TODO
+            title += "1"
+        }
+        noteButton.label(title)
+        
+        // TODO: Triads
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        labelNotes()
+    }
 
 }
