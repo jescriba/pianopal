@@ -10,6 +10,7 @@ import UIKit
 
 class NoteButton: UIButton {
     var note: Note?
+    var gradient: CAGradientLayer = CAGradientLayer()
     var illuminated = false
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,16 +32,44 @@ class NoteButton: UIButton {
         return UIColor.blackColor()
     }
     
-    func illuminate() {
-        if (self.note!.isWhiteKey()) {
-            self.backgroundColor = Colors.highlightedWhiteKeyColor
+    func illuminate(colorPairs: [KeyColorPair]) {
+        gradient.removeFromSuperlayer()
+        if colorPairs.count == 1 {
+            let whiteKeyColor = colorPairs[0].whiteKeyColor!
+            let blackKeyColor = colorPairs[0].blackKeyColor!
+            if (self.note!.isWhiteKey()) {
+                self.backgroundColor = whiteKeyColor
+            } else {
+                self.backgroundColor = blackKeyColor
+            }
         } else {
-            self.backgroundColor = Colors.highlightedBlackKeyColor
+            gradient.frame = self.bounds
+            gradient.colors = []
+            gradient.locations = [0]
+            if (self.note!.isWhiteKey()) {
+                for (index, colorPair) in colorPairs.enumerate() {
+                    gradient.colors!.append(colorPair.whiteKeyColor!.CGColor)
+                    gradient.colors!.append(colorPair.whiteKeyColor!.CGColor)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                }
+            } else {
+                for (index, colorPair) in colorPairs.enumerate() {
+                    gradient.colors!.append(colorPair.blackKeyColor!.CGColor)
+                    gradient.colors!.append(colorPair.blackKeyColor!.CGColor)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                }
+            }
+            gradient.locations!.append(1.0)
+            
+            self.layer.insertSublayer(gradient, atIndex: 0)
         }
         illuminated = true
     }
     
     func deIlluminate() {
+        gradient.removeFromSuperlayer()
         self.backgroundColor = determineNoteColor(note!)
         illuminated = false
     }

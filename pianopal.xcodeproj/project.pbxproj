@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420B0D1E1D5254E6009A9829 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D1D1D5254E6009A9829 /* ColorHelper.swift */; };
+		420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D1F1D529967009A9829 /* KeyColorPair.swift */; };
 		423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */; };
 		423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */; };
 		423AA3411D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420B0D1D1D5254E6009A9829 /* ColorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		420B0D1F1D529967009A9829 /* KeyColorPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyColorPair.swift; sourceTree = "<group>"; };
 		423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDelegate.swift; sourceTree = "<group>"; };
 		423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDataSource.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				423CA02A1D0F96630005CD4B /* ChordType.swift */,
 				423CA0301D0F9CEF0005CD4B /* ScaleType.swift */,
 				423AA3421D122E3E009494F1 /* Scale.swift */,
+				420B0D1F1D529967009A9829 /* KeyColorPair.swift */,
 			);
 			name = Models;
 			path = pianopal/Models;
@@ -272,6 +277,7 @@
 				423CA02C1D0F97500005CD4B /* ChordGenerator.swift */,
 				423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */,
 				42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */,
+				420B0D1D1D5254E6009A9829 /* ColorHelper.swift */,
 			);
 			name = Helpers;
 			path = pianopal/Helpers;
@@ -431,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423CA0291D0F95120005CD4B /* Chord.swift in Sources */,
+				420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */,
 				423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */,
 				B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */,
 				423AA3431D122E3E009494F1 /* Scale.swift in Sources */,
@@ -452,6 +459,7 @@
 				42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */,
 				42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */,
 				42BC42E21D43C8DA005B0257 /* IdentifyViewController.swift in Sources */,
+				420B0D1E1D5254E6009A9829 /* ColorHelper.swift in Sources */,
 				42BC42ED1D457C67005B0257 /* AKPickerView.swift in Sources */,
 				42E8EA581D204756004757D1 /* Colors.swift in Sources */,
 				42BC42E81D453868005B0257 /* PianoNavigationProtocol.swift in Sources */,

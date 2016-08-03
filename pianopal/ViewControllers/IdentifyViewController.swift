@@ -35,7 +35,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
             sender.deIlluminate()
             notesToIdentify.removeAtIndex(notesToIdentify.indexOf(sender.note!)!)
         } else {
-            sender.illuminate()
+            sender.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)])
             notesToIdentify.append(sender.note!)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)

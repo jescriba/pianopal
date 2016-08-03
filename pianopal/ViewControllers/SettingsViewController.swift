@@ -48,6 +48,7 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
 
     func updateNavigationItem() {
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
+        pianoNavigationViewController?.customNavigationItem.titleView = nil
         pianoNavigationViewController?.customNavigationItem.title = "Settings"
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)

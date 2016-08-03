@@ -57,7 +57,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
             if chord!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 dispatch_async(dispatch_get_main_queue(), {
-                    noteButton.illuminate()
+                    noteButton.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)])
                 })
             }
         }
