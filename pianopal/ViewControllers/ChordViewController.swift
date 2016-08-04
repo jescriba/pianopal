@@ -95,16 +95,17 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         if Preferences.labelNoteLetter {
             title = (noteButton.note?.simpleDescription())!
         }
-//        if Preferences.labelNoteNumber {
-//            let index = highlightedChord?.indexOf(noteButton.note!)
-//            if (highlightedChord != nil && index != nil) {
-//                title += String(index! + 1)
-//            }
-//        }
+        if Preferences.labelNoteNumber {
+            let index = highlightedChord?.indexOf(noteButton.note!)
+            if (highlightedChord != nil && index != nil) {
+                title += LabelHelper.intervalNumberAsString(noteButton.note!, rootNote: highlightedChord!.notes[0])
+            }
+        }
         noteButton.label(title)
     }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
+        clearHighlighting()
         labelNotes()
     }
 }

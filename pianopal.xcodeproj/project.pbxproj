@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D1F1D529967009A9829 /* KeyColorPair.swift */; };
+		420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D211D52FECA009A9829 /* LabelHelper.swift */; };
 		423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */; };
 		423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */; };
 		423AA3411D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		420B0D1F1D529967009A9829 /* KeyColorPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyColorPair.swift; sourceTree = "<group>"; };
+		420B0D211D52FECA009A9829 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
 		423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDelegate.swift; sourceTree = "<group>"; };
 		423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDataSource.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				423CA02C1D0F97500005CD4B /* ChordGenerator.swift */,
 				423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */,
 				42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */,
+				420B0D211D52FECA009A9829 /* LabelHelper.swift */,
 			);
 			name = Helpers;
 			path = pianopal/Helpers;
@@ -437,6 +440,7 @@
 				420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */,
 				423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */,
 				B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */,
+				420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */,
 				423AA3431D122E3E009494F1 /* Scale.swift in Sources */,
 				423CA0231D0F0EBD0005CD4B /* NoteButton.swift in Sources */,
 				B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */,

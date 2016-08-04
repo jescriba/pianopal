@@ -147,6 +147,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
+        clearHighlighting()
         styleNotes()
     }
 
