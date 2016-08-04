@@ -107,25 +107,25 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
             // 6, 1, 3
             var colors = [KeyColorPair]()
             if ([0, 2, 4].contains(index!)) {
-                colors.append(ColorHelper.triadColors(0))
+                colors.append(Colors.triadColors[0])
             }
             if ([1, 3, 5].contains(index!)) {
-                colors.append(ColorHelper.triadColors(1))
+                colors.append(Colors.triadColors[1])
             }
             if ([2, 4, 6].contains(index!)) {
-                colors.append(ColorHelper.triadColors(2))
+                colors.append(Colors.triadColors[2])
             }
             if ([3, 5, 0].contains(index!)) {
-                colors.append(ColorHelper.triadColors(3))
+                colors.append(Colors.triadColors[3])
             }
             if ([4, 6, 1].contains(index!)) {
-                colors.append(ColorHelper.triadColors(4))
+                colors.append(Colors.triadColors[4])
             }
             if ([5, 0, 2].contains(index!)) {
-                colors.append(ColorHelper.triadColors(5))
+                colors.append(Colors.triadColors[5])
             }
             if ([6, 1, 3].contains(index!)) {
-                colors.append(ColorHelper.triadColors(6))
+                colors.append(Colors.triadColors[6])
             }
             return colors
         }
