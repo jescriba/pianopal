@@ -17,6 +17,10 @@ struct Chord {
         self.chordType = chordType
     }
     
+    func indexOf(note: Note) -> Int? {
+        return notes.indexOf(note)
+    }
+    
     func simpleDescription() -> String {
         return "\(self.notes.first!.simpleDescription())\(self.chordType!)"
     }

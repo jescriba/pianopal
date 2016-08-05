@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D1F1D529967009A9829 /* KeyColorPair.swift */; };
+		420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D211D52FECA009A9829 /* LabelHelper.swift */; };
 		423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */; };
 		423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */; };
 		423AA3411D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */; };
@@ -22,7 +24,11 @@
 		423CA0331D0FB4A20005CD4B /* ChordSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */; };
 		424D950A1D426DFF00ED7364 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D95091D426DFF00ED7364 /* Dimensions.swift */; };
 		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
+		42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */; };
+		42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */; };
+		42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */; };
 		42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */; };
+		42A86E661D4F221C00DA49BD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A86E651D4F221C00DA49BD /* Preferences.swift */; };
 		42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B268C51D0E15ED00725499 /* AppDelegate.swift */; };
 		42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CC1D0E15ED00725499 /* Assets.xcassets */; };
 		42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */; };
@@ -69,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420B0D1F1D529967009A9829 /* KeyColorPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyColorPair.swift; sourceTree = "<group>"; };
+		420B0D211D52FECA009A9829 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
 		423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDelegate.swift; sourceTree = "<group>"; };
 		423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDataSource.swift; sourceTree = "<group>"; };
@@ -84,7 +92,11 @@
 		423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSelectorViewController.swift; sourceTree = "<group>"; };
 		424D95091D426DFF00ED7364 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
+		42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordIdentifier.swift; sourceTree = "<group>"; };
+		42A86E651D4F221C00DA49BD /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = pianopal/Preferences.swift; sourceTree = "<group>"; };
 		42B268C21D0E15ED00725499 /* pianopal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pianopal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B268C51D0E15ED00725499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pianopal/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		42B268CC1D0E15ED00725499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pianopal/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -147,6 +159,7 @@
 		42B268B91D0E15ED00725499 = {
 			isa = PBXGroup;
 			children = (
+				42A86E651D4F221C00DA49BD /* Preferences.swift */,
 				42B268C41D0E15ED00725499 /* pianopal */,
 				42B268D91D0E15ED00725499 /* pianopalTests */,
 				42B268E41D0E15ED00725499 /* pianopalUITests */,
@@ -212,6 +225,8 @@
 				42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */,
 				42BC42EE1D45E38E005B0257 /* ScaleTableViewController.swift */,
 				B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */,
+				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
+				42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */,
 			);
 			name = ViewControllers;
 			path = pianopal/ViewControllers;
@@ -235,6 +250,7 @@
 			children = (
 				42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */,
 				423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */,
+				42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			path = pianopal/Storyboards;
@@ -249,6 +265,7 @@
 				423CA02A1D0F96630005CD4B /* ChordType.swift */,
 				423CA0301D0F9CEF0005CD4B /* ScaleType.swift */,
 				423AA3421D122E3E009494F1 /* Scale.swift */,
+				420B0D1F1D529967009A9829 /* KeyColorPair.swift */,
 			);
 			name = Models;
 			path = pianopal/Models;
@@ -260,6 +277,7 @@
 				423CA02C1D0F97500005CD4B /* ChordGenerator.swift */,
 				423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */,
 				42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */,
+				420B0D211D52FECA009A9829 /* LabelHelper.swift */,
 			);
 			name = Helpers;
 			path = pianopal/Helpers;
@@ -388,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */,
 				42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */,
 				42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */,
 				42FB3D861D2B429B008A6C1A /* fontawesome-webfont.ttf in Resources */,
@@ -418,8 +437,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				423CA0291D0F95120005CD4B /* Chord.swift in Sources */,
+				420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */,
 				423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */,
 				B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */,
+				420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */,
 				423AA3431D122E3E009494F1 /* Scale.swift in Sources */,
 				423CA0231D0F0EBD0005CD4B /* NoteButton.swift in Sources */,
 				B2555EEA1D11C2BC00E2269C /* ToolbarActionType.swift in Sources */,
@@ -427,9 +448,11 @@
 				423CA0311D0F9CEF0005CD4B /* ScaleType.swift in Sources */,
 				423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */,
 				42BC42F11D45E45E005B0257 /* ScaleTableViewCell.swift in Sources */,
+				42A86E661D4F221C00DA49BD /* Preferences.swift in Sources */,
 				42BC42DE1D43C899005B0257 /* ChordViewController.swift in Sources */,
 				B28267E91D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift in Sources */,
 				42BC42EF1D45E38E005B0257 /* ScaleTableViewController.swift in Sources */,
+				42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */,
 				42BC42E61D43D64D005B0257 /* PianoView.swift in Sources */,
 				42BC42E01D43C8C5005B0257 /* ScaleViewController.swift in Sources */,
 				423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */,
@@ -441,6 +464,7 @@
 				42E8EA581D204756004757D1 /* Colors.swift in Sources */,
 				42BC42E81D453868005B0257 /* PianoNavigationProtocol.swift in Sources */,
 				42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */,
+				42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */,
 				423CA0271D0F780A0005CD4B /* KeyProperties.swift in Sources */,
 				42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */,
 				42C19D701D3C39E20052D623 /* ChordTableViewCell.swift in Sources */,

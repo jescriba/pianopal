@@ -15,11 +15,12 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var changeModeBarButton: UIBarButtonItem?
     var scales = [Scale]()
     var scalesPickerView: AKPickerView?
+    var highlightedScale: Scale?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         automaticallyAdjustsScrollViewInsets = false
         updateNavigationItem()
         view.addSubview(pianoView)
@@ -28,10 +29,9 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     func updateNavigationItem() {
         pianoNavigationViewController = (navigationController as! PianoNavigationViewController)
         pianoNavigationViewController?.customNavigationItem.titleView = nil
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
-        changeModeBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.changeModeButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = changeModeBarButton
         if scales.isEmpty {
             pianoNavigationViewController!.customNavigationItem.title = "Piano Scales"
         } else {
@@ -50,12 +50,15 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         if (scale == nil) {
             return
         }
+        highlightedScale = scale
         clearHighlighting()
         for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
             if scale!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
+                let colors = colorForPreferences(noteButton)
                 dispatch_async(dispatch_get_main_queue(), {
-                    noteButton.backgroundColor = Colors.chordColor
+                    noteButton.illuminate(colors)
                 })
             }
         }
@@ -64,7 +67,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     func clearHighlighting() {
         for noteButton in pianoView.highlightedNoteButtons {
             dispatch_async(dispatch_get_main_queue(), {
-                noteButton.backgroundColor = noteButton.determineNoteColor(noteButton.note!)
+                noteButton.deIlluminate()
             })
         }
         pianoView.highlightedNoteButtons.removeAll()
@@ -80,6 +83,79 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         highlightScale(scales[item])
+    }
+    
+    func styleNotes() {
+        for noteButton in pianoView.noteButtons {
+            labelForPreferences(noteButton)
+            colorForPreferences(noteButton)
+        }
+    }
+    
+    func colorForPreferences(noteButton: NoteButton) -> [KeyColorPair] {
+        if Preferences.highlightTriads && highlightedScale != nil {
+            let index = highlightedScale?.indexOf(noteButton.note!)
+            if index == nil {
+                return [KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)]
+            }
+            // 0, 2, 4
+            // 1, 3, 5
+            // 2, 4, 6
+            // 3, 5, 0
+            // 4, 6, 1
+            // 5, 0, 2
+            // 6, 1, 3
+            var colors = [KeyColorPair]()
+            if ([0, 2, 4].contains(index!)) {
+                colors.append(Colors.triadColors[0])
+            }
+            if ([1, 3, 5].contains(index!)) {
+                colors.append(Colors.triadColors[1])
+            }
+            if ([2, 4, 6].contains(index!)) {
+                colors.append(Colors.triadColors[2])
+            }
+            if ([3, 5, 0].contains(index!)) {
+                colors.append(Colors.triadColors[3])
+            }
+            if ([4, 6, 1].contains(index!)) {
+                colors.append(Colors.triadColors[4])
+            }
+            if ([5, 0, 2].contains(index!)) {
+                colors.append(Colors.triadColors[5])
+            }
+            if ([6, 1, 3].contains(index!)) {
+                colors.append(Colors.triadColors[6])
+            }
+            return colors
+        }
+        return [KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)]
+    }
+    
+    func labelForPreferences(noteButton: NoteButton) {
+        var title = ""
+        if Preferences.labelNoteLetter {
+            title = (noteButton.note?.simpleDescription())!
+        }
+        if Preferences.labelNoteNumber {
+            let index = highlightedScale?.indexOf(noteButton.note!)
+            if (highlightedScale != nil && index != nil) {
+                title += String(index! + 1)
+            }
+        }
+        noteButton.label(title)
+    }
+    
+    func removeLabelNotes() {
+        for noteButton in pianoView.noteButtons {
+            noteButton.label("")
+        }
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        clearHighlighting()
+        removeLabelNotes()
+        styleNotes()
     }
 
 }

@@ -17,6 +17,7 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         
         tableView.registerClass(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
         
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         updateNavigationItem()
         tableView.separatorColor = Colors.chordTableSeparatorColor
         tableView.rowHeight = 90
@@ -69,8 +70,8 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         let plusButton = pianoNavigationViewController?.addScaleButton
         plusButton!.setTitle("\u{f196}", forState: UIControlState.Normal)
-        plusButton!.setTitleColor(Colors.normalChangeModeColor, forState: UIControlState.Normal)
-        plusButton!.setTitleColor(Colors.pressedChangeModeColor, forState: UIControlState.Highlighted)
+        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         plusButton!.titleLabel!.font = Fonts.changeModeButton
         let plusBarButtonItem = UIBarButtonItem(customView: plusButton!)
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem

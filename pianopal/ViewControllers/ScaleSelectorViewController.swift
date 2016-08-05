@@ -24,6 +24,7 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
         super.viewDidLoad()
         view.backgroundColor = Colors.pickerBackground
 
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         updateNavigationItem()
         let navigationItem = pianoNavigationViewController?.customNavigationItem
         rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)

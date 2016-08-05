@@ -10,6 +10,8 @@ import UIKit
 
 class NoteButton: UIButton {
     var note: Note?
+    var gradient: CAGradientLayer = CAGradientLayer()
+    var illuminated = false
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -18,10 +20,6 @@ class NoteButton: UIButton {
     init(frame: CGRect, note: Note) {
         super.init(frame: frame)
         self.note = note
-        self.setTitle(note.simpleDescription(), forState: UIControlState.Normal)
-        if note.isWhiteKey() {
-            self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        }
         self.backgroundColor = determineNoteColor(note)
         self.layer.borderWidth = 1
         self.layer.borderColor = Colors.keyBorder
@@ -32,5 +30,58 @@ class NoteButton: UIButton {
             return UIColor.whiteColor()
         }
         return UIColor.blackColor()
+    }
+    
+    func illuminate(colorPairs: [KeyColorPair]) {
+        gradient.removeFromSuperlayer()
+        if colorPairs.count == 1 {
+            let whiteKeyColor = colorPairs[0].whiteKeyColor!
+            let blackKeyColor = colorPairs[0].blackKeyColor!
+            if (self.note!.isWhiteKey()) {
+                self.backgroundColor = whiteKeyColor
+            } else {
+                self.backgroundColor = blackKeyColor
+            }
+        } else {
+            gradient.frame = self.bounds
+            gradient.colors = []
+            gradient.locations = [0]
+            if (self.note!.isWhiteKey()) {
+                for (index, colorPair) in colorPairs.enumerate() {
+                    gradient.colors!.append(colorPair.whiteKeyColor!.CGColor)
+                    gradient.colors!.append(colorPair.whiteKeyColor!.CGColor)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                }
+            } else {
+                for (index, colorPair) in colorPairs.enumerate() {
+                    gradient.colors!.append(colorPair.blackKeyColor!.CGColor)
+                    gradient.colors!.append(colorPair.blackKeyColor!.CGColor)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                }
+            }
+            gradient.locations!.append(1.0)
+            
+            self.layer.insertSublayer(gradient, atIndex: 0)
+        }
+        illuminated = true
+    }
+    
+    func deIlluminate() {
+        gradient.removeFromSuperlayer()
+        self.backgroundColor = determineNoteColor(note!)
+        illuminated = false
+    }
+    
+    func label(label: String?) {
+        var description = label
+        if (description == nil) {
+            description = note!.simpleDescription()
+        }
+        self.setTitle(description, forState: UIControlState.Normal)
+        if note!.isWhiteKey() {
+            self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        }
     }
 }

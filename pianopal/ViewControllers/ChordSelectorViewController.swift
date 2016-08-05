@@ -24,6 +24,7 @@ class ChordSelectorViewController : UIViewController, PianoNavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
         updateNavigationItem()
         
