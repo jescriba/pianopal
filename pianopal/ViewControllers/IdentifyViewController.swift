@@ -18,6 +18,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         updateNavigationItem()
         automaticallyAdjustsScrollViewInsets = false
         view.addSubview(pianoView)
@@ -86,7 +87,14 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
         noteButton.label(title)
     }
     
+    func removeLabelNotes() {
+        for noteButton in pianoView.noteButtons {
+            noteButton.label("")
+        }
+    }
+    
     override func didMoveToParentViewController(parent: UIViewController?) {
+        removeLabelNotes()
         labelNotes()
     }
 

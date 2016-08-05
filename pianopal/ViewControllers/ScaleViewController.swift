@@ -20,7 +20,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         automaticallyAdjustsScrollViewInsets = false
         updateNavigationItem()
         view.addSubview(pianoView)
@@ -146,8 +146,15 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         noteButton.label(title)
     }
     
+    func removeLabelNotes() {
+        for noteButton in pianoView.noteButtons {
+            noteButton.label("")
+        }
+    }
+    
     override func didMoveToParentViewController(parent: UIViewController?) {
         clearHighlighting()
+        removeLabelNotes()
         styleNotes()
     }
 

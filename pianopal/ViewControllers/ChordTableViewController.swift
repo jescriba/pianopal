@@ -17,6 +17,7 @@ class ChordTableViewController: UITableViewController, PianoNavigationProtocol {
 
         tableView.registerClass(ChordTableViewCell.self, forCellReuseIdentifier: "ChordTableViewCell")
         
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         updateNavigationItem()
         tableView.separatorColor = Colors.chordTableSeparatorColor
         tableView.rowHeight = 90

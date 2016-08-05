@@ -32,6 +32,8 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
     }
     
     override func viewDidLoad() {
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
+
         view.backgroundColor = Colors.chordTableBackgroundColor
         NoteLetterSwitch.onTintColor = Colors.settingsSwitchTintColor
         NoteNumberSwitch.onTintColor = Colors.settingsSwitchTintColor

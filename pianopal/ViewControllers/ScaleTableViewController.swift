@@ -17,6 +17,7 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         
         tableView.registerClass(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
         
+        navigationController!.interactivePopGestureRecognizer?.enabled = false
         updateNavigationItem()
         tableView.separatorColor = Colors.chordTableSeparatorColor
         tableView.rowHeight = 90

@@ -90,6 +90,12 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         }
     }
     
+    func removeLabelNotes() {
+        for noteButton in pianoView.noteButtons {
+            noteButton.label("")
+        }
+    }
+    
     func labelForPreferences(noteButton: NoteButton) {
         var title = ""
         if Preferences.labelNoteLetter {
@@ -106,6 +112,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         clearHighlighting()
+        removeLabelNotes()
         labelNotes()
     }
 }
