@@ -80,7 +80,6 @@ class PianoNavigationViewController: UINavigationController {
         saveScaleButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
         saveScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
-
         
         // Create Controllers
         chordTableViewController = ChordTableViewController()
@@ -91,6 +90,18 @@ class PianoNavigationViewController: UINavigationController {
         let storyboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         settingsViewController = storyboard.instantiateViewControllerWithIdentifier("settingsStoryboard") as? SettingsViewController
         slideMenuViewController!.pianoNavigationController = self
+        
+        // Load Previous Session
+        let chords = Session.loadChords()
+        let scales = Session.loadScales()
+        if chords != nil {
+            chordTableViewController?.chords = chords!
+            chordViewController?.chords = chords!
+        }
+        if scales != nil {
+            scaleTableViewController?.scales = scales!
+            scaleViewController?.scales = scales!
+        }
     }
     
     func toggleSlideMenuPanel() {
@@ -175,6 +186,7 @@ class PianoNavigationViewController: UINavigationController {
         popViewControllerAnimated(false)
         pushViewController(chordTableViewController!, animated: false)
         chordTableViewController?.updateNavigationItem()
+        Session.save(chords: chordTableViewController?.chords)
     }
     
     func cancelChordToProgression() {
@@ -192,6 +204,7 @@ class PianoNavigationViewController: UINavigationController {
         popViewControllerAnimated(false)
         pushViewController(scaleTableViewController!, animated: false)
         scaleTableViewController?.updateNavigationItem()
+        Session.save(scaleTableViewController?.scales)
     }
     
     func cancelScaleToProgression() {

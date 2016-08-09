@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Chord {
+class Chord : NSObject, NSCoding {
     var notes =  [Note]()
     var chordType: ChordType?
     
@@ -23,5 +23,19 @@ struct Chord {
     
     func simpleDescription() -> String {
         return "\(self.notes.first!.simpleDescription())\(self.chordType!)"
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let cTypeRawValue = aDecoder.decodeObjectForKey("ChordType") as? Int
+        let cNotesRawValues = aDecoder.decodeObjectForKey("ChordNotes") as? [Int]
+        let cType = ChordType(rawValue: cTypeRawValue!)
+        let cNotes = cNotesRawValues!.map({rawVal in Note(rawValue: rawVal)!})
+        
+        self.init(notes: cNotes, chordType: cType!)
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(chordType?.rawValue, forKey: "ChordType")
+        aCoder.encodeObject(notes.map { note in note.rawValue }, forKey: "ChordNotes")
     }
 }
