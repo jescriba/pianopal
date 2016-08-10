@@ -8,39 +8,49 @@
 
 import UIKit
 
-class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
+class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PianoNavigationProtocol {
     var pianoNavigationViewController: PianoNavigationViewController?
     var scales = [Scale]()
+    var tableView: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.registerClass(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
-        
         navigationController!.interactivePopGestureRecognizer?.enabled = false
+        
+        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
+        let width = UIScreen.mainScreen().bounds.width
+        let height = UIScreen.mainScreen().bounds.height - navBarOffset
+        let tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
+        tableView = UITableView(frame: tableViewRect)
+        tableView?.delegate = self
+       
+        tableView?.dataSource = self
+        tableView!.registerClass(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
+        tableView!.separatorColor = Colors.chordTableSeparatorColor
+        tableView!.rowHeight = 90
+        tableView!.backgroundColor = Colors.chordTableBackgroundColor
+        tableView!.allowsSelectionDuringEditing = true
+        tableView!.tableFooterView = UIView()
+        view.addSubview(tableView!)
+        
         updateNavigationItem()
-        tableView.separatorColor = Colors.chordTableSeparatorColor
-        tableView.rowHeight = 90
-        tableView.backgroundColor = Colors.chordTableBackgroundColor
-        tableView.allowsSelectionDuringEditing = true
-        tableView.tableFooterView = UIView()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ScaleTableViewCell", forIndexPath: indexPath) as! ScaleTableViewCell
         cell.scaleLabel!.text = scales[indexPath.row].simpleDescription()
         return cell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return scales.count
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             scales.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -48,25 +58,24 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         }
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         let scale = scales[sourceIndexPath.row]
         scales.removeAtIndex(sourceIndexPath.row)
         scales.insert(scale, atIndex: destinationIndexPath.row)
         Session.save(scales)
     }
     
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         editing = !editing
     }
-
 
     func updateNavigationItem() {
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
