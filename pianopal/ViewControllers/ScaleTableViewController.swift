@@ -74,7 +74,7 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        editing = !editing
+        tableView.editing = !tableView.editing
     }
 
     func updateNavigationItem() {
