@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WrapperViewController : UIViewController {
+class WrapperViewController : UIViewController, UIGestureRecognizerDelegate {
     var navController: PianoNavigationViewController?
     var sideMenuController: SlideMenuViewController?
     
@@ -23,7 +23,16 @@ class WrapperViewController : UIViewController {
         super.viewDidLoad()
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizer))
+        panRecognizer.delegate = self
         self.view.addGestureRecognizer(panRecognizer)
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        // Prevent weird gesture behavior on the chord/scale tableviews
+        if (touch.view != nil && String(touch.view!.dynamicType).containsString("UITableView")) {
+            return false
+        }
+        return true
     }
     
     func panGestureRecognizer(recognizer: UIPanGestureRecognizer) {
