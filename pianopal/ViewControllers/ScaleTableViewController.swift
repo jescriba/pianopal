@@ -23,6 +23,7 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         tableView.rowHeight = 90
         tableView.backgroundColor = Colors.chordTableBackgroundColor
         tableView.allowsSelectionDuringEditing = true
+        tableView.tableFooterView = UIView()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
