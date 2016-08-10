@@ -83,12 +83,12 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         highlightScale(scales[item])
+        labelNotes()
     }
     
-    func styleNotes() {
+    func labelNotes() {
         for noteButton in pianoView.noteButtons {
             labelForPreferences(noteButton)
-            colorForPreferences(noteButton)
         }
     }
     
@@ -155,7 +155,6 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     override func didMoveToParentViewController(parent: UIViewController?) {
         clearHighlighting()
         removeLabelNotes()
-        styleNotes()
     }
 
 }
