@@ -82,6 +82,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
         highlightChord(chords[item])
+        labelNotes()
     }
     
     func labelNotes() {
@@ -113,6 +114,5 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     override func didMoveToParentViewController(parent: UIViewController?) {
         clearHighlighting()
         removeLabelNotes()
-        labelNotes()
     }
 }
