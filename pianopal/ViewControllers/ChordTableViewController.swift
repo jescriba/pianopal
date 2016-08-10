@@ -43,6 +43,7 @@ class ChordTableViewController: UITableViewController, PianoNavigationProtocol {
         if editingStyle == .Delete {
             chords.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            Session.save(chords: chords)
         }
     }
     
@@ -54,6 +55,7 @@ class ChordTableViewController: UITableViewController, PianoNavigationProtocol {
         let chord = chords[sourceIndexPath.row]
         chords.removeAtIndex(sourceIndexPath.row)
         chords.insert(chord, atIndex: destinationIndexPath.row)
+        Session.save(chords: chords)
     }
     
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {

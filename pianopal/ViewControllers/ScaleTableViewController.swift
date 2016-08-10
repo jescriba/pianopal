@@ -43,6 +43,7 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         if editingStyle == .Delete {
             scales.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            Session.save(scales)
         }
     }
     
@@ -54,6 +55,7 @@ class ScaleTableViewController: UITableViewController, PianoNavigationProtocol {
         let scale = scales[sourceIndexPath.row]
         scales.removeAtIndex(sourceIndexPath.row)
         scales.insert(scale, atIndex: destinationIndexPath.row)
+        Session.save(scales)
     }
     
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
