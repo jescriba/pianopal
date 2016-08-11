@@ -22,34 +22,40 @@ enum NavigationPage : Int {
     }
 }
 
-class SlideMenuViewController: UITableViewController {
+class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     static let offset: CGFloat = 200
     let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Settings]
     var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
+    var tableView: UITableView?
     
     override func viewDidLoad() {
+        
+        tableView = UITableView(frame: UIScreen.mainScreen().bounds)
         tableView!.rowHeight = 60
         tableView!.tableFooterView = UIView(frame: CGRectZero)
         tableView!.backgroundColor = Colors.slideMenuBackgroundColor
-        tableView.dataSource = self
+        tableView!.delegate = self
+        tableView!.dataSource = self
+        tableView!.cellLayoutMarginsFollowReadableWidth = false
         
         pianoNavigationController!.view.layer.shadowOpacity = 0.8
+        view.addSubview(tableView!)
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tableViewCell =  UITableViewCell(style: .Default, reuseIdentifier: "navigationPage")
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let tableViewCell =  SlideMenuTableViewCell(style: .Default, reuseIdentifier: "navigationPage")
         tableViewCell.textLabel!.text = navigationItems[indexPath.row].simpleDescription()
         tableViewCell.textLabel!.font = Fonts.chordListItem
         tableViewCell.backgroundColor = Colors.slideMenuBackgroundColor
         return tableViewCell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return navigationItems.count
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch navigationItems[indexPath.row] {
             case .ChordProgression:
                 pianoNavigationController!.goToChordTableView()
