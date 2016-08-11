@@ -23,7 +23,7 @@ enum NavigationPage : Int {
 }
 
 class SlideMenuViewController: UITableViewController {
-    let offset: CGFloat = 200
+    static let offset: CGFloat = 200
     let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Settings]
     var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
@@ -33,6 +33,8 @@ class SlideMenuViewController: UITableViewController {
         tableView!.tableFooterView = UIView(frame: CGRectZero)
         tableView!.backgroundColor = Colors.slideMenuBackgroundColor
         tableView.dataSource = self
+        
+        pianoNavigationController!.view.layer.shadowOpacity = 0.8
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -75,10 +77,9 @@ class SlideMenuViewController: UITableViewController {
         }
     }
     
-    func expandPanel() {
+    func expandPanel(offset: CGFloat = SlideMenuViewController.offset) {
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
-                self.pianoNavigationController!.view.layer.shadowOpacity = 0.8
-                self.pianoNavigationController!.view.frame.origin.x = self.offset
+                self.pianoNavigationController!.view.frame.origin.x = SlideMenuViewController.offset
             }, completion: nil)
     }
     

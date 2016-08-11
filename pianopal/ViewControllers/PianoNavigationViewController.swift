@@ -87,9 +87,10 @@ class PianoNavigationViewController: UINavigationController {
         scaleViewController = ScaleViewController()
         identifyViewController = IdentifyViewController()
         slideMenuViewController = SlideMenuViewController()
+        slideMenuViewController!.pianoNavigationController = self
+        
         let storyboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         settingsViewController = storyboard.instantiateViewControllerWithIdentifier("settingsStoryboard") as? SettingsViewController
-        slideMenuViewController!.pianoNavigationController = self
         
         // Load Previous Session
         let chords = Session.loadChords()
@@ -104,13 +105,23 @@ class PianoNavigationViewController: UINavigationController {
         }
     }
     
-    func toggleSlideMenuPanel() {
-        if (!slideMenuViewController!.expanded) {
+    func addSlideMenuPanel() {
+        if !parentViewController!.childViewControllers.contains(slideMenuViewController!) {
             parentViewController!.addChildViewController(slideMenuViewController!)
-            parentViewController!.view.insertSubview((slideMenuViewController?.view)!, atIndex: 0)
             slideMenuViewController?.didMoveToParentViewController(self)
         }
-        
+        parentViewController!.view.insertSubview((slideMenuViewController?.view)!, atIndex: 0)
+    }
+    
+    func removeSlideMenuPanel() {
+        if parentViewController!.childViewControllers.contains(slideMenuViewController!) {
+            slideMenuViewController!.removeFromParentViewController()
+            slideMenuViewController?.didMoveToParentViewController(self)
+        }
+    }
+    
+    func toggleSlideMenuPanel() {
+        addSlideMenuPanel()
         slideMenuViewController?.togglePanel()
     }
     
@@ -156,6 +167,7 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToChordSelector() {
+        removeSlideMenuPanel()
         popViewControllerAnimated(false)
         if (chordSelectorViewController == nil) {
             let storyboard = UIStoryboard(name: "ChordSelectorStoryboard", bundle: nil)
@@ -167,6 +179,7 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToScaleSelector() {
+        removeSlideMenuPanel()
         popViewControllerAnimated(false)
         if (scaleSelectorViewController == nil) {
             let storyboard = UIStoryboard(name: "ScaleSelectorStoryboard", bundle: nil)
