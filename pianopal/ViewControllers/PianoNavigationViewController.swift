@@ -18,6 +18,7 @@ class PianoNavigationViewController: UINavigationController {
     let addScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let playButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var chordTableViewController: ChordTableViewController?
     var chordSelectorViewController: ChordSelectorViewController?
     var chordViewController: ChordViewController?
@@ -27,6 +28,7 @@ class PianoNavigationViewController: UINavigationController {
     var scaleViewController: ScaleViewController?
     var slideMenuViewController: SlideMenuViewController?
     var settingsViewController: SettingsViewController?
+    var playing = false
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -80,6 +82,13 @@ class PianoNavigationViewController: UINavigationController {
         saveScaleButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
         saveScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+        playButton.titleLabel!.font = Fonts.playButton
+        playButton.sizeToFit()
+        playButton.setTitleColor(Colors.normalPlayButtonColor, forState: UIControlState.Normal)
+        playButton.setTitleColor(Colors.pressedPlayButtonColor, forState: UIControlState.Normal)
+        playButton.addTarget(self, action: #selector(togglePlay), forControlEvents: UIControlEvents.TouchUpInside)
         
         // Create Controllers
         chordTableViewController = ChordTableViewController()
@@ -224,5 +233,22 @@ class PianoNavigationViewController: UINavigationController {
         popViewControllerAnimated(false)
         pushViewController(scaleTableViewController!, animated: false)
         scaleTableViewController?.updateNavigationItem()
+    }
+    
+    func stopPlaying() {
+        if (playing) {
+            playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+            playing = false
+        }
+    }
+    
+    func togglePlay() {
+        if (!playing) {
+            playButton.setTitle("\u{f28d}", forState: UIControlState.Normal)
+            playing = true
+        } else {
+            playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+            playing = false
+        }
     }
 }

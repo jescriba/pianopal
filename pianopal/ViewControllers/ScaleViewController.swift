@@ -13,6 +13,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuBarButton: UIBarButtonItem?
     var changeModeBarButton: UIBarButtonItem?
+    var playBarButton: UIBarButtonItem?
     var scales = [Scale]()
     var scalesPickerView: AKPickerView?
     var highlightedScale: Scale?
@@ -32,6 +33,8 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
+        playBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.playButton)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = playBarButton
         if scales.isEmpty {
             pianoNavigationViewController!.customNavigationItem.title = "Piano Scales"
         } else {

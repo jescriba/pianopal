@@ -21,6 +21,8 @@ class Colors {
     static let pressedRightBarButtonColor = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
     static let normalMenuButtonColor = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
     static let presssedMenuButtonColor = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
+    static let normalPlayButtonColor = UIColor(red: 0.2, green: 0.7, blue: 0.8, alpha: 1)
+    static let pressedPlayButtonColor = UIColor(red: 0.2, green: 0.5, blue: 0.98, alpha: 1)
     static let navigationTablViewCellSelectedBackgroundColor = UIColor(red: 1, green: 0.80, blue: 0.9, alpha: 1)
     static let chordTableSeparatorColor = UIColor(red: 0.9, green: 0.80, blue: 0.9, alpha: 1)
     static let chordTableBackgroundColor = UIColor(red: 1, green: 0.92, blue: 0.81, alpha: 1)

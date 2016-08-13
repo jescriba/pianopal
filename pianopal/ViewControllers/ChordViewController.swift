@@ -13,6 +13,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuBarButton: UIBarButtonItem?
     var changeModeBarButton: UIBarButtonItem?
+    var playBarButton: UIBarButtonItem?
     var chords = [Chord]()
     var chordsPickerView: AKPickerView?
     var highlightedChord: Chord?
@@ -32,6 +33,8 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
+        playBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.playButton)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = playBarButton
         if chords.isEmpty {
             pianoNavigationViewController!.customNavigationItem.title = "Piano Chords"
         } else {
