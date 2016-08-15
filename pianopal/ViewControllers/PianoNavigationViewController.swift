@@ -29,6 +29,7 @@ class PianoNavigationViewController: UINavigationController {
     var slideMenuViewController: SlideMenuViewController?
     var settingsViewController: SettingsViewController?
     var playing = false
+    var audioEngine: AudioEngine?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -112,6 +113,8 @@ class PianoNavigationViewController: UINavigationController {
             scaleTableViewController?.scales = scales!
             scaleViewController?.scales = scales!
         }
+        
+        audioEngine = AudioEngine()
     }
     
     func addSlideMenuPanel() {
@@ -235,20 +238,35 @@ class PianoNavigationViewController: UINavigationController {
         scaleTableViewController?.updateNavigationItem()
     }
     
+    func startPlaying() {
+        if (!playing) {
+            playButton.setTitle("\u{f28d}", forState: UIControlState.Normal)
+            if (topViewController is ScaleViewController) {
+                let pianoView = scaleViewController?.pianoView
+                let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
+                audioEngine?.play(notes, isScale: true)
+            } else {
+                let pianoView = chordViewController?.pianoView
+                let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
+                audioEngine?.play(notes)
+            }
+            playing = true
+        }
+    }
+    
     func stopPlaying() {
         if (playing) {
             playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+            audioEngine!.stop()
             playing = false
         }
     }
     
     func togglePlay() {
         if (!playing) {
-            playButton.setTitle("\u{f28d}", forState: UIControlState.Normal)
-            playing = true
+            startPlaying()
         } else {
-            playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
-            playing = false
+            stopPlaying()
         }
     }
 }
