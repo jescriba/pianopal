@@ -7,18 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class NoteOctaveDetector {
 
     static func determineNoteOctavesOnScreen(pianoView: PianoView) -> [NoteOctave] {
-        // TODO: Determine NoteOctaves on the screen
-        
         var notes = [NoteOctave]()
-        notes.append(NoteOctave(note: Note(rawValue: 4)!, octave: 4))
-        notes.append(NoteOctave(note: Note(rawValue: 6)!, octave: 4))
-        notes.append(NoteOctave(note: Note(rawValue: 8)!, octave: 4))
-        notes.append(NoteOctave(note: Note(rawValue: 9)!, octave: 4))
-        notes.append(NoteOctave(note: Note(rawValue: 11)!, octave: 4))
+        for noteButton in pianoView.highlightedNoteButtons {
+            if CGRectContainsRect(UIScreen.mainScreen().bounds, noteButton.convertRect(noteButton.frame, toView: nil)) {
+                notes.append(NoteOctave(note: noteButton.note!, octave: noteButton.octave!))
+            }
+        }
         return notes
     }
 }

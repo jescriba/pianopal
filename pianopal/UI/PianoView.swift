@@ -46,7 +46,7 @@ class PianoView: UIView, UIScrollViewDelegate {
         let octaveView = UIView(frame: CGRect(x: offset, y: 0, width: width, height: height))
         for note in Constants.orderedNotes {
             let buttonFrame = CGRect(x: width * KeyProperties.x(note), y: 0, width: width * KeyProperties.width(note), height: height * KeyProperties.height(note))
-            let button = NoteButton(frame: buttonFrame, note: note)
+            let button = NoteButton(frame: buttonFrame, note: note, octave: position + 1)
             noteButtons.append(button)
             octaveView.addSubview(button)
         }

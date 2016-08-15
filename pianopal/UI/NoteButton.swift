@@ -10,6 +10,7 @@ import UIKit
 
 class NoteButton: UIButton {
     var note: Note?
+    var octave: Int?
     var gradient: CAGradientLayer = CAGradientLayer()
     var illuminated = false
     
@@ -17,9 +18,10 @@ class NoteButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(frame: CGRect, note: Note) {
+    init(frame: CGRect, note: Note, octave: Int) {
         super.init(frame: frame)
         self.note = note
+        self.octave = octave
         self.backgroundColor = determineNoteColor(note)
         self.layer.borderWidth = 1
         self.layer.borderColor = Colors.keyBorder
