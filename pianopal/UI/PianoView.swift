@@ -8,10 +8,15 @@
 
 import UIKit
 
+enum ScrollDirection : Int {
+    case RightToLeft, LeftToRight
+}
+
 class PianoView: UIView, UIScrollViewDelegate {
     var scrollView: UIScrollView?
     var noteButtons = [NoteButton]()
     var highlightedNoteButtons = [NoteButton]()
+    var lastContentOffset: CGFloat?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,12 +59,47 @@ class PianoView: UIView, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        var scrollDirection: ScrollDirection?
+        
+        if (lastContentOffset != nil) {
+            if scrollView.contentOffset.x > lastContentOffset {
+                scrollDirection = ScrollDirection.RightToLeft
+            } else {
+                scrollDirection = ScrollDirection.LeftToRight
+            }
+        }
+        lastContentOffset = scrollView.contentOffset.x
+        
         switch scrollView.contentOffset.x {
         case scrollView.frame.width * 2, 0:
             scrollView.setContentOffset(CGPoint(x: scrollView.frame.width, y: 0), animated: false)
+            updateOctave(scrollDirection)
             break
         default:
             break
         }
+    }
+    
+    func updateOctave(scrollDirection: ScrollDirection?) {
+        if scrollDirection == nil {
+            return
+        }
+        for noteButton in noteButtons {
+            if scrollDirection == ScrollDirection.LeftToRight {
+                if (noteButton.octave > 0) {
+                    noteButton.octave! -= 1
+                    animateOctaveChange()
+                }
+            } else if scrollDirection == ScrollDirection.RightToLeft {
+                if (noteButton.octave < 6) {
+                    noteButton.octave! += 1
+                    animateOctaveChange()
+                }
+            }
+        }
+    }
+    
+    func animateOctaveChange() {
+        // TODO Add visual cue of octave value
     }
 }
