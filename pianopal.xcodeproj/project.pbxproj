@@ -111,6 +111,7 @@
 		42CF6C5F1D6298DA00F6A3E0 /* G3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CF6C231D6298DA00F6A3E0 /* G3.mp3 */; };
 		42CF6C601D6298DA00F6A3E0 /* G4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CF6C241D6298DA00F6A3E0 /* G4.mp3 */; };
 		42CF6C611D6298DA00F6A3E0 /* G5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CF6C251D6298DA00F6A3E0 /* G5.mp3 */; };
+		42CF6C631D62CE3900F6A3E0 /* AudioEngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */; };
 		42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E75ACB1D10E61000D9A840 /* Constants.swift */; };
 		42E8EA581D204756004757D1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA571D204756004757D1 /* Colors.swift */; };
 		42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA591D204A2A004757D1 /* Fonts.swift */; };
@@ -251,6 +252,7 @@
 		42CF6C231D6298DA00F6A3E0 /* G3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G3.mp3; sourceTree = "<group>"; };
 		42CF6C241D6298DA00F6A3E0 /* G4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G4.mp3; sourceTree = "<group>"; };
 		42CF6C251D6298DA00F6A3E0 /* G5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G5.mp3; sourceTree = "<group>"; };
+		42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEngineProtocol.swift; sourceTree = "<group>"; };
 		42E75ACB1D10E61000D9A840 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42E8EA571D204756004757D1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		42E8EA591D204A2A004757D1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
 				42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */,
 				42BED93F1D5AC23E009EBB2F /* WrapperViewController.swift */,
+				42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */,
 			);
 			name = ViewControllers;
 			path = pianopal/ViewControllers;
@@ -731,6 +734,7 @@
 				42BC42ED1D457C67005B0257 /* AKPickerView.swift in Sources */,
 				42BED9401D5AC23E009EBB2F /* WrapperViewController.swift in Sources */,
 				42CF6B9C1D5EDB9000F6A3E0 /* AudioEngine.swift in Sources */,
+				42CF6C631D62CE3900F6A3E0 /* AudioEngineProtocol.swift in Sources */,
 				42CF6B9E1D6112AC00F6A3E0 /* NoteOctave.swift in Sources */,
 				42E8EA581D204756004757D1 /* Colors.swift in Sources */,
 				42BC42E81D453868005B0257 /* PianoNavigationProtocol.swift in Sources */,

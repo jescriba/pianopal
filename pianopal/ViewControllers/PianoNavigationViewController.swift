@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PianoNavigationViewController: UINavigationController {
+class PianoNavigationViewController: UINavigationController, AudioEngineDelegate {
     let customNavigationBar = UINavigationBar(frame: Dimensions.toolbarRect)
     let customNavigationItem = UINavigationItem(title: "Piano")
     let menuButton = UIButton(frame: Dimensions.menuButtonRect)
@@ -115,6 +115,7 @@ class PianoNavigationViewController: UINavigationController {
         }
         
         audioEngine = AudioEngine()
+        audioEngine?.delegate = self
     }
     
     func addSlideMenuPanel() {
@@ -256,9 +257,11 @@ class PianoNavigationViewController: UINavigationController {
     
     func stopPlaying() {
         if (playing) {
-            playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
-            audioEngine!.stop()
             playing = false
+            audioEngine?.stop()
+            dispatch_async(dispatch_get_main_queue(), {
+                self.playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+            })
         }
     }
     
@@ -268,5 +271,17 @@ class PianoNavigationViewController: UINavigationController {
         } else {
             stopPlaying()
         }
+    }
+    
+    func didFinishPlaying() {
+        stopPlaying()
+    }
+    
+    func didFinishPlayingNote(note: NoteOctave) {
+        //
+    }
+    
+    func didStartPlayingNotes(notes: [NoteOctave]) {
+        //
     }
 }
