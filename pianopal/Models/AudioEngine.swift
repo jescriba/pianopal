@@ -30,6 +30,7 @@ class AudioEngine {
             if (isScale) {
                 let file = try? AVAudioFile(forReading: note.url())
                 scalePlayer?.scheduleFile(file!, atTime: nil, completionHandler: nil)
+                scalePlayer?.play()
             }
             else {
                 let file = try? AVAudioFile(forReading: note.url())
