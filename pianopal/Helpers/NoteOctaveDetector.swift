@@ -17,10 +17,16 @@ class NoteOctaveDetector {
             $0.superview!.convertPoint($0.frame.origin, toView: nil).x < $1.superview!.convertPoint($1.frame.origin, toView: nil).x
         })
         for noteButton in sortedButtons {
-            if CGRectContainsRect(UIScreen.mainScreen().bounds, noteButton.superview!.convertRect(noteButton.frame, toView: nil)) {
+            if cgRectMostlyContainsRect(UIScreen.mainScreen().bounds, rect2: noteButton.superview!.convertRect(noteButton.frame, toView: nil)) {
                 notes.append(NoteOctave(note: noteButton.note!, octave: noteButton.octave!))
             }
         }
         return notes
+    }
+    
+    static func cgRectMostlyContainsRect(rect1: CGRect, rect2: CGRect) -> Bool {
+        let midX = CGRectGetMidX(rect2)
+        let midY = CGRectGetMidY(rect2)
+        return CGRectContainsPoint(rect1, CGPointMake(midX, midY))
     }
 }

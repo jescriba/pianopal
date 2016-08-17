@@ -139,6 +139,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func goToChordTableView() {
+        stopPlaying()
         customNavigationItem.titleView = nil
         popViewControllerAnimated(false)
         pushViewController(chordTableViewController!, animated: false)
@@ -146,6 +147,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func goToScaleTableView() {
+        stopPlaying()
         customNavigationItem.titleView = nil
         popViewControllerAnimated(false)
         pushViewController(scaleTableViewController!, animated: false)
@@ -153,6 +155,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func goToScaleView() {
+        stopPlaying()
         popViewControllerAnimated(false)
         pushViewController(scaleViewController!, animated: false)
         scaleViewController?.scales = (scaleTableViewController?.scales)!
@@ -161,6 +164,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func goToChordView() {
+        stopPlaying()
         popToRootViewControllerAnimated(false)
         chordViewController?.chords = (chordTableViewController?.chords)!
         chordViewController?.updateNavigationItem()
@@ -168,12 +172,14 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func goToIdentifyView() {
+        stopPlaying()
         popViewControllerAnimated(false)
         pushViewController(identifyViewController!, animated: false)
         identifyViewController?.updateNavigationItem()
     }
     
     func goToSettingsView() {
+        stopPlaying()
         popViewControllerAnimated(false)
         pushViewController(settingsViewController!, animated: false)
         settingsViewController?.updateNavigationItem()
