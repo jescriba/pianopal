@@ -11,6 +11,7 @@ import UIKit
 class NoteButton: UIButton {
     var note: Note?
     var octave: Int?
+    var noteOctave: NoteOctave?
     var gradient: CAGradientLayer = CAGradientLayer()
     var illuminated = false
     
@@ -22,6 +23,7 @@ class NoteButton: UIButton {
         super.init(frame: frame)
         self.note = note
         self.octave = octave
+        self.noteOctave = NoteOctave(note: note, octave: octave)
         self.backgroundColor = determineNoteColor(note)
         self.layer.borderWidth = 1
         self.layer.borderColor = Colors.keyBorder
@@ -74,6 +76,16 @@ class NoteButton: UIButton {
         gradient.removeFromSuperlayer()
         self.backgroundColor = determineNoteColor(note!)
         illuminated = false
+    }
+    
+    func highlightBorder() {
+        layer.borderColor = Colors.highlightedKeyBorder
+        layer.borderWidth = 5
+    }
+    
+    func dehighlightBorder() {
+        layer.borderColor = Colors.keyBorder
+        layer.borderWidth = 1
     }
     
     func label(label: String?) {

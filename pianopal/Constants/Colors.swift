@@ -11,6 +11,7 @@ import UIKit
 
 class Colors {
     static let keyBorder = UIColor(red: 0.90, green: 0.90, blue: 1.0, alpha: 1).CGColor
+    static let highlightedKeyBorder = UIColor(red:1, green:0.54, blue:0.90, alpha:1.0).CGColor
     static let toolBarBackground = UIColor(red: 0.94, green: 0.86, blue: 1, alpha: 1)
     static let toolbarActionText = UIColor(red: 0.94, green: 0.86, blue: 1, alpha: 1)
     static let changeToolbarActionText = UIColor(red: 1, green: 0.3, blue: 0.3, alpha: 1)

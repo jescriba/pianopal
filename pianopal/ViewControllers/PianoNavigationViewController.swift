@@ -241,6 +241,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     
     func startPlaying() {
         if (!playing) {
+            playing = true
             playButton.setTitle("\u{f28d}", forState: UIControlState.Normal)
             if (topViewController is ScaleViewController) {
                 let pianoView = scaleViewController?.pianoView
@@ -251,7 +252,6 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
                 let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
                 audioEngine?.play(notes)
             }
-            playing = true
         }
     }
     
@@ -259,6 +259,12 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         if (playing) {
             playing = false
             audioEngine?.stop()
+            let highlightedNoteButtons = topPianoView()?.highlightedNoteButtons
+            for button in highlightedNoteButtons! {
+                dispatch_async(dispatch_get_main_queue(), {
+                    button.dehighlightBorder()
+                })
+            }
             dispatch_async(dispatch_get_main_queue(), {
                 self.playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
             })
@@ -277,11 +283,37 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         stopPlaying()
     }
     
-    func didFinishPlayingNote(note: NoteOctave) {
-        //
+    func didFinishPlayingNotes(notes: [NoteOctave]) {
+        for note in notes {
+            let finishedButtons = topPianoView()?.highlightedNoteButtons.filter({$0.noteOctave! == note})
+            for button in finishedButtons! {
+                dispatch_async(dispatch_get_main_queue(), {
+                    button.dehighlightBorder()
+                })
+            }
+        }
     }
     
     func didStartPlayingNotes(notes: [NoteOctave]) {
-        //
+        if (playing) {
+            for note in notes {
+                let startedButtons = topPianoView()?.highlightedNoteButtons.filter({$0.noteOctave! == note})
+                for button in startedButtons! {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        button.highlightBorder()
+                    })
+                }
+            }
+        }
+    }
+    
+    func topPianoView() -> PianoView? {
+        if (topViewController is ScaleViewController) {
+            return (topViewController as! ScaleViewController).pianoView
+        }
+        if (topViewController is ChordViewController) {
+            return (topViewController as! ChordViewController).pianoView
+        }
+        return nil
     }
 }

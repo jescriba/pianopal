@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension NoteOctave : Equatable {}
+func ==(item1: NoteOctave, item2: NoteOctave) -> Bool {
+    return item1.note! == item2.note! && item1.octave! == item2.octave!
+}
+
+
 class NoteOctave {
     var note: Note?
     var octave: Int?

@@ -13,8 +13,11 @@ class NoteOctaveDetector {
 
     static func determineNoteOctavesOnScreen(pianoView: PianoView) -> [NoteOctave] {
         var notes = [NoteOctave]()
-        for noteButton in pianoView.highlightedNoteButtons {
-            if CGRectContainsRect(UIScreen.mainScreen().bounds, noteButton.convertRect(noteButton.bounds, toView: nil)) {
+        let sortedButtons = pianoView.highlightedNoteButtons.sort({
+            $0.superview!.convertPoint($0.frame.origin, toView: nil).x < $1.superview!.convertPoint($1.frame.origin, toView: nil).x
+        })
+        for noteButton in sortedButtons {
+            if CGRectContainsRect(UIScreen.mainScreen().bounds, noteButton.superview!.convertRect(noteButton.frame, toView: nil)) {
                 notes.append(NoteOctave(note: noteButton.note!, octave: noteButton.octave!))
             }
         }

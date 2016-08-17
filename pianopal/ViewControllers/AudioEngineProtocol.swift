@@ -10,6 +10,6 @@ import Foundation
 
 protocol AudioEngineDelegate : class {
     func didFinishPlaying()
-    func didFinishPlayingNote(note: NoteOctave)
+    func didFinishPlayingNotes(notes: [NoteOctave])
     func didStartPlayingNotes(notes: [NoteOctave])
 }
