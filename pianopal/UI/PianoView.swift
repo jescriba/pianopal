@@ -51,7 +51,7 @@ class PianoView: UIView, UIScrollViewDelegate {
         let octaveView = UIView(frame: CGRect(x: offset, y: 0, width: width, height: height))
         for note in Constants.orderedNotes {
             let buttonFrame = CGRect(x: width * KeyProperties.x(note), y: 0, width: width * KeyProperties.width(note), height: height * KeyProperties.height(note))
-            let button = NoteButton(frame: buttonFrame, note: note, octave: position + 1)
+            let button = NoteButton(frame: buttonFrame, note: note, octave: position + 2)
             noteButtons.append(button)
             octaveView.addSubview(button)
         }
@@ -60,7 +60,6 @@ class PianoView: UIView, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         var scrollDirection: ScrollDirection?
-        
         if (lastContentOffset != nil) {
             if scrollView.contentOffset.x > lastContentOffset {
                 scrollDirection = ScrollDirection.RightToLeft
@@ -69,7 +68,6 @@ class PianoView: UIView, UIScrollViewDelegate {
             }
         }
         lastContentOffset = scrollView.contentOffset.x
-        
         switch scrollView.contentOffset.x {
         case scrollView.frame.width * 2, 0:
             scrollView.setContentOffset(CGPoint(x: scrollView.frame.width, y: 0), animated: false)
