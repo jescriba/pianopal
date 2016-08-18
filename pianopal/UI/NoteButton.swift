@@ -9,8 +9,24 @@
 import UIKit
 
 class NoteButton: UIButton {
-    var note: Note?
-    var octave: Int?
+    private var _note: Note?
+    var note: Note? {
+        get {
+            return _note
+        } set {
+            _note = newValue
+            noteOctave?.note = newValue
+        }
+    }
+    private var _octave: Int?
+    var octave: Int? {
+        get {
+            return _octave
+        } set {
+            _octave = newValue
+            noteOctave?.octave = newValue
+        }
+    }
     var noteOctave: NoteOctave?
     var gradient: CAGradientLayer = CAGradientLayer()
     var illuminated = false

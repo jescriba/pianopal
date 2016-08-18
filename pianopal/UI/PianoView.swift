@@ -84,12 +84,12 @@ class PianoView: UIView, UIScrollViewDelegate {
         }
         for noteButton in noteButtons {
             if scrollDirection == ScrollDirection.LeftToRight {
-                if (noteButton.octave > 0) {
+                if (noteButton.octave > 1) {
                     noteButton.octave! -= 1
                     animateOctaveChange()
                 }
             } else if scrollDirection == ScrollDirection.RightToLeft {
-                if (noteButton.octave < 6) {
+                if (noteButton.octave < 5) {
                     noteButton.octave! += 1
                     animateOctaveChange()
                 }
