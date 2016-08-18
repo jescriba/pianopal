@@ -24,6 +24,10 @@ class AudioEngine {
         audioEngine?.connect(scalePlayer!, to: audioEngine!.mainMixerNode, format: format)
         
         _ = try? audioEngine?.start()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        _ = try? audioSession.setActive(true)
+        _ = try? audioSession.setCategory("AVAudioSessionCategoryPlayback")
     }
     
     func play(notes: [NoteOctave], isScale: Bool = false) {
@@ -31,7 +35,7 @@ class AudioEngine {
             if (isScale) {
                 let file = try? AVAudioFile(forReading: note.url())
                 let buffer = AVAudioPCMBuffer(PCMFormat: file!.processingFormat, frameCapacity: AVAudioFrameCount(file!.length))
-                try? file?.readIntoBuffer(buffer)
+                _ = try? file?.readIntoBuffer(buffer)
                 var completionHandler: AVAudioNodeCompletionHandler?
                 if index == notes.count - 1 {
                     completionHandler = {
