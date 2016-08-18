@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PianoNavigationViewController: UINavigationController {
+class PianoNavigationViewController: UINavigationController, AudioEngineDelegate {
     let customNavigationBar = UINavigationBar(frame: Dimensions.toolbarRect)
     let customNavigationItem = UINavigationItem(title: "Piano")
     let menuButton = UIButton(frame: Dimensions.menuButtonRect)
@@ -18,6 +18,7 @@ class PianoNavigationViewController: UINavigationController {
     let addScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let playButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var chordTableViewController: ChordTableViewController?
     var chordSelectorViewController: ChordSelectorViewController?
     var chordViewController: ChordViewController?
@@ -27,6 +28,8 @@ class PianoNavigationViewController: UINavigationController {
     var scaleViewController: ScaleViewController?
     var slideMenuViewController: SlideMenuViewController?
     var settingsViewController: SettingsViewController?
+    var playing = false
+    var audioEngine: AudioEngine?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -81,6 +84,13 @@ class PianoNavigationViewController: UINavigationController {
         saveScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
         saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), forControlEvents: UIControlEvents.TouchUpInside)
         
+        playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+        playButton.titleLabel!.font = Fonts.playButton
+        playButton.sizeToFit()
+        playButton.setTitleColor(Colors.normalPlayButtonColor, forState: UIControlState.Normal)
+        playButton.setTitleColor(Colors.pressedPlayButtonColor, forState: UIControlState.Normal)
+        playButton.addTarget(self, action: #selector(togglePlay), forControlEvents: UIControlEvents.TouchUpInside)
+        
         // Create Controllers
         chordTableViewController = ChordTableViewController()
         scaleTableViewController = ScaleTableViewController()
@@ -103,6 +113,9 @@ class PianoNavigationViewController: UINavigationController {
             scaleTableViewController?.scales = scales!
             scaleViewController?.scales = scales!
         }
+        
+        audioEngine = AudioEngine()
+        audioEngine?.delegate = self
     }
     
     func addSlideMenuPanel() {
@@ -126,6 +139,7 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToChordTableView() {
+        stopPlaying()
         customNavigationItem.titleView = nil
         popViewControllerAnimated(false)
         pushViewController(chordTableViewController!, animated: false)
@@ -133,6 +147,7 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToScaleTableView() {
+        stopPlaying()
         customNavigationItem.titleView = nil
         popViewControllerAnimated(false)
         pushViewController(scaleTableViewController!, animated: false)
@@ -140,6 +155,7 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToScaleView() {
+        stopPlaying()
         popViewControllerAnimated(false)
         pushViewController(scaleViewController!, animated: false)
         scaleViewController?.scales = (scaleTableViewController?.scales)!
@@ -148,6 +164,7 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToChordView() {
+        stopPlaying()
         popToRootViewControllerAnimated(false)
         chordViewController?.chords = (chordTableViewController?.chords)!
         chordViewController?.updateNavigationItem()
@@ -155,12 +172,14 @@ class PianoNavigationViewController: UINavigationController {
     }
     
     func goToIdentifyView() {
+        stopPlaying()
         popViewControllerAnimated(false)
         pushViewController(identifyViewController!, animated: false)
         identifyViewController?.updateNavigationItem()
     }
     
     func goToSettingsView() {
+        stopPlaying()
         popViewControllerAnimated(false)
         pushViewController(settingsViewController!, animated: false)
         settingsViewController?.updateNavigationItem()
@@ -224,5 +243,83 @@ class PianoNavigationViewController: UINavigationController {
         popViewControllerAnimated(false)
         pushViewController(scaleTableViewController!, animated: false)
         scaleTableViewController?.updateNavigationItem()
+    }
+    
+    func startPlaying() {
+        if (!playing) {
+            playing = true
+            playButton.setTitle("\u{f28d}", forState: UIControlState.Normal)
+            if (topViewController is ScaleViewController) {
+                let pianoView = scaleViewController?.pianoView
+                let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
+                audioEngine?.play(notes, isScale: true)
+            } else {
+                let pianoView = chordViewController?.pianoView
+                let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
+                audioEngine?.play(notes)
+            }
+        }
+    }
+    
+    func stopPlaying() {
+        if (playing) {
+            playing = false
+            audioEngine?.stop()
+            let highlightedNoteButtons = topPianoView()?.highlightedNoteButtons
+            for button in highlightedNoteButtons! {
+                dispatch_async(dispatch_get_main_queue(), {
+                    button.dehighlightBorder()
+                })
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.playButton.setTitle("\u{f144}", forState: UIControlState.Normal)
+            })
+        }
+    }
+    
+    func togglePlay() {
+        if (!playing) {
+            startPlaying()
+        } else {
+            stopPlaying()
+        }
+    }
+    
+    func didFinishPlaying() {
+        stopPlaying()
+    }
+    
+    func didFinishPlayingNotes(notes: [NoteOctave]) {
+        for note in notes {
+            let finishedButtons = topPianoView()?.highlightedNoteButtons.filter({$0.noteOctave! == note})
+            for button in finishedButtons! {
+                dispatch_async(dispatch_get_main_queue(), {
+                    button.dehighlightBorder()
+                })
+            }
+        }
+    }
+    
+    func didStartPlayingNotes(notes: [NoteOctave]) {
+        if (playing) {
+            for note in notes {
+                let startedButtons = topPianoView()?.highlightedNoteButtons.filter({$0.noteOctave! == note})
+                for button in startedButtons! {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        button.highlightBorder()
+                    })
+                }
+            }
+        }
+    }
+    
+    func topPianoView() -> PianoView? {
+        if (topViewController is ScaleViewController) {
+            return (topViewController as! ScaleViewController).pianoView
+        }
+        if (topViewController is ChordViewController) {
+            return (topViewController as! ChordViewController).pianoView
+        }
+        return nil
     }
 }

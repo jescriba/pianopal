@@ -9,7 +9,25 @@
 import UIKit
 
 class NoteButton: UIButton {
-    var note: Note?
+    private var _note: Note?
+    var note: Note? {
+        get {
+            return _note
+        } set {
+            _note = newValue
+            noteOctave?.note = newValue
+        }
+    }
+    private var _octave: Int?
+    var octave: Int? {
+        get {
+            return _octave
+        } set {
+            _octave = newValue
+            noteOctave?.octave = newValue
+        }
+    }
+    var noteOctave: NoteOctave?
     var gradient: CAGradientLayer = CAGradientLayer()
     var illuminated = false
     
@@ -17,9 +35,11 @@ class NoteButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(frame: CGRect, note: Note) {
+    init(frame: CGRect, note: Note, octave: Int) {
         super.init(frame: frame)
         self.note = note
+        self.octave = octave
+        self.noteOctave = NoteOctave(note: note, octave: octave)
         self.backgroundColor = determineNoteColor(note)
         self.layer.borderWidth = 1
         self.layer.borderColor = Colors.keyBorder
@@ -72,6 +92,16 @@ class NoteButton: UIButton {
         gradient.removeFromSuperlayer()
         self.backgroundColor = determineNoteColor(note!)
         illuminated = false
+    }
+    
+    func highlightBorder() {
+        layer.borderColor = Colors.highlightedKeyBorder
+        layer.borderWidth = 5
+    }
+    
+    func dehighlightBorder() {
+        layer.borderColor = Colors.keyBorder
+        layer.borderWidth = 1
     }
     
     func label(label: String?) {
