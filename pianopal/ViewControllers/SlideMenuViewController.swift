@@ -9,7 +9,7 @@
 import UIKit
 
 enum NavigationPage : Int {
-    case ChordProgression, ScaleProgression, Identify, Chords, Scales, Settings
+    case ChordProgression, ScaleProgression, Identify, Chords, Scales, Settings, Sessions
     
     func simpleDescription() -> String {
         if (self == NavigationPage.ChordProgression) {
@@ -24,7 +24,7 @@ enum NavigationPage : Int {
 
 class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     static let offset: CGFloat = 200
-    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Settings]
+    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Settings, NavigationPage.Sessions]
     var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
     var tableView: UITableView?
@@ -69,6 +69,8 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
                 pianoNavigationController!.goToIdentifyView()
             case .Settings:
                 pianoNavigationController!.goToSettingsView()
+            case .Sessions:
+                pianoNavigationController!.goToSessionsView()
         }
         pianoNavigationController!.toggleSlideMenuPanel()
     }

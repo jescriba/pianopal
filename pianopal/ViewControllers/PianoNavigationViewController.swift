@@ -18,6 +18,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     let addScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let saveSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
     let playButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var chordTableViewController: ChordTableViewController?
     var chordSelectorViewController: ChordSelectorViewController?
@@ -28,6 +29,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     var scaleViewController: ScaleViewController?
     var slideMenuViewController: SlideMenuViewController?
     var settingsViewController: SettingsViewController?
+    var sessionsViewController: SessionsViewController?
     var playing = false
     var audioEngine: AudioEngine?
     
@@ -91,11 +93,18 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         playButton.setTitleColor(Colors.pressedPlayButtonColor, forState: UIControlState.Normal)
         playButton.addTarget(self, action: #selector(togglePlay), forControlEvents: UIControlEvents.TouchUpInside)
         
+        saveSessionButton.setTitle("Save", forState: UIControlState.Normal)
+        saveSessionButton.sizeToFit()
+        saveSessionButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
+        saveSessionButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
+        saveSessionButton.addTarget(self, action: #selector(saveSession), forControlEvents: UIControlEvents.TouchUpInside)
+        
         // Create Controllers
         chordTableViewController = ChordTableViewController()
         scaleTableViewController = ScaleTableViewController()
         scaleViewController = ScaleViewController()
         identifyViewController = IdentifyViewController()
+        sessionsViewController = SessionsViewController()
         slideMenuViewController = SlideMenuViewController()
         slideMenuViewController!.pianoNavigationController = self
         
@@ -185,6 +194,13 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         settingsViewController?.updateNavigationItem()
     }
     
+    func goToSessionsView() {
+        stopPlaying()
+        popViewControllerAnimated(false)
+        pushViewController(sessionsViewController!, animated: false)
+        sessionsViewController?.updateNavigationItem()
+    }
+    
     func goToChordSelector() {
         removeSlideMenuPanel()
         popViewControllerAnimated(false)
@@ -207,6 +223,10 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         }
         pushViewController(scaleSelectorViewController!, animated: false)
         scaleSelectorViewController?.updateNavigationItem()
+    }
+    
+    func saveSession() {
+        
     }
     
     func addChordToProgression() {
