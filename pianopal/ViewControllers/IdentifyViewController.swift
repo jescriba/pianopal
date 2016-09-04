@@ -13,6 +13,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuBarButton: UIBarButtonItem?
     var changeModeBarButton: UIBarButtonItem?
+    var playBarButton: UIBarButtonItem?
     var notesToIdentify = [Note]()
     
     override func viewDidLoad() {
@@ -34,9 +35,11 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     func noteSelectedForIdentification(sender: NoteButton) {
         if sender.illuminated {
             sender.deIlluminate()
+            pianoView.highlightedNoteButtons.removeAtIndex(pianoView.highlightedNoteButtons.indexOf(sender)!)
             notesToIdentify.removeAtIndex(notesToIdentify.indexOf(sender.note!)!)
         } else {
             sender.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)])
+            pianoView.highlightedNoteButtons.append(sender)
             notesToIdentify.append(sender.note!)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
@@ -70,6 +73,8 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
         menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
+        playBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.playButton)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = playBarButton
         setUpIdentifyMode()
     }
     
