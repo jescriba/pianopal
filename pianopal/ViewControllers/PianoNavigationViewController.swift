@@ -269,13 +269,11 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         if (!playing) {
             playing = true
             playButton.setTitle("\u{f28d}", forState: UIControlState.Normal)
+            let pianoView = topPianoView()
+            let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
             if (topViewController is ScaleViewController) {
-                let pianoView = scaleViewController?.pianoView
-                let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
                 audioEngine?.play(notes, isScale: true)
             } else {
-                let pianoView = chordViewController?.pianoView
-                let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView!)
                 audioEngine?.play(notes)
             }
         }
@@ -339,6 +337,9 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         }
         if (topViewController is ChordViewController) {
             return (topViewController as! ChordViewController).pianoView
+        }
+        if (topViewController is IdentifyViewController) {
+            return (topViewController as! IdentifyViewController).pianoView
         }
         return nil
     }
