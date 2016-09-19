@@ -20,7 +20,7 @@ class AudioEngine {
         audioEngine = AVAudioEngine()
         scalePlayer = AVAudioPlayerNode()
         
-        audioEngine?.attachNode(scalePlayer!)
+        audioEngine?.attach(scalePlayer!)
         audioEngine?.connect(scalePlayer!, to: audioEngine!.mainMixerNode, format: format)
         
         _ = try? audioEngine?.start()
@@ -30,12 +30,12 @@ class AudioEngine {
         _ = try? audioSession.setCategory("AVAudioSessionCategoryPlayback")
     }
     
-    func play(notes: [NoteOctave], isScale: Bool = false) {
-        for (index, note) in notes.enumerate() {
+    func play(_ notes: [NoteOctave], isScale: Bool = false) {
+        for (index, note) in notes.enumerated() {
             if (isScale) {
-                let file = try? AVAudioFile(forReading: note.url())
-                let buffer = AVAudioPCMBuffer(PCMFormat: file!.processingFormat, frameCapacity: AVAudioFrameCount(file!.length))
-                _ = try? file?.readIntoBuffer(buffer)
+                let file = try? AVAudioFile(forReading: note.url() as URL)
+                let buffer = AVAudioPCMBuffer(pcmFormat: file!.processingFormat, frameCapacity: AVAudioFrameCount(file!.length))
+                _ = try? file?.read(into: buffer)
                 var completionHandler: AVAudioNodeCompletionHandler?
                 if index == notes.count - 1 {
                     completionHandler = {
@@ -56,15 +56,15 @@ class AudioEngine {
                 }
             }
             else {
-                let file = try? AVAudioFile(forReading: note.url())
+                let file = try? AVAudioFile(forReading: note.url() as URL)
                 let chordPlayer = AVAudioPlayerNode()
-                audioEngine?.attachNode(chordPlayer)
+                audioEngine?.attach(chordPlayer)
                 audioEngine?.connect(chordPlayer, to: audioEngine!.mainMixerNode, format: format)
                 chordPlayers.append(chordPlayer)
                 let now = chordPlayer.lastRenderTime!.sampleTime
                 let startTime = AVAudioTime(sampleTime: now + AVAudioFramePosition(format.sampleRate), atRate: format.sampleRate)
-                let buffer = AVAudioPCMBuffer(PCMFormat: file!.processingFormat, frameCapacity: AVAudioFrameCount(file!.length))
-                try? file?.readIntoBuffer(buffer)
+                let buffer = AVAudioPCMBuffer(pcmFormat: file!.processingFormat, frameCapacity: AVAudioFrameCount(file!.length))
+                try? file?.read(into: buffer)
                 chordPlayer.scheduleBuffer(buffer, completionHandler: {
                     self.delegate?.didFinishPlayingNotes(notes)
                     self.delegate?.didFinishPlaying()
@@ -76,12 +76,12 @@ class AudioEngine {
     }
     
     func stop() {
-        if (scalePlayer!.playing) {
+        if (scalePlayer!.isPlaying) {
             scalePlayer?.stop()
         }
         if (!chordPlayers.isEmpty) {
             for chordPlayer in chordPlayers {
-                if (chordPlayer.playing) {
+                if (chordPlayer.isPlaying) {
                     chordPlayer.stop()
                 }
                 audioEngine?.disconnectNodeInput(chordPlayer)

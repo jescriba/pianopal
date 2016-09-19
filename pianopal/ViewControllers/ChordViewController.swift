@@ -49,7 +49,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         pianoNavigationViewController!.customNavigationItem.titleView = chordsPickerView!
     }
     
-    func highlightChord(chord: Chord?) {
+    func highlightChord(_ chord: Chord?) {
         if (chord == nil) {
             return
         }
@@ -59,7 +59,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
             labelForPreferences(noteButton)
             if chord!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     noteButton.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)])
                 })
             }
@@ -68,22 +68,22 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     func clearHighlighting() {
         for noteButton in pianoView.highlightedNoteButtons {
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 noteButton.deIlluminate()
             })
         }
         pianoView.highlightedNoteButtons.removeAll()
     }
     
-    func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
         return chords.count
     }
     
-    func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
         return chords[item].simpleDescription()
     }
     
-    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
         highlightChord(chords[item])
         labelNotes()
     }
@@ -100,7 +100,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         }
     }
     
-    func labelForPreferences(noteButton: NoteButton) {
+    func labelForPreferences(_ noteButton: NoteButton) {
         var title = ""
         if Preferences.labelNoteLetter {
             title = (noteButton.note?.simpleDescription())!
@@ -114,7 +114,7 @@ class ChordViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         noteButton.label(title)
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
+    override func didMove(toParentViewController parent: UIViewController?) {
         clearHighlighting()
         removeLabelNotes()
     }

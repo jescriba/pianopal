@@ -27,8 +27,8 @@ class NoteOctave {
         return "\(note!.simpleDescription())\(octave!)"
     }
     
-    func url() -> NSURL {
-        let filePath = NSBundle.mainBundle().pathForResource("\(toString())", ofType: "mp3")
-        return NSURL(fileURLWithPath: filePath!)
+    func url() -> URL {
+        let filePath = Bundle.main.path(forResource: "\(toString())", ofType: "mp3")
+        return URL(fileURLWithPath: filePath!)
     }
 }

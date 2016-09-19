@@ -26,7 +26,7 @@ class SlideMenuTableViewCell : UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        textLabel?.textAlignment = NSTextAlignment.Left
+        textLabel?.textAlignment = NSTextAlignment.left
         textLabel?.frame.origin.x = 5
     }
 }

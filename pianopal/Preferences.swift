@@ -11,27 +11,28 @@ import Foundation
 class Preferences {
     static var labelNoteNumber: Bool {
         get {
-            return NSUserDefaults.standardUserDefaults().boolForKey("LabelNoteNumber") ?? false
-        } set {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(newValue, forKey: "LabelNoteNumber")
+            return UserDefaults.standard.bool(forKey: "LabelNoteNumber")
+        }
+        set {
+            let defaults = UserDefaults.standard
+            defaults.set(newValue, forKey: "LabelNoteNumber")
         }
     }
     static var labelNoteLetter: Bool {
         get {
-            return NSUserDefaults.standardUserDefaults().boolForKey("LabelNoteLetter") ?? false
+            return UserDefaults.standard.bool(forKey: "LabelNoteLetter")
         } set {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(newValue, forKey: "LabelNoteLetter")
+            let defaults = UserDefaults.standard
+            defaults.set(newValue, forKey: "LabelNoteLetter")
         }
     }
     static var highlightTriads: Bool {
         get {
-            return NSUserDefaults.standardUserDefaults().boolForKey("HighlightTriad") ?? false
+            return UserDefaults.standard.bool(forKey: "HighlightTriad")
         }
         set {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(newValue, forKey: "HighlightTriad")
+            let defaults = UserDefaults.standard
+            defaults.set(newValue, forKey: "HighlightTriad")
         }
     }
 }

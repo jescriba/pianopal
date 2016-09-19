@@ -9,7 +9,7 @@
 import Foundation
 
 enum Note : Int {
-    case C, DFlat, D, EFlat, E, F, FSharp, G, AFlat, A, BFlat, B
+    case c, dFlat, d, eFlat, e, f, fSharp, g, aFlat, a, bFlat, b
     
     func isWhiteKey() -> Bool {
         return !isBlackKey()
@@ -17,7 +17,7 @@ enum Note : Int {
     
     func isBlackKey() -> Bool {
         switch self {
-        case .C, .D, .E, .F, .G, .A, .B:
+        case .c, .d, .e, .f, .g, .a, .b:
             return false
         default:
             return true
@@ -26,29 +26,29 @@ enum Note : Int {
     
     func simpleDescription() -> String {
         switch self {
-        case .C:
+        case .c:
             return "C"
-        case .DFlat:
+        case .dFlat:
             return "Db"
-        case .D:
+        case .d:
             return "D"
-        case .EFlat:
+        case .eFlat:
             return "Eb"
-        case .E:
+        case .e:
             return "E"
-        case .F:
+        case .f:
             return "F"
-        case .FSharp:
+        case .fSharp:
             return "F#"
-        case .G:
+        case .g:
             return "G"
-        case .AFlat:
+        case .aFlat:
             return "Ab"
-        case .A:
+        case .a:
             return "A"
-        case .BFlat:
+        case .bFlat:
             return "Bb"
-        case .B:
+        case .b:
             return "B"
         }
     }

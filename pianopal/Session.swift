@@ -9,21 +9,21 @@
 import Foundation
 
 class Session {
-    static func save(scales: [Scale]? = nil, chords: [Chord]? = nil) {
+    static func save(_ scales: [Scale]? = nil, chords: [Chord]? = nil) {
         if scales != nil {
-            let data = NSKeyedArchiver.archivedDataWithRootObject(scales!)
-            NSUserDefaults.standardUserDefaults().setObject(data, forKey: "Scales")
-            NSUserDefaults.standardUserDefaults().synchronize()
+            let data = NSKeyedArchiver.archivedData(withRootObject: scales!)
+            UserDefaults.standard.set(data, forKey: "Scales")
+            UserDefaults.standard.synchronize()
         }
         if chords != nil {
-            let data = NSKeyedArchiver.archivedDataWithRootObject(chords!)
-            NSUserDefaults.standardUserDefaults().setObject(data, forKey: "Chords")
+            let data = NSKeyedArchiver.archivedData(withRootObject: chords!)
+            UserDefaults.standard.set(data, forKey: "Chords")
         }
     }
     
     static func loadScales() -> [Scale]? {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey("Scales") as? NSData {
-            let scales = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Scale]
+        if let data = UserDefaults.standard.object(forKey: "Scales") as? Data {
+            let scales = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Scale]
             return scales
         }
 
@@ -31,8 +31,8 @@ class Session {
     }
     
     static func loadChords() -> [Chord]? {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey("Chords") as? NSData {
-            let chords = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Chord]
+        if let data = UserDefaults.standard.object(forKey: "Chords") as? Data {
+            let chords = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Chord]
             return chords
         }
         

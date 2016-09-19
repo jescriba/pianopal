@@ -21,6 +21,6 @@ class ChordTableViewCell: UITableViewCell {
         backgroundColor = Colors.chordTableBackgroundColor
         chordLabel = self.textLabel
         chordLabel!.font = Fonts.chordListItem
-        chordLabel!.textAlignment = NSTextAlignment.Center
+        chordLabel!.textAlignment = NSTextAlignment.center
     }
 }

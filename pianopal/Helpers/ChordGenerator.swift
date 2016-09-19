@@ -9,7 +9,7 @@
 import Foundation
 
 class ChordGenerator {
-    static func generateChord(rootNote: Note, chordType: ChordType) -> Chord {
+    static func generateChord(_ rootNote: Note, chordType: ChordType) -> Chord {
         var notes = [Note]()
         notes.append(rootNote)
         for interval in chordType.chordFormula() {

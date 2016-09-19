@@ -19,7 +19,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController!.interactivePopGestureRecognizer?.enabled = false
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         updateNavigationItem()
         automaticallyAdjustsScrollViewInsets = false
         view.addSubview(pianoView)
@@ -28,20 +28,20 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     func setUpIdentifyMode() {
         clearHighlighting()
         for noteButton in pianoView.noteButtons {
-            noteButton.addTarget(self, action: #selector(noteSelectedForIdentification), forControlEvents: UIControlEvents.TouchUpInside)
+            noteButton.addTarget(self, action: #selector(noteSelectedForIdentification), for: UIControlEvents.touchUpInside)
         }
     }
     
-    func noteSelectedForIdentification(sender: NoteButton) {
+    func noteSelectedForIdentification(_ sender: NoteButton) {
         if sender.illuminated {
             sender.deIlluminate()
-            pianoView.highlightedNoteButtons.removeAtIndex(pianoView.highlightedNoteButtons.indexOf(sender)!)
-            notesToIdentify.removeAtIndex(notesToIdentify.indexOf(sender.note!)!)
+            pianoView.highlightedNoteButtons.remove(at: pianoView.highlightedNoteButtons.index(of: sender)!)
+            notesToIdentify.remove(at: notesToIdentify.index(of: sender.note!)!)
         } else {
             sender.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)])
             pianoView.highlightedNoteButtons.append(sender)
             notesToIdentify.append(sender.note!)
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
                 let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
                 var chordDescription: String?
                 if identifiedChord == nil {
@@ -49,7 +49,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
                 } else {
                     chordDescription = identifiedChord?.simpleDescription()
                 }
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.pianoNavigationViewController?.customNavigationItem.title = chordDescription
                 })
             })
@@ -58,7 +58,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
     
     func clearHighlighting() {
         for noteButton in pianoView.highlightedNoteButtons {
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 noteButton.deIlluminate()
             })
         }
@@ -84,7 +84,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
         }
     }
     
-    func labelForPreferences(noteButton: NoteButton) {
+    func labelForPreferences(_ noteButton: NoteButton) {
         var title = ""
         if Preferences.labelNoteLetter {
             title += (noteButton.note?.simpleDescription())!
@@ -98,7 +98,7 @@ class IdentifyViewController: UIViewController, PianoNavigationProtocol {
         }
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
+    override func didMove(toParentViewController parent: UIViewController?) {
         removeLabelNotes()
         labelNotes()
     }

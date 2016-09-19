@@ -9,7 +9,7 @@
 import UIKit
 
 class NoteButton: UIButton {
-    private var _note: Note?
+    fileprivate var _note: Note?
     var note: Note? {
         get {
             return _note
@@ -18,7 +18,7 @@ class NoteButton: UIButton {
             noteOctave?.note = newValue
         }
     }
-    private var _octave: Int?
+    fileprivate var _octave: Int?
     var octave: Int? {
         get {
             return _octave
@@ -45,14 +45,14 @@ class NoteButton: UIButton {
         self.layer.borderColor = Colors.keyBorder
     }
     
-    func determineNoteColor(note: Note) -> UIColor {
+    func determineNoteColor(_ note: Note) -> UIColor {
         if note.isWhiteKey() {
-            return UIColor.whiteColor()
+            return UIColor.white
         }
-        return UIColor.blackColor()
+        return UIColor.black
     }
     
-    func illuminate(colorPairs: [KeyColorPair]) {
+    func illuminate(_ colorPairs: [KeyColorPair]) {
         gradient.removeFromSuperlayer()
         if colorPairs.count == 1 {
             let whiteKeyColor = colorPairs[0].whiteKeyColor!
@@ -67,23 +67,23 @@ class NoteButton: UIButton {
             gradient.colors = []
             gradient.locations = [0]
             if (self.note!.isWhiteKey()) {
-                for (index, colorPair) in colorPairs.enumerate() {
-                    gradient.colors!.append(colorPair.whiteKeyColor!.CGColor)
-                    gradient.colors!.append(colorPair.whiteKeyColor!.CGColor)
-                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
-                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                for (index, colorPair) in colorPairs.enumerated() {
+                    gradient.colors!.append(colorPair.whiteKeyColor!.cgColor)
+                    gradient.colors!.append(colorPair.whiteKeyColor!.cgColor)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count) as NSNumber)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count) as NSNumber)
                 }
             } else {
-                for (index, colorPair) in colorPairs.enumerate() {
-                    gradient.colors!.append(colorPair.blackKeyColor!.CGColor)
-                    gradient.colors!.append(colorPair.blackKeyColor!.CGColor)
-                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
-                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count))
+                for (index, colorPair) in colorPairs.enumerated() {
+                    gradient.colors!.append(colorPair.blackKeyColor!.cgColor)
+                    gradient.colors!.append(colorPair.blackKeyColor!.cgColor)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count) as NSNumber)
+                    gradient.locations!.append(Double(index + 1)/Double(colorPairs.count) as NSNumber)
                 }
             }
             gradient.locations!.append(1.0)
             
-            self.layer.insertSublayer(gradient, atIndex: 0)
+            self.layer.insertSublayer(gradient, at: 0)
         }
         illuminated = true
     }
@@ -104,14 +104,14 @@ class NoteButton: UIButton {
         layer.borderWidth = 1
     }
     
-    func label(label: String?) {
+    func label(_ label: String?) {
         var description = label
         if (description == nil) {
             description = note!.simpleDescription()
         }
-        self.setTitle(description, forState: UIControlState.Normal)
+        self.setTitle(description, for: UIControlState())
         if note!.isWhiteKey() {
-            self.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            self.setTitleColor(UIColor.black, for: UIControlState())
         }
     }
 }
