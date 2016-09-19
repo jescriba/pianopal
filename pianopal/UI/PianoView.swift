@@ -7,9 +7,29 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 enum ScrollDirection : Int {
-    case RightToLeft, LeftToRight
+    case rightToLeft, leftToRight
 }
 
 class PianoView: UIView, UIScrollViewDelegate {
@@ -24,7 +44,7 @@ class PianoView: UIView, UIScrollViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         
         scrollView = UIScrollView(frame: Dimensions.pianoScrollRect)
         scrollView!.maximumZoomScale = 1
@@ -44,7 +64,7 @@ class PianoView: UIView, UIScrollViewDelegate {
         addSubview(scrollView!)
     }
     
-    func setUpOctaveView(position: Int) -> UIView {
+    func setUpOctaveView(_ position: Int) -> UIView {
         let height = scrollView!.frame.height
         let width = scrollView!.frame.width
         let offset = CGFloat(position) * scrollView!.frame.width
@@ -58,13 +78,13 @@ class PianoView: UIView, UIScrollViewDelegate {
         return octaveView
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         var scrollDirection: ScrollDirection?
         if (lastContentOffset != nil) {
             if scrollView.contentOffset.x > lastContentOffset {
-                scrollDirection = ScrollDirection.RightToLeft
+                scrollDirection = ScrollDirection.rightToLeft
             } else {
-                scrollDirection = ScrollDirection.LeftToRight
+                scrollDirection = ScrollDirection.leftToRight
             }
         }
         lastContentOffset = scrollView.contentOffset.x
@@ -78,17 +98,17 @@ class PianoView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func updateOctave(scrollDirection: ScrollDirection?) {
+    func updateOctave(_ scrollDirection: ScrollDirection?) {
         if scrollDirection == nil {
             return
         }
         for noteButton in noteButtons {
-            if scrollDirection == ScrollDirection.LeftToRight {
+            if scrollDirection == ScrollDirection.leftToRight {
                 if (noteButton.octave > 1) {
                     noteButton.octave! -= 1
                     animateOctaveChange()
                 }
-            } else if scrollDirection == ScrollDirection.RightToLeft {
+            } else if scrollDirection == ScrollDirection.rightToLeft {
                 if (noteButton.octave < 5) {
                     noteButton.octave! += 1
                     animateOctaveChange()

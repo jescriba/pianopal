@@ -27,38 +27,38 @@ class WrapperViewController : UIViewController, UIGestureRecognizerDelegate {
         self.view.addGestureRecognizer(panRecognizer)
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         // Prevent weird gesture behavior on the chord/scale tableviews
-        if (touch.view != nil && String(touch.view!.dynamicType).containsString("UITableView")) {
+        if (touch.view != nil && String(describing: type(of: touch.view!)).contains("UITableView")) {
             return false
         }
         return true
     }
     
-    func panGestureRecognizer(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognizer(_ recognizer: UIPanGestureRecognizer) {
         let topViewController = navController!.topViewController!
         if (topViewController is ScaleSelectorViewController || topViewController is ChordSelectorViewController) {
             return
         }
         
-        let draggingLeftToRight = recognizer.velocityInView(view).x > 0
+        let draggingLeftToRight = recognizer.velocity(in: view).x > 0
         let slideMenuViewController = navController!.slideMenuViewController!
         
         switch (recognizer.state) {
-            case .Began:
+            case .began:
                 if (draggingLeftToRight && !slideMenuViewController.expanded) {
                     navController!.addSlideMenuPanel()
                 }
-            case .Changed:
-                let newCenterX = navController!.view!.center.x + recognizer.translationInView(view).x
+            case .changed:
+                let newCenterX = navController!.view!.center.x + recognizer.translation(in: view).x
                 if (newCenterX > view.center.x + SlideMenuViewController.offset) {
                     slideMenuViewController.expanded = true
                 } else if (newCenterX > view.center.x) {
                     navController!.view.center.x = newCenterX
                     slideMenuViewController.expanded = false
                 }
-                recognizer.setTranslation(CGPointZero, inView: view)
-            case .Ended:
+                recognizer.setTranslation(CGPoint.zero, in: view)
+            case .ended:
                 if (!slideMenuViewController.expanded) {
                     slideMenuViewController.collapsePanel()
                 }

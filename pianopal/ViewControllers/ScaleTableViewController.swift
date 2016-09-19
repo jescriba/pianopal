@@ -15,17 +15,17 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController!.interactivePopGestureRecognizer?.enabled = false
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         
         let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
-        let width = UIScreen.mainScreen().bounds.width
-        let height = UIScreen.mainScreen().bounds.height - navBarOffset
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height - navBarOffset
         let tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
         tableView = UITableView(frame: tableViewRect)
         tableView?.delegate = self
        
         tableView?.dataSource = self
-        tableView!.registerClass(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
+        tableView!.register(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
         tableView!.separatorColor = Colors.chordTableSeparatorColor
         tableView!.rowHeight = 90
         tableView!.backgroundColor = Colors.chordTableBackgroundColor
@@ -36,54 +36,54 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
         updateNavigationItem()
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ScaleTableViewCell", forIndexPath: indexPath) as! ScaleTableViewCell
-        cell.scaleLabel!.text = scales[indexPath.row].simpleDescription()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScaleTableViewCell", for: indexPath) as! ScaleTableViewCell
+        cell.scaleLabel!.text = scales[(indexPath as NSIndexPath).row].simpleDescription()
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return scales.count
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            scales.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            scales.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             Session.save(scales)
         }
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let scale = scales[sourceIndexPath.row]
-        scales.removeAtIndex(sourceIndexPath.row)
-        scales.insert(scale, atIndex: destinationIndexPath.row)
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let scale = scales[(sourceIndexPath as NSIndexPath).row]
+        scales.remove(at: (sourceIndexPath as NSIndexPath).row)
+        scales.insert(scale, at: (destinationIndexPath as NSIndexPath).row)
         Session.save(scales)
     }
     
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.editing = !tableView.editing
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.isEditing = !tableView.isEditing
     }
 
     func updateNavigationItem() {
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         let plusButton = pianoNavigationViewController?.addScaleButton
-        plusButton!.setTitle("\u{f196}", forState: UIControlState.Normal)
-        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
-        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
+        plusButton!.setTitle("\u{f196}", for: UIControlState())
+        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
+        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
         plusButton!.titleLabel!.font = Fonts.changeModeButton
         let plusBarButtonItem = UIBarButtonItem(customView: plusButton!)
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem

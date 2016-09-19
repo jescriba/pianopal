@@ -9,7 +9,7 @@
 import Foundation
 
 class ScaleGenerator {
-    static func generateScale(rootNote: Note, scaleType: ScaleType) -> Scale {
+    static func generateScale(_ rootNote: Note, scaleType: ScaleType) -> Scale {
         var notes = [Note]()
         notes.append(rootNote)
         for interval in scaleType.scaleFormula() {

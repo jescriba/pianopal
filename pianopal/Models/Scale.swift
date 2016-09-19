@@ -19,8 +19,8 @@ class Scale : NSObject, NSCoding {
         super.init()
     }
     
-    func indexOf(note: Note) -> Int? {
-        return notes.indexOf(note)
+    func indexOf(_ note: Note) -> Int? {
+        return notes.index(of: note)
     }
     
     func simpleDescription() -> String {
@@ -28,16 +28,16 @@ class Scale : NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let sTypeRawValue = aDecoder.decodeObjectForKey("ScaleType") as? Int
-        let sNotesRawValues = aDecoder.decodeObjectForKey("ScaleNotes") as? [Int]
+        let sTypeRawValue = aDecoder.decodeObject(forKey: "ScaleType") as? Int
+        let sNotesRawValues = aDecoder.decodeObject(forKey: "ScaleNotes") as? [Int]
         let sType = ScaleType(rawValue: sTypeRawValue!)
         let sNotes = sNotesRawValues!.map({rawVal in Note(rawValue: rawVal)!})
         self.init(notes: sNotes, scaleType: sType!)
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(scaleType?.rawValue, forKey: "ScaleType")
-        aCoder.encodeObject(notes.map{ note in note.rawValue}, forKey: "ScaleNotes")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(scaleType?.rawValue, forKey: "ScaleType")
+        aCoder.encode(notes.map{ note in note.rawValue}, forKey: "ScaleNotes")
     }
 
 }

@@ -11,56 +11,56 @@ import UIKit
 
 class KeyProperties {
     
-    static func width(note: Note) -> CGFloat {
+    static func width(_ note: Note) -> CGFloat {
         switch note {
-        case .DFlat, .EFlat, .FSharp, .AFlat, .BFlat:
+        case .dFlat, .eFlat, .fSharp, .aFlat, .bFlat:
             return CGFloat(0.077)
-        case .D, .E, .C:
+        case .d, .e, .c:
             return CGFloat(0.138)
-        case .F:
+        case .f:
             return CGFloat(0.148)
         default:
             return CGFloat(0.146)
         }
     }
     
-    static func height(note: Note) -> CGFloat {
+    static func height(_ note: Note) -> CGFloat {
         if note.isBlackKey() {
             return CGFloat(0.64)
         }
         return CGFloat(1)
     }
     
-    static func x(note: Note) -> CGFloat {
+    static func x(_ note: Note) -> CGFloat {
         switch note {
-        case .C:
+        case .c:
             return CGFloat(0)
-        case .DFlat:
+        case .dFlat:
             return CGFloat(0.085)
-        case .D:
+        case .d:
             return CGFloat(0.138)
-        case .EFlat:
+        case .eFlat:
             return CGFloat(0.254)
-        case .E:
+        case .e:
             return CGFloat(0.276)
-        case .F:
+        case .f:
             return CGFloat(0.414)
-        case .FSharp:
+        case .fSharp:
             return CGFloat(0.5)
-        case .G:
+        case .g:
             return CGFloat(0.562)
-        case .AFlat:
+        case .aFlat:
             return CGFloat(0.669)
-        case .A:
+        case .a:
             return CGFloat(0.708)
-        case .BFlat:
+        case .bFlat:
             return CGFloat(0.838)
         default:
             return CGFloat(0.854)
         }
     }
     
-    static func y(note: Note) -> CGFloat {
+    static func y(_ note: Note) -> CGFloat {
         return CGFloat(0)
     }
 }

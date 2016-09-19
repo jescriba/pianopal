@@ -9,10 +9,10 @@
 import Foundation
 
 class ChordIdentifier {
-    static func chordForNotes(notes: [Note]) -> Chord? {
+    static func chordForNotes(_ notes: [Note]) -> Chord? {
         let uniqueNotes = Array(Set(notes))
         if uniqueNotes.count == 3 || uniqueNotes.count == 4 {
-            let sortedNotes = uniqueNotes.sort({ (a, b) -> Bool in
+            let sortedNotes = uniqueNotes.sorted(by: { (a, b) -> Bool in
                 a.rawValue < b.rawValue
             })
             let possibleIntervals = calculateIntervals(sortedNotes)
@@ -28,7 +28,7 @@ class ChordIdentifier {
         return nil
     }
     
-    static func calculateIntervals(notes: [Note]) -> [Note:[Int]] {
+    static func calculateIntervals(_ notes: [Note]) -> [Note:[Int]] {
         var possibleIntervalsList = [Note:[Int]]()
         var noteValuesToCheck = notes.map({$0.rawValue})
         var rootNoteValue = noteValuesToCheck[0]

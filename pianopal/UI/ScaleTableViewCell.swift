@@ -21,6 +21,6 @@ class ScaleTableViewCell: UITableViewCell {
         backgroundColor = Colors.chordTableBackgroundColor
         scaleLabel = self.textLabel
         scaleLabel!.font = Fonts.chordListItem
-        scaleLabel!.textAlignment = NSTextAlignment.Center
+        scaleLabel!.textAlignment = NSTextAlignment.center
     }
 }
