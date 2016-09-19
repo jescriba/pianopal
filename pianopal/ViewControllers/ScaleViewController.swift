@@ -21,7 +21,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController!.interactivePopGestureRecognizer?.enabled = false
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         automaticallyAdjustsScrollViewInsets = false
         updateNavigationItem()
         view.addSubview(pianoView)
@@ -49,7 +49,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         pianoNavigationViewController!.customNavigationItem.titleView = scalesPickerView!
     }
 
-    func highlightScale(scale: Scale?) {
+    func highlightScale(_ scale: Scale?) {
         if (scale == nil) {
             return
         }
@@ -60,7 +60,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
             if scale!.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 let colors = colorForPreferences(noteButton)
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     noteButton.illuminate(colors)
                 })
             }
@@ -69,22 +69,22 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     func clearHighlighting() {
         for noteButton in pianoView.highlightedNoteButtons {
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 noteButton.deIlluminate()
             })
         }
         pianoView.highlightedNoteButtons.removeAll()
     }
     
-    func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
         return scales.count
     }
     
-    func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
         return scales[item].simpleDescription()
     }
     
-    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
         highlightScale(scales[item])
         labelNotes()
     }
@@ -95,7 +95,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         }
     }
     
-    func colorForPreferences(noteButton: NoteButton) -> [KeyColorPair] {
+    func colorForPreferences(_ noteButton: NoteButton) -> [KeyColorPair] {
         if Preferences.highlightTriads && highlightedScale != nil {
             let index = highlightedScale?.indexOf(noteButton.note!)
             if index == nil {
@@ -135,7 +135,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         return [KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKeyColor, blackKeyColor: Colors.highlightedBlackKeyColor)]
     }
     
-    func labelForPreferences(noteButton: NoteButton) {
+    func labelForPreferences(_ noteButton: NoteButton) {
         var title = ""
         if Preferences.labelNoteLetter {
             title = (noteButton.note?.simpleDescription())!
@@ -155,7 +155,7 @@ class ScaleViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         }
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
+    override func didMove(toParentViewController parent: UIViewController?) {
         clearHighlighting()
         removeLabelNotes()
     }

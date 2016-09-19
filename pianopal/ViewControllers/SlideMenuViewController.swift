@@ -31,9 +31,9 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         
-        tableView = UITableView(frame: UIScreen.mainScreen().bounds)
+        tableView = UITableView(frame: UIScreen.main.bounds)
         tableView!.rowHeight = 60
-        tableView!.tableFooterView = UIView(frame: CGRectZero)
+        tableView!.tableFooterView = UIView(frame: CGRect.zero)
         tableView!.backgroundColor = Colors.slideMenuBackgroundColor
         tableView!.delegate = self
         tableView!.dataSource = self
@@ -43,20 +43,20 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         view.addSubview(tableView!)
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tableViewCell =  SlideMenuTableViewCell(style: .Default, reuseIdentifier: "navigationPage")
-        tableViewCell.textLabel!.text = navigationItems[indexPath.row].simpleDescription()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableViewCell =  SlideMenuTableViewCell(style: .default, reuseIdentifier: "navigationPage")
+        tableViewCell.textLabel!.text = navigationItems[(indexPath as NSIndexPath).row].simpleDescription()
         tableViewCell.textLabel!.font = Fonts.chordListItem
         tableViewCell.backgroundColor = Colors.slideMenuBackgroundColor
         return tableViewCell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return navigationItems.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch navigationItems[indexPath.row] {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch navigationItems[(indexPath as NSIndexPath).row] {
             case .ChordProgression:
                 pianoNavigationController!.goToChordTableView()
             case .ScaleProgression:
@@ -85,14 +85,14 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func expandPanel(offset: CGFloat = SlideMenuViewController.offset) {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+    func expandPanel(_ offset: CGFloat = SlideMenuViewController.offset) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions(), animations: {
                 self.pianoNavigationController!.view.frame.origin.x = SlideMenuViewController.offset
             }, completion: nil)
     }
     
     func collapsePanel() {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions(), animations: {
             self.pianoNavigationController!.view.frame.origin.x = 0
             }, completion: { (Bool) in
                 self.view.removeFromSuperview()

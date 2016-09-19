@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let orderedNotes = [Note.C, Note.D, Note.E, Note.F, Note.G, Note.A, Note.B, Note.DFlat, Note.EFlat, Note.FSharp, Note.AFlat, Note.BFlat]
+    static let orderedNotes = [Note.c, Note.d, Note.e, Note.f, Note.g, Note.a, Note.b, Note.dFlat, Note.eFlat, Note.fSharp, Note.aFlat, Note.bFlat]
     static let totalNotes = 12
     static let totalChordTypes = 11
     static let totalScaleTypes = 8

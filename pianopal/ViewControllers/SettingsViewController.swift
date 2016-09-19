@@ -19,20 +19,20 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
     @IBOutlet weak var NoteLetterSwitch: UISwitch!
     @IBOutlet weak var NoteNumberSwitch: UISwitch!
     
-    @IBAction func NoteNumberSwitched(sender: AnyObject) {
-        Preferences.labelNoteNumber = NoteNumberSwitch.on
+    @IBAction func NoteNumberSwitched(_ sender: AnyObject) {
+        Preferences.labelNoteNumber = NoteNumberSwitch.isOn
     }
     
-    @IBAction func NoteLetterSwitched(sender: AnyObject) {
-        Preferences.labelNoteLetter = NoteLetterSwitch.on
+    @IBAction func NoteLetterSwitched(_ sender: AnyObject) {
+        Preferences.labelNoteLetter = NoteLetterSwitch.isOn
     }
     
-    @IBAction func HighlightTriadsSwitched(sender: AnyObject) {
-        Preferences.highlightTriads = TriadSwitch.on
+    @IBAction func HighlightTriadsSwitched(_ sender: AnyObject) {
+        Preferences.highlightTriads = TriadSwitch.isOn
     }
     
     override func viewDidLoad() {
-        navigationController!.interactivePopGestureRecognizer?.enabled = false
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
 
         view.backgroundColor = Colors.chordTableBackgroundColor
         NoteLetterSwitch.onTintColor = Colors.settingsSwitchTintColor
@@ -43,9 +43,9 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
         NoteNumberLabel.font = Fonts.chordListItem
         NoteLetterLabel.font = Fonts.chordListItem
         
-        NoteLetterSwitch.on = Preferences.labelNoteLetter
-        NoteNumberSwitch.on = Preferences.labelNoteNumber
-        TriadSwitch.on = Preferences.highlightTriads
+        NoteLetterSwitch.isOn = Preferences.labelNoteLetter
+        NoteNumberSwitch.isOn = Preferences.labelNoteNumber
+        TriadSwitch.isOn = Preferences.highlightTriads
     }
 
     func updateNavigationItem() {

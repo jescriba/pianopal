@@ -9,5 +9,5 @@
 import Foundation
 
 enum ToolbarActionType : Int {
-    case Chord, Scale, Identify
+    case chord, scale, identify
 }

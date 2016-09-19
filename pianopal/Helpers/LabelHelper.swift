@@ -9,7 +9,7 @@
 import Foundation
 
 class LabelHelper {
-    static func intervalNumberAsString(note: Note, rootNote: Note) -> String {
+    static func intervalNumberAsString(_ note: Note, rootNote: Note) -> String {
         var interval = note.rawValue - rootNote.rawValue
         if interval < 0 {
             interval = interval + 12

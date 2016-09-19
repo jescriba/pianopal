@@ -11,22 +11,22 @@ import UIKit
 
 class NoteOctaveDetector {
 
-    static func determineNoteOctavesOnScreen(pianoView: PianoView) -> [NoteOctave] {
+    static func determineNoteOctavesOnScreen(_ pianoView: PianoView) -> [NoteOctave] {
         var notes = [NoteOctave]()
-        let sortedButtons = pianoView.highlightedNoteButtons.sort({
-            $0.superview!.convertPoint($0.frame.origin, toView: nil).x < $1.superview!.convertPoint($1.frame.origin, toView: nil).x
+        let sortedButtons = pianoView.highlightedNoteButtons.sorted(by: {
+            $0.superview!.convert($0.frame.origin, to: nil).x < $1.superview!.convert($1.frame.origin, to: nil).x
         })
         for noteButton in sortedButtons {
-            if cgRectMostlyContainsRect(UIScreen.mainScreen().bounds, rect2: noteButton.superview!.convertRect(noteButton.frame, toView: nil)) {
+            if cgRectMostlyContainsRect(UIScreen.main.bounds, rect2: noteButton.superview!.convert(noteButton.frame, to: nil)) {
                 notes.append(NoteOctave(note: noteButton.note!, octave: noteButton.octave!))
             }
         }
         return notes
     }
     
-    static func cgRectMostlyContainsRect(rect1: CGRect, rect2: CGRect) -> Bool {
-        let midX = CGRectGetMidX(rect2)
-        let midY = CGRectGetMidY(rect2)
-        return CGRectContainsPoint(rect1, CGPointMake(midX, midY))
+    static func cgRectMostlyContainsRect(_ rect1: CGRect, rect2: CGRect) -> Bool {
+        let midX = rect2.midX
+        let midY = rect2.midY
+        return rect1.contains(CGPoint(x: midX, y: midY))
     }
 }
