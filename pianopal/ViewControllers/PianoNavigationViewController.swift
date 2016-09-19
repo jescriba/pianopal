@@ -93,11 +93,11 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         playButton.setTitleColor(Colors.pressedPlayButtonColor, for: UIControlState())
         playButton.addTarget(self, action: #selector(togglePlay), for: UIControlEvents.touchUpInside)
         
-        saveSessionButton.setTitle("Save", forState: UIControlState.Normal)
+        saveSessionButton.setTitle("Save", for: UIControlState.normal)
         saveSessionButton.sizeToFit()
-        saveSessionButton.setTitleColor(Colors.normalRightBarButtonColor, forState: UIControlState.Normal)
-        saveSessionButton.setTitleColor(Colors.pressedRightBarButtonColor, forState: UIControlState.Highlighted)
-        saveSessionButton.addTarget(self, action: #selector(saveSession), forControlEvents: UIControlEvents.TouchUpInside)
+        saveSessionButton.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState.normal)
+        saveSessionButton.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
+        saveSessionButton.addTarget(self, action: #selector(saveSession), for: UIControlEvents.touchUpInside)
         
         // Create Controllers
         chordTableViewController = ChordTableViewController()
@@ -196,7 +196,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     
     func goToSessionsView() {
         stopPlaying()
-        popViewControllerAnimated(false)
+        popViewController(animated: false)
         pushViewController(sessionsViewController!, animated: false)
         sessionsViewController?.updateNavigationItem()
     }

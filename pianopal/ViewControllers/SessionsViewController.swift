@@ -14,7 +14,7 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol {
     var pianoNavigationViewController: PianoNavigationViewController?
     
     override func viewDidLoad() {
-        navigationController!.interactivePopGestureRecognizer?.enabled = false
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         view.backgroundColor = Colors.chordTableBackgroundColor
     }
     
