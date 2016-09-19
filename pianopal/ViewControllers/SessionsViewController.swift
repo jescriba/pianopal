@@ -9,13 +9,36 @@
 import Foundation
 import UIKit
 
-class SessionsViewController : UIViewController, PianoNavigationProtocol {
+class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate {
+    
+
     var menuBarButton: UIBarButtonItem?
     var pianoNavigationViewController: PianoNavigationViewController?
+    var tableView: UITableView?
+    var sessions:  [PianoSession]?
     
     override func viewDidLoad() {
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         view.backgroundColor = Colors.chordTableBackgroundColor
+        
+        tableView = UITableView()
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        sessions = loadSessions()
+        
+        view.addSubview(tableView!)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sessions?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func loadSessions() -> [PianoSession] {
+        return [PianoSession]()
     }
     
     func updateNavigationItem() {

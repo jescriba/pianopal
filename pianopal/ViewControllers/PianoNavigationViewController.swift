@@ -227,7 +227,19 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func saveSession() {
-        
+        let chords = chordViewController?.chords
+        let scales = scaleViewController?.scales
+        if (chords?.count ?? 0 > 0 || scales?.count ?? 0 > 0) {
+            let saveSessionVC = SaveSessionViewController()
+            saveSessionVC.modalPresentationStyle = UIModalPresentationStyle.popover
+            present(saveSessionVC, animated: true, completion: nil)
+            
+            let presentationController = saveSessionVC.popoverPresentationController
+            presentationController?.canOverlapSourceViewRect = false
+            presentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+            presentationController?.sourceView = saveSessionVC.saveBoxView
+            presentationController?.sourceRect = saveSessionVC.saveBoxView!.frame
+        }
     }
     
     func addChordToProgression() {

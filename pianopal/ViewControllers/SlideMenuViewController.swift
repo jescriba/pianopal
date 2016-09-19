@@ -24,7 +24,7 @@ enum NavigationPage : Int {
 
 class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     static let offset: CGFloat = 200
-    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Settings, NavigationPage.Sessions]
+    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Sessions, NavigationPage.Settings]
     var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
     var tableView: UITableView?
