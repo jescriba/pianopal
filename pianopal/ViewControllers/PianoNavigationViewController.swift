@@ -51,6 +51,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
 
         UINavigationBar.appearance().titleTextAttributes = ["Font": Fonts.changeToolbarAction!]
         navigationController?.navigationBar.isHidden = true
+        customNavigationBar.layer.shadowOpacity = 0.5
         customNavigationBar.isTranslucent = false
         customNavigationBar.barTintColor = Colors.toolBarBackground
         customNavigationBar.setItems([customNavigationItem], animated: false)
