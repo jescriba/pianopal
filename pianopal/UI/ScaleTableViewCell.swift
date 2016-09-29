@@ -18,9 +18,9 @@ class ScaleTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = Colors.chordTableBackgroundColor
-        scaleLabel = self.textLabel
-        scaleLabel!.font = Fonts.chordListItem
+        backgroundColor = Colors.tableBackground
+        scaleLabel = textLabel
+        scaleLabel!.font = Fonts.tableItem
         scaleLabel!.textAlignment = NSTextAlignment.center
     }
 }

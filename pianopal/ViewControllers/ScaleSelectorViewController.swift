@@ -24,27 +24,27 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
         super.viewDidLoad()
         view.backgroundColor = Colors.pickerBackground
 
-        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-        updateNavigationItem()
-        let navigationItem = pianoNavigationViewController?.customNavigationItem
-        rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)
-        scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(navigationItem: navigationItem!)
-        scaleTypeLabel.font = Fonts.pickerSectionDescription
-        rootNoteLabel.font = Fonts.pickerSectionDescription
-        rootNotePickerView.delegate = rootNotePickerViewDelegate
-        rootNotePickerView.dataSource = rootNotePickerViewDataSource
-        scaleTypePickerView.delegate = scaleTypePickerViewDelegate
-        scaleTypePickerView.dataSource = scaleTypePickerViewDataSource
+//        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
+//        updateNavigationItem()
+//        let navigationItem = pianoNavigationViewController?.customNavigationItem
+//        rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)
+//        scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(navigationItem: navigationItem!)
+//        scaleTypeLabel.font = Fonts.pickerSectionDescription
+//        rootNoteLabel.font = Fonts.pickerSectionDescription
+//        rootNotePickerView.delegate = rootNotePickerViewDelegate
+//        rootNotePickerView.dataSource = rootNotePickerViewDataSource
+//        scaleTypePickerView.delegate = scaleTypePickerViewDelegate
+//        scaleTypePickerView.dataSource = scaleTypePickerViewDataSource
     }
     
     func updateNavigationItem() {
-        pianoNavigationViewController = navigationController as? PianoNavigationViewController
-        pianoNavigationViewController?.customNavigationItem.title = "Select Scale"
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = nil
-        let saveScaleButton = pianoNavigationViewController?.saveScaleButton
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveScaleButton!)
-        let cancelScaleButton = pianoNavigationViewController?.cancelScaleButton
-        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelScaleButton!)
+//        pianoNavigationViewController = navigationController as? PianoNavigationViewController
+//        pianoNavigationViewController?.customNavigationItem.title = "Select Scale"
+//        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
+//        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = nil
+//        let saveScaleButton = pianoNavigationViewController?.saveScaleButton
+//        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveScaleButton!)
+//        let cancelScaleButton = pianoNavigationViewController?.cancelScaleButton
+//        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelScaleButton!)
     }
 }

@@ -18,9 +18,9 @@ class ChordTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        backgroundColor = Colors.chordTableBackgroundColor
+        backgroundColor = Colors.tableBackground
         chordLabel = self.textLabel
-        chordLabel!.font = Fonts.chordListItem
+        chordLabel!.font = Fonts.tableItem
         chordLabel!.textAlignment = NSTextAlignment.center
     }
 }

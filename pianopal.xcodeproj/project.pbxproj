@@ -27,6 +27,7 @@
 		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
 		427643651D8F938F0018967A /* PianoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427643641D8F938F0018967A /* PianoSession.swift */; };
 		427643671D8F97770018967A /* SaveSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427643661D8F97770018967A /* SaveSessionViewController.swift */; };
+		4284829B1D9D7F6E006843DD /* PianoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4284829A1D9D7F6D006843DD /* PianoViewController.swift */; };
 		42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */; };
 		42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */; };
 		42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */; };
@@ -146,6 +147,7 @@
 		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		427643641D8F938F0018967A /* PianoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoSession.swift; sourceTree = "<group>"; };
 		427643661D8F97770018967A /* SaveSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveSessionViewController.swift; sourceTree = "<group>"; };
+		4284829A1D9D7F6D006843DD /* PianoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoViewController.swift; sourceTree = "<group>"; };
 		42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -363,21 +365,22 @@
 		42E8EA5B1D204CEF004757D1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				42BED93F1D5AC23E009EBB2F /* WrapperViewController.swift */,
+				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
 				42BC42DB1D43BF7E005B0257 /* PianoNavigationViewController.swift */,
+				4284829A1D9D7F6D006843DD /* PianoViewController.swift */,
 				42BC42DD1D43C899005B0257 /* ChordViewController.swift */,
 				42BC42DF1D43C8C5005B0257 /* ScaleViewController.swift */,
 				42BC42E11D43C8DA005B0257 /* IdentifyViewController.swift */,
 				42C19D711D3C44650052D623 /* ChordTableViewController.swift */,
 				423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */,
-				42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */,
 				42BC42EE1D45E38E005B0257 /* ScaleTableViewController.swift */,
 				B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */,
-				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
 				42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */,
-				42BED93F1D5AC23E009EBB2F /* WrapperViewController.swift */,
-				42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */,
 				42D255C31D6E7704001AEAB7 /* SessionsViewController.swift */,
 				427643661D8F97770018967A /* SaveSessionViewController.swift */,
+				42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */,
+				42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */,
 			);
 			name = ViewControllers;
 			path = pianopal/ViewControllers;
@@ -599,6 +602,7 @@
 				420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */,
 				423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */,
 				B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */,
+				4284829B1D9D7F6E006843DD /* PianoViewController.swift in Sources */,
 				420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */,
 				423AA3431D122E3E009494F1 /* Scale.swift in Sources */,
 				423CA0231D0F0EBD0005CD4B /* NoteButton.swift in Sources */,

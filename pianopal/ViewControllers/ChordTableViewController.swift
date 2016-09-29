@@ -9,14 +9,18 @@
 import UIKit
 
 class ChordTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PianoNavigationProtocol {
+    
+    let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var chords = [Chord]()
-    var tableView: UITableView? = nil
+    var menuButton: UIButton?
+    var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-
+        pianoNavigationViewController = navigationController as? PianoNavigationViewController
         let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height - navBarOffset
@@ -25,13 +29,14 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView!.register(ChordTableViewCell.self, forCellReuseIdentifier: "ChordTableViewCell")
-        tableView!.separatorColor = Colors.chordTableSeparatorColor
         tableView!.rowHeight = 90
-        tableView!.backgroundColor = Colors.chordTableBackgroundColor
+        tableView!.separatorColor = Colors.tableSeparator
+        tableView!.backgroundColor = Colors.tableBackground
         tableView!.allowsSelectionDuringEditing = true
         tableView!.tableFooterView = UIView()
         view.addSubview(tableView!)
         
+        menuButton = pianoNavigationViewController?.menuButton
         updateNavigationItem()
     }
     
@@ -77,18 +82,14 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func updateNavigationItem() {
-        pianoNavigationViewController = navigationController as? PianoNavigationViewController
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-        let plusButton = pianoNavigationViewController?.addChordButton
-        plusButton!.setTitle("\u{f196}", for: UIControlState())
-        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-        plusButton!.titleLabel!.font = Fonts.changeModeButton
-        let plusBarButtonItem = UIBarButtonItem(customView: plusButton!)
+        plusButton.setTitle("\u{f196}", for: UIControlState())
+        plusButton.setTitleColor(Colors.normalRightBarButton, for: .highlighted)
+        plusButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        plusButton.titleLabel!.font = Fonts.plusButton
+        let plusBarButtonItem = UIBarButtonItem(customView: plusButton)
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem
         pianoNavigationViewController?.customNavigationItem.title = "Chord Progression"
-        let menuButton = pianoNavigationViewController?.menuButton
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
     }
-
 }

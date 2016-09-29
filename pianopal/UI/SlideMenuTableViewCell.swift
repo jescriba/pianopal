@@ -19,7 +19,7 @@ class SlideMenuTableViewCell : UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let bgView = UIView()
-        bgView.backgroundColor = Colors.navigationTablViewCellSelectedBackgroundColor
+        bgView.backgroundColor = Colors.navigationBackground
         selectedBackgroundView = bgView
     }
     

@@ -25,16 +25,16 @@ enum NavigationPage : Int {
 class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     static let offset: CGFloat = 200
     let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Sessions, NavigationPage.Settings]
-    var expanded = false
     var pianoNavigationController: PianoNavigationViewController?
     var tableView: UITableView?
+    var isExpanded = false
     
     override func viewDidLoad() {
         
         tableView = UITableView(frame: UIScreen.main.bounds)
         tableView!.rowHeight = 60
         tableView!.tableFooterView = UIView(frame: CGRect.zero)
-        tableView!.backgroundColor = Colors.slideMenuBackgroundColor
+        tableView!.backgroundColor = Colors.navigationBackground
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.cellLayoutMarginsFollowReadableWidth = false
@@ -46,8 +46,8 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell =  SlideMenuTableViewCell(style: .default, reuseIdentifier: "navigationPage")
         tableViewCell.textLabel!.text = navigationItems[(indexPath as NSIndexPath).row].simpleDescription()
-        tableViewCell.textLabel!.font = Fonts.chordListItem
-        tableViewCell.backgroundColor = Colors.slideMenuBackgroundColor
+        tableViewCell.textLabel!.font = Fonts.navigationItem
+        tableViewCell.backgroundColor = Colors.navigationBackground
         return tableViewCell
     }
     
@@ -56,17 +56,19 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pianoNavigationController!.stopPlaying()
+        let pianoViewController = pianoNavigationController!.pianoViewController
         switch navigationItems[(indexPath as NSIndexPath).row] {
             case .ChordProgression:
                 pianoNavigationController!.goToChordTableView()
             case .ScaleProgression:
                 pianoNavigationController!.goToScaleTableView()
             case .Chords:
-                pianoNavigationController!.goToChordView()
+                pianoViewController.pianoViewMode = PianoViewMode.chord
             case .Scales:
-                pianoNavigationController!.goToScaleView()
+                pianoViewController.pianoViewMode = PianoViewMode.scale
             case .Identify:
-                pianoNavigationController!.goToIdentifyView()
+                pianoViewController.pianoViewMode = PianoViewMode.identify
             case .Settings:
                 pianoNavigationController!.goToSettingsView()
             case .Sessions:
@@ -76,12 +78,12 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func togglePanel() {
-        if (expanded) {
+        if (isExpanded) {
             collapsePanel()
-            expanded = false
+            isExpanded = false
         } else {
             expandPanel()
-            expanded = true
+            isExpanded = true
         }
     }
     

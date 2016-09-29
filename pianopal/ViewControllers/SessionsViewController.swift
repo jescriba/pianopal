@@ -11,16 +11,17 @@ import UIKit
 
 class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate {
     
-
-    var menuBarButton: UIBarButtonItem?
+    let saveSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    var menuButton: UIButton?
     var pianoNavigationViewController: PianoNavigationViewController?
     var tableView: UITableView?
     var sessions:  [PianoSession]?
     
     override func viewDidLoad() {
+        pianoNavigationViewController = navigationController as? PianoNavigationViewController
+        menuButton = pianoNavigationViewController!.menuButton
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-        view.backgroundColor = Colors.chordTableBackgroundColor
-        
+        view.backgroundColor = Colors.tableBackground
         tableView = UITableView()
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -42,14 +43,10 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     }
     
     func updateNavigationItem() {
-        pianoNavigationViewController = navigationController as? PianoNavigationViewController
         pianoNavigationViewController?.customNavigationItem.titleView = nil
         pianoNavigationViewController?.customNavigationItem.title = "Sessions"
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-        menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
-        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
-        let saveButton = UIBarButtonItem(customView: pianoNavigationViewController!.saveSessionButton)
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = saveButton
+        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveSessionButton)
     }
-    
 }
