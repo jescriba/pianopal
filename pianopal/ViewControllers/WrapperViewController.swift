@@ -11,7 +11,6 @@ import UIKit
 
 class WrapperViewController : UIViewController, UIGestureRecognizerDelegate {
     var navController: PianoNavigationViewController?
-    var sideMenuController: SlideMenuViewController?
     
     convenience init(navigationController: PianoNavigationViewController) {
         self.init()

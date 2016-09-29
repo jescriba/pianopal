@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let pianoViewController = PianoViewController()
-        pianoNavigationViewController = PianoNavigationViewController(rootViewController: pianoViewController)
+        pianoNavigationViewController = PianoNavigationViewController()
         wrapperViewController = WrapperViewController(navigationController: pianoNavigationViewController!)
         wrapperViewController!.addChildViewController(pianoNavigationViewController!)
         wrapperViewController!.view.addSubview(pianoNavigationViewController!.view)

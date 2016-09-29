@@ -13,30 +13,21 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     let customNavigationBar = UINavigationBar(frame: Dimensions.toolbarRect)
     let customNavigationItem = UINavigationItem(title: "Piano")
     let menuButton = UIButton(frame: Dimensions.menuButtonRect)
-    let pianoViewController: PianoViewController
+    let pianoViewController = PianoViewController()
+    let slideMenuViewController = SlideMenuViewController()
     let chordTableViewController = ChordTableViewController()
     let scaleTableViewController =  ScaleTableViewController()
-    let slideMenuViewController = SlideMenuViewController()
     let sessionsViewController = SessionsViewController()
     let audioEngine = AudioEngine()
     var chordSelectorViewController: ChordSelectorViewController?
     var scaleSelectorViewController: ScaleSelectorViewController?
     var settingsViewController: SettingsViewController?
     var isPlaying = false
-
-
-    override init(rootViewController: UIViewController) {
-        pianoViewController = rootViewController as! PianoViewController
-        super.init(rootViewController: rootViewController)
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        pianoViewController = PianoViewController()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    convenience init() {
+        self.init(nibName:nil, bundle:nil)
+        
+        pushViewController(pianoViewController, animated: false)
     }
     
     override func viewDidLoad() {
@@ -99,11 +90,11 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), for: .touchUpInside)
 
         let playButton = pianoViewController.playButton
-        playButton.setTitle("\u{f144}", for: UIControlState())
+        playButton.setTitle("\u{f144}", for: .normal)
         playButton.titleLabel!.font = Fonts.playButton
         playButton.sizeToFit()
         playButton.setTitleColor(Colors.normalPlayButton, for: .normal)
-        playButton.setTitleColor(Colors.pressedPlayButton, for: .normal)
+        playButton.setTitleColor(Colors.pressedPlayButton, for: .highlighted)
         playButton.addTarget(self, action: #selector(togglePlay), for: .touchUpInside)
         
         let saveSessionButton = sessionsViewController.saveSessionButton
@@ -149,6 +140,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     }
     
     func goToPianoView() {
+        customNavigationItem.titleView = nil
         popToRootViewController(animated: false)
     }
     
