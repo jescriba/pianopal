@@ -148,6 +148,10 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         slideMenuViewController.togglePanel()
     }
     
+    func goToPianoView() {
+        popToRootViewController(animated: false)
+    }
+    
     func goToChordTableView() {
         customNavigationItem.titleView = nil
         popViewController(animated: false)
@@ -212,7 +216,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         chordTableViewController.tableView!.reloadData()
         pianoViewController.chords = chordTableViewController.chords
         popViewController(animated: false)
-        pushViewController(pianoViewController, animated: false)
+        pushViewController(chordTableViewController, animated: false)
         Session.save(chords: chordTableViewController.chords)
     }
     

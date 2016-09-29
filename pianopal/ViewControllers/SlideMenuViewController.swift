@@ -65,10 +65,13 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
                 pianoNavigationController!.goToScaleTableView()
             case .Chords:
                 pianoViewController.pianoViewMode = PianoViewMode.chord
+                pianoNavigationController!.goToPianoView()
             case .Scales:
                 pianoViewController.pianoViewMode = PianoViewMode.scale
+                pianoNavigationController!.goToPianoView()
             case .Identify:
                 pianoViewController.pianoViewMode = PianoViewMode.identify
+                pianoNavigationController!.goToPianoView()
             case .Settings:
                 pianoNavigationController!.goToSettingsView()
             case .Sessions:

@@ -56,6 +56,7 @@ class PianoViewController : UIViewController, PianoNavigationProtocol {
         let pianoNavigationViewController = navigationController as? PianoNavigationViewController
         let menuButton = pianoNavigationViewController?.menuButton
         pianoNavigationViewController!.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
+        pianoNavigationViewController!.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: playButton)
     }
     
 }
