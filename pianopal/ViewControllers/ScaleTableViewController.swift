@@ -9,31 +9,35 @@
 import UIKit
 
 class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PianoNavigationProtocol {
+    
+    let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var scales = [Scale]()
     var tableView: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-//        
-//        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
-//        let width = UIScreen.main.bounds.width
-//        let height = UIScreen.main.bounds.height - navBarOffset
-//        let tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
-//        tableView = UITableView(frame: tableViewRect)
-//        tableView?.delegate = self
-//       
-//        tableView?.dataSource = self
-//        tableView!.register(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
-//        tableView!.separatorColor = Colors.chordTableSeparatorColor
-//        tableView!.rowHeight = 90
-//        tableView!.backgroundColor = Colors.chordTableBackgroundColor
-//        tableView!.allowsSelectionDuringEditing = true
-//        tableView!.tableFooterView = UIView()
-//        view.addSubview(tableView!)
-//        
-//        updateNavigationItem()
+        
+        pianoNavigationViewController = navigationController as? PianoNavigationViewController
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
+        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height - navBarOffset
+        let tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
+        tableView = UITableView(frame: tableViewRect)
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView!.register(ScaleTableViewCell.self, forCellReuseIdentifier: "ScaleTableViewCell")
+        tableView!.separatorColor = Colors.tableSeparator
+        tableView!.rowHeight = 90
+        tableView!.backgroundColor = Colors.tableBackground
+        tableView!.allowsSelectionDuringEditing = true
+        tableView!.tableFooterView = UIView()
+        view.addSubview(tableView!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavigationItem()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,17 +82,15 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func updateNavigationItem() {
-//        pianoNavigationViewController = navigationController as? PianoNavigationViewController
-//        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-//        let plusButton = pianoNavigationViewController?.addScaleButton
-//        plusButton!.setTitle("\u{f196}", for: UIControlState())
-//        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-//        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-//        plusButton!.titleLabel!.font = Fonts.changeModeButton
-//        let plusBarButtonItem = UIBarButtonItem(customView: plusButton!)
-//        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem
-//        pianoNavigationViewController?.customNavigationItem.title = "Scale Progression"
-//        let menuButton = pianoNavigationViewController?.menuButton
-//        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
+        plusButton.setTitle("\u{f196}", for: .normal)
+        plusButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        plusButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        plusButton.titleLabel!.font = Fonts.plusButton
+        let plusBarButtonItem = UIBarButtonItem(customView: plusButton)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem
+        pianoNavigationViewController?.customNavigationItem.title = "Scale Progression"
+        let menuButton = pianoNavigationViewController?.menuButton
+        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
     }
 }

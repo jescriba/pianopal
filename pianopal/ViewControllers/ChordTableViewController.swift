@@ -37,6 +37,9 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
         view.addSubview(tableView!)
         
         menuButton = pianoNavigationViewController?.menuButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         updateNavigationItem()
     }
     
@@ -83,8 +86,8 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func updateNavigationItem() {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-        plusButton.setTitle("\u{f196}", for: UIControlState())
-        plusButton.setTitleColor(Colors.normalRightBarButton, for: .highlighted)
+        plusButton.setTitle("\u{f196}", for: .normal)
+        plusButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
         plusButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
         plusButton.titleLabel!.font = Fonts.plusButton
         let plusBarButtonItem = UIBarButtonItem(customView: plusButton)

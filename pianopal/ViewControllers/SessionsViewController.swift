@@ -30,6 +30,10 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         view.addSubview(tableView!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavigationItem()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions?.count ?? 0
     }

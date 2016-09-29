@@ -19,18 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
-//        let chordViewController = ChordViewController()
-//        let chords = Session.loadChords()
-//        if chords != nil {
-//            chordViewController.chords = chords!
-//        }
-//        pianoNavigationViewController = PianoNavigationViewController.init(rootViewController: chordViewController)
-//        wrapperViewController = WrapperViewController(navigationController: pianoNavigationViewController!)
-//        wrapperViewController!.addChildViewController(pianoNavigationViewController!)
-//        wrapperViewController!.view.addSubview(pianoNavigationViewController!.view)
-//        
-//        window?.rootViewController = wrapperViewController
-//        window?.makeKeyAndVisible()
+        let pianoViewController = PianoViewController()
+        pianoNavigationViewController = PianoNavigationViewController(rootViewController: pianoViewController)
+        wrapperViewController = WrapperViewController(navigationController: pianoNavigationViewController!)
+        wrapperViewController!.addChildViewController(pianoNavigationViewController!)
+        wrapperViewController!.view.addSubview(pianoNavigationViewController!.view)
+        
+        window?.rootViewController = wrapperViewController
+        window?.makeKeyAndVisible()
 
         return true
     }

@@ -13,115 +13,119 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     let customNavigationBar = UINavigationBar(frame: Dimensions.toolbarRect)
     let customNavigationItem = UINavigationItem(title: "Piano")
     let menuButton = UIButton(frame: Dimensions.menuButtonRect)
-    let pianoViewController = PianoViewController()
+    let pianoViewController: PianoViewController
     let chordTableViewController = ChordTableViewController()
     let scaleTableViewController =  ScaleTableViewController()
     let slideMenuViewController = SlideMenuViewController()
-    let settingsViewController = SettingsViewController()
     let sessionsViewController = SessionsViewController()
     let audioEngine = AudioEngine()
     var chordSelectorViewController: ChordSelectorViewController?
     var scaleSelectorViewController: ScaleSelectorViewController?
+    var settingsViewController: SettingsViewController?
     var isPlaying = false
-//    let cancelChordButton = UIButton(frame: Dimensions.menuButtonRect)
-//    let saveChordButton = UIButton(frame: Dimensions.rightBarButtonRect)
-//    let addScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
-//    let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
-//    let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
 
+
+    override init(rootViewController: UIViewController) {
+        pianoViewController = rootViewController as! PianoViewController
+        super.init(rootViewController: rootViewController)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
+        pianoViewController = PianoViewController()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create VCs
         slideMenuViewController.pianoNavigationController = self
         
+        let chordSelectorStoryboard = UIStoryboard(name: "ChordSelectorStoryboard", bundle: nil)
+        chordSelectorViewController = chordSelectorStoryboard.instantiateViewController(withIdentifier: "chordSelectorStoryboard") as? ChordSelectorViewController
         
-        //UINavigationBar.appearance().attri
+        let scaleSelectorStoryboard = UIStoryboard(name: "ScaleSelectorStoryboard", bundle: nil)
+        scaleSelectorViewController = scaleSelectorStoryboard.instantiateViewController(withIdentifier: "scaleSelectorStoryboard") as? ScaleSelectorViewController
 
-//        UINavigationBar.appearance().titleTextAttributes = ["Font": Fonts.changeToolbarAction!]
-//        navigationController?.navigationBar.isHidden = true
-//        customNavigationBar.layer.shadowOpacity = 0.5
-//        customNavigationBar.isTranslucent = false
-//        customNavigationBar.barTintColor = Colors.toolBarBackground
-//        customNavigationBar.setItems([customNavigationItem], animated: false)
-//        view.addSubview(customNavigationBar)
-//        
-//        menuButton.setTitle("\u{f0c9}", for: UIControlState())
-//        menuButton.titleLabel!.font = Fonts.menuButton
-//        menuButton.setTitleColor(Colors.normalMenuButtonColor, for: UIControlState())
-//        menuButton.setTitleColor(Colors.presssedMenuButtonColor, for: UIControlState.highlighted)
-//        menuButton.addTarget(self, action: #selector(toggleSlideMenuPanel), for: UIControlEvents.touchUpInside)
-//        
-//        addChordButton.addTarget(self, action: #selector(goToChordSelector), for: UIControlEvents.touchUpInside)
-//        cancelChordButton.setTitle("Cancel", for: UIControlState())
-//        cancelChordButton.sizeToFit()
-//        cancelChordButton.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-//        cancelChordButton.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-//        cancelChordButton.addTarget(self, action: #selector(cancelChordToProgression), for: UIControlEvents.touchUpInside)
-//        saveChordButton.setTitle("Save", for: UIControlState())
-//        saveChordButton.sizeToFit()
-//        saveChordButton.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-//        saveChordButton.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-//        saveChordButton.addTarget(self, action: #selector(addChordToProgression), for: UIControlEvents.touchUpInside)
-//        
-//        addScaleButton.addTarget(self, action: #selector(goToScaleSelector), for: UIControlEvents.touchUpInside)
-//        cancelScaleButton.setTitle("Cancel", for: UIControlState())
-//        cancelScaleButton.sizeToFit()
-//        cancelScaleButton.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-//        cancelScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-//        cancelScaleButton.addTarget(self, action: #selector(cancelScaleToProgression), for: UIControlEvents.touchUpInside)
-//        saveScaleButton.setTitle("Save", for: UIControlState())
-//        saveScaleButton.sizeToFit()
-//        saveScaleButton.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-//        saveScaleButton.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-//        saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), for: UIControlEvents.touchUpInside)
-//        
-//        playButton.setTitle("\u{f144}", for: UIControlState())
-//        playButton.titleLabel!.font = Fonts.playButton
-//        playButton.sizeToFit()
-//        playButton.setTitleColor(Colors.normalPlayButtonColor, for: UIControlState())
-//        playButton.setTitleColor(Colors.pressedPlayButtonColor, for: UIControlState())
-//        playButton.addTarget(self, action: #selector(togglePlay), for: UIControlEvents.touchUpInside)
-//        
-//        saveSessionButton.setTitle("Save", for: UIControlState.normal)
-//        saveSessionButton.sizeToFit()
-//        saveSessionButton.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState.normal)
-//        saveSessionButton.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-//        saveSessionButton.addTarget(self, action: #selector(saveSession), for: UIControlEvents.touchUpInside)
-//        
-//        // Create Controllers
-//        chordTableViewController = ChordTableViewController()
-//        scaleTableViewController = ScaleTableViewController()
-//        scaleViewController = ScaleViewController()
-//        identifyViewController = IdentifyViewController()
-//        sessionsViewController = SessionsViewController()
-//        slideMenuViewController = SlideMenuViewController()
-//        slideMenuViewController!.pianoNavigationController = self
-//        
-//        let storyboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
-//        settingsViewController = storyboard.instantiateViewController(withIdentifier: "settingsStoryboard") as? SettingsViewController
-//        
-//        // Load Previous Session
-//        let chords = Session.loadChords()
-//        let scales = Session.loadScales()
-//        if chords != nil {
-//            chordTableViewController?.chords = chords!
-//            chordViewController?.chords = chords!
-//        }
-//        if scales != nil {
-//            scaleTableViewController?.scales = scales!
-//            scaleViewController?.scales = scales!
-//        }
-//        
-//        audioEngine = AudioEngine()
-//        audioEngine?.delegate = self
+        let settingsStoryboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "settingsStoryboard") as? SettingsViewController
+        
+        UINavigationBar.appearance().titleTextAttributes = ["Font": Fonts.toolbarTitle!]
+        navigationController?.navigationBar.isHidden = true
+        customNavigationBar.layer.shadowOpacity = 0.5
+        customNavigationBar.isTranslucent = false
+        customNavigationBar.barTintColor = Colors.toolBarBackground
+        customNavigationBar.setItems([customNavigationItem], animated: false)
+        view.addSubview(customNavigationBar)
+
+        menuButton.setTitle("\u{f0c9}", for: .normal)
+        menuButton.titleLabel!.font = Fonts.menuButton
+        menuButton.setTitleColor(Colors.normalMenuButton, for: .normal)
+        menuButton.setTitleColor(Colors.presssedMenuButton, for: .highlighted)
+        menuButton.addTarget(self, action: #selector(toggleSlideMenuPanel), for: .touchUpInside)
+
+        let addChordButton = chordTableViewController.plusButton
+        let cancelChordButton = chordSelectorViewController!.cancelChordButton
+        let saveChordButton = chordSelectorViewController!.saveChordButton
+        addChordButton.addTarget(self, action: #selector(goToChordSelector), for: .touchUpInside)
+        cancelChordButton.setTitle("Cancel", for: .normal)
+        cancelChordButton.sizeToFit()
+        cancelChordButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        cancelChordButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        cancelChordButton.addTarget(self, action: #selector(cancelChordToProgression), for: .touchUpInside)
+        saveChordButton.setTitle("Save", for: .normal)
+        saveChordButton.sizeToFit()
+        saveChordButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        saveChordButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        saveChordButton.addTarget(self, action: #selector(addChordToProgression), for: .touchUpInside)
+
+        let addScaleButton = scaleTableViewController.plusButton
+        let cancelScaleButton = scaleSelectorViewController!.cancelScaleButton
+        let saveScaleButton = scaleSelectorViewController!.saveScaleButton
+        addScaleButton.addTarget(self, action: #selector(goToScaleSelector), for: .touchUpInside)
+        cancelScaleButton.setTitle("Cancel", for: .normal)
+        cancelScaleButton.sizeToFit()
+        cancelScaleButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        cancelScaleButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        cancelScaleButton.addTarget(self, action: #selector(cancelScaleToProgression), for: .touchUpInside)
+        saveScaleButton.setTitle("Save", for: UIControlState())
+        saveScaleButton.sizeToFit()
+        saveScaleButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        saveScaleButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        saveScaleButton.addTarget(self, action: #selector(addScaleToProgression), for: .touchUpInside)
+
+        let playButton = pianoViewController.playButton
+        playButton.setTitle("\u{f144}", for: UIControlState())
+        playButton.titleLabel!.font = Fonts.playButton
+        playButton.sizeToFit()
+        playButton.setTitleColor(Colors.normalPlayButton, for: .normal)
+        playButton.setTitleColor(Colors.pressedPlayButton, for: .normal)
+        playButton.addTarget(self, action: #selector(togglePlay), for: .touchUpInside)
+        
+        let saveSessionButton = sessionsViewController.saveSessionButton
+        saveSessionButton.setTitle("Save", for: UIControlState.normal)
+        saveSessionButton.sizeToFit()
+        saveSessionButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        saveSessionButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        saveSessionButton.addTarget(self, action: #selector(saveSession), for: .touchUpInside)
+
+        // Load Previous Session
+        let chords = Session.loadChords()
+        let scales = Session.loadScales()
+        if chords != nil {
+            chordTableViewController.chords = chords!
+            pianoViewController.chords = chords!
+        }
+        if scales != nil {
+            scaleTableViewController.scales = scales!
+            pianoViewController.scales = scales!
+        }
+        
+        audioEngine.delegate = self
     }
     
     func addSlideMenuPanel() {
@@ -147,54 +151,44 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     func goToChordTableView() {
         customNavigationItem.titleView = nil
         popViewController(animated: false)
-        pushViewController(chordTableViewController, animated: true)
+        pushViewController(chordTableViewController, animated: false)
         chordTableViewController.updateNavigationItem()
     }
     
     func goToScaleTableView() {
         customNavigationItem.titleView = nil
         popViewController(animated: false)
-        pushViewController(scaleTableViewController, animated: true)
+        pushViewController(scaleTableViewController, animated: false)
         scaleTableViewController.updateNavigationItem()
     }
 
     func goToSettingsView() {
         popViewController(animated: false)
-        pushViewController(settingsViewController, animated: true)
-        settingsViewController.updateNavigationItem()
+        pushViewController(settingsViewController!, animated: false)
+        settingsViewController!.updateNavigationItem()
     }
     
     func goToSessionsView() {
         popViewController(animated: false)
-        pushViewController(sessionsViewController, animated: true)
+        pushViewController(sessionsViewController, animated: false)
         sessionsViewController.updateNavigationItem()
     }
 
     func goToChordSelector() {
         removeSlideMenuPanel()
         popViewController(animated: false)
-        if (chordSelectorViewController == nil) {
-            let storyboard = UIStoryboard(name: "ChordSelectorStoryboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "chordSelectorStoryboard")
-            chordSelectorViewController = vc as? ChordSelectorViewController
-        }
-        pushViewController(chordSelectorViewController!, animated: true)
+        pushViewController(chordSelectorViewController!, animated: false)
         chordSelectorViewController?.updateNavigationItem()
     }
 
     func goToScaleSelector() {
         removeSlideMenuPanel()
         popViewController(animated: false)
-        if (scaleSelectorViewController == nil) {
-            let storyboard = UIStoryboard(name: "ScaleSelectorStoryboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "scaleSelectorStoryboard")
-            scaleSelectorViewController = vc as? ScaleSelectorViewController
-        }
         pushViewController(scaleSelectorViewController!, animated: false)
         scaleSelectorViewController?.updateNavigationItem()
     }
-//
-//    func saveSession() {
+
+    func saveSession() {
 //        let chords = chordViewController?.chords
 //        let scales = scaleViewController?.scales
 //        if (chords?.count ?? 0 > 0 || scales?.count ?? 0 > 0) {
@@ -208,44 +202,41 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
 //            presentationController?.sourceView = saveSessionVC.saveBoxView
 //            presentationController?.sourceRect = saveSessionVC.saveBoxView!.frame
 //        }
-//    }
-//    
-//    func addChordToProgression() {
-//        let rootNote = chordSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
-//        let chordType = chordSelectorViewController?.chordTypePickerView.selectedRow(inComponent: 0)
-//        let chord = ChordGenerator.generateChord(Note(rawValue: rootNote!)!, chordType: ChordType(rawValue: chordType!)!)
-//        chordTableViewController?.chords.append(chord)
-//        chordTableViewController?.tableView!.reloadData()
-//        popViewController(animated: false)
-//        pushViewController(chordTableViewController!, animated: false)
-//        chordTableViewController?.updateNavigationItem()
-//        Session.save(chords: chordTableViewController?.chords)
-//    }
-//    
-//    func cancelChordToProgression() {
-//        popViewController(animated: false)
-//        pushViewController(chordTableViewController!, animated: false)
-//        chordTableViewController?.updateNavigationItem()
-//    }
-//    
-//    func addScaleToProgression() {
-//        let rootNote = scaleSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
-//        let scaleType = scaleSelectorViewController?.scaleTypePickerView.selectedRow(inComponent: 0)
-//        let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote!)!, scaleType: ScaleType(rawValue: scaleType!)!)
-//        scaleTableViewController?.scales.append(scale)
-//        scaleTableViewController?.tableView!.reloadData()
-//        popViewController(animated: false)
-//        pushViewController(scaleTableViewController!, animated: false)
-//        scaleTableViewController?.updateNavigationItem()
-//        Session.save(scaleTableViewController?.scales)
-//    }
-//    
-//    func cancelScaleToProgression() {
-//        popViewController(animated: false)
-//        pushViewController(scaleTableViewController!, animated: false)
-//        scaleTableViewController?.updateNavigationItem()
-//    }
-//    
+    }
+    
+    func addChordToProgression() {
+        let rootNote = chordSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
+        let chordType = chordSelectorViewController?.chordTypePickerView.selectedRow(inComponent: 0)
+        let chord = ChordGenerator.generateChord(Note(rawValue: rootNote!)!, chordType: ChordType(rawValue: chordType!)!)
+        chordTableViewController.chords.append(chord)
+        chordTableViewController.tableView!.reloadData()
+        pianoViewController.chords = chordTableViewController.chords
+        popViewController(animated: false)
+        pushViewController(pianoViewController, animated: false)
+        Session.save(chords: chordTableViewController.chords)
+    }
+    
+    func cancelChordToProgression() {
+        popViewController(animated: false)
+        pushViewController(pianoViewController, animated: false)
+    }
+
+    func addScaleToProgression() {
+        let rootNote = scaleSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
+        let scaleType = scaleSelectorViewController?.scaleTypePickerView.selectedRow(inComponent: 0)
+        let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote!)!, scaleType: ScaleType(rawValue: scaleType!)!)
+        scaleTableViewController.scales.append(scale)
+        scaleTableViewController.tableView!.reloadData()
+        popViewController(animated: false)
+        pushViewController(scaleTableViewController, animated: false)
+        Session.save(scaleTableViewController.scales)
+    }
+    
+    func cancelScaleToProgression() {
+        popViewController(animated: false)
+        pushViewController(scaleTableViewController, animated: false)
+    }
+    
     func startPlaying() {
         if (!isPlaying) {
             isPlaying = true

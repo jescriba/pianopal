@@ -32,28 +32,27 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
     }
     
     override func viewDidLoad() {
-//        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-//
-//        view.backgroundColor = Colors.chordTableBackgroundColor
-//        NoteLetterSwitch.onTintColor = Colors.settingsSwitchTintColor
-//        NoteNumberSwitch.onTintColor = Colors.settingsSwitchTintColor
-//        TriadSwitch.onTintColor = Colors.settingsSwitchTintColor
-//        
-//        TriadLabel.font = Fonts.chordListItem
-//        NoteNumberLabel.font = Fonts.chordListItem
-//        NoteLetterLabel.font = Fonts.chordListItem
-//        
-//        NoteLetterSwitch.isOn = Preferences.labelNoteLetter
-//        NoteNumberSwitch.isOn = Preferences.labelNoteNumber
-//        TriadSwitch.isOn = Preferences.highlightTriads
+        navigationController!.interactivePopGestureRecognizer?.isEnabled = false
+
+        view.backgroundColor = Colors.tableBackground
+        NoteLetterSwitch.onTintColor = Colors.settingsSwitchTint
+        NoteNumberSwitch.onTintColor = Colors.settingsSwitchTint
+        TriadSwitch.onTintColor = Colors.settingsSwitchTint
+        NoteLetterSwitch.isOn = Preferences.labelNoteLetter
+        NoteNumberSwitch.isOn = Preferences.labelNoteNumber
+        TriadSwitch.isOn = Preferences.highlightTriads
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavigationItem()
     }
 
     func updateNavigationItem() {
-//        pianoNavigationViewController = navigationController as? PianoNavigationViewController
-//        pianoNavigationViewController?.customNavigationItem.titleView = nil
-//        pianoNavigationViewController?.customNavigationItem.title = "Settings"
-//        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-//        menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
-//        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
+        pianoNavigationViewController = navigationController as? PianoNavigationViewController
+        pianoNavigationViewController?.customNavigationItem.titleView = nil
+        pianoNavigationViewController?.customNavigationItem.title = "Settings"
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
+        menuBarButton = UIBarButtonItem(customView: pianoNavigationViewController!.menuButton)
+        pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = menuBarButton
     }
 }

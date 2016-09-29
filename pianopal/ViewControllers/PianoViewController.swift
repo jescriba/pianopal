@@ -15,8 +15,10 @@ enum PianoViewMode {
 
 class PianoViewController : UIViewController, PianoNavigationProtocol {
     
-    let pianoView = PianoView()
+    let pianoView = PianoView(frame: Dimensions.pianoRect)
     let playButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    var chords = [Chord]()
+    var scales = [Scale]()
     private var _pianoViewMode = PianoViewMode.scale
     var pianoViewMode: PianoViewMode {
         get {
@@ -33,7 +35,15 @@ class PianoViewController : UIViewController, PianoNavigationProtocol {
         }
     }
     
+    override func viewDidLoad() {
+        automaticallyAdjustsScrollViewInsets = false
+        view.addSubview(pianoView)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = UIColor.white
+        
+        updateNavigationItem()
         setupViewMode(pianoViewMode)
     }
     
@@ -43,6 +53,9 @@ class PianoViewController : UIViewController, PianoNavigationProtocol {
     
     func updateNavigationItem() {
         // TODO
+        let pianoNavigationViewController = navigationController as? PianoNavigationViewController
+        let menuButton = pianoNavigationViewController?.menuButton
+        pianoNavigationViewController!.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
     }
     
 }
