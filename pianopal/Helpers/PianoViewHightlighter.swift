@@ -26,7 +26,7 @@ class PianoViewHightlighter {
                 }
             }
         }
-        shiftTo(note: scale.notes.first)
+        shiftTo(note: scale.notes.first!)
     }
     
     static func highlightChord(_ chord: Chord, pianoView: PianoView) {
@@ -40,7 +40,7 @@ class PianoViewHightlighter {
                 })
             }
         }
-        shiftTo(note: chord.notes.first)
+        shiftTo(note: chord.notes.first!)
     }
     
     static func clearHighlighting(pianoView: PianoView) {

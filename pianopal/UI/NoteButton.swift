@@ -96,11 +96,15 @@ class NoteButton: UIButton {
     
     func highlightBorder() {
         layer.borderColor = Colors.highlightedKeyBorder
+        layer.shadowRadius = 7.0
+        layer.shadowOpacity = 1
         layer.borderWidth = 5
     }
     
     func dehighlightBorder() {
         layer.borderColor = Colors.keyBorder
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0
         layer.borderWidth = 1
     }
     

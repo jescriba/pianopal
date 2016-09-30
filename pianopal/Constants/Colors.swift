@@ -11,12 +11,12 @@ import UIKit
 
 class Colors {
     static let keyBorder = UIColor(red: 0.90, green: 0.90, blue: 1.0, alpha: 1).cgColor
-    static let highlightedKeyBorder = UIColor(red:1, green:0.54, blue:0.90, alpha:1.0).cgColor
+    static let highlightedKeyBorder = UIColor(red:1.00, green:0.88, blue:0.45, alpha:1.0).cgColor
     static let toolBarBackground = UIColor(red: 0.94, green: 0.86, blue: 1, alpha: 1)
     static let toolbarTitle = UIColor(red: 0.94, green: 0.86, blue: 1, alpha: 1)
     static let pickerBackground = UIColor(red:1.00, green:0.92, blue:0.93, alpha:1.0)
-    static let highlightedWhiteKey = UIColor(red:0.40, green:0.35, blue:0.56, alpha:1.0)
-    static let highlightedBlackKey = UIColor(red:0.40, green:0.35, blue:0.66, alpha:1.0)
+    static let highlightedWhiteKey = UIColor(red:0.49, green:0.42, blue:0.68, alpha:1.0)
+    static let highlightedBlackKey = UIColor(red:0.49, green:0.42, blue:0.78, alpha:1.0)
     static let normalRightBarButton = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
     static let pressedRightBarButton = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
     static let normalMenuButton = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)

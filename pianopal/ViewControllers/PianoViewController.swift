@@ -32,8 +32,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     }
     var highlightedNoteButtons: [NoteButton] {
         get {
-            // TODO
-            return [NoteButton]()
+            return pianoView.highlightedNoteButtons
         }
     }
     
@@ -82,6 +81,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
             }
         case .identify:
             navigationItem?.title = "Identify"
+            PianoViewHightlighter.clearHighlighting(pianoView: pianoView)
             // TODO set up listeners
         }
         PianoViewHightlighter.labelNotes(pianoView)
