@@ -22,5 +22,9 @@ class ScaleTableViewCell: UITableViewCell {
         scaleLabel = textLabel
         scaleLabel!.font = Fonts.tableItem
         scaleLabel!.textAlignment = NSTextAlignment.center
+        
+        let bgView = UIView()
+        bgView.backgroundColor = Colors.tableCellSelected
+        selectedBackgroundView = bgView
     }
 }

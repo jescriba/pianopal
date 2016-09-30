@@ -19,8 +19,12 @@ class ChordTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         backgroundColor = Colors.tableBackground
-        chordLabel = self.textLabel
+        chordLabel = textLabel
         chordLabel!.font = Fonts.tableItem
         chordLabel!.textAlignment = NSTextAlignment.center
+        
+        let bgView = UIView()
+        bgView.backgroundColor = Colors.tableCellSelected
+        selectedBackgroundView = bgView
     }
 }
