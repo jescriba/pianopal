@@ -84,11 +84,9 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
             PianoViewHightlighter.clearHighlighting(pianoView: pianoView)
             // TODO set up listeners
         }
-        PianoViewHightlighter.labelNotes(pianoView)
     }
     
     func updateNavigationItem() {
-        // TODO
         let pianoNavigationController = navigationController as? PianoNavigationViewController
         let menuButton = pianoNavigationController?.menuButton
         pianoNavigationController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)

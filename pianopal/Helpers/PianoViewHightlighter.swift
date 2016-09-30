@@ -11,13 +11,21 @@ import Foundation
 class PianoViewHightlighter {
     
     static func labelNotes(_ pianoView: PianoView) {
-        // TODO
+        for noteButton in pianoView.noteButtons {
+            label(noteButton: noteButton)
+        }
+    }
+    
+    func removeLabelNotes(pianoView: PianoView) {
+        for noteButton in pianoView.noteButtons {
+            noteButton.label("")
+        }
     }
     
     static func highlightScale(_ scale: Scale, pianoView: PianoView) {
         clearHighlighting(pianoView: pianoView)
         for noteButton in pianoView.noteButtons {
-            label(noteButton: noteButton)
+            label(noteButton: noteButton, scale: scale)
             if scale.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 let colors = PianoViewHightlighter.colors(noteButton: noteButton, scale: scale)
@@ -93,11 +101,25 @@ class PianoViewHightlighter {
 
     }
     
-    static func label(noteButton: NoteButton) {
-        // TODO
+    static func label(noteButton: NoteButton, chord: Chord? = nil, scale: Scale? = nil) {
+        var title = ""
+        if Preferences.labelNoteLetter {
+            title = (noteButton.note?.simpleDescription())!
+        }
+        if Preferences.labelNoteNumber {
+            let chordIndex = chord?.indexOf(noteButton.note!)
+            if (chord != nil && chordIndex != nil) {
+                title += LabelHelper.intervalNumberAsString(noteButton.note!, rootNote: chord!.notes[0])
+            }
+            let scaleIndex = scale?.indexOf(noteButton.note!)
+            if (scale != nil && scaleIndex != nil) {
+                title += String(scaleIndex! + 1)
+            }
+        }
+        noteButton.label(title)
     }
     
     static func shiftTo(note: Note) {
-        
+        // TODO
     }
 }
