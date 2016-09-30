@@ -63,6 +63,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
                 DispatchQueue.main.async {
                     navigationItem?.titleView = self.scalesPickerView!
                 }
+                scalesPickerView?.selectItem((scalesPickerView?.selectedItem)!)
                 let scale = scales[(scalesPickerView?.selectedItem)!]
                 PianoViewHightlighter.highlightScale(scale, pianoView: pianoView)
             }
