@@ -35,6 +35,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView!.rowHeight = 60
         tableView!.tableFooterView = UIView(frame: CGRect.zero)
         tableView!.backgroundColor = Colors.navigationBackground
+        tableView!.separatorColor = Colors.navigationSeparator
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.cellLayoutMarginsFollowReadableWidth = false

@@ -214,7 +214,7 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
     
     func cancelChordToProgression() {
         popViewController(animated: false)
-        pushViewController(pianoViewController, animated: false)
+        pushViewController(chordTableViewController, animated: false)
     }
 
     func addScaleToProgression() {

@@ -14,7 +14,7 @@ class Colors {
     static let highlightedKeyBorder = UIColor(red:1, green:0.54, blue:0.90, alpha:1.0).cgColor
     static let toolBarBackground = UIColor(red: 0.94, green: 0.86, blue: 1, alpha: 1)
     static let toolbarTitle = UIColor(red: 0.94, green: 0.86, blue: 1, alpha: 1)
-    static let pickerBackground = UIColor.white
+    static let pickerBackground = UIColor(red:1.00, green:0.92, blue:0.93, alpha:1.0)
     static let highlightedWhiteKey = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
     static let highlightedBlackKey = UIColor(red: 0.0, green: 0.5, blue: 0.75, alpha: 1)
     static let normalRightBarButton = UIColor(red: 0.0, green: 0.6, blue: 0.8, alpha: 1)
@@ -23,12 +23,13 @@ class Colors {
     static let presssedMenuButton = UIColor(red: 0.0, green: 0.4, blue: 0.98, alpha: 1)
     static let normalPlayButton = UIColor(red: 0.2, green: 0.7, blue: 0.8, alpha: 1)
     static let pressedPlayButton = UIColor(red: 0.2, green: 0.5, blue: 0.98, alpha: 1)
-    static let navigationText = UIColor.white
+    static let navigationText = UIColor.black
     static let navigationBackground =  UIColor(red: 0.94, green: 0.84, blue: 0.97, alpha: 1)
+    static let navigationSeparator = UIColor(red: 0.88, green: 0.70, blue: 0.98, alpha: 1)
     static let navigationCellSelectedBackground = UIColor(red: 1, green: 0.80, blue: 0.9, alpha: 1)
     static let tableSeparator = UIColor(red: 0.9, green: 0.80, blue: 0.9, alpha: 1)
-    static let tableBackground = UIColor.white
-    static let tableCellSelected = UIColor(red: 1, green: 0.82, blue: 0.81, alpha: 1)
+    static let tableBackground = UIColor(red:1.00, green:0.92, blue:0.93, alpha:1.0)
+    static let tableCellSelected = UIColor(red:1.00, green:0.82, blue:0.83, alpha:1.0)
     static let settingsSwitchTint = UIColor(red: 0.93, green: 0.55, blue: 0.72, alpha: 1)
     static let triads = [KeyColorPair(whiteKeyColor: UIColor(red: 0.7, green: 0.41, blue: 0.44, alpha: 1), blackKeyColor: UIColor(red: 0.7, green: 0.3, blue: 0.40, alpha: 1)),
                               KeyColorPair(whiteKeyColor: UIColor(red: 0.42, green: 0.50, blue: 0.89, alpha: 1), blackKeyColor: UIColor(red: 0.42, green: 0.40, blue: 0.84, alpha: 1)),
