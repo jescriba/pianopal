@@ -40,7 +40,7 @@ class PianoViewHightlighter {
     static func highlightChord(_ chord: Chord, pianoView: PianoView) {
         clearHighlighting(pianoView: pianoView)
         for noteButton in pianoView.noteButtons {
-            label(noteButton: noteButton)
+            label(noteButton: noteButton, chord: chord)
             if chord.notes.contains(noteButton.note!) {
                 pianoView.highlightedNoteButtons.append(noteButton)
                 DispatchQueue.main.async(execute: {
