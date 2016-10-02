@@ -117,6 +117,18 @@ class PianoView: UIView, UIScrollViewDelegate {
         }
     }
     
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
+        for noteButton in noteButtons {
+            noteButton.addTarget(target, action: action, for: controlEvents)
+        }
+    }
+    
+    func removeTargets() {
+        for noteButton in noteButtons {
+            noteButton.removeTarget(nil, action: nil, for: .allEvents)
+        }
+    }
+    
     func animateOctaveChange() {
         // TODO Add visual cue of octave value
     }

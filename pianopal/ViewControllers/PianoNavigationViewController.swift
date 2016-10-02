@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PianoNavigationViewController: UINavigationController, AudioEngineDelegate {
+class PianoNavigationViewController: UINavigationController, UIPopoverPresentationControllerDelegate, AudioEngineDelegate {
     
     let customNavigationBar = UINavigationBar(frame: Dimensions.toolbarRect)
     let customNavigationItem = UINavigationItem(title: "Piano")
@@ -183,19 +183,23 @@ class PianoNavigationViewController: UINavigationController, AudioEngineDelegate
         pushViewController(scaleSelectorViewController!, animated: false)
         scaleSelectorViewController?.updateNavigationItem()
     }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle {
+        return .popover
+    }
 
     func saveSession() {
         let chords = pianoViewController.chords
         let scales = pianoViewController.scales
-        if (chords.count ?? 0 > 0 || scales.count ?? 0 > 0) {
+        if (chords.count > 0 || scales.count > 0) {
             let saveSessionVC = SaveSessionViewController()
             saveSessionVC.modalPresentationStyle = UIModalPresentationStyle.popover
             present(saveSessionVC, animated: true, completion: nil)
             
             let presentationController = saveSessionVC.popoverPresentationController
             presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
-            presentationController?.sourceView = view
-            presentationController?.sourceRect = view.frame
+            presentationController?.delegate = self
+            presentationController?.barButtonItem = customNavigationBar.topItem?.rightBarButtonItem
         }
     }
     

@@ -14,12 +14,13 @@ class SaveSessionViewController : UIViewController {
     var sessionName: String?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         let boxView = UIView(frame: Dimensions.saveBoxRect)
-        boxView.backgroundColor = UIColor.blue
         saveBoxView = boxView
-        sessionName = NSDateComponents().calendar?.description
-        
+//        sessionName = NSDateComponents().calendar?.description
+//        
         view.frame = Dimensions.saveBoxRect
-        view.addSubview(saveBoxView!)
+        view.addSubview(saveBoxView!)        
     }
 }
