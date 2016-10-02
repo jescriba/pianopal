@@ -20,8 +20,6 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     var notesToIdentify = [Note]()
     var scalesPickerView: AKPickerView?
     var chordsPickerView: AKPickerView?
-    var chords = [Chord]()
-    var scales = [Scale]()
     private var _pianoViewMode = PianoViewMode.scale
     var pianoViewMode: PianoViewMode {
         get {
@@ -59,7 +57,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         switch pianoViewMode {
         case .scale:
             navigationItem?.title = "Scales"
-            if !scales.isEmpty {
+            if !Globals.scales.isEmpty {
                 scalesPickerView = AKPickerView(frame: Dimensions.titleScrollViewRect)
                 scalesPickerView?.dataSource = self
                 scalesPickerView?.delegate = self
@@ -67,12 +65,12 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
                     navigationItem?.titleView = self.scalesPickerView!
                 }
                 scalesPickerView?.selectItem((scalesPickerView?.selectedItem)!)
-                let scale = scales[(scalesPickerView?.selectedItem)!]
+                let scale = Globals.scales[(scalesPickerView?.selectedItem)!]
                 PianoViewHightlighter.highlightScale(scale, pianoView: pianoView)
             }
         case .chord:
             navigationItem?.title = "Chords"
-            if !chords.isEmpty {
+            if !Globals.chords.isEmpty {
                 chordsPickerView = AKPickerView(frame: Dimensions.titleScrollViewRect)
                 chordsPickerView?.dataSource = self
                 chordsPickerView?.delegate = self
@@ -80,7 +78,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
                     navigationItem?.titleView = self.chordsPickerView!
                 }
                 chordsPickerView?.selectItem((chordsPickerView?.selectedItem)!)
-                let chord = chords[(chordsPickerView?.selectedItem)!]
+                let chord = Globals.chords[(chordsPickerView?.selectedItem)!]
                 PianoViewHightlighter.highlightChord(chord, pianoView: pianoView)
             }
         case .identify:
@@ -125,9 +123,9 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
         switch pianoViewMode {
         case .chord:
-            return chords.count
+            return Globals.chords.count
         case .scale:
-            return scales.count
+            return Globals.scales.count
         default:
             return 0
         }
@@ -136,9 +134,9 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
         switch pianoViewMode {
         case .chord:
-            return chords[item].simpleDescription()
+            return Globals.chords[item].simpleDescription()
         case .scale:
-            return scales[item].simpleDescription()
+            return Globals.scales[item].simpleDescription()
         default:
             return ""
         }
@@ -151,10 +149,10 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     func highlight(_ pianoViewMode: PianoViewMode) {
         switch pianoViewMode {
         case .chord:
-            let chord = chords[(chordsPickerView?.selectedItem)!]
+            let chord = Globals.chords[(chordsPickerView?.selectedItem)!]
             PianoViewHightlighter.highlightChord(chord, pianoView: pianoView)
         case .scale:
-            let scale = scales[(scalesPickerView?.selectedItem)!]
+            let scale = Globals.scales[(scalesPickerView?.selectedItem)!]
             PianoViewHightlighter.highlightScale(scale, pianoView: pianoView)
         default:
             break

@@ -23,6 +23,7 @@
 		423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */; };
 		423CA0311D0F9CEF0005CD4B /* ScaleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0301D0F9CEF0005CD4B /* ScaleType.swift */; };
 		423CA0331D0FB4A20005CD4B /* ChordSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */; };
+		424B0CB61DA1ADC80082B6B8 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B0CB51DA1ADC80082B6B8 /* Globals.swift */; };
 		424D950A1D426DFF00ED7364 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D95091D426DFF00ED7364 /* Dimensions.swift */; };
 		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
 		427643651D8F938F0018967A /* PianoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427643641D8F938F0018967A /* PianoSession.swift */; };
@@ -141,6 +142,7 @@
 		423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleGenerator.swift; sourceTree = "<group>"; };
 		423CA0301D0F9CEF0005CD4B /* ScaleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleType.swift; sourceTree = "<group>"; };
 		423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSelectorViewController.swift; sourceTree = "<group>"; };
+		424B0CB51DA1ADC80082B6B8 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		424D95091D426DFF00ED7364 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		427643641D8F938F0018967A /* PianoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoSession.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				42CF6B9B1D5EDB9000F6A3E0 /* AudioEngine.swift */,
 				42CF6B9D1D6112AC00F6A3E0 /* NoteOctave.swift */,
 				427643641D8F938F0018967A /* PianoSession.swift */,
+				424B0CB51DA1ADC80082B6B8 /* Globals.swift */,
 			);
 			name = Models;
 			path = pianopal/Models;
@@ -630,6 +633,7 @@
 				42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */,
 				423CA0271D0F780A0005CD4B /* KeyProperties.swift in Sources */,
 				42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */,
+				424B0CB61DA1ADC80082B6B8 /* Globals.swift in Sources */,
 				42C19D701D3C39E20052D623 /* ChordTableViewCell.swift in Sources */,
 				42CF6BA01D61208800F6A3E0 /* NoteOctaveDetector.swift in Sources */,
 				B28267ED1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift in Sources */,

@@ -12,7 +12,6 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
-    var chords = [Chord]()
     var menuButton: UIButton?
     var tableView: UITableView?
 
@@ -49,19 +48,19 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChordTableViewCell", for: indexPath) as! ChordTableViewCell
-        cell.chordLabel!.text = chords[(indexPath as NSIndexPath).row].simpleDescription()
+        cell.chordLabel!.text = Globals.chords[(indexPath as NSIndexPath).row].simpleDescription()
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chords.count
+        return Globals.chords.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            chords.remove(at: (indexPath as NSIndexPath).row)
+            Globals.chords.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            Session.save(chords: chords)
+            Session.save(chords: Globals.chords)
         }
     }
     
@@ -70,10 +69,10 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let chord = chords[(sourceIndexPath as NSIndexPath).row]
-        chords.remove(at: (sourceIndexPath as NSIndexPath).row)
-        chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
-        Session.save(chords: chords)
+        let chord = Globals.chords[(sourceIndexPath as NSIndexPath).row]
+        Globals.chords.remove(at: (sourceIndexPath as NSIndexPath).row)
+        Globals.chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
+        Session.save(chords: Globals.chords)
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

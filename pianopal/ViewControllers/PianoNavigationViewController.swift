@@ -108,12 +108,10 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let chords = Session.loadChords()
         let scales = Session.loadScales()
         if chords != nil {
-            chordTableViewController.chords = chords!
-            pianoViewController.chords = chords!
+            Globals.chords = chords!
         }
         if scales != nil {
-            scaleTableViewController.scales = scales!
-            pianoViewController.scales = scales!
+            Globals.scales = scales!
         }
         
         audioEngine.delegate = self
@@ -189,8 +187,8 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
     }
 
     func saveSession() {
-        let chords = pianoViewController.chords
-        let scales = pianoViewController.scales
+        let chords = Globals.chords
+        let scales = Globals.scales
         if (chords.count > 0 || scales.count > 0) {
             let saveSessionVC = SaveSessionViewController()
             saveSessionVC.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -207,12 +205,11 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let rootNote = chordSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
         let chordType = chordSelectorViewController?.chordTypePickerView.selectedRow(inComponent: 0)
         let chord = ChordGenerator.generateChord(Note(rawValue: rootNote!)!, chordType: ChordType(rawValue: chordType!)!)
-        chordTableViewController.chords.append(chord)
+        Globals.chords.append(chord)
         chordTableViewController.tableView!.reloadData()
-        pianoViewController.chords = chordTableViewController.chords
         popViewController(animated: false)
         pushViewController(chordTableViewController, animated: false)
-        Session.save(chords: chordTableViewController.chords)
+        Session.save(chords: Globals.chords)
     }
     
     func cancelChordToProgression() {
@@ -224,11 +221,11 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let rootNote = scaleSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
         let scaleType = scaleSelectorViewController?.scaleTypePickerView.selectedRow(inComponent: 0)
         let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote!)!, scaleType: ScaleType(rawValue: scaleType!)!)
-        scaleTableViewController.scales.append(scale)
+        Globals.scales.append(scale)
         scaleTableViewController.tableView!.reloadData()
         popViewController(animated: false)
         pushViewController(scaleTableViewController, animated: false)
-        Session.save(scaleTableViewController.scales)
+        Session.save(Globals.scales)
     }
     
     func cancelScaleToProgression() {

@@ -12,7 +12,6 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
-    var scales = [Scale]()
     var tableView: UITableView?
     
     override func viewDidLoad() {
@@ -46,19 +45,19 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScaleTableViewCell", for: indexPath) as! ScaleTableViewCell
-        cell.scaleLabel!.text = scales[(indexPath as NSIndexPath).row].simpleDescription()
+        cell.scaleLabel!.text = Globals.scales[(indexPath as NSIndexPath).row].simpleDescription()
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scales.count
+        return Globals.scales.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            scales.remove(at: (indexPath as NSIndexPath).row)
+            Globals.scales.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            Session.save(scales)
+            Session.save(Globals.scales)
         }
     }
     
@@ -67,10 +66,10 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let scale = scales[(sourceIndexPath as NSIndexPath).row]
-        scales.remove(at: (sourceIndexPath as NSIndexPath).row)
-        scales.insert(scale, at: (destinationIndexPath as NSIndexPath).row)
-        Session.save(scales)
+        let scale = Globals.scales[(sourceIndexPath as NSIndexPath).row]
+        Globals.scales.remove(at: (sourceIndexPath as NSIndexPath).row)
+        Globals.scales.insert(scale, at: (destinationIndexPath as NSIndexPath).row)
+        Session.save(Globals.scales)
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
