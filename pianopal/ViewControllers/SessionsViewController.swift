@@ -9,13 +9,19 @@
 import Foundation
 import UIKit
 
+// TODO: 
+// Auto-save PianoSession and store as item in table cell that
+// can be loaded / edited (name changed) but then have the
+// bar button always be 'new' to create a new session and 'load'
+// only when a table item is selected
+
 class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate {
     
-    let saveSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let newSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let loadSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var menuButton: UIButton?
     var pianoNavigationViewController: PianoNavigationViewController?
     var tableView: UITableView?
-    var sessions:  [PianoSession]?
     
     override func viewDidLoad() {
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
@@ -25,8 +31,9 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         tableView = UITableView()
         tableView?.delegate = self
         tableView?.dataSource = self
-        sessions = loadSessions()
         
+        
+        //sessions = loadSessionsToTableView()
         view.addSubview(tableView!)
     }
     
@@ -35,15 +42,15 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions?.count ?? 0
+        return Globals.sessions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
     
-    func loadSessions() -> [PianoSession] {
-        return [PianoSession]()
+    func loadSessionsToTableView() {
+        // Load sessions
     }
     
     func updateNavigationItem() {
@@ -51,6 +58,6 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         pianoNavigationViewController?.customNavigationItem.title = "Sessions"
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveSessionButton)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: newSessionButton)
     }
 }

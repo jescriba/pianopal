@@ -97,12 +97,12 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         playButton.setTitleColor(Colors.pressedPlayButton, for: .highlighted)
         playButton.addTarget(self, action: #selector(togglePlay), for: .touchUpInside)
         
-        let saveSessionButton = sessionsViewController.saveSessionButton
-        saveSessionButton.setTitle("Save", for: UIControlState.normal)
-        saveSessionButton.sizeToFit()
-        saveSessionButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
-        saveSessionButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
-        saveSessionButton.addTarget(self, action: #selector(saveSession), for: .touchUpInside)
+        let newSessionButton = sessionsViewController.newSessionButton
+        newSessionButton.setTitle("New", for: UIControlState.normal)
+        newSessionButton.sizeToFit()
+        newSessionButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        newSessionButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        newSessionButton.addTarget(self, action: #selector(newSession), for: .touchUpInside)
 
         // Load Previous Session
         let chords = Session.loadChords()
@@ -186,19 +186,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         return .popover
     }
 
-    func saveSession() {
-        let chords = Globals.chords
-        let scales = Globals.scales
-        if (chords.count > 0 || scales.count > 0) {
-            let saveSessionVC = SaveSessionViewController()
-            saveSessionVC.modalPresentationStyle = UIModalPresentationStyle.popover
-            present(saveSessionVC, animated: true, completion: nil)
-            
-            let presentationController = saveSessionVC.popoverPresentationController
-            presentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
-            presentationController?.delegate = self
-            presentationController?.barButtonItem = customNavigationBar.topItem?.rightBarButtonItem
-        }
+    func newSession() {
     }
     
     func addChordToProgression() {

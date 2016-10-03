@@ -11,4 +11,5 @@ import Foundation
 class Globals {
     static var chords = [Chord]()
     static var scales = [Scale]()
+    static var sessions = [Session]()
 }
