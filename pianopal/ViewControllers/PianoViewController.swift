@@ -36,6 +36,8 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         automaticallyAdjustsScrollViewInsets = false
         view.addSubview(pianoView)
     }

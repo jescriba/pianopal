@@ -63,12 +63,14 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let cancelChordButton = chordSelectorViewController!.cancelChordButton
         let saveChordButton = chordSelectorViewController!.saveChordButton
         addChordButton.addTarget(self, action: #selector(goToChordSelector), for: .touchUpInside)
-        cancelChordButton.setTitle("Cancel", for: .normal)
+        cancelChordButton.titleLabel!.font = Fonts.cancelButton
+        cancelChordButton.setTitle("\u{f00d}", for: .normal)
         cancelChordButton.sizeToFit()
         cancelChordButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
         cancelChordButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
         cancelChordButton.addTarget(self, action: #selector(cancelChordToProgression), for: .touchUpInside)
-        saveChordButton.setTitle("Save", for: .normal)
+        saveChordButton.titleLabel!.font = Fonts.saveButton
+        saveChordButton.setTitle("\u{f0c7}", for: .normal)
         saveChordButton.sizeToFit()
         saveChordButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
         saveChordButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
@@ -78,12 +80,14 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let cancelScaleButton = scaleSelectorViewController!.cancelScaleButton
         let saveScaleButton = scaleSelectorViewController!.saveScaleButton
         addScaleButton.addTarget(self, action: #selector(goToScaleSelector), for: .touchUpInside)
-        cancelScaleButton.setTitle("Cancel", for: .normal)
+        cancelScaleButton.titleLabel!.font = Fonts.cancelButton
+        cancelScaleButton.setTitle("\u{f00d}", for: .normal)
         cancelScaleButton.sizeToFit()
         cancelScaleButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
         cancelScaleButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
         cancelScaleButton.addTarget(self, action: #selector(cancelScaleToProgression), for: .touchUpInside)
-        saveScaleButton.setTitle("Save", for: UIControlState())
+        saveScaleButton.titleLabel!.font = Fonts.saveButton
+        saveScaleButton.setTitle("\u{f0c7}", for: UIControlState())
         saveScaleButton.sizeToFit()
         saveScaleButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
         saveScaleButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
@@ -97,22 +101,12 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         playButton.setTitleColor(Colors.pressedPlayButton, for: .highlighted)
         playButton.addTarget(self, action: #selector(togglePlay), for: .touchUpInside)
         
-        let newSessionButton = sessionsViewController.newSessionButton
-        newSessionButton.setTitle("New", for: UIControlState.normal)
-        newSessionButton.sizeToFit()
-        newSessionButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
-        newSessionButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
-        newSessionButton.addTarget(self, action: #selector(newSession), for: .touchUpInside)
-
-        // Load Previous Session
-        let chords = Session.loadChords()
-        let scales = Session.loadScales()
-        if chords != nil {
-            Globals.chords = chords!
-        }
-        if scales != nil {
-            Globals.scales = scales!
-        }
+        let sessionRightButton = sessionsViewController.sessionRightButton
+        sessionRightButton.setTitle("New", for: UIControlState.normal)
+        sessionRightButton.sizeToFit()
+        sessionRightButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        sessionRightButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        sessionRightButton.addTarget(self, action: #selector(sessionRightButtonPressed), for: .touchUpInside)
         
         audioEngine.delegate = self
     }
@@ -186,18 +180,19 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         return .popover
     }
 
-    func newSession() {
+    func sessionRightButtonPressed() {
+        sessionsViewController.sessionRightButtonPressed()
     }
     
     func addChordToProgression() {
         let rootNote = chordSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
         let chordType = chordSelectorViewController?.chordTypePickerView.selectedRow(inComponent: 0)
         let chord = ChordGenerator.generateChord(Note(rawValue: rootNote!)!, chordType: ChordType(rawValue: chordType!)!)
-        Globals.chords.append(chord)
+        Globals.session?.chords.append(chord)
         chordTableViewController.tableView!.reloadData()
         popViewController(animated: false)
         pushViewController(chordTableViewController, animated: false)
-        Session.save(chords: Globals.chords)
+        SessionManager.saveSession(Globals.session)
     }
     
     func cancelChordToProgression() {
@@ -209,11 +204,11 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let rootNote = scaleSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
         let scaleType = scaleSelectorViewController?.scaleTypePickerView.selectedRow(inComponent: 0)
         let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote!)!, scaleType: ScaleType(rawValue: scaleType!)!)
-        Globals.scales.append(scale)
+        Globals.session?.scales.append(scale)
         scaleTableViewController.tableView!.reloadData()
         popViewController(animated: false)
         pushViewController(scaleTableViewController, animated: false)
-        Session.save(Globals.scales)
+        SessionManager.saveSession(Globals.session)
     }
     
     func cancelScaleToProgression() {

@@ -39,6 +39,8 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView?.reloadData()
+        
         updateNavigationItem()
     }
     
@@ -48,7 +50,7 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChordTableViewCell", for: indexPath) as! ChordTableViewCell
-        cell.chordLabel!.text = Globals.chords[(indexPath as NSIndexPath).row].simpleDescription()
+        cell.textLabel?.text = Globals.chords[(indexPath as NSIndexPath).row].simpleDescription()
         return cell
     }
     
@@ -58,9 +60,9 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Globals.chords.remove(at: (indexPath as NSIndexPath).row)
+            Globals.session?.chords.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            Session.save(chords: Globals.chords)
+            SessionManager.saveSession(Globals.session)
         }
     }
     
@@ -70,9 +72,9 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let chord = Globals.chords[(sourceIndexPath as NSIndexPath).row]
-        Globals.chords.remove(at: (sourceIndexPath as NSIndexPath).row)
-        Globals.chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
-        Session.save(chords: Globals.chords)
+        Globals.session?.chords.remove(at: (sourceIndexPath as NSIndexPath).row)
+        Globals.session?.chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
+        SessionManager.saveSession(Globals.session)
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -85,7 +87,7 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func updateNavigationItem() {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-        plusButton.setTitle("\u{f196}", for: .normal)
+        plusButton.setTitle("\u{f055}", for: .normal)
         plusButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
         plusButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
         plusButton.titleLabel!.font = Fonts.plusButton

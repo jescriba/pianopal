@@ -26,6 +26,7 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = Colors.pickerBackground
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         let navigationItem = pianoNavigationViewController?.customNavigationItem

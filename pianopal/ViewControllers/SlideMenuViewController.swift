@@ -30,6 +30,7 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     var isExpanded = false
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         tableView = UITableView(frame: UIScreen.main.bounds)
         tableView!.rowHeight = 60

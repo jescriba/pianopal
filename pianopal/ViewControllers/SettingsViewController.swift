@@ -32,6 +32,8 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
 
         view.backgroundColor = Colors.tableBackground

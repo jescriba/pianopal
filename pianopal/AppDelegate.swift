@@ -15,9 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var pianoNavigationViewController: PianoNavigationViewController?
     var wrapperViewController: WrapperViewController?
 
-    // TODO Load Globals chord, scales, and piano sessions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Globals.sessions = SessionManager.loadSessions()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         pianoNavigationViewController = PianoNavigationViewController()
