@@ -59,9 +59,13 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Globals.sessions.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
+            let currentSessionName = Globals.session?.name
+            let sessionName = Globals.sessions[indexPath.row].name
+            if Globals.sessions.count > 1 && sessionName != currentSessionName {
+                Globals.sessions.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+            }
         }
     }
     

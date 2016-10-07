@@ -38,15 +38,19 @@ class SessionManager {
         NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
     }
     
-    class func loadSession(_ key: String) {
-//        var sessions: [Session]?
-//        if allSessionsPath != nil {
-//            sessions = NSKeyedUnarchiver.unarchiveObject(withFile: allSessionsPath!) as? [Session]
-//        }
-//        let session = sessions?.first(where: { (session: Session) in
-//            session.name == key
-//        })
-//        return session ?? Session(name: uniqueSessionDateName())
+    class func loadSession(_ name: String) {
+        var sessions = Globals.sessions
+        if sessions.isEmpty {
+            sessions = loadSessions()
+        }
+        if allSessionsPath != nil {
+            let session = sessions.first(where: { (session: Session) in
+                session.name == name
+            })
+            if let sesh = session {
+                bringSessionToTop(sesh)
+            }
+        }
     }
     
     class func loadSessions() -> [Session] {
@@ -72,5 +76,13 @@ class SessionManager {
         dateFormatter.dateStyle = .medium
         let dateString = "\(dateFormatter.string(from: currentDate)) \(arc4random() % 1000)"
         return dateString
+    }
+    
+    private class func bringSessionToTop(_ session: Session) {
+        let index = Globals.sessions.index(of: session)
+        if let i = index {
+            Globals.sessions.remove(at: i)
+            Globals.sessions.insert(session, at: 0)
+        }
     }
 }
