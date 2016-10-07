@@ -101,12 +101,21 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         playButton.setTitleColor(Colors.pressedPlayButton, for: .highlighted)
         playButton.addTarget(self, action: #selector(togglePlay), for: .touchUpInside)
         
-        let sessionRightButton = sessionsViewController.sessionRightButton
-        sessionRightButton.setTitle("New", for: UIControlState.normal)
-        sessionRightButton.sizeToFit()
-        sessionRightButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
-        sessionRightButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
-        sessionRightButton.addTarget(self, action: #selector(sessionRightButtonPressed), for: .touchUpInside)
+        let newSessionButton = sessionsViewController.newSessionButton
+        newSessionButton.setTitle("\u{f24a}", for: UIControlState.normal)
+        newSessionButton.titleLabel?.font = Fonts.newSessionButton
+        newSessionButton.sizeToFit()
+        newSessionButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        newSessionButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        newSessionButton.addTarget(self, action: #selector(newSession), for: .touchUpInside)
+        
+        let editSessionButton = sessionsViewController.editSessionButton
+        editSessionButton.setTitle("\u{f044}", for: UIControlState.normal)
+        editSessionButton.titleLabel?.font = Fonts.editSessionButton
+        editSessionButton.sizeToFit()
+        editSessionButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        editSessionButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        editSessionButton.addTarget(self, action: #selector(editSessions), for: .touchUpInside)
         
         audioEngine.delegate = self
     }
@@ -180,8 +189,12 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         return .popover
     }
 
-    func sessionRightButtonPressed() {
-        sessionsViewController.sessionRightButtonPressed()
+    func newSession() {
+        sessionsViewController.newSession()
+    }
+    
+    func editSessions() {
+        sessionsViewController.editSessions()
     }
     
     func addChordToProgression() {

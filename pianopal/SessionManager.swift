@@ -38,15 +38,15 @@ class SessionManager {
         NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
     }
     
-    class func loadSession(_ key: String) -> Session {
-        var sessions: [Session]?
-        if allSessionsPath != nil {
-            sessions = NSKeyedUnarchiver.unarchiveObject(withFile: allSessionsPath!) as? [Session]
-        }
-        let session = sessions?.first(where: { (session: Session) in
-            session.name == key
-        })
-        return session ?? Session(name: "Blank Session")
+    class func loadSession(_ key: String) {
+//        var sessions: [Session]?
+//        if allSessionsPath != nil {
+//            sessions = NSKeyedUnarchiver.unarchiveObject(withFile: allSessionsPath!) as? [Session]
+//        }
+//        let session = sessions?.first(where: { (session: Session) in
+//            session.name == key
+//        })
+//        return session ?? Session(name: uniqueSessionDateName())
     }
     
     class func loadSessions() -> [Session] {
@@ -55,11 +55,22 @@ class SessionManager {
             sessions = NSKeyedUnarchiver.unarchiveObject(withFile: "sessions") as? [Session]
         }
         if sessions == nil {
-            let newSession = Session(name: "New Session")
+            let dateString = SessionManager.uniqueSessionDateName()
+            let newSession = Session(name: dateString)
             sessions = [Session]()
             sessions?.append(newSession)
             saveSessions(sessions)
         }
         return sessions!
+    }
+    
+    class func uniqueSessionDateName() -> String {
+        // TODO check uniqueness
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateStyle = .medium
+        let dateString = "\(dateFormatter.string(from: currentDate)) \(arc4random() % 1000)"
+        return dateString
     }
 }

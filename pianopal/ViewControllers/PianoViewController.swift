@@ -116,6 +116,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     
     func updateNavigationItem() {
         let pianoNavigationController = navigationController as? PianoNavigationViewController
+        pianoNavigationController?.customNavigationItem.rightBarButtonItem = nil
         let menuButton = pianoNavigationController?.menuButton
         pianoNavigationController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
         pianoNavigationController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: playButton)

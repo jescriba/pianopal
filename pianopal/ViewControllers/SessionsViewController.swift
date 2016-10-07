@@ -9,16 +9,10 @@
 import Foundation
 import UIKit
 
-// TODO: 
-// Auto-save PianoSession and store as item in table cell that
-// can be loaded / edited (name changed) but then have the
-// bar button always be 'new' to create a new session and 'load'
-// only when a table item is selected
-
 class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate {
     
-    let sessionRightButton = UIButton(frame: Dimensions.rightBarButtonRect)
-    var isLoadMode = false
+    let editSessionButton = UIButton(frame: Dimensions.leftRightBarButtonRect)
+    let newSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var menuButton: UIButton?
     var pianoNavigationViewController: PianoNavigationViewController?
     var tableView: UITableView?
@@ -63,51 +57,45 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let cell = tableView.cellForRow(at: indexPath)
-        if cell != nil && cell!.isSelected {
-            cell?.setSelected(false, animated: true)
-            sessionRightButton.setTitle("New", for: .normal)
-            sessionRightButton.sizeToFit()
-            isLoadMode = false
-            return nil
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Globals.sessions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
-        return indexPath
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sessionRightButton.setTitle("Load", for: .normal)
-        sessionRightButton.sizeToFit()
-        isLoadMode = true
+        if !tableView.isEditing {
+            // Load
+            loadSession(indexPath: indexPath)
+            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.reloadData()
+        } else {
+            // Handle editing
+        }
     }
     
-    func sessionRightButtonPressed() {
-        if isLoadMode {
-            // Load session
-            let selectedIndexPath = tableView?.indexPathForSelectedRow
-            if let indexPath = selectedIndexPath {
-                let cell = tableView?.cellForRow(at: indexPath)
-                let sessionName = cell?.textLabel?.text
-                if let name = sessionName {
-                    let session = SessionManager.loadSession(name)
-                    if !Globals.sessions.contains(session) {
-                        Globals.sessions.insert(session, at: 0)
-                    }
-                    cell?.setSelected(false, animated: true)
-                    sessionRightButton.setTitle("New", for: .normal)
-                    sessionRightButton.sizeToFit()
-                    isLoadMode = false
-                    SessionManager.saveSessions()
-                    tableView?.reloadData()
-                }
-            }
+    func loadSession(indexPath: IndexPath) {
+        // TODO animation
+        let cell = tableView?.cellForRow(at: indexPath)
+        let sessionName = cell?.textLabel?.text
+        SessionManager.loadSession(sessionName!)
+    }
+    
+    func newSession() {
+        let dateString = SessionManager.uniqueSessionDateName()
+        let newSession = Session(name: dateString)
+        Globals.sessions.insert(newSession, at: 0)
+        SessionManager.saveSessions()
+        tableView?.reloadData()
+    }
+    
+    func editSessions() {
+        if !tableView!.isEditing {
+            tableView?.setEditing(true, animated: true)
         } else {
-            // Create new session
-            let newSession = Session(name: String("Current Session"))
-            Globals.session?.name = String(arc4random())
-            Globals.sessions.insert(newSession, at: 0)
-            SessionManager.saveSessions()
-            tableView?.reloadData()
+            tableView?.setEditing(false, animated: true)
         }
     }
     
@@ -116,6 +104,6 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         pianoNavigationViewController?.customNavigationItem.title = "Sessions"
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
-        pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: sessionRightButton)
+        pianoNavigationViewController?.customNavigationItem.rightBarButtonItems = [UIBarButtonItem(customView: newSessionButton), UIBarButtonItem(customView: editSessionButton)]
     }
 }

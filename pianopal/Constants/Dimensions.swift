@@ -16,6 +16,7 @@ struct Dimensions {
     static let pianoScrollRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 7 * UIScreen.main.bounds.height / 8)
     static let menuButtonRect = CGRect(x: 0, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
     static let playButtonRect = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
+    static let leftRightBarButtonRect = CGRect(x: UIScreen.main.bounds.width - 110, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
     static let rightBarButtonRect = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
     static let titleScrollViewRect = CGRect(x: 50, y: 0, width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 8)
     static let saveBoxRect = CGRect(x: UIScreen.main.bounds.width - 200, y: 0, width: 200, height: UIScreen.main.bounds.height / 10)

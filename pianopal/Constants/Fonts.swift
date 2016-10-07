@@ -18,6 +18,8 @@ class Fonts {
     static let menuButton = UIFont(name: "FontAwesome", size: 23)
     static let cancelButton = UIFont(name: "FontAwesome", size: 27)
     static let saveButton = UIFont(name: "FontAwesome", size: 27)
+    static let newSessionButton = UIFont(name: "FontAwesome", size: 27)
+    static let editSessionButton = UIFont(name: "FontAwesome", size: 29)
     static let playButton = UIFont(name: "FontAwesome", size: 27)
     static let plusButton = UIFont(name: "FontAwesome", size: 27)
 }
