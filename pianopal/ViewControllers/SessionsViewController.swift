@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate {
+class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     let editSessionButton = UIButton(frame: Dimensions.leftRightBarButtonRect)
     let newSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
@@ -77,7 +77,50 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
             tableView.reloadData()
         } else {
             // Handle editing
+            let cell = tableView.cellForRow(at: indexPath)
+            let label = cell?.textLabel
+            let text = label?.text
+            label?.text = ""
+            let frame = label?.bounds
+            let textField = UITextField(frame: frame!)
+            textField.font = Fonts.tableItem
+            textField.textAlignment = .center
+            textField.placeholder = text
+            textField.delegate = self
+            textField.returnKeyType = .done
+            cell?.addSubview(textField)
+            textField.becomeFirstResponder()
         }
+    }
+    
+//    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+//        
+//    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        var newName: String?
+        let indexPath = tableView?.indexPathForSelectedRow
+        if let index = indexPath {
+            let text = textField.text
+            let cell = tableView?.cellForRow(at: index)
+            if text != nil && !text!.isEmpty {
+                newName = SessionManager.uniqueSessionName(text!)
+                cell?.textLabel?.text = newName
+
+            } else {
+                newName = SessionManager.uniqueSessionDateName()
+                cell?.textLabel?.text = newName
+            }
+        }
+        Globals.session?.name = newName ?? "welp"
+        SessionManager.saveSessions()
+        textField.removeFromSuperview()
+        tableView?.isEditing = false
     }
     
     func loadSession(indexPath: IndexPath) {

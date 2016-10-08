@@ -35,7 +35,7 @@ class SessionManager {
         if inSessions == nil {
             sessions = Globals.sessions
         }
-        NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
+        let t = NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
     }
     
     class func loadSession(_ name: String) {
@@ -69,13 +69,32 @@ class SessionManager {
     }
     
     class func uniqueSessionDateName() -> String {
-        // TODO check uniqueness
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.dateStyle = .medium
         let dateString = "\(dateFormatter.string(from: currentDate)) \(arc4random() % 1000)"
+        var isUnique = true
+        for session in Globals.sessions {
+            if session.name == dateString {
+                isUnique = false
+            }
+        }
+        // Just going to assume people aren't making 1000+
+        // sessions a day
+        if !isUnique {
+            return uniqueSessionDateName()
+        }
         return dateString
+    }
+    
+    class func uniqueSessionName(_ str: String) -> String {
+        for session in Globals.sessions {
+            if session.name == str {
+                return uniqueSessionName("\(str) \(arc4random() % 1000)")
+            }
+        }
+        return str
     }
     
     private class func bringSessionToTop(_ session: Session) {
