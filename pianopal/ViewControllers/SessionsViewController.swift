@@ -16,7 +16,12 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     var menuButton: UIButton?
     var pianoNavigationViewController: PianoNavigationViewController?
     var tableView: UITableView?
+    var tableViewRect: CGRect?
     var nameTextField: UITextField?
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +32,12 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         view.backgroundColor = Colors.tableBackground
         
-        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
+        // Fix this nav bar offset behavior when done editing
+        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)!
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height - navBarOffset
-        let tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
-        tableView = UITableView(frame: tableViewRect)
+        tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
+        tableView = UITableView(frame: tableViewRect!)
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.register(SessionTableViewCell.self, forCellReuseIdentifier: "SessionTableViewCell")
@@ -41,31 +47,29 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         tableView!.allowsSelectionDuringEditing = true
         tableView!.tableFooterView = UIView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
         
         view.addSubview(tableView!)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-                if let cellBounds = nameTextField?.superview?.bounds {
-                    tableView?.scrollRectToVisible(cellBounds, animated: true)
-                }
+    func keyboardDidShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let value = userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject?
+            if let val = value {
+                let height = val.cgRectValue.size.height
+                let inset = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
+                tableView?.contentInset = inset
+                tableView?.scrollIndicatorInsets = inset
             }
         }
-        
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
+    func keyboardDidHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.tableView?.contentInset = .zero
+            self.tableView?.scrollIndicatorInsets = .zero
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,7 +155,13 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
                 cell?.textLabel?.text = newName
             }
         }
-        Globals.session?.name = newName ?? SessionManager.uniqueSessionDateName()
+        if newName == nil {
+            let cell = textField.superview as! UITableViewCell
+            let indexPath = tableView?.indexPath(for: cell)
+            newName = Globals.sessions[indexPath!.row].name
+            cell.textLabel?.text = newName
+        }
+        Globals.session?.name = newName!
         SessionManager.saveSessions()
         textField.removeFromSuperview()
         nameTextField = nil
