@@ -142,7 +142,6 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     func textFieldDidEndEditing(_ textField: UITextField) {
         var newName: String?
         let text = textField.text
-        let placeholder = textField.placeholder
         let cell = textField.superview as! SessionTableViewCell
         let indexPath = tableView?.indexPath(for: cell)
         if text != nil && !text!.isEmpty {
