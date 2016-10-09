@@ -29,6 +29,7 @@ class Colors {
     static let navigationCellSelectedBackground = UIColor(red: 1, green: 0.80, blue: 0.9, alpha: 1)
     static let tableSeparator = UIColor(red: 0.9, green: 0.80, blue: 0.9, alpha: 1)
     static let tableBackground = UIColor(red:1.00, green:0.92, blue:0.93, alpha:1.0)
+    static let tableCellLoaded = UIColor(red:1.00, green:0.90, blue:0.90, alpha:1.0)
     static let tableCellSelected = UIColor(red:1.00, green:0.82, blue:0.83, alpha:1.0)
     static let settingsSwitchTint = UIColor(red: 0.93, green: 0.55, blue: 0.72, alpha: 1)
     static let triads = [KeyColorPair(whiteKeyColor: UIColor(red: 0.7, green: 0.41, blue: 0.44, alpha: 1), blackKeyColor: UIColor(red: 0.7, green: 0.3, blue: 0.40, alpha: 1)),

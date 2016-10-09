@@ -96,6 +96,11 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions(), animations: {
                 self.pianoNavigationController!.view.frame.origin.x = SlideMenuViewController.offset
             }, completion: nil)
+        
+        if let sVC = pianoNavigationController?.topViewController as? SessionsViewController {
+            sVC.tableView?.isEditing = false
+            sVC.nameTextField?.endEditing(true)
+        }
     }
     
     func collapsePanel() {
