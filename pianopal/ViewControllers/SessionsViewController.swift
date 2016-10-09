@@ -143,25 +143,15 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         var newName: String?
         let text = textField.text
         let placeholder = textField.placeholder
-        let indexPath = tableView?.indexPathForSelectedRow
-        if let index = indexPath {
-            let cell = tableView?.cellForRow(at: index)
-            if text != nil && !text!.isEmpty {
-                newName = SessionManager.uniqueSessionName(text!)
-                cell?.textLabel?.text = newName
-
-            } else {
-                newName = placeholder ?? SessionManager.uniqueSessionDateName()
-                cell?.textLabel?.text = newName
-            }
-        }
-        if newName == nil {
-            let cell = textField.superview as! UITableViewCell
-            let indexPath = tableView?.indexPath(for: cell)
+        let cell = textField.superview as! SessionTableViewCell
+        let indexPath = tableView?.indexPath(for: cell)
+        if text != nil && !text!.isEmpty {
+            newName = SessionManager.uniqueSessionName(text!)
+        } else {
             newName = Globals.sessions[indexPath!.row].name
-            cell.textLabel?.text = newName
         }
-        Globals.session?.name = newName!
+        cell.textLabel?.text = newName
+        Globals.sessions[indexPath!.row].name = newName!
         SessionManager.saveSessions()
         textField.removeFromSuperview()
         nameTextField = nil
