@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D1F1D529967009A9829 /* KeyColorPair.swift */; };
 		420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D211D52FECA009A9829 /* LabelHelper.swift */; };
-		420B0D241D55C954009A9829 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D231D55C954009A9829 /* Session.swift */; };
+		420B0D241D55C954009A9829 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B0D231D55C954009A9829 /* SessionManager.swift */; };
 		423AA33D1D122528009494F1 /* ScaleSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */; };
 		423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */; };
 		423AA3411D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */; };
@@ -23,8 +23,13 @@
 		423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */; };
 		423CA0311D0F9CEF0005CD4B /* ScaleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0301D0F9CEF0005CD4B /* ScaleType.swift */; };
 		423CA0331D0FB4A20005CD4B /* ChordSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */; };
+		424B0CB61DA1ADC80082B6B8 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B0CB51DA1ADC80082B6B8 /* Globals.swift */; };
+		424B0CB81DA478D20082B6B8 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B0CB71DA478D20082B6B8 /* SessionTableViewCell.swift */; };
 		424D950A1D426DFF00ED7364 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D95091D426DFF00ED7364 /* Dimensions.swift */; };
 		42710BF21D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */; };
+		427643651D8F938F0018967A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427643641D8F938F0018967A /* Session.swift */; };
+		4284829B1D9D7F6E006843DD /* PianoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4284829A1D9D7F6D006843DD /* PianoViewController.swift */; };
+		4284829D1D9DFF83006843DD /* PianoViewHightlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4284829C1D9DFF83006843DD /* PianoViewHightlighter.swift */; };
 		42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */; };
 		42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */; };
 		42920CA21D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */; };
@@ -34,9 +39,6 @@
 		42B268CD1D0E15ED00725499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CC1D0E15ED00725499 /* Assets.xcassets */; };
 		42B268D01D0E15ED00725499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B268CE1D0E15ED00725499 /* LaunchScreen.storyboard */; };
 		42BC42DC1D43BF7E005B0257 /* PianoNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42DB1D43BF7E005B0257 /* PianoNavigationViewController.swift */; };
-		42BC42DE1D43C899005B0257 /* ChordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42DD1D43C899005B0257 /* ChordViewController.swift */; };
-		42BC42E01D43C8C5005B0257 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42DF1D43C8C5005B0257 /* ScaleViewController.swift */; };
-		42BC42E21D43C8DA005B0257 /* IdentifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42E11D43C8DA005B0257 /* IdentifyViewController.swift */; };
 		42BC42E61D43D64D005B0257 /* PianoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42E51D43D64D005B0257 /* PianoView.swift */; };
 		42BC42E81D453868005B0257 /* PianoNavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */; };
 		42BC42ED1D457C67005B0257 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC42EC1D457C67005B0257 /* AKPickerView.swift */; };
@@ -110,6 +112,7 @@
 		42CF6C601D6298DA00F6A3E0 /* G4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CF6C241D6298DA00F6A3E0 /* G4.mp3 */; };
 		42CF6C611D6298DA00F6A3E0 /* G5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CF6C251D6298DA00F6A3E0 /* G5.mp3 */; };
 		42CF6C631D62CE3900F6A3E0 /* AudioEngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */; };
+		42D255C41D6E7704001AEAB7 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D255C31D6E7704001AEAB7 /* SessionsViewController.swift */; };
 		42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E75ACB1D10E61000D9A840 /* Constants.swift */; };
 		42E8EA581D204756004757D1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA571D204756004757D1 /* Colors.swift */; };
 		42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8EA591D204A2A004757D1 /* Fonts.swift */; };
@@ -125,7 +128,7 @@
 /* Begin PBXFileReference section */
 		420B0D1F1D529967009A9829 /* KeyColorPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyColorPair.swift; sourceTree = "<group>"; };
 		420B0D211D52FECA009A9829 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
-		420B0D231D55C954009A9829 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = ../Session.swift; sourceTree = "<group>"; };
+		420B0D231D55C954009A9829 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = ../SessionManager.swift; sourceTree = "<group>"; };
 		423AA33C1D122528009494F1 /* ScaleSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleSelectorStoryboard.storyboard; sourceTree = "<group>"; };
 		423AA33E1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDelegate.swift; sourceTree = "<group>"; };
 		423AA3401D122BCB009494F1 /* ScaleTypePickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTypePickerViewDataSource.swift; sourceTree = "<group>"; };
@@ -139,8 +142,13 @@
 		423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleGenerator.swift; sourceTree = "<group>"; };
 		423CA0301D0F9CEF0005CD4B /* ScaleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleType.swift; sourceTree = "<group>"; };
 		423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSelectorViewController.swift; sourceTree = "<group>"; };
+		424B0CB51DA1ADC80082B6B8 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		424B0CB71DA478D20082B6B8 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		424D95091D426DFF00ED7364 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		42710BF11D0FC06800D55ACC /* ChordSelectorStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChordSelectorStoryboard.storyboard; sourceTree = "<group>"; };
+		427643641D8F938F0018967A /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4284829A1D9D7F6D006843DD /* PianoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoViewController.swift; sourceTree = "<group>"; };
+		4284829C1D9DFF83006843DD /* PianoViewHightlighter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoViewHightlighter.swift; sourceTree = "<group>"; };
 		42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		42920CA11D4E9F9600CE1AE0 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -152,9 +160,6 @@
 		42B268CF1D0E15ED00725499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B268D11D0E15ED00725499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = pianopal/Info.plist; sourceTree = SOURCE_ROOT; };
 		42BC42DB1D43BF7E005B0257 /* PianoNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoNavigationViewController.swift; sourceTree = "<group>"; };
-		42BC42DD1D43C899005B0257 /* ChordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordViewController.swift; sourceTree = "<group>"; };
-		42BC42DF1D43C8C5005B0257 /* ScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
-		42BC42E11D43C8DA005B0257 /* IdentifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifyViewController.swift; sourceTree = "<group>"; };
 		42BC42E51D43D64D005B0257 /* PianoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoView.swift; sourceTree = "<group>"; };
 		42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoNavigationProtocol.swift; sourceTree = "<group>"; };
 		42BC42EC1D457C67005B0257 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
@@ -228,6 +233,7 @@
 		42CF6C241D6298DA00F6A3E0 /* G4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G4.mp3; sourceTree = "<group>"; };
 		42CF6C251D6298DA00F6A3E0 /* G5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = G5.mp3; sourceTree = "<group>"; };
 		42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEngineProtocol.swift; sourceTree = "<group>"; };
+		42D255C31D6E7704001AEAB7 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		42E75ACB1D10E61000D9A840 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42E8EA571D204756004757D1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		42E8EA591D204A2A004757D1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -357,18 +363,17 @@
 		42E8EA5B1D204CEF004757D1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				42BED93F1D5AC23E009EBB2F /* WrapperViewController.swift */,
+				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
 				42BC42DB1D43BF7E005B0257 /* PianoNavigationViewController.swift */,
-				42BC42DD1D43C899005B0257 /* ChordViewController.swift */,
-				42BC42DF1D43C8C5005B0257 /* ScaleViewController.swift */,
-				42BC42E11D43C8DA005B0257 /* IdentifyViewController.swift */,
+				4284829A1D9D7F6D006843DD /* PianoViewController.swift */,
 				42C19D711D3C44650052D623 /* ChordTableViewController.swift */,
 				423CA0321D0FB4A20005CD4B /* ChordSelectorViewController.swift */,
-				42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */,
 				42BC42EE1D45E38E005B0257 /* ScaleTableViewController.swift */,
 				B2555EE51D11C12D00E2269C /* ScaleSelectorViewController.swift */,
-				42920C9D1D4E599000CE1AE0 /* SlideMenuViewController.swift */,
 				42920C9F1D4E9C6700CE1AE0 /* SettingsViewController.swift */,
-				42BED93F1D5AC23E009EBB2F /* WrapperViewController.swift */,
+				42D255C31D6E7704001AEAB7 /* SessionsViewController.swift */,
+				42BC42E71D453868005B0257 /* PianoNavigationProtocol.swift */,
 				42CF6C621D62CE3900F6A3E0 /* AudioEngineProtocol.swift */,
 			);
 			name = ViewControllers;
@@ -411,6 +416,8 @@
 				420B0D1F1D529967009A9829 /* KeyColorPair.swift */,
 				42CF6B9B1D5EDB9000F6A3E0 /* AudioEngine.swift */,
 				42CF6B9D1D6112AC00F6A3E0 /* NoteOctave.swift */,
+				427643641D8F938F0018967A /* Session.swift */,
+				424B0CB51DA1ADC80082B6B8 /* Globals.swift */,
 			);
 			name = Models;
 			path = pianopal/Models;
@@ -419,12 +426,13 @@
 		42E8EA5F1D204F21004757D1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				420B0D231D55C954009A9829 /* Session.swift */,
+				420B0D231D55C954009A9829 /* SessionManager.swift */,
 				423CA02C1D0F97500005CD4B /* ChordGenerator.swift */,
 				423CA02E1D0F976B0005CD4B /* ScaleGenerator.swift */,
 				42A6CFF81D137D5E007E956C /* ChordIdentifier.swift */,
 				420B0D211D52FECA009A9829 /* LabelHelper.swift */,
 				42CF6B9F1D61208800F6A3E0 /* NoteOctaveDetector.swift */,
+				4284829C1D9DFF83006843DD /* PianoViewHightlighter.swift */,
 			);
 			name = Helpers;
 			path = pianopal/Helpers;
@@ -445,6 +453,7 @@
 				42BC42E51D43D64D005B0257 /* PianoView.swift */,
 				42BC42F01D45E45E005B0257 /* ScaleTableViewCell.swift */,
 				42BED9411D5BF514009EBB2F /* SlideMenuTableViewCell.swift */,
+				424B0CB71DA478D20082B6B8 /* SessionTableViewCell.swift */,
 			);
 			name = UI;
 			path = pianopal/UI;
@@ -482,6 +491,7 @@
 				TargetAttributes = {
 					42B268C11D0E15ED00725499 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GFSP92A3FB;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -589,6 +599,7 @@
 				420B0D201D529967009A9829 /* KeyColorPair.swift in Sources */,
 				423CA02B1D0F96630005CD4B /* ChordType.swift in Sources */,
 				B2555EE61D11C12D00E2269C /* ScaleSelectorViewController.swift in Sources */,
+				4284829B1D9D7F6E006843DD /* PianoViewController.swift in Sources */,
 				420B0D221D52FECA009A9829 /* LabelHelper.swift in Sources */,
 				423AA3431D122E3E009494F1 /* Scale.swift in Sources */,
 				423CA0231D0F0EBD0005CD4B /* NoteButton.swift in Sources */,
@@ -598,30 +609,32 @@
 				423AA33F1D122BB9009494F1 /* ScaleTypePickerViewDelegate.swift in Sources */,
 				42BC42F11D45E45E005B0257 /* ScaleTableViewCell.swift in Sources */,
 				42A86E661D4F221C00DA49BD /* Preferences.swift in Sources */,
-				42BC42DE1D43C899005B0257 /* ChordViewController.swift in Sources */,
+				42D255C41D6E7704001AEAB7 /* SessionsViewController.swift in Sources */,
+				4284829D1D9DFF83006843DD /* PianoViewHightlighter.swift in Sources */,
 				B28267E91D10968000A9ADE2 /* ChordTypePickerViewDelegate.swift in Sources */,
 				42BC42EF1D45E38E005B0257 /* ScaleTableViewController.swift in Sources */,
 				42920C9E1D4E599000CE1AE0 /* SlideMenuViewController.swift in Sources */,
-				420B0D241D55C954009A9829 /* Session.swift in Sources */,
+				420B0D241D55C954009A9829 /* SessionManager.swift in Sources */,
 				42BC42E61D43D64D005B0257 /* PianoView.swift in Sources */,
-				42BC42E01D43C8C5005B0257 /* ScaleViewController.swift in Sources */,
 				423CA02F1D0F976B0005CD4B /* ScaleGenerator.swift in Sources */,
 				424D950A1D426DFF00ED7364 /* Dimensions.swift in Sources */,
 				42BED9421D5BF514009EBB2F /* SlideMenuTableViewCell.swift in Sources */,
 				42E75ACC1D10E61000D9A840 /* Constants.swift in Sources */,
 				42B268C61D0E15ED00725499 /* AppDelegate.swift in Sources */,
-				42BC42E21D43C8DA005B0257 /* IdentifyViewController.swift in Sources */,
 				42BC42ED1D457C67005B0257 /* AKPickerView.swift in Sources */,
 				42BED9401D5AC23E009EBB2F /* WrapperViewController.swift in Sources */,
+				427643651D8F938F0018967A /* Session.swift in Sources */,
 				42CF6B9C1D5EDB9000F6A3E0 /* AudioEngine.swift in Sources */,
 				42CF6C631D62CE3900F6A3E0 /* AudioEngineProtocol.swift in Sources */,
 				42CF6B9E1D6112AC00F6A3E0 /* NoteOctave.swift in Sources */,
+				424B0CB81DA478D20082B6B8 /* SessionTableViewCell.swift in Sources */,
 				42E8EA581D204756004757D1 /* Colors.swift in Sources */,
 				42BC42E81D453868005B0257 /* PianoNavigationProtocol.swift in Sources */,
 				42A6CFF91D137D5E007E956C /* ChordIdentifier.swift in Sources */,
 				42920CA01D4E9C6700CE1AE0 /* SettingsViewController.swift in Sources */,
 				423CA0271D0F780A0005CD4B /* KeyProperties.swift in Sources */,
 				42E8EA5A1D204A2A004757D1 /* Fonts.swift in Sources */,
+				424B0CB61DA1ADC80082B6B8 /* Globals.swift in Sources */,
 				42C19D701D3C39E20052D623 /* ChordTableViewCell.swift in Sources */,
 				42CF6BA01D61208800F6A3E0 /* NoteOctaveDetector.swift in Sources */,
 				B28267ED1D1096AA00A9ADE2 /* ChordTypePickerViewDataSource.swift in Sources */,
@@ -744,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GFSP92A3FB;
 				INFOPLIST_FILE = pianopal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
@@ -757,6 +771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GFSP92A3FB;
 				INFOPLIST_FILE = pianopal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;

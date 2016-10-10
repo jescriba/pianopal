@@ -11,7 +11,6 @@ import UIKit
 
 class WrapperViewController : UIViewController, UIGestureRecognizerDelegate {
     var navController: PianoNavigationViewController?
-    var sideMenuController: SlideMenuViewController?
     
     convenience init(navigationController: PianoNavigationViewController) {
         self.init()
@@ -42,24 +41,24 @@ class WrapperViewController : UIViewController, UIGestureRecognizerDelegate {
         }
         
         let draggingLeftToRight = recognizer.velocity(in: view).x > 0
-        let slideMenuViewController = navController!.slideMenuViewController!
+        let slideMenuViewController = navController!.slideMenuViewController
         
         switch (recognizer.state) {
             case .began:
-                if (draggingLeftToRight && !slideMenuViewController.expanded) {
+                if (draggingLeftToRight && !slideMenuViewController.isExpanded) {
                     navController!.addSlideMenuPanel()
                 }
             case .changed:
                 let newCenterX = navController!.view!.center.x + recognizer.translation(in: view).x
                 if (newCenterX > view.center.x + SlideMenuViewController.offset) {
-                    slideMenuViewController.expanded = true
+                    slideMenuViewController.isExpanded = true
                 } else if (newCenterX > view.center.x) {
                     navController!.view.center.x = newCenterX
-                    slideMenuViewController.expanded = false
+                    slideMenuViewController.isExpanded = false
                 }
                 recognizer.setTranslation(CGPoint.zero, in: view)
             case .ended:
-                if (!slideMenuViewController.expanded) {
+                if (!slideMenuViewController.isExpanded) {
                     slideMenuViewController.collapsePanel()
                 }
             default:

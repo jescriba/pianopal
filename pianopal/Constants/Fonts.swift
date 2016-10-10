@@ -10,13 +10,16 @@ import Foundation
 import UIKit
 
 class Fonts {
-    static let toolbarAction = UIFont (name: "HelveticaNeue-Light", size: 30)
-    static let changeToolbarAction = UIFont (name: "HelveticaNeue-Light", size: 30)
-    static let pickerSectionDescription = UIFont (name: "HelveticaNeue-Light", size: 22)
+    static let toolbarTitle = UIFont (name: "HelveticaNeue-Light", size: 30)
+    static let navigationItem = UIFont (name: "AmericanTypewriter", size: 20)
+    static let tableItem = UIFont (name: "HelveticaNeue-Light", size: 25)
     static let pickerItem = UIFont (name: "HelveticaNeue-Light", size: 20)
-    static let generateButton = UIFont (name: "HelveticaNeue-Light", size: 25)
-    static let changeModeButton = UIFont(name: "FontAwesome", size: 25)
-    static let menuButton = UIFont(name: "FontAwesome", size: 20)
+    static let pickerTitle = UIFont (name: "HelveticaNeue-Light", size: 22)
+    static let menuButton = UIFont(name: "FontAwesome", size: 23)
+    static let cancelButton = UIFont(name: "FontAwesome", size: 27)
+    static let saveButton = UIFont(name: "FontAwesome", size: 27)
+    static let newSessionButton = UIFont(name: "FontAwesome", size: 27)
+    static let editSessionButton = UIFont(name: "FontAwesome", size: 29)
     static let playButton = UIFont(name: "FontAwesome", size: 27)
-    static let chordListItem = UIFont (name: "AmericanTypewriter", size: 20)
+    static let plusButton = UIFont(name: "FontAwesome", size: 27)
 }

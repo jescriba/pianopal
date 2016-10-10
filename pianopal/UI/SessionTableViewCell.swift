@@ -1,14 +1,15 @@
 //
-//  ScaleTableViewCell.swift
+//  SessionTableViewCell.swift
 //  pianopal
 //
-//  Created by Joshua Escribano on 7/24/16.
+//  Created by Joshua Escribano on 10/4/16.
 //  Copyright © 2016 Joshua Escribano. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ScaleTableViewCell: UITableViewCell {
+class SessionTableViewCell : UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -25,4 +26,5 @@ class ScaleTableViewCell: UITableViewCell {
         bgView.backgroundColor = Colors.tableCellSelected
         selectedBackgroundView = bgView
     }
+    
 }

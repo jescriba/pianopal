@@ -18,13 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        Globals.sessions = SessionManager.loadSessions()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        let chordViewController = ChordViewController()
-        let chords = Session.loadChords()
-        if chords != nil {
-            chordViewController.chords = chords!
-        }
-        pianoNavigationViewController = PianoNavigationViewController.init(rootViewController: chordViewController)
+        pianoNavigationViewController = PianoNavigationViewController()
         wrapperViewController = WrapperViewController(navigationController: pianoNavigationViewController!)
         wrapperViewController!.addChildViewController(pianoNavigationViewController!)
         wrapperViewController!.view.addSubview(pianoNavigationViewController!.view)

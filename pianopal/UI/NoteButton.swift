@@ -96,11 +96,15 @@ class NoteButton: UIButton {
     
     func highlightBorder() {
         layer.borderColor = Colors.highlightedKeyBorder
+        layer.shadowRadius = 10.0
+        layer.shadowOpacity = 1
         layer.borderWidth = 5
     }
     
     func dehighlightBorder() {
         layer.borderColor = Colors.keyBorder
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0
         layer.borderWidth = 1
     }
     
@@ -109,9 +113,9 @@ class NoteButton: UIButton {
         if (description == nil) {
             description = note!.simpleDescription()
         }
-        self.setTitle(description, for: UIControlState())
+        self.setTitle(description, for: .normal)
         if note!.isWhiteKey() {
-            self.setTitleColor(UIColor.black, for: UIControlState())
+            self.setTitleColor(UIColor.black, for: .normal)
         }
     }
 }

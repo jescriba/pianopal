@@ -9,7 +9,7 @@
 import UIKit
 
 enum NavigationPage : Int {
-    case ChordProgression, ScaleProgression, Identify, Chords, Scales, Settings
+    case ChordProgression, ScaleProgression, Identify, Chords, Scales, Settings, Sessions
     
     func simpleDescription() -> String {
         if (self == NavigationPage.ChordProgression) {
@@ -24,17 +24,19 @@ enum NavigationPage : Int {
 
 class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     static let offset: CGFloat = 200
-    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Settings]
-    var expanded = false
+    let navigationItems = [NavigationPage.ChordProgression, NavigationPage.ScaleProgression, NavigationPage.Identify, NavigationPage.Chords, NavigationPage.Scales, NavigationPage.Sessions, NavigationPage.Settings]
     var pianoNavigationController: PianoNavigationViewController?
     var tableView: UITableView?
+    var isExpanded = false
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         tableView = UITableView(frame: UIScreen.main.bounds)
         tableView!.rowHeight = 60
         tableView!.tableFooterView = UIView(frame: CGRect.zero)
-        tableView!.backgroundColor = Colors.slideMenuBackgroundColor
+        tableView!.backgroundColor = Colors.navigationBackground
+        tableView!.separatorColor = Colors.navigationSeparator
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.cellLayoutMarginsFollowReadableWidth = false
@@ -46,8 +48,8 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell =  SlideMenuTableViewCell(style: .default, reuseIdentifier: "navigationPage")
         tableViewCell.textLabel!.text = navigationItems[(indexPath as NSIndexPath).row].simpleDescription()
-        tableViewCell.textLabel!.font = Fonts.chordListItem
-        tableViewCell.backgroundColor = Colors.slideMenuBackgroundColor
+        tableViewCell.textLabel!.font = Fonts.navigationItem
+        tableViewCell.backgroundColor = Colors.navigationBackground
         return tableViewCell
     }
     
@@ -56,30 +58,37 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pianoNavigationController!.stopPlaying()
+        let pianoViewController = pianoNavigationController!.pianoViewController
         switch navigationItems[(indexPath as NSIndexPath).row] {
             case .ChordProgression:
                 pianoNavigationController!.goToChordTableView()
             case .ScaleProgression:
                 pianoNavigationController!.goToScaleTableView()
             case .Chords:
-                pianoNavigationController!.goToChordView()
+                pianoViewController.pianoViewMode = PianoViewMode.chord
+                pianoNavigationController!.goToPianoView()
             case .Scales:
-                pianoNavigationController!.goToScaleView()
+                pianoViewController.pianoViewMode = PianoViewMode.scale
+                pianoNavigationController!.goToPianoView()
             case .Identify:
-                pianoNavigationController!.goToIdentifyView()
+                pianoViewController.pianoViewMode = PianoViewMode.identify
+                pianoNavigationController!.goToPianoView()
             case .Settings:
                 pianoNavigationController!.goToSettingsView()
+            case .Sessions:
+                pianoNavigationController!.goToSessionsView()
         }
         pianoNavigationController!.toggleSlideMenuPanel()
     }
     
     func togglePanel() {
-        if (expanded) {
+        if (isExpanded) {
             collapsePanel()
-            expanded = false
+            isExpanded = false
         } else {
             expandPanel()
-            expanded = true
+            isExpanded = true
         }
     }
     
@@ -87,6 +96,11 @@ class SlideMenuViewController: UIViewController, UITableViewDelegate, UITableVie
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions(), animations: {
                 self.pianoNavigationController!.view.frame.origin.x = SlideMenuViewController.offset
             }, completion: nil)
+        
+        if let sVC = pianoNavigationController?.topViewController as? SessionsViewController {
+            sVC.tableView?.isEditing = false
+            sVC.nameTextField?.endEditing(true)
+        }
     }
     
     func collapsePanel() {

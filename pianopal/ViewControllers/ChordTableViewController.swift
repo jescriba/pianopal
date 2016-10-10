@@ -9,14 +9,17 @@
 import UIKit
 
 class ChordTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PianoNavigationProtocol {
+    
+    let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
-    var chords = [Chord]()
-    var tableView: UITableView? = nil
+    var menuButton: UIButton?
+    var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-
+        pianoNavigationViewController = navigationController as? PianoNavigationViewController
         let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height - navBarOffset
@@ -25,12 +28,18 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView!.register(ChordTableViewCell.self, forCellReuseIdentifier: "ChordTableViewCell")
-        tableView!.separatorColor = Colors.chordTableSeparatorColor
         tableView!.rowHeight = 90
-        tableView!.backgroundColor = Colors.chordTableBackgroundColor
+        tableView!.separatorColor = Colors.tableSeparator
+        tableView!.backgroundColor = Colors.tableBackground
         tableView!.allowsSelectionDuringEditing = true
         tableView!.tableFooterView = UIView()
         view.addSubview(tableView!)
+        
+        menuButton = pianoNavigationViewController?.menuButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView?.reloadData()
         
         updateNavigationItem()
     }
@@ -41,19 +50,19 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChordTableViewCell", for: indexPath) as! ChordTableViewCell
-        cell.chordLabel!.text = chords[(indexPath as NSIndexPath).row].simpleDescription()
+        cell.textLabel?.text = Globals.chords[(indexPath as NSIndexPath).row].simpleDescription()
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chords.count
+        return Globals.chords.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            chords.remove(at: (indexPath as NSIndexPath).row)
+            Globals.session?.chords.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            Session.save(chords: chords)
+            SessionManager.saveSessions()
         }
     }
     
@@ -62,10 +71,10 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let chord = chords[(sourceIndexPath as NSIndexPath).row]
-        chords.remove(at: (sourceIndexPath as NSIndexPath).row)
-        chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
-        Session.save(chords: chords)
+        let chord = Globals.chords[(sourceIndexPath as NSIndexPath).row]
+        Globals.session?.chords.remove(at: (sourceIndexPath as NSIndexPath).row)
+        Globals.session?.chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
+        SessionManager.saveSessions()
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -77,18 +86,14 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func updateNavigationItem() {
-        pianoNavigationViewController = navigationController as? PianoNavigationViewController
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
-        let plusButton = pianoNavigationViewController?.addChordButton
-        plusButton!.setTitle("\u{f196}", for: UIControlState())
-        plusButton!.setTitleColor(Colors.normalRightBarButtonColor, for: UIControlState())
-        plusButton!.setTitleColor(Colors.pressedRightBarButtonColor, for: UIControlState.highlighted)
-        plusButton!.titleLabel!.font = Fonts.changeModeButton
-        let plusBarButtonItem = UIBarButtonItem(customView: plusButton!)
+        plusButton.setTitle("\u{f055}", for: .normal)
+        plusButton.setTitleColor(Colors.normalRightBarButton, for: .normal)
+        plusButton.setTitleColor(Colors.pressedRightBarButton, for: .highlighted)
+        plusButton.titleLabel!.font = Fonts.plusButton
+        let plusBarButtonItem = UIBarButtonItem(customView: plusButton)
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = plusBarButtonItem
         pianoNavigationViewController?.customNavigationItem.title = "Chord Progression"
-        let menuButton = pianoNavigationViewController?.menuButton
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
     }
-
 }

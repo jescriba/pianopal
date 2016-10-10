@@ -57,8 +57,8 @@ Private. A subclass of UICollectionViewCell used in AKPickerView's collection vi
 private class AKCollectionViewCell: UICollectionViewCell {
 	var label: UILabel!
 	var imageView: UIImageView!
-	var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-	var highlightedFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+	var font = Fonts.toolbarTitle
+	var highlightedFont = Fonts.toolbarTitle
 	var _selected: Bool = false {
 		didSet(selected) {
 			let animation = CATransition()
@@ -238,10 +238,10 @@ open class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewDel
 		}
 	}
 	/// Readwrite. A font which used in NOT selected cells.
-	open lazy var font = UIFont.systemFont(ofSize: 20)
+	open lazy var font = Fonts.toolbarTitle!
 
 	/// Readwrite. A font which used in selected cells.
-	open lazy var highlightedFont = UIFont.boldSystemFont(ofSize: 20)
+	open lazy var highlightedFont = Fonts.toolbarTitle!
 
 	/// Readwrite. A color of the text on NOT selected cells.
 	@IBInspectable open lazy var textColor: UIColor = UIColor.darkGray
