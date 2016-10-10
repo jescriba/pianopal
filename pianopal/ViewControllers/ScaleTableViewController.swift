@@ -59,7 +59,7 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
         if editingStyle == .delete {
             Globals.session?.scales.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            SessionManager.saveSession(Globals.session)
+            SessionManager.saveSessions()
         }
     }
     
@@ -71,7 +71,7 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let scale = Globals.scales[(sourceIndexPath as NSIndexPath).row]
         Globals.session?.scales.remove(at: (sourceIndexPath as NSIndexPath).row)
         Globals.session?.scales.insert(scale, at: (destinationIndexPath as NSIndexPath).row)
-        SessionManager.saveSession(Globals.session)
+        SessionManager.saveSessions()
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

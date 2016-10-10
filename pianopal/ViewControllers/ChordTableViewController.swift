@@ -62,7 +62,7 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
         if editingStyle == .delete {
             Globals.session?.chords.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            SessionManager.saveSession(Globals.session)
+            SessionManager.saveSessions()
         }
     }
     
@@ -74,7 +74,7 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let chord = Globals.chords[(sourceIndexPath as NSIndexPath).row]
         Globals.session?.chords.remove(at: (sourceIndexPath as NSIndexPath).row)
         Globals.session?.chords.insert(chord, at: (destinationIndexPath as NSIndexPath).row)
-        SessionManager.saveSession(Globals.session)
+        SessionManager.saveSessions()
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

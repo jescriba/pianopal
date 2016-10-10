@@ -17,25 +17,16 @@ class SessionManager {
         return url?.path
     }
     
-    class func saveSession(_ session: Session?, sessions inSessions: [Session]? = nil) {
-        var sessions = inSessions
-        if session != nil && allSessionsPath != nil {
-            if inSessions == nil {
-                sessions = loadSessions()
-            }
-            if sessions?.first?.name != session?.name {
-                sessions?.insert(session!, at: 0)
-            }
-            NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
-        }
-    }
+//    class func deleteSessions(){
+//        try? _ = FileManager.default.removeItem(atPath: allSessionsPath!)
+//    }
     
     class func saveSessions(_ inSessions: [Session]? = nil) {
         var sessions = inSessions
         if inSessions == nil {
             sessions = Globals.sessions
         }
-        let t = NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
+        NSKeyedArchiver.archiveRootObject(sessions!, toFile: allSessionsPath!)
     }
     
     class func loadSession(_ name: String) {
@@ -55,10 +46,10 @@ class SessionManager {
     
     class func loadSessions() -> [Session] {
         var sessions: [Session]?
-        if allSessionsPath != nil {
-            sessions = NSKeyedUnarchiver.unarchiveObject(withFile: "sessions") as? [Session]
+        if let path = allSessionsPath {
+            sessions = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [Session]
         }
-        if sessions == nil {
+        if sessions == nil || sessions!.isEmpty {
             let dateString = SessionManager.uniqueSessionDateName()
             let newSession = Session(name: dateString)
             sessions = [Session]()

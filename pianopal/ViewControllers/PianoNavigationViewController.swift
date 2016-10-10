@@ -205,7 +205,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         chordTableViewController.tableView!.reloadData()
         popViewController(animated: false)
         pushViewController(chordTableViewController, animated: false)
-        SessionManager.saveSession(Globals.session)
+        SessionManager.saveSessions()
     }
     
     func cancelChordToProgression() {
@@ -221,7 +221,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         scaleTableViewController.tableView!.reloadData()
         popViewController(animated: false)
         pushViewController(scaleTableViewController, animated: false)
-        SessionManager.saveSession(Globals.session)
+        SessionManager.saveSessions()
     }
     
     func cancelScaleToProgression() {

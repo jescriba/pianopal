@@ -34,13 +34,15 @@ class Session : NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let chords = aDecoder.decodeObject(forKey: "Chords") as? [Chord] ?? [Chord]()
         let scales = aDecoder.decodeObject(forKey: "Scales") as? [Scale] ?? [Scale]()
+        let name = aDecoder.decodeObject(forKey: "Name") as? String ?? SessionManager.uniqueSessionDateName()
         
-        self.init(chords: chords, scales: scales)
+        self.init(chords: chords, scales: scales, name: name)
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(chords, forKey: "Chords")
         aCoder.encode(scales, forKey: "Scales")
+        aCoder.encode(name, forKey: "Name")
     }
 
 }
