@@ -269,6 +269,10 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
     
     func didFinishPlaying() {
         stopPlaying()
+        
+        if (Preferences.autoPlayProgression) {
+            self.pianoViewController.continueProgression()
+        }
     }
     
     func didFinishPlayingNotes(_ notes: [NoteOctave]) {

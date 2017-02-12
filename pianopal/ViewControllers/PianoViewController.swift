@@ -162,4 +162,34 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         }
     }
     
+    func continueProgression() {
+        let pianoNavigationController = navigationController as? PianoNavigationViewController
+        switch pianoViewMode {
+        case .chord:
+            var chordCount = chordsPickerView!.selectedItem
+            chordCount += 1
+            if (chordCount < Globals.chords.count) {
+                let nextChordTime = DispatchTime.now() + .milliseconds(500)
+                DispatchQueue.main.asyncAfter(deadline: nextChordTime, execute: {
+                    self.chordsPickerView?.selectItem(chordCount, animated: true)
+                    pianoNavigationController?.startPlaying()
+                })
+            }
+            break
+        case .scale:
+            var scaleCount = scalesPickerView!.selectedItem
+            scaleCount += 1
+            if (scaleCount < Globals.scales.count) {
+                let nextScaleTime = DispatchTime.now() + .milliseconds(500)
+                DispatchQueue.main.asyncAfter(deadline: nextScaleTime, execute: {
+                    self.scalesPickerView?.selectItem(scaleCount, animated: true)
+                    pianoNavigationController?.startPlaying()
+                })
+            }
+            break
+        default:
+            break
+        }
+    }
+    
 }

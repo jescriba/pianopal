@@ -35,4 +35,13 @@ class Preferences {
             defaults.set(newValue, forKey: "HighlightTriad")
         }
     }
+    static var autoPlayProgression: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "AutoPlayProgression")
+        }
+        set {
+            let defaults = UserDefaults.standard
+            defaults.set(newValue, forKey: "AutoPlayProgression")
+        }
+    }
 }

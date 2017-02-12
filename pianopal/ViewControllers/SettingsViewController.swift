@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
     @IBOutlet weak var TriadSwitch: UISwitch!
     @IBOutlet weak var NoteLetterSwitch: UISwitch!
     @IBOutlet weak var NoteNumberSwitch: UISwitch!
+    @IBOutlet weak var AutoPlayProgressionSwitch: UISwitch!
     
     @IBAction func NoteNumberSwitched(_ sender: AnyObject) {
         Preferences.labelNoteNumber = NoteNumberSwitch.isOn
@@ -31,6 +32,10 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
         Preferences.highlightTriads = TriadSwitch.isOn
     }
     
+    @IBAction func AutoPlayProgressionSwitched(_ sender: Any) {
+        Preferences.autoPlayProgression = AutoPlayProgressionSwitch.isOn
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,9 +45,11 @@ class SettingsViewController: UIViewController, PianoNavigationProtocol {
         NoteLetterSwitch.onTintColor = Colors.settingsSwitchTint
         NoteNumberSwitch.onTintColor = Colors.settingsSwitchTint
         TriadSwitch.onTintColor = Colors.settingsSwitchTint
+        AutoPlayProgressionSwitch.onTintColor = Colors.settingsSwitchTint
         NoteLetterSwitch.isOn = Preferences.labelNoteLetter
         NoteNumberSwitch.isOn = Preferences.labelNoteNumber
         TriadSwitch.isOn = Preferences.highlightTriads
+        AutoPlayProgressionSwitch.isOn = Preferences.autoPlayProgression
     }
     
     override func viewWillAppear(_ animated: Bool) {
