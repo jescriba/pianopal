@@ -9,7 +9,7 @@
 import Foundation
 
 enum ScaleType : Int {
-    case Major, NaturalMinor, MelodicMinor, MinorPentatonic, HarmonicMajor, HarmonicMinor, HungarianMajor, HungarianMinor
+    case Major, NaturalMinor, MelodicMinor, MinorPentatonic, HarmonicMajor, HarmonicMinor, HungarianMajor, HungarianMinor, BluesHexatonic
     
     func scaleFormula() -> [Int] {
         switch self {
@@ -29,6 +29,8 @@ enum ScaleType : Int {
             return [3, 4, 6, 7, 9, 10]
         case .HungarianMinor:
             return [2, 3, 6, 7, 8, 11]
+        case .BluesHexatonic:
+            return [3, 5, 6, 7, 10]
         }
     }
 }
