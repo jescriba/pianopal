@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,79 +22,77 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQB-cl-g1w">
-                                <rect key="frame" x="83.5" y="77.5" width="500" height="220"/>
+                                <rect key="frame" x="83.5" y="87.5" width="500" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label note numbering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZz-Gs-cCO">
-                                        <rect key="frame" x="0.0" y="10" width="195.5" height="24"/>
+                                        <rect key="frame" x="102.5" y="5" width="195.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-CD-42S">
-                                        <rect key="frame" x="304.5" y="6.5" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="NoteNumberSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="LOl-M0-9aB"/>
-                                        </connections>
-                                    </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0h-fS-8PA">
-                                        <rect key="frame" x="304.5" y="65.5" width="51" height="31"/>
+                                        <rect key="frame" x="318" y="45.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="NoteLetterSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="7l9-3n-mJf"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highlight triads on scales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS4-52-bpa">
-                                        <rect key="frame" x="0.0" y="128" width="226.5" height="24"/>
+                                        <rect key="frame" x="71.5" y="93" width="226.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-wo-O2p">
-                                        <rect key="frame" x="304.5" y="124" width="51" height="31"/>
+                                        <rect key="frame" x="318" y="89.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="HighlightTriadsSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="Dxz-PE-gXL"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto play progressions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cet-jd-LOY">
-                                        <rect key="frame" x="0.0" y="187" width="204.5" height="24"/>
+                                        <rect key="frame" x="93.5" y="137" width="204.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label note lettering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvp-NY-wfn">
-                                        <rect key="frame" x="0.0" y="69" width="172.5" height="24"/>
+                                        <rect key="frame" x="125.5" y="49" width="172.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eA5-Nj-TEH">
-                                        <rect key="frame" x="304.5" y="183.5" width="51" height="31"/>
+                                        <rect key="frame" x="318" y="133.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="AutoPlayProgressionSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="nLX-EO-60y"/>
+                                        </connections>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-CD-42S">
+                                        <rect key="frame" x="318" y="1.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="NoteNumberSwitched:" destination="y14-eM-2f5" eventType="valueChanged" id="LOl-M0-9aB"/>
                                         </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="wvp-NY-wfn" firstAttribute="leading" secondItem="kZz-Gs-cCO" secondAttribute="leading" id="0Lf-8s-mdm"/>
+                                    <constraint firstItem="Qm6-wo-O2p" firstAttribute="centerY" secondItem="mS4-52-bpa" secondAttribute="centerY" id="05M-Cp-Bd4"/>
+                                    <constraint firstItem="kZz-Gs-cCO" firstAttribute="top" secondItem="WQB-cl-g1w" secondAttribute="top" constant="5" id="15Q-2T-Jaf"/>
+                                    <constraint firstItem="cet-jd-LOY" firstAttribute="trailing" secondItem="kZz-Gs-cCO" secondAttribute="trailing" id="2sp-za-U16"/>
+                                    <constraint firstItem="mfY-CD-42S" firstAttribute="leading" secondItem="kZz-Gs-cCO" secondAttribute="trailing" constant="20" id="7PV-K3-jWo"/>
                                     <constraint firstAttribute="width" constant="500" id="803-bf-AYd"/>
-                                    <constraint firstItem="mS4-52-bpa" firstAttribute="leading" secondItem="WQB-cl-g1w" secondAttribute="leadingMargin" constant="-8" id="8j4-EV-yKi"/>
-                                    <constraint firstItem="mS4-52-bpa" firstAttribute="leading" secondItem="kZz-Gs-cCO" secondAttribute="leading" id="9QJ-uR-iHo"/>
-                                    <constraint firstItem="eA5-Nj-TEH" firstAttribute="leading" secondItem="mfY-CD-42S" secondAttribute="leading" id="9ga-6p-0ei"/>
-                                    <constraint firstAttribute="height" constant="220" id="FGp-zV-LJD"/>
-                                    <constraint firstItem="Qm6-wo-O2p" firstAttribute="leading" secondItem="mfY-CD-42S" secondAttribute="leading" id="McH-r2-a6r"/>
-                                    <constraint firstItem="eA5-Nj-TEH" firstAttribute="centerY" secondItem="cet-jd-LOY" secondAttribute="centerY" id="PLO-eB-JJQ"/>
-                                    <constraint firstItem="k0h-fS-8PA" firstAttribute="centerY" secondItem="wvp-NY-wfn" secondAttribute="centerY" id="RiB-ol-Eh3"/>
-                                    <constraint firstItem="wvp-NY-wfn" firstAttribute="top" secondItem="kZz-Gs-cCO" secondAttribute="bottom" constant="35" id="YDc-3Y-JI1"/>
-                                    <constraint firstItem="Qm6-wo-O2p" firstAttribute="centerY" secondItem="mS4-52-bpa" secondAttribute="centerY" id="cWT-wd-6Au"/>
-                                    <constraint firstItem="mS4-52-bpa" firstAttribute="top" secondItem="wvp-NY-wfn" secondAttribute="bottom" constant="35" id="dbK-cd-usT"/>
-                                    <constraint firstItem="kZz-Gs-cCO" firstAttribute="leading" secondItem="WQB-cl-g1w" secondAttribute="leading" id="gEz-oD-Wh2"/>
-                                    <constraint firstItem="kZz-Gs-cCO" firstAttribute="top" secondItem="WQB-cl-g1w" secondAttribute="top" constant="10" id="gGD-6K-aWs"/>
-                                    <constraint firstItem="cet-jd-LOY" firstAttribute="top" secondItem="mS4-52-bpa" secondAttribute="bottom" constant="35" id="hC1-P4-NGk"/>
-                                    <constraint firstItem="cet-jd-LOY" firstAttribute="leading" secondItem="kZz-Gs-cCO" secondAttribute="leading" id="j06-Cu-0e9"/>
-                                    <constraint firstItem="mfY-CD-42S" firstAttribute="centerY" secondItem="kZz-Gs-cCO" secondAttribute="centerY" id="jc5-Yc-OId"/>
-                                    <constraint firstItem="cet-jd-LOY" firstAttribute="leading" secondItem="WQB-cl-g1w" secondAttribute="leadingMargin" constant="-8" id="lBs-ap-Qgk"/>
-                                    <constraint firstItem="k0h-fS-8PA" firstAttribute="leading" secondItem="mfY-CD-42S" secondAttribute="leading" id="spy-fT-nUi"/>
-                                    <constraint firstItem="eA5-Nj-TEH" firstAttribute="leading" secondItem="cet-jd-LOY" secondAttribute="trailing" constant="100" id="zA8-V2-Qa0"/>
+                                    <constraint firstItem="mS4-52-bpa" firstAttribute="top" secondItem="wvp-NY-wfn" secondAttribute="bottom" constant="20" id="8wB-yT-oJU"/>
+                                    <constraint firstItem="kZz-Gs-cCO" firstAttribute="centerX" secondItem="WQB-cl-g1w" secondAttribute="centerX" constant="-50" id="DJt-VS-Tzo"/>
+                                    <constraint firstAttribute="height" constant="200" id="FGp-zV-LJD"/>
+                                    <constraint firstItem="k0h-fS-8PA" firstAttribute="leading" secondItem="mfY-CD-42S" secondAttribute="leading" id="GMG-3U-P7F"/>
+                                    <constraint firstItem="eA5-Nj-TEH" firstAttribute="leading" secondItem="mfY-CD-42S" secondAttribute="leading" id="MG7-T2-qd5"/>
+                                    <constraint firstItem="k0h-fS-8PA" firstAttribute="centerY" secondItem="wvp-NY-wfn" secondAttribute="centerY" id="MiK-Dh-VSI"/>
+                                    <constraint firstItem="eA5-Nj-TEH" firstAttribute="centerY" secondItem="cet-jd-LOY" secondAttribute="centerY" id="NQD-VF-7Hg"/>
+                                    <constraint firstItem="cet-jd-LOY" firstAttribute="top" secondItem="mS4-52-bpa" secondAttribute="bottom" constant="20" id="kkG-g7-gXE"/>
+                                    <constraint firstItem="wvp-NY-wfn" firstAttribute="top" secondItem="kZz-Gs-cCO" secondAttribute="bottom" constant="20" id="p4P-9f-s6l"/>
+                                    <constraint firstItem="wvp-NY-wfn" firstAttribute="trailing" secondItem="kZz-Gs-cCO" secondAttribute="trailing" id="qa9-kJ-8Zw"/>
+                                    <constraint firstItem="Qm6-wo-O2p" firstAttribute="leading" secondItem="mfY-CD-42S" secondAttribute="leading" id="s8Q-Bx-CBl"/>
+                                    <constraint firstItem="mS4-52-bpa" firstAttribute="trailing" secondItem="kZz-Gs-cCO" secondAttribute="trailing" id="t1G-6l-oBx"/>
+                                    <constraint firstItem="mfY-CD-42S" firstAttribute="centerY" secondItem="kZz-Gs-cCO" secondAttribute="centerY" id="vkz-Qf-Qzk"/>
                                 </constraints>
                             </view>
                         </subviews>
