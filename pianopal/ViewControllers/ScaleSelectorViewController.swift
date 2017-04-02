@@ -15,6 +15,7 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
     @IBOutlet weak var scaleTypeLabel: UILabel!
     @IBOutlet weak var scaleTypePickerView: UIPickerView!
     @IBOutlet weak var rootNotePickerView: UIPickerView!
+    @IBOutlet weak var modePickerView: UIPickerView!
     
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
@@ -32,12 +33,12 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
         let navigationItem = pianoNavigationViewController?.customNavigationItem
         rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)
         scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(navigationItem: navigationItem!)
-        scaleTypeLabel.font = Fonts.pickerTitle
-        rootNoteLabel.font = Fonts.pickerTitle
         rootNotePickerView.delegate = rootNotePickerViewDelegate
         rootNotePickerView.dataSource = rootNotePickerViewDataSource
         scaleTypePickerView.delegate = scaleTypePickerViewDelegate
         scaleTypePickerView.dataSource = scaleTypePickerViewDataSource
+        modePickerView.delegate = self
+        modePickerView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,4 +53,29 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveScaleButton)
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelScaleButton)
     }
+}
+
+// MARK: UIPickerViewDelegate/DataSource for Modes
+extension ScaleSelectorViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Mode(rawValue: row)?.simpleDescription()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //TODO
+    }
+    
+}
+
+extension ScaleSelectorViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Constants.totalModes
+    }
+    
 }

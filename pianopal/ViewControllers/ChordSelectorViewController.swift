@@ -11,10 +11,10 @@ import UIKit
 
 class ChordSelectorViewController : UIViewController, PianoNavigationProtocol {
     
+    @IBOutlet weak var keyNotePickerView: UIPickerView!
+    @IBOutlet weak var keyTypePickerView: UIPickerView!
     @IBOutlet weak var rootNotePickerView: UIPickerView!
     @IBOutlet weak var chordTypePickerView: UIPickerView!
-    @IBOutlet weak var rootNoteLabel: UILabel!
-    @IBOutlet weak var chordTypeLabel: UILabel!
     
     let cancelChordButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveChordButton = UIButton(frame: Dimensions.rightBarButtonRect)
@@ -34,8 +34,6 @@ class ChordSelectorViewController : UIViewController, PianoNavigationProtocol {
         let navigationItem = pianoNavigationViewController?.customNavigationItem
         rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)
         chordTypePickerViewDelegate = ChordTypePickerViewDelegate(navigationItem: navigationItem!)
-        chordTypeLabel.font = Fonts.pickerTitle
-        rootNoteLabel.font = Fonts.pickerTitle
         rootNotePickerView.delegate = rootNotePickerViewDelegate
         rootNotePickerView.dataSource = rootNotePickerViewDataSource
         chordTypePickerView.delegate = chordTypePickerViewDelegate

@@ -13,4 +13,5 @@ struct Constants {
     static let totalNotes = 12
     static let totalChordTypes = 11
     static let totalScaleTypes = 9
+    static let totalModes = 7
 }
