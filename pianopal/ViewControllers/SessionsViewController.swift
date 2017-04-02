@@ -15,8 +15,7 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     let newSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var menuButton: UIButton?
     var pianoNavigationViewController: PianoNavigationViewController?
-    var tableView: UITableView?
-    var tableViewRect: CGRect?
+    var tableView: UITableView!
     var nameTextField: UITextField?
     
     deinit {
@@ -32,24 +31,20 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         view.backgroundColor = Colors.tableBackground
         
-        // Fix this nav bar offset behavior when done editing
-        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)!
+        let height = UIScreen.main.bounds.height
         let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height - navBarOffset
-        tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
-        tableView = UITableView(frame: tableViewRect!)
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.register(SessionTableViewCell.self, forCellReuseIdentifier: "SessionTableViewCell")
-        tableView!.rowHeight = 90
-        tableView!.separatorColor = Colors.tableSeparator
-        tableView!.backgroundColor = Colors.tableBackground
-        tableView!.allowsSelectionDuringEditing = true
-        tableView!.tableFooterView = UIView()
+        let tableViewRect = CGRect(x: 0, y: 0, width: width, height: height)
+        tableView = UITableView(frame: tableViewRect)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(SessionTableViewCell.self, forCellReuseIdentifier: "SessionTableViewCell")
+        tableView.rowHeight = 90
+        tableView.separatorColor = Colors.tableSeparator
+        tableView.backgroundColor = Colors.tableBackground
+        tableView.allowsSelectionDuringEditing = true
+        tableView.tableFooterView = UIView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-        
         view.addSubview(tableView!)
     }
     
@@ -63,13 +58,6 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
                 tableView?.scrollIndicatorInsets = inset
             }
         }
-    }
-    
-    func keyboardDidHide(notification: NSNotification) {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.tableView?.contentInset = .zero
-            self.tableView?.scrollIndicatorInsets = .zero
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
