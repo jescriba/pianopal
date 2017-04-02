@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 struct Dimensions {
-    static let toolBarHeight = UIScreen.main.bounds.height / 8
+    static let toolBarHeight = 50
     static let toolBarWidth = UIScreen.main.bounds.width
     static let toolbarRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 8)
     static let pianoRect = CGRect(x: 0, y: UIScreen.main.bounds.height / 8, width: UIScreen.main.bounds.width, height: 7 * UIScreen.main.bounds.height / 8)
