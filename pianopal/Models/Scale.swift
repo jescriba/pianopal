@@ -9,12 +9,27 @@
 import Foundation
 
 class Scale : NSObject, NSCoding {
+    var rootNote: Note!
     var notes =  [Note]()
     var scaleType: ScaleType?
+    var mode: Mode {
+        willSet {
+            let rootIndex = notes.index(of: rootNote) ?? 0
+            let newStartingIndex = (rootIndex + newValue.rawValue) % notes.count
+            // shift notes array according to mode
+            var tempNotes = notes
+            for i in 0...(notes.count - 1) {
+                tempNotes[i] = notes[(i + newStartingIndex) % notes.count]
+            }
+            notes = tempNotes
+        }
+    }
     
-    init(notes: [Note], scaleType: ScaleType) {
+    init(notes: [Note], scaleType: ScaleType, rootNote: Note? = nil) {
         self.notes = notes
+        self.rootNote = rootNote ?? notes.first
         self.scaleType = scaleType
+        self.mode = .ionian
         
         super.init()
     }
@@ -24,7 +39,7 @@ class Scale : NSObject, NSCoding {
     }
     
     func simpleDescription() -> String {
-        return "\(self.notes.first!.simpleDescription())\(self.scaleType!)"
+        return "\(self.rootNote.simpleDescription())\(self.scaleType!)"
     }
     
     required convenience init?(coder aDecoder: NSCoder) {

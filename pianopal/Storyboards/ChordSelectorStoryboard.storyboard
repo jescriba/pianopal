@@ -77,12 +77,20 @@
                                                     <constraint firstAttribute="width" constant="140" id="yPv-hs-hAd"/>
                                                 </constraints>
                                             </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRj-Pi-lNT">
+                                                <rect key="frame" x="87.5" y="8" width="69" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="sRj-Pi-lNT" firstAttribute="centerX" secondItem="rDX-si-NaM" secondAttribute="centerX" id="ARO-7C-bOc"/>
                                             <constraint firstItem="F6R-H3-TVZ" firstAttribute="centerY" secondItem="3Xn-JN-wQP" secondAttribute="centerY" id="F3z-xK-ifA"/>
                                             <constraint firstAttribute="trailing" secondItem="F6R-H3-TVZ" secondAttribute="trailing" constant="15" id="FBA-Un-cIe"/>
                                             <constraint firstItem="3Xn-JN-wQP" firstAttribute="centerY" secondItem="rDX-si-NaM" secondAttribute="centerY" id="UWV-LS-1r3"/>
+                                            <constraint firstItem="sRj-Pi-lNT" firstAttribute="top" secondItem="rDX-si-NaM" secondAttribute="top" constant="8" id="k8v-sL-DFc"/>
                                             <constraint firstItem="3Xn-JN-wQP" firstAttribute="leading" secondItem="rDX-si-NaM" secondAttribute="leading" constant="10" id="lgq-ne-GqC"/>
                                         </constraints>
                                     </view>

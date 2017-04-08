@@ -11,21 +11,23 @@ import UIKit
 
 class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
     
-    @IBOutlet weak var rootNoteLabel: UILabel!
-    @IBOutlet weak var scaleTypeLabel: UILabel!
-    @IBOutlet weak var scaleTypePickerView: UIPickerView!
-    @IBOutlet weak var rootNotePickerView: UIPickerView!
+    @IBOutlet weak var scaleTypePickerView: ScaleTypePickerView!
+    @IBOutlet weak var rootNotePickerView: RootNotePickerView!
     @IBOutlet weak var modePickerView: UIPickerView!
     
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
+    var scale: Scale!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.pickerBackground
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
+        scale = ScaleGenerator.generateScale(.c, scaleType: .Major)
+        scaleTypePickerView.scaleDelegate = self
+        rootNotePickerView.scaleDelegate = self
         modePickerView.delegate = self
         modePickerView.dataSource = self
     }
@@ -52,7 +54,7 @@ extension ScaleSelectorViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //TODO
+        scale.mode = Mode(rawValue: row) ?? .ionian
     }
     
 }
@@ -67,4 +69,13 @@ extension ScaleSelectorViewController: UIPickerViewDataSource {
         return Constants.totalModes
     }
     
+}
+
+extension ScaleSelectorViewController: ScaleDelegate {
+    func scaleChanged(note: Note?, type: ScaleType?) {
+        let newNote = note ?? scale.rootNote
+        let newType = type ?? scale.scaleType
+        scale = ScaleGenerator.generateScale(newNote!, scaleType: newType!)
+        pianoNavigationViewController?.customNavigationItem.title = scale.simpleDescription()
+    }
 }

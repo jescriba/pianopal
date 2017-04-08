@@ -95,6 +95,9 @@ extension ChordSelectorViewController: ChordDelegate {
             chordTypePickerView.reloadAllComponents()
         }
         chord = ChordGenerator.generateChord(newNote!, chordType: newType!)
+        
+        // Update Page Title
+        pianoNavigationViewController?.customNavigationItem.title = chord.simpleDescription()
     }
     
 }

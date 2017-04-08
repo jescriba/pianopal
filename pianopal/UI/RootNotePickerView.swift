@@ -11,6 +11,7 @@ import UIKit
 
 class RootNotePickerView: UIPickerView {
     var chordDelegate: ChordDelegate?
+    var scaleDelegate: ScaleDelegate?
     var notes = Constants.orderedNotes
     
     override func willMove(toWindow newWindow: UIWindow?) {
@@ -23,6 +24,7 @@ extension RootNotePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         chordDelegate?.chordChanged(note: notes[row], type: nil)
+        scaleDelegate?.scaleChanged(note: notes[row], type: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
