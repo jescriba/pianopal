@@ -63,14 +63,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDX-si-NaM">
                                         <rect key="frame" x="218" y="10" width="244" height="230"/>
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xn-JN-wQP">
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xn-JN-wQP" customClass="RootNotePickerView" customModule="pianopal" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="30" width="70" height="170"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="M3o-ym-OcZ"/>
                                                     <constraint firstAttribute="height" constant="170" id="UMb-Sq-XDq"/>
                                                 </constraints>
                                             </pickerView>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6R-H3-TVZ">
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6R-H3-TVZ" customClass="ChordTypePickerView" customModule="pianopal" customModuleProvider="target">
                                                 <rect key="frame" x="89" y="30" width="140" height="170"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="170" id="rJB-Ne-bUN"/>

@@ -9,8 +9,24 @@
 import Foundation
 import UIKit
 
+enum KeyType: Int {
+    case unset, major, minor
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .unset:
+            return "-"
+        case .major:
+            return "Major"
+        case .minor:
+            return "Minor"
+        }
+    }
+}
+
 class KeyTypePickerView: UIPickerView {
-    let keyTypes = ["-", "Major", "Minor"];
+    var keyDelegate: KeyDelegate?
+    var keyTypes = [KeyType.unset, KeyType.major, KeyType.minor];
     
     override func willMove(toWindow newWindow: UIWindow?) {
         self.delegate = self
@@ -19,8 +35,11 @@ class KeyTypePickerView: UIPickerView {
     
 }
 
-//TODO
 extension KeyTypePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        keyDelegate?.keyChanged(note: nil, type: keyTypes[row])
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -31,7 +50,7 @@ extension KeyTypePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return keyTypes[row]
+        return keyTypes[row].simpleDescription()
     }
     
 }

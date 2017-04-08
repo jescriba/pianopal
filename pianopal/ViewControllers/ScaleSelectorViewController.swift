@@ -19,10 +19,6 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
     
     let cancelScaleButton = UIButton(frame: Dimensions.menuButtonRect)
     let saveScaleButton = UIButton(frame: Dimensions.rightBarButtonRect)
-    let rootNotePickerViewDataSource = RootNotePickerViewDataSource()
-    let scaleTypePickerViewDataSource = ScaleTypePickerViewDataSource()
-    var rootNotePickerViewDelegate: RootNotePickerViewDelegate?
-    var scaleTypePickerViewDelegate: ScaleTypePickerViewDelegate?
     var pianoNavigationViewController: PianoNavigationViewController?
     
     override func viewDidLoad() {
@@ -30,13 +26,6 @@ class ScaleSelectorViewController : UIViewController, PianoNavigationProtocol {
         
         view.backgroundColor = Colors.pickerBackground
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
-        let navigationItem = pianoNavigationViewController?.customNavigationItem
-        rootNotePickerViewDelegate = RootNotePickerViewDelegate(navigationItem: navigationItem!)
-        scaleTypePickerViewDelegate = ScaleTypePickerViewDelegate(navigationItem: navigationItem!)
-        rootNotePickerView.delegate = rootNotePickerViewDelegate
-        rootNotePickerView.dataSource = rootNotePickerViewDataSource
-        scaleTypePickerView.delegate = scaleTypePickerViewDelegate
-        scaleTypePickerView.dataSource = scaleTypePickerViewDataSource
         modePickerView.delegate = self
         modePickerView.dataSource = self
     }
