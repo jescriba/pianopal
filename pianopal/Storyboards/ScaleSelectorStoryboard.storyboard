@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--ScaleSelectorViewController-->
@@ -14,59 +18,103 @@
                         <viewControllerLayoutGuide type="bottom" id="1K2-to-k7K"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jtT-dS-JnZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6rr-fw-UGJ">
-                                <rect key="frame" x="-23" y="181" width="645" height="237"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huU-e8-CwC">
+                                <rect key="frame" x="5" y="50" width="470" height="250"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ji-GZ-YS8">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="237"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5M-aL-lMb">
+                                        <rect key="frame" x="7" y="11" width="150" height="230"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Root" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJZ-YN-Jlt">
-                                                <rect key="frame" x="142" y="0.0" width="36" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="miG-Va-SUb">
+                                                <rect key="frame" x="10" y="58" width="130" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="5Iy-6a-EsP"/>
+                                                    <constraint firstAttribute="height" constant="150" id="Pw2-wn-lgs"/>
+                                                </constraints>
+                                            </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCp-PR-fmz">
+                                                <rect key="frame" x="43" y="8" width="64" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNH-bK-gHd">
-                                                <rect key="frame" x="0.0" y="21" width="320" height="216"/>
-                                            </pickerView>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V9o-g4-UsY">
-                                        <rect key="frame" x="325" y="0.0" width="320" height="237"/>
+                                        <color key="backgroundColor" red="1" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="miG-Va-SUb" firstAttribute="centerX" secondItem="zCp-PR-fmz" secondAttribute="centerX" id="8Wb-Dw-yrc"/>
+                                            <constraint firstItem="zCp-PR-fmz" firstAttribute="top" secondItem="F5M-aL-lMb" secondAttribute="top" constant="8" id="P6D-Bb-Rn1"/>
+                                            <constraint firstAttribute="height" constant="230" id="T8L-Aq-tGt"/>
+                                            <constraint firstItem="zCp-PR-fmz" firstAttribute="centerX" secondItem="F5M-aL-lMb" secondAttribute="centerX" id="ere-R6-uvE"/>
+                                            <constraint firstAttribute="width" constant="150" id="hdw-bd-o2Q"/>
+                                            <constraint firstItem="miG-Va-SUb" firstAttribute="top" secondItem="zCp-PR-fmz" secondAttribute="bottom" constant="20" id="mm4-tj-gzR"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-e1-thz">
+                                        <rect key="frame" x="165" y="11" width="300" height="230"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rq-zu-8Ou">
-                                                <rect key="frame" x="141" y="0.0" width="38" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ZS-eY-Niz" customClass="ScaleTypePickerView" customModule="pianopal" customModuleProvider="target">
+                                                <rect key="frame" x="102" y="58" width="190" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="190" id="a3K-g3-9j8"/>
+                                                </constraints>
+                                            </pickerView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNH-bK-gHd" customClass="RootNotePickerView" customModule="pianopal" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="58" width="70" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="Hty-6c-A8C"/>
+                                                    <constraint firstAttribute="height" constant="150" id="txC-PY-p61"/>
+                                                </constraints>
+                                            </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Scale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNM-cn-tRJ">
+                                                <rect key="frame" x="119.5" y="8" width="61" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ZS-eY-Niz">
-                                                <rect key="frame" x="0.0" y="21" width="320" height="216"/>
-                                            </pickerView>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" red="1" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="RNM-cn-tRJ" firstAttribute="top" secondItem="RMb-e1-thz" secondAttribute="top" constant="8" id="Gj5-1R-ktQ"/>
+                                            <constraint firstItem="RNM-cn-tRJ" firstAttribute="centerX" secondItem="RMb-e1-thz" secondAttribute="centerX" id="L9B-Tt-tu6"/>
+                                            <constraint firstAttribute="width" constant="300" id="Uk0-Hv-VEa"/>
+                                            <constraint firstItem="4ZS-eY-Niz" firstAttribute="centerY" secondItem="pNH-bK-gHd" secondAttribute="centerY" id="VAj-eb-3Zy"/>
+                                            <constraint firstAttribute="trailing" secondItem="4ZS-eY-Niz" secondAttribute="trailing" constant="8" id="W3l-aU-ibs"/>
+                                            <constraint firstAttribute="height" constant="230" id="eL9-Zc-ahU"/>
+                                            <constraint firstItem="pNH-bK-gHd" firstAttribute="leading" secondItem="RMb-e1-thz" secondAttribute="leading" constant="10" id="n65-P1-T55"/>
+                                            <constraint firstItem="4ZS-eY-Niz" firstAttribute="height" secondItem="pNH-bK-gHd" secondAttribute="height" id="oR0-1K-ixX"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="RMb-e1-thz" firstAttribute="centerY" secondItem="F5M-aL-lMb" secondAttribute="centerY" id="8Xc-BY-fMa"/>
+                                    <constraint firstItem="F5M-aL-lMb" firstAttribute="top" secondItem="huU-e8-CwC" secondAttribute="top" constant="11" id="KiQ-Ge-4KP"/>
+                                    <constraint firstAttribute="width" constant="470" id="NLr-SX-kss"/>
+                                    <constraint firstItem="RMb-e1-thz" firstAttribute="leading" secondItem="F5M-aL-lMb" secondAttribute="trailing" constant="8" id="PXp-3q-v1c"/>
+                                    <constraint firstItem="pNH-bK-gHd" firstAttribute="centerY" secondItem="miG-Va-SUb" secondAttribute="centerY" id="dRD-Lt-ogx"/>
+                                    <constraint firstAttribute="bottom" secondItem="F5M-aL-lMb" secondAttribute="bottom" constant="9" id="gxF-j5-wv2"/>
+                                    <constraint firstItem="F5M-aL-lMb" firstAttribute="leading" secondItem="huU-e8-CwC" secondAttribute="leading" constant="7" id="jnf-tE-URG"/>
+                                    <constraint firstAttribute="height" constant="250" id="mM6-ci-YAU"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6rr-fw-UGJ" firstAttribute="centerY" secondItem="jtT-dS-JnZ" secondAttribute="centerY" id="MHs-OG-DtV"/>
-                            <constraint firstItem="6rr-fw-UGJ" firstAttribute="centerX" secondItem="jtT-dS-JnZ" secondAttribute="centerX" id="eMS-rq-Kjm"/>
+                            <constraint firstItem="huU-e8-CwC" firstAttribute="top" secondItem="cMS-xd-JNn" secondAttribute="bottom" constant="30" id="23q-L2-m5G"/>
+                            <constraint firstItem="huU-e8-CwC" firstAttribute="centerX" secondItem="jtT-dS-JnZ" secondAttribute="centerX" id="L8h-Aq-YlS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="rootNoteLabel" destination="hJZ-YN-Jlt" id="kBn-5Y-d3c"/>
+                        <outlet property="modePickerView" destination="miG-Va-SUb" id="HWu-p4-WgL"/>
                         <outlet property="rootNotePickerView" destination="pNH-bK-gHd" id="6dS-6B-s2a"/>
-                        <outlet property="scaleTypeLabel" destination="1Rq-zu-8Ou" id="jZZ-7d-xol"/>
                         <outlet property="scaleTypePickerView" destination="4ZS-eY-Niz" id="422-4E-QOm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNf-Om-DLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-447" y="-59"/>
+            <point key="canvasLocation" x="-446.25" y="-150"/>
         </scene>
     </scenes>
 </document>

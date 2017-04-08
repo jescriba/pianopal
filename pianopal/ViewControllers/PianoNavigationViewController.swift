@@ -198,9 +198,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
     }
     
     func addChordToProgression() {
-        let rootNote = chordSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
-        let chordType = chordSelectorViewController?.chordTypePickerView.selectedRow(inComponent: 0)
-        let chord = ChordGenerator.generateChord(Note(rawValue: rootNote!)!, chordType: ChordType(rawValue: chordType!)!)
+        let chord = chordSelectorViewController!.chord
         Globals.session?.chords.append(chord)
         chordTableViewController.tableView!.reloadData()
         popViewController(animated: false)
@@ -214,9 +212,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
     }
 
     func addScaleToProgression() {
-        let rootNote = scaleSelectorViewController?.rootNotePickerView.selectedRow(inComponent: 0)
-        let scaleType = scaleSelectorViewController?.scaleTypePickerView.selectedRow(inComponent: 0)
-        let scale = ScaleGenerator.generateScale(Note(rawValue: rootNote!)!, scaleType: ScaleType(rawValue: scaleType!)!)
+        let scale = scaleSelectorViewController!.scale!
         Globals.session?.scales.append(scale)
         scaleTableViewController.tableView!.reloadData()
         popViewController(animated: false)

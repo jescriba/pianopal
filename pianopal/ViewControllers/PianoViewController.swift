@@ -89,30 +89,30 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         }
     }
     
-        func noteSelectedForIdentification(_ sender: NoteButton) {
-            if sender.illuminated {
-                sender.deIlluminate()
-                pianoView.highlightedNoteButtons.remove(at: pianoView.highlightedNoteButtons.index(of: sender)!)
-                notesToIdentify.remove(at: notesToIdentify.index(of: sender.note!)!)
-            } else {
-                sender.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKey, blackKeyColor: Colors.highlightedBlackKey)])
-                pianoView.highlightedNoteButtons.append(sender)
-                notesToIdentify.append(sender.note!)
-            }
-            DispatchQueue.global().async(execute: {
-                let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
-                var chordDescription: String?
-                if identifiedChord == nil {
-                    chordDescription = "N/A"
-                } else {
-                    chordDescription = identifiedChord?.simpleDescription()
-                }
-                DispatchQueue.main.async(execute: {
-                    let navController = self.navigationController as! PianoNavigationViewController
-                    navController.customNavigationItem.title = chordDescription
-                })
-            })
+    func noteSelectedForIdentification(_ sender: NoteButton) {
+        if sender.illuminated {
+            sender.deIlluminate()
+            pianoView.highlightedNoteButtons.remove(at: pianoView.highlightedNoteButtons.index(of: sender)!)
+            notesToIdentify.remove(at: notesToIdentify.index(of: sender.note!)!)
+        } else {
+            sender.illuminate([KeyColorPair(whiteKeyColor: Colors.highlightedWhiteKey, blackKeyColor: Colors.highlightedBlackKey)])
+            pianoView.highlightedNoteButtons.append(sender)
+            notesToIdentify.append(sender.note!)
         }
+        DispatchQueue.global().async(execute: {
+            let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
+            var chordDescription: String?
+            if identifiedChord == nil {
+                chordDescription = "N/A"
+            } else {
+                chordDescription = identifiedChord?.simpleDescription()
+            }
+            DispatchQueue.main.async(execute: {
+                let navController = self.navigationController as! PianoNavigationViewController
+                navController.customNavigationItem.title = chordDescription
+            })
+        })
+    }
     
     func updateNavigationItem() {
         let pianoNavigationController = navigationController as? PianoNavigationViewController
