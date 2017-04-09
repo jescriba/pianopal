@@ -176,6 +176,8 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
                     self.chordsPickerView?.selectItem(chordCount, animated: true)
                     pianoNavigationController?.startPlaying()
                 })
+            } else {
+                pianoNavigationController?.completedProgression()
             }
             break
         case .scale:
@@ -187,6 +189,8 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
                     self.scalesPickerView?.selectItem(scaleCount, animated: true)
                     pianoNavigationController?.startPlaying()
                 })
+            } else {
+                pianoNavigationController?.completedProgression()
             }
             break
         default:
