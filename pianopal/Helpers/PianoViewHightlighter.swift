@@ -51,6 +51,14 @@ class PianoViewHightlighter {
         shiftTo(note: chord.notes.first!)
     }
     
+    static func clearBorderHighlighting(pianoView: PianoView) {
+        for noteButton in pianoView.noteButtons {
+            DispatchQueue.main.async(execute: {
+                noteButton.dehighlightBorder()
+            })
+        }
+    }
+    
     static func clearHighlighting(pianoView: PianoView) {
         for noteButton in pianoView.highlightedNoteButtons {
             DispatchQueue.main.async(execute: {

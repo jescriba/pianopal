@@ -18,11 +18,12 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
     let chordTableViewController = ChordTableViewController()
     let scaleTableViewController =  ScaleTableViewController()
     let sessionsViewController = SessionsViewController()
-    let audioEngine = AudioEngine()
     var chordSelectorViewController: ChordSelectorViewController?
     var scaleSelectorViewController: ScaleSelectorViewController?
     var settingsViewController: SettingsViewController?
+    let audioEngine = AudioEngine()
     var isPlaying = false
+    var interruptPlaying = false // For stopping progressions
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -231,6 +232,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
             pianoViewController.playButton.setTitle("\u{f28d}", for: UIControlState())
             let pianoView = pianoViewController.pianoView
             let notes = NoteOctaveDetector.determineNoteOctavesOnScreen(pianoView)
+            PianoViewHightlighter.clearBorderHighlighting(pianoView: pianoView)
             if (pianoViewController.pianoViewMode == PianoViewMode.scale) {
                 audioEngine.play(notes, isScale: true)
             } else {
@@ -243,30 +245,38 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         if (isPlaying) {
             isPlaying = false
             audioEngine.stop()
-            let highlightedNoteButtons = pianoViewController.highlightedNoteButtons
-            for button in highlightedNoteButtons {
-                DispatchQueue.main.async(execute: {
-                    button.dehighlightBorder()
-                })
-            }
+            let pianoView = pianoViewController.pianoView
+            PianoViewHightlighter.clearBorderHighlighting(pianoView: pianoView)
             DispatchQueue.main.async(execute: {
-                self.pianoViewController.playButton.setTitle("\u{f144}", for: UIControlState())
+                if (!Preferences.autoPlayProgression || self.interruptPlaying) {
+                    self.pianoViewController.playButton.setTitle("\u{f144}", for: UIControlState())
+                }
             })
         }
     }
     
     func togglePlay() {
         if (!isPlaying) {
+            interruptPlaying = false
             startPlaying()
         } else {
+            interruptPlaying = true
             stopPlaying()
         }
+    }
+    
+    func completedProgression() {
+        let pianoView = pianoViewController.pianoView
+        PianoViewHightlighter.clearBorderHighlighting(pianoView: pianoView)
+        DispatchQueue.main.async(execute: {
+            self.pianoViewController.playButton.setTitle("\u{f144}", for: UIControlState())
+        })
     }
     
     func didFinishPlaying() {
         stopPlaying()
         
-        if (Preferences.autoPlayProgression) {
+        if (Preferences.autoPlayProgression && !interruptPlaying) {
             self.pianoViewController.continueProgression()
         }
     }
