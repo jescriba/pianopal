@@ -16,7 +16,7 @@ class PianoViewHightlighter {
         }
     }
     
-    func removeLabelNotes(pianoView: PianoView) {
+    static func removeLabelNotes(pianoView: PianoView) {
         for noteButton in pianoView.noteButtons {
             noteButton.label("")
         }

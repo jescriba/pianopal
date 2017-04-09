@@ -54,6 +54,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         let navigationItem = pianoNavigationController?.customNavigationItem
         navigationItem?.titleView = nil
         PianoViewHightlighter.clearHighlighting(pianoView: pianoView)
+        PianoViewHightlighter.removeLabelNotes(pianoView: pianoView)
         pianoView.removeTargets()
         notesToIdentify.removeAll()
         switch pianoViewMode {
@@ -86,6 +87,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         case .identify:
             navigationItem?.title = "Identify"
             pianoView.addTarget(self, action: #selector(noteSelectedForIdentification), for: .touchUpInside)
+            PianoViewHightlighter.labelNotes(pianoView)
         }
     }
     
