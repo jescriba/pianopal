@@ -10,6 +10,7 @@ import UIKit
 
 class ChordTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PianoNavigationProtocol {
     
+    let addChordButton = UIButton(frame: Dimensions.addChordRowButton)
     let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var menuButton: UIButton?
@@ -18,12 +19,12 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        automaticallyAdjustsScrollViewInsets = false
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         pianoNavigationViewController = navigationController as? PianoNavigationViewController
-        let navBarOffset = (pianoNavigationViewController?.customNavigationBar.frame.height)! - (pianoNavigationViewController?.navigationBar.frame.height)!
         let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height - navBarOffset
-        let tableViewRect = CGRect(x: 0, y: navBarOffset, width: width, height: height)
+        let height = UIScreen.main.bounds.height
+        let tableViewRect = CGRect(x: 0, y: Dimensions.toolbarRect.height, width: width, height: height)
         tableView = UITableView(frame: tableViewRect)
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -34,6 +35,14 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView!.allowsSelectionDuringEditing = true
         tableView!.tableFooterView = UIView()
         view.addSubview(tableView!)
+        
+        if (Globals.session?.chords.isEmpty ?? true) {
+            addChordButton.setTitle("Get Started - Add a Chord", for: .normal)
+            addChordButton.setTitleColor(.black, for: .normal)
+            addChordButton.titleLabel?.font = Fonts.addChordRowButtonTitle
+            addChordButton.addTarget(pianoNavigationViewController, action: #selector(PianoNavigationViewController.goToChordSelector), for: .touchUpInside)
+            view.addSubview(addChordButton)
+        }
         
         menuButton = pianoNavigationViewController?.menuButton
     }
@@ -55,6 +64,9 @@ class ChordTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if Globals.chords.count > 0 {
+            addChordButton.isHidden = true
+        }
         return Globals.chords.count
     }
     

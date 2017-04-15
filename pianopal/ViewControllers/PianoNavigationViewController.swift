@@ -38,10 +38,10 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         slideMenuViewController.pianoNavigationController = self
         
         let chordSelectorStoryboard = UIStoryboard(name: "ChordSelectorStoryboard", bundle: nil)
-        chordSelectorViewController = chordSelectorStoryboard.instantiateViewController(withIdentifier: "chordSelectorStoryboard") as? ChordSelectorViewController
+        chordSelectorViewController = chordSelectorStoryboard.instantiateViewController(withIdentifier: "chordSelectorViewController") as? ChordSelectorViewController
         
         let scaleSelectorStoryboard = UIStoryboard(name: "ScaleSelectorStoryboard", bundle: nil)
-        scaleSelectorViewController = scaleSelectorStoryboard.instantiateViewController(withIdentifier: "scaleSelectorStoryboard") as? ScaleSelectorViewController
+        scaleSelectorViewController = scaleSelectorStoryboard.instantiateViewController(withIdentifier: "scaleSelectorViewController") as? ScaleSelectorViewController
 
         let settingsStoryboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "settingsStoryboard") as? SettingsViewController
