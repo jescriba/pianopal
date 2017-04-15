@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class SessionsViewController : UIViewController, PianoNavigationProtocol, UITableViewDataSource, UITableViewDelegate {
     
     let editSessionButton = UIButton(frame: Dimensions.leftRightBarButtonRect)
     let newSessionButton = UIButton(frame: Dimensions.rightBarButtonRect)
@@ -30,10 +30,11 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         menuButton = pianoNavigationViewController!.menuButton
         navigationController!.interactivePopGestureRecognizer?.isEnabled = false
         view.backgroundColor = Colors.tableBackground
-        
+        automaticallyAdjustsScrollViewInsets = false
+
         let height = UIScreen.main.bounds.height
         let width = UIScreen.main.bounds.width
-        let tableViewRect = CGRect(x: 0, y: 0, width: width, height: height)
+        let tableViewRect = CGRect(x: 0, y: Dimensions.toolbarRect.height, width: width, height: height)
         tableView = UITableView(frame: tableViewRect)
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,6 +46,7 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         tableView.tableFooterView = UIView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
         view.addSubview(tableView!)
     }
     
@@ -52,12 +54,18 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         if let userInfo = notification.userInfo {
             let value = userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject?
             if let val = value {
-                let height = val.cgRectValue.size.height
+                let height = val.cgRectValue.size.height + Dimensions.toolbarRect.height
                 let inset = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
                 tableView?.contentInset = inset
                 tableView?.scrollIndicatorInsets = inset
             }
         }
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        let zeroInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        tableView?.contentInset = zeroInset
+        tableView?.scrollIndicatorInsets = zeroInset
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +78,8 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionTableViewCell") as! SessionTableViewCell
-        cell.textLabel?.text = Globals.sessions[indexPath.row].name
+        cell.delegate = self
+        cell.session = Globals.sessions[indexPath.row]
         if indexPath.row == 0 {
             cell.textLabel?.layer.shadowOpacity = 0.8
             cell.textLabel?.backgroundColor = Colors.tableCellLoaded
@@ -106,54 +115,19 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
                 // Already editing another cell
                 nameTextField?.endEditing(true)
             }
-            let cell = tableView.cellForRow(at: indexPath)
-            let label = cell?.textLabel
-            let text = label?.text
-            label?.text = ""
-            let frame = label?.bounds
-            nameTextField = UITextField(frame: frame!)
-            nameTextField!.font = Fonts.tableItem
-            nameTextField!.textAlignment = .center
-            nameTextField!.placeholder = text
-            nameTextField!.delegate = self
-            nameTextField!.returnKeyType = .done
-            cell?.addSubview(nameTextField!)
-            nameTextField!.becomeFirstResponder()
+            let cell = tableView.cellForRow(at: indexPath) as! SessionTableViewCell
+            nameTextField = cell.textField
+            cell.beginEditing()
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        var newName: String?
-        let text = textField.text
-        let cell = textField.superview as! SessionTableViewCell
-        let indexPath = tableView?.indexPath(for: cell)
-        if text != nil && !text!.isEmpty {
-            newName = SessionManager.uniqueSessionName(text!)
-        } else {
-            newName = Globals.sessions[indexPath!.row].name
-        }
-        cell.textLabel?.text = newName
-        Globals.sessions[indexPath!.row].name = newName!
-        SessionManager.saveSessions()
-        textField.removeFromSuperview()
-        nameTextField = nil
-    }
-    
+        
     func loadSession(indexPath: IndexPath) {
-        // TODO animation
-        let cell = tableView?.cellForRow(at: indexPath)
-        let sessionName = cell?.textLabel?.text
-        SessionManager.loadSession(sessionName!)
+        let cell = tableView?.cellForRow(at: indexPath) as! SessionTableViewCell
+        SessionManager.loadSession(cell.session)
     }
     
     func newSession() {
-        let dateString = SessionManager.uniqueSessionDateName()
-        let newSession = Session(name: dateString)
+        let newSession = SessionManager.newSession()
         Globals.sessions.insert(newSession, at: 0)
         SessionManager.saveSessions()
         tableView?.reloadData()
@@ -165,6 +139,7 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         } else {
             if let tField = nameTextField {
                 tField.endEditing(true)
+                nameTextField = nil
             }
             tableView?.setEditing(false, animated: true)
         }
@@ -176,5 +151,11 @@ class SessionsViewController : UIViewController, PianoNavigationProtocol, UITabl
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItem = nil
         pianoNavigationViewController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
         pianoNavigationViewController?.customNavigationItem.rightBarButtonItems = [UIBarButtonItem(customView: newSessionButton), UIBarButtonItem(customView: editSessionButton)]
+    }
+}
+
+extension SessionsViewController: SessionDelegate {
+    func endEditing() {
+        tableView.setEditing(false, animated: true)
     }
 }

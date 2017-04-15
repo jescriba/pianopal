@@ -9,7 +9,8 @@
 import Foundation
 
 class Session : NSObject, NSCoding {
-    var name = ""
+    var name: String! = ""
+    var uid: String!
     var chords = [Chord]()
     var scales = [Scale]()
     
@@ -20,12 +21,14 @@ class Session : NSObject, NSCoding {
     init(name: String) {
         super.init()
         
+        self.uid = UUID().uuidString
         self.name = name
     }
     
-    init(chords: [Chord], scales: [Scale], name: String = "") {
+    init(chords: [Chord], scales: [Scale], name: String = "", uid: String) {
         super.init()
         
+        self.uid = UUID().uuidString
         self.name = name
         self.chords = chords
         self.scales = scales
@@ -34,15 +37,17 @@ class Session : NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let chords = aDecoder.decodeObject(forKey: "Chords") as? [Chord] ?? [Chord]()
         let scales = aDecoder.decodeObject(forKey: "Scales") as? [Scale] ?? [Scale]()
-        let name = aDecoder.decodeObject(forKey: "Name") as? String ?? SessionManager.uniqueSessionDateName()
-        
-        self.init(chords: chords, scales: scales, name: name)
+        let name = aDecoder.decodeObject(forKey: "Name") as? String ?? SessionManager.sessionDateName()
+        let uid = aDecoder.decodeObject(forKey: "Uid") as? String ?? UUID().uuidString
+    
+        self.init(chords: chords, scales: scales, name: name, uid: uid)
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(chords, forKey: "Chords")
         aCoder.encode(scales, forKey: "Scales")
         aCoder.encode(name, forKey: "Name")
+        aCoder.encode(uid, forKey: "Uid")
     }
 
 }
