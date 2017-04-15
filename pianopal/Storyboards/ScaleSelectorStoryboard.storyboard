@@ -12,7 +12,7 @@
         <!--ScaleSelectorViewController-->
         <scene sceneID="reY-2o-KEU">
             <objects>
-                <viewController storyboardIdentifier="scaleSelectorStoryboard" title="ScaleSelectorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KNr-Aj-XTJ" customClass="ScaleSelectorViewController" customModule="pianopal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scaleSelectorViewController" title="ScaleSelectorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KNr-Aj-XTJ" customClass="ScaleSelectorViewController" customModule="pianopal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cMS-xd-JNn"/>
                         <viewControllerLayoutGuide type="bottom" id="1K2-to-k7K"/>

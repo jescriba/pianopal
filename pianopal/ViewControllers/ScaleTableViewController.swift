@@ -10,6 +10,7 @@ import UIKit
 
 class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PianoNavigationProtocol {
     
+    let addScaleButton = UIButton(frame: Dimensions.addChordRowButton)
     let plusButton = UIButton(frame: Dimensions.rightBarButtonRect)
     var pianoNavigationViewController: PianoNavigationViewController?
     var tableView: UITableView?
@@ -33,6 +34,14 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView!.allowsSelectionDuringEditing = true
         tableView!.tableFooterView = UIView()
         view.addSubview(tableView!)
+        
+        if (Globals.session?.scales.isEmpty ?? true) {
+            addScaleButton.setTitle("Get Started - Add a Scale", for: .normal)
+            addScaleButton.setTitleColor(.black, for: .normal)
+            addScaleButton.titleLabel?.font = Fonts.addChordRowButtonTitle
+            addScaleButton.addTarget(pianoNavigationViewController, action: #selector(PianoNavigationViewController.goToScaleSelector), for: .touchUpInside)
+            view.addSubview(addScaleButton)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +61,9 @@ class ScaleTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if Globals.scales.count > 0 {
+            addScaleButton.isHidden = true
+        }
         return Globals.scales.count
     }
     
