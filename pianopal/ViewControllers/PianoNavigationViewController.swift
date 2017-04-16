@@ -248,7 +248,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
             let pianoView = pianoViewController.pianoView
             PianoViewHightlighter.clearBorderHighlighting(pianoView: pianoView)
             DispatchQueue.main.async(execute: {
-                if (!Preferences.autoPlayProgression || self.interruptPlaying) {
+                if (!Preferences.autoPlayProgression || self.pianoViewController.pianoViewMode == PianoViewMode.identify || self.interruptPlaying) {
                     self.pianoViewController.playButton.setTitle("\u{f144}", for: UIControlState())
                 }
             })
@@ -276,7 +276,7 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
     func didFinishPlaying() {
         stopPlaying()
         
-        if (Preferences.autoPlayProgression && !interruptPlaying) {
+        if (Preferences.autoPlayProgression && !interruptPlaying && pianoViewController.pianoViewMode != PianoViewMode.identify) {
             self.pianoViewController.continueProgression()
         }
     }
