@@ -18,6 +18,7 @@ struct Dimensions {
     static let playButtonRect = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
     static let leftRightBarButtonRect = CGRect(x: UIScreen.main.bounds.width - 110, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
     static let rightBarButtonRect = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
+    static let innerRightBarButtonRect = CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)
     static let titleScrollViewRect = CGRect(x: 50, y: 0, width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 8)
     static let saveBoxRect = CGRect(x: UIScreen.main.bounds.width - 200, y: 0, width: 200, height: UIScreen.main.bounds.height / 10)
     static let addChordRowButton = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 90)
