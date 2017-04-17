@@ -17,6 +17,8 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
     
     let pianoView = PianoView(frame: Dimensions.pianoRect)
     let playButton = UIButton(frame: Dimensions.rightBarButtonRect)
+    let addChordButton = UIButton(frame: Dimensions.innerRightBarButtonRect)
+    var identifiedChord: Chord?
     var notesToIdentify = [Note]()
     var scalesPickerView: AKPickerView?
     var chordsPickerView: AKPickerView?
@@ -39,6 +41,12 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         super.viewDidLoad()
         
         automaticallyAdjustsScrollViewInsets = false
+        addChordButton.isHidden = true
+        addChordButton.setTitleColor(Colors.normalPlayButton, for: .normal)
+        addChordButton.setTitleColor(Colors.pressedPlayButton, for: .highlighted)
+        addChordButton.titleLabel?.font = Fonts.plusButton
+        addChordButton.setTitle("\u{f055}", for: .normal)
+        addChordButton.addTarget(self, action: #selector(addChordToProgresion), for: .touchUpInside)
         view.addSubview(pianoView)
     }
     
@@ -57,6 +65,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         PianoViewHightlighter.removeLabelNotes(pianoView: pianoView)
         pianoView.removeTargets()
         notesToIdentify.removeAll()
+        addChordButton.isHidden = true
         switch pianoViewMode {
         case .scale:
             navigationItem?.title = "Scales"
@@ -85,9 +94,19 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
                 PianoViewHightlighter.highlightChord(chord, pianoView: pianoView)
             }
         case .identify:
-            navigationItem?.title = "Identify"
+            navigationItem?.title = "Identify Chord"
+            addChordButton.isHidden = false
             pianoView.addTarget(self, action: #selector(noteSelectedForIdentification), for: .touchUpInside)
             PianoViewHightlighter.labelNotes(pianoView)
+        }
+    }
+    
+    func addChordToProgresion() {
+        if let chord = identifiedChord {
+            Globals.session?.chords.append(chord)
+            let alert = UIAlertController(title: "New Chord", message: "Chord added to progression", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -102,12 +121,12 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
             notesToIdentify.append(sender.note!)
         }
         DispatchQueue.global().async(execute: {
-            let identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
+            self.identifiedChord = ChordIdentifier.chordForNotes(self.notesToIdentify)
             var chordDescription: String?
-            if identifiedChord == nil {
+            if self.identifiedChord == nil {
                 chordDescription = "N/A"
             } else {
-                chordDescription = identifiedChord?.simpleDescription()
+                chordDescription = self.identifiedChord?.simpleDescription()
             }
             DispatchQueue.main.async(execute: {
                 let navController = self.navigationController as! PianoNavigationViewController
@@ -121,8 +140,7 @@ class PianoViewController : UIViewController, AKPickerViewDataSource, AKPickerVi
         pianoNavigationController?.customNavigationItem.rightBarButtonItem = nil
         let menuButton = pianoNavigationController?.menuButton
         pianoNavigationController?.customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
-        pianoNavigationController?.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: playButton)
-        
+        pianoNavigationController?.customNavigationItem.setRightBarButtonItems([UIBarButtonItem(customView: playButton), UIBarButtonItem(customView: addChordButton)], animated: false)
     }
     
     func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
