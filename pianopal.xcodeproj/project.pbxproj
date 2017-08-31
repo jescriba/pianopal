@@ -838,6 +838,7 @@
 			baseConfigurationReference = CF43D6885990672F2213834C /* Pods-pianopal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GFSP92A3FB;
 				INFOPLIST_FILE = pianopal/Info.plist;
@@ -856,6 +857,7 @@
 			baseConfigurationReference = E4788BE6BAC36C1E8C440AD9 /* Pods-pianopal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GFSP92A3FB;
 				INFOPLIST_FILE = pianopal/Info.plist;
