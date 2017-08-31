@@ -1,0 +1,22 @@
+PODS:
+  - AudioKit (3.6)
+  - MobileCenter (0.11.0):
+    - MobileCenter/Analytics (= 0.11.0)
+    - MobileCenter/Crashes (= 0.11.0)
+  - MobileCenter/Analytics (0.11.0):
+    - MobileCenter/Core
+  - MobileCenter/Core (0.11.0)
+  - MobileCenter/Crashes (0.11.0):
+    - MobileCenter/Core
+
+DEPENDENCIES:
+  - AudioKit
+  - MobileCenter
+
+SPEC CHECKSUMS:
+  AudioKit: 7823de92f3c9570178d2347042867b6a93be1464
+  MobileCenter: 918ffeab6f98aa0d9b617906d406f59e6bdbcbe2
+
+PODFILE CHECKSUM: d4887065d245ceb9b975648d966dbf49e64a269b
+
+COCOAPODS: 1.2.0

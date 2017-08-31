@@ -1,0 +1,6 @@
+framework module Pods_pianopal {
+  umbrella header "Pods-pianopal-umbrella.h"
+
+  export *
+  module * { export * }
+}

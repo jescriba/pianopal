@@ -52,4 +52,33 @@ enum Note : Int {
             return "B"
         }
     }
+
+    func frequency() -> Double {
+        switch self {
+        case .c:
+            return 16.35
+        case .dFlat:
+            return 17.32
+        case .d:
+            return 18.35
+        case .eFlat:
+            return 19.45
+        case .e:
+            return 20.60
+        case .f:
+            return 21.83
+        case .fSharp:
+            return 23.12
+        case .g:
+            return 24.50
+        case .aFlat:
+            return 25.96
+        case .a:
+            return 27.50
+        case .bFlat:
+            return 29.14
+        case .b:
+            return 30.87
+        }
+    }
 }

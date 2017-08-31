@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MobileCenter
+import MobileCenterAnalytics
+import MobileCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = wrapperViewController
         window?.makeKeyAndVisible()
+
+        MSMobileCenter.start("1b02900f-c851-4e3d-98f0-3da7f232ad6c", withServices:[
+          MSAnalytics.self,
+          MSCrashes.self
+        ])
 
         return true
     }
