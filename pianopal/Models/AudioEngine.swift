@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-import AudioKit
+//import AudioKit
 
 class AudioEngine {
     weak var delegate:PianoNavigationViewController?
@@ -16,12 +16,12 @@ class AudioEngine {
     var audioEngine: AVAudioEngine?
     var scalePlayer: AVAudioPlayerNode?
     var chordPlayers = [AVAudioPlayerNode]()
-    var rhodesPiano = AKRhodesPiano(frequency: 440, amplitude: 0.5)
-    
+//    var rhodesPiano = AKRhodesPiano(frequency: 440, amplitude: 0.5)
+
     init() {
-        AudioKit.output = rhodesPiano
-        AudioKit.start()
-        rhodesPiano.start()
+//        AudioKit.output = rhodesPiano
+//        AudioKit.start()
+//        rhodesPiano.start()
 //        audioEngine = AVAudioEngine()
 //        scalePlayer = AVAudioPlayerNode()
 //        
@@ -44,7 +44,7 @@ class AudioEngine {
 //                var completionHandler: AVAudioNodeCompletionHandler?
                 if #available(iOS 10.0, *) {
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
-                        self.rhodesPiano.trigger(frequency: noteOctave.note!.frequency() * (Double)(noteOctave.octave!), amplitude: 1)
+                        //self.rhodesPiano.trigger(frequency: noteOctave.note!.frequency() * (Double)(noteOctave.octave!), amplitude: 1)
                         if index == notes.count - 1 {
                             self.delegate?.didFinishPlayingNotes(notes)
                             self.delegate?.didFinishPlaying()
