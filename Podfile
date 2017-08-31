@@ -8,5 +8,6 @@ target 'pianopal' do
   # Pods for pianopal
   pod 'AudioKit'
   pod 'MobileCenter'
+  pod 'MobileCenter/Distribute'
 
 end

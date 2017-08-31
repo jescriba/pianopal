@@ -7,165 +7,300 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16FB528A8C00150123F7EC9C2039B1C5 /* Pods-pianopal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6EF9C7298BB5A83666E8C6DC42332C /* Pods-pianopal-dummy.m */; };
-		1E94172CA1B7E6B2CDEB09C8BBE67229 /* Pods-pianopal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FA4973624F60B2A2E8CF87EFE4A1A04 /* Pods-pianopal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8C35EF28B322DBEF2AC7D44914AEA835 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		348D6909889C1E8E9F9B36EC18DF8B90 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7955A5E10E4A9D8C2E5EE40CD1ACB361 /* en.lproj */; };
+		7DC5DDD4DE5DF79196A18FD20BF8A9D1 /* Pods-pianopal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FA4973624F60B2A2E8CF87EFE4A1A04 /* Pods-pianopal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1135D350303C04167E1E6781761A72A /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 15F59695B08E0381920B42BCB0AB2B6A /* de.lproj */; };
+		B8F778B1D515F3FBFBEFBDCA243E45D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		BB7748D53C10C49BA5F76440DB7B9C5E /* Pods-pianopal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6EF9C7298BB5A83666E8C6DC42332C /* Pods-pianopal-dummy.m */; };
+		F8BDB3D75FDD76D6C3421C6B038413F9 /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 03BAC9F79FC9DBD100DACC77AC9BA88D /* fr.lproj */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3D5F8CE0097DA63D1C74E7A870BD8AD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35C0FDEB6348D853A717AE3774C29863;
+			remoteInfo = "MobileCenter-MobileCenterDistributeResources";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		00C86539B1D8A8B9154688352785DDD7 /* AKToneComplementFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKToneComplementFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKToneComplementFilterAudioUnit.h; sourceTree = "<group>"; };
-		026F120203D86893A9A40335D3D7CFB3 /* AKPeakingParametricEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPeakingParametricEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPeakingParametricEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
-		040C6E1DC6AF125EBA0E9F44B0941B25 /* AKFMOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFMOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFMOscillatorAudioUnit.h; sourceTree = "<group>"; };
-		07E3837C040F78D8603D066D643AF182 /* AKBalancerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBalancerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBalancerAudioUnit.h; sourceTree = "<group>"; };
-		0B3CF2F53E8945CC216C36F5D66C180C /* AKDripAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKDripAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKDripAudioUnit.h; sourceTree = "<group>"; };
-		0C65B29EAAA0A1C17190C8F9412D867B /* EZPlot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZPlot.h; path = iOS/AudioKit.framework/Headers/EZPlot.h; sourceTree = "<group>"; };
-		0D3F33B3DF3028DAB3EF8ECED6278A64 /* AKCombFilterReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKCombFilterReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKCombFilterReverbAudioUnit.h; sourceTree = "<group>"; };
-		0FD18E02D190F5A292186628B4E9A9AE /* AKClarinetAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKClarinetAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKClarinetAudioUnit.h; sourceTree = "<group>"; };
-		12C5F53090E17CCB622A357D4195AFE0 /* AKZitaReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKZitaReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKZitaReverbAudioUnit.h; sourceTree = "<group>"; };
-		14E351C7F66BC97F1137E48932A3C28D /* AKTanhDistortionAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTanhDistortionAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTanhDistortionAudioUnit.h; sourceTree = "<group>"; };
-		163E6A79051277AEB3122ED13B692235 /* AKThreePoleLowpassFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKThreePoleLowpassFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKThreePoleLowpassFilterAudioUnit.h; sourceTree = "<group>"; };
-		17CBD61756AD25454F3184150300768D /* EZAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudio.h; path = iOS/AudioKit.framework/Headers/EZAudio.h; sourceTree = "<group>"; };
-		2725166611912F8E42207D814472B9B4 /* EZAudioDisplayLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioDisplayLink.h; path = iOS/AudioKit.framework/Headers/EZAudioDisplayLink.h; sourceTree = "<group>"; };
-		27CFA9147AC1A8B997D41FD7A259E3C1 /* EZRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZRecorder.h; path = iOS/AudioKit.framework/Headers/EZRecorder.h; sourceTree = "<group>"; };
-		2823492C2EA68390F3E6B04797E37941 /* AKTesterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTesterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTesterAudioUnit.h; sourceTree = "<group>"; };
+		0125336D9D4B0B41280833D79489386C /* AKBrownianNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBrownianNoiseAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBrownianNoiseAudioUnit.h; sourceTree = "<group>"; };
+		013F8AF2D780F66F0012B37711114F73 /* AKFMOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFMOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFMOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
+		0198907EB53D8B2A57F1021A69DF53AD /* AKPWMOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPWMOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPWMOscillatorAudioUnit.h; sourceTree = "<group>"; };
+		01B10735C6AA53E83E8646295539108E /* AKShakerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKShakerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKShakerAudioUnit.h; sourceTree = "<group>"; };
+		03BAC9F79FC9DBD100DACC77AC9BA88D /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = "MobileCenter-SDK-iOS/MobileCenterDistributeResources.bundle/fr.lproj"; sourceTree = "<group>"; };
+		047F21971942110293288929CA4A8A24 /* TPCircularBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TPCircularBuffer.h; path = iOS/AudioKit.framework/Headers/TPCircularBuffer.h; sourceTree = "<group>"; };
+		052375F433BB2BC3DBCBEBAC6AECA809 /* AKPannerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPannerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPannerAudioUnit.h; sourceTree = "<group>"; };
+		107DA4F8E74C146115671DF29C6064EC /* AKTanhDistortionAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTanhDistortionAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTanhDistortionAudioUnit.h; sourceTree = "<group>"; };
+		124B95D73BC99C25D05D49BBFAD5C417 /* AKThreePoleLowpassFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKThreePoleLowpassFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKThreePoleLowpassFilterAudioUnit.h; sourceTree = "<group>"; };
+		132D4B266A304350967667FC7CDC0BAA /* MobileCenterDistribute.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterDistribute.framework; path = "MobileCenter-SDK-iOS/MobileCenterDistribute.framework"; sourceTree = "<group>"; };
+		15F59695B08E0381920B42BCB0AB2B6A /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = "MobileCenter-SDK-iOS/MobileCenterDistributeResources.bundle/de.lproj"; sourceTree = "<group>"; };
+		1B805AC6EAD99FE215F7C934342D9F85 /* AKZitaReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKZitaReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKZitaReverbAudioUnit.h; sourceTree = "<group>"; };
+		1E64D76CB0D8DABBDDD44034D13D5A3E /* EZPlot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZPlot.h; path = iOS/AudioKit.framework/Headers/EZPlot.h; sourceTree = "<group>"; };
+		1FFEDF134CD6D12E540BFA371B6A635E /* AKStereoFieldLimiterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKStereoFieldLimiterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKStereoFieldLimiterAudioUnit.h; sourceTree = "<group>"; };
+		22F7F14B942C5FA7D60BEA94BEAA6D4B /* AKFrequencyTrackerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFrequencyTrackerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFrequencyTrackerAudioUnit.h; sourceTree = "<group>"; };
+		23128E66475E8624227B0465854D1527 /* ResourceBundle-MobileCenterDistributeResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MobileCenterDistributeResources-Info.plist"; sourceTree = "<group>"; };
 		28A8A22560A2878FCD04EFC142C93812 /* Pods-pianopal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-pianopal.modulemap"; sourceTree = "<group>"; };
-		297E18419A14539ADB6ECC1C1E90D175 /* AudioKit-Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AudioKit-Swift.h"; path = "iOS/AudioKit.framework/Headers/AudioKit-Swift.h"; sourceTree = "<group>"; };
-		29F3253CE0B1D78E56CA7758BBB27C6A /* EZAudioFloatConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFloatConverter.h; path = iOS/AudioKit.framework/Headers/EZAudioFloatConverter.h; sourceTree = "<group>"; };
 		2A5DFD0C70B1DA0416C44FC03C8F9372 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B782603D1B19292C9342960AD661DD9 /* AKStereoFieldLimiterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKStereoFieldLimiterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKStereoFieldLimiterAudioUnit.h; sourceTree = "<group>"; };
-		2C5AD115247919833F5CC2ACD28D09F6 /* TPCircularBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TPCircularBuffer.h; path = iOS/AudioKit.framework/Headers/TPCircularBuffer.h; sourceTree = "<group>"; };
-		2D5148592C077B5643E840D829519369 /* AKAutoWahAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAutoWahAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAutoWahAudioUnit.h; sourceTree = "<group>"; };
-		2DC25A797F7FF8560575611A0BDBCFA5 /* MobileCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterCrashes.framework; path = "MobileCenter-SDK-iOS/MobileCenterCrashes.framework"; sourceTree = "<group>"; };
-		2E75380323F98706E6C0359AE0287550 /* AKOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOscillatorAudioUnit.h; sourceTree = "<group>"; };
-		31B3E6B4064AD94088D7F76EA56823CA /* AKEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
-		32A06C5D0FD430D8A4A079B246EA749B /* EZAudioPlot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlot.h; path = iOS/AudioKit.framework/Headers/EZAudioPlot.h; sourceTree = "<group>"; };
-		381A4532107CD03F66B3CCD2A7B51B37 /* AKPhaseDistortionOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaseDistortionOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaseDistortionOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
-		38B0037A9A9846A5B218F4303A803172 /* EZAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlayer.h; path = iOS/AudioKit.framework/Headers/EZAudioPlayer.h; sourceTree = "<group>"; };
-		3958056F32194A38D0321D9579692008 /* AKPhaserAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaserAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaserAudioUnit.h; sourceTree = "<group>"; };
-		3DC35E42EEAEE92C900035E32D4158BF /* AKLowPassButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKLowPassButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKLowPassButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
+		2A8EE05318A1AB04668B9EC80A062E4E /* AKBoosterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBoosterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBoosterAudioUnit.h; sourceTree = "<group>"; };
+		2B2AEF67419D13F9A79C2A92CD6C21CB /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = iOS/AudioKit.framework; sourceTree = "<group>"; };
+		306414BC30C5C9F7BE295E7DA5CEB757 /* EZAudioDisplayLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioDisplayLink.h; path = iOS/AudioKit.framework/Headers/EZAudioDisplayLink.h; sourceTree = "<group>"; };
+		30D4475216547403C4FACC44063BF86E /* EZAudioFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFile.h; path = iOS/AudioKit.framework/Headers/EZAudioFile.h; sourceTree = "<group>"; };
+		3141FF2533EC2FC619A0A257A5866F2B /* AKPitchShifterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPitchShifterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPitchShifterAudioUnit.h; sourceTree = "<group>"; };
+		37D55150E851ADD4C35423A82CBA77D0 /* AKEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
+		3818F6E78BFF19645688DB0BE95B5A42 /* AKAmplitudeTrackerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAmplitudeTrackerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAmplitudeTrackerAudioUnit.h; sourceTree = "<group>"; };
+		3CD21BAAEA28C4150DB82B48838C4F79 /* AKMandolinAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMandolinAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMandolinAudioUnit.h; sourceTree = "<group>"; };
 		3E3DE06BB63FD04121DFB06579BB179A /* Pods-pianopal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pianopal.debug.xcconfig"; sourceTree = "<group>"; };
-		447C9929F8AB3FDE8B4977C3B3F77B8D /* AKHighShelfParametricEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKHighShelfParametricEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKHighShelfParametricEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
-		485C661450367D25435DBD6FA9F3B4E9 /* AKMorphingOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMorphingOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMorphingOscillatorAudioUnit.h; sourceTree = "<group>"; };
-		488FF0048549ABE3D4B57EE16CB299D9 /* AKMandolinAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMandolinAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMandolinAudioUnit.h; sourceTree = "<group>"; };
-		48FEFF6D08893BB142725B8ACA393701 /* AKAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAudioUnit.h; sourceTree = "<group>"; };
-		4926B86B3E0CB9B561E83C56E558B51F /* AKTubularBellsAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTubularBellsAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTubularBellsAudioUnit.h; sourceTree = "<group>"; };
-		4C75CD6313A916A6FB861D44835A1BB9 /* AKStringResonatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKStringResonatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKStringResonatorAudioUnit.h; sourceTree = "<group>"; };
-		4FFB32392DF6A243A8E0A7B2B1D4BEF5 /* AKFormantFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFormantFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFormantFilterAudioUnit.h; sourceTree = "<group>"; };
-		50B87531D1341108FACAA8086414E54D /* AKPinkNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPinkNoiseAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPinkNoiseAudioUnit.h; sourceTree = "<group>"; };
-		51AD90E1A54851ABFD17D2B60DA6D558 /* AKOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
-		5716A39A576922FFB13498093F9A6911 /* AKOfflineRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOfflineRenderer.h; path = iOS/AudioKit.framework/Headers/AKOfflineRenderer.h; sourceTree = "<group>"; };
+		3F0225AFC281504E5EE37C82FAA75454 /* AKRolandTB303FilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKRolandTB303FilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKRolandTB303FilterAudioUnit.h; sourceTree = "<group>"; };
+		40FB143937F916C12BF0D1E745AF61DC /* EZAudioPlot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlot.h; path = iOS/AudioKit.framework/Headers/EZAudioPlot.h; sourceTree = "<group>"; };
+		4759D2A00A0E04B71B10497A22A3B0E2 /* AKToneFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKToneFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKToneFilterAudioUnit.h; sourceTree = "<group>"; };
+		47A3D5D2C79CFCD3B499AD9E0B32306E /* AKAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAudioUnit.h; sourceTree = "<group>"; };
+		489E8F273B96DB0E884B9C7154FD6BD8 /* AudioKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AudioKit.h; path = iOS/AudioKit.framework/Headers/AudioKit.h; sourceTree = "<group>"; };
+		4C1DE24C5CAA6DD990CD4DA4A2D04DAD /* AKCombFilterReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKCombFilterReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKCombFilterReverbAudioUnit.h; sourceTree = "<group>"; };
+		4CCEE03090E7ED7C2802A4FD6CA8F2B9 /* AKPluckedStringAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPluckedStringAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPluckedStringAudioUnit.h; sourceTree = "<group>"; };
+		4E4C972A1584B33B2FE0F6B6F28097B5 /* AKDCBlockAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKDCBlockAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKDCBlockAudioUnit.h; sourceTree = "<group>"; };
+		4F8428D5ABA672B2E561F0B173163192 /* AKAutoWahAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAutoWahAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAutoWahAudioUnit.h; sourceTree = "<group>"; };
+		51E41FFAA564B63981A488EA39128E9D /* AKOperationEffectAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOperationEffectAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOperationEffectAudioUnit.h; sourceTree = "<group>"; };
+		54D381C7935825AD0BC6A08B81078D16 /* AKTremoloAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTremoloAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTremoloAudioUnit.h; sourceTree = "<group>"; };
 		5731CD1D3B2044C21FB8B59CB8B2BF5C /* Pods-pianopal-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pianopal-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5EA34C458597DCF515F831F86474F1CA /* AKWhiteNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKWhiteNoiseAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKWhiteNoiseAudioUnit.h; sourceTree = "<group>"; };
+		5AA1164D8784C41CF79A4816FEC8DEAE /* AKFMOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFMOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFMOscillatorAudioUnit.h; sourceTree = "<group>"; };
+		5F679235F8C2AA93A2A008D1F9293DD0 /* AKMoogLadderAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMoogLadderAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMoogLadderAudioUnit.h; sourceTree = "<group>"; };
+		5F8B422F40227C118F3E40D93C4E9D10 /* EZAudioUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioUtilities.h; path = iOS/AudioKit.framework/Headers/EZAudioUtilities.h; sourceTree = "<group>"; };
+		635AC7A0B25294E52D0C179ED5092590 /* AKClipperAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKClipperAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKClipperAudioUnit.h; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		671E85B251790102560099C56C865206 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = iOS/AudioKit.framework; sourceTree = "<group>"; };
-		72FC7B084BC0F2EC8B7D794AEFB26630 /* EZAudioFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFile.h; path = iOS/AudioKit.framework/Headers/EZAudioFile.h; sourceTree = "<group>"; };
-		73D9969688F9742F847F583003A13F06 /* AKDynamicRangeCompressorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKDynamicRangeCompressorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKDynamicRangeCompressorAudioUnit.h; sourceTree = "<group>"; };
-		75C9297B0202FDA12A80572A3183FAD1 /* AKFluteAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFluteAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFluteAudioUnit.h; sourceTree = "<group>"; };
-		76CB94E3929A733D50C81A1C031F11D8 /* MobileCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenter.framework; path = "MobileCenter-SDK-iOS/MobileCenter.framework"; sourceTree = "<group>"; };
-		773524D5058B05F5017B148AA0102D2B /* AKPitchShifterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPitchShifterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPitchShifterAudioUnit.h; sourceTree = "<group>"; };
-		7D0CF63CB7DC1C3BCB0572F497D6B25C /* AKConvolutionAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKConvolutionAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKConvolutionAudioUnit.h; sourceTree = "<group>"; };
-		7EE27F86ABD42228FD96E67FB3D9C5E9 /* MobileCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterAnalytics.framework; path = "MobileCenter-SDK-iOS/MobileCenterAnalytics.framework"; sourceTree = "<group>"; };
+		69F3675B134BEFAE5E3D7899B4AF5BAD /* AKBalancerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBalancerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBalancerAudioUnit.h; sourceTree = "<group>"; };
+		6B7E667F4E66C1FFA43C823005B3842D /* AKPinkNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPinkNoiseAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPinkNoiseAudioUnit.h; sourceTree = "<group>"; };
+		73B0C9A8C8C05A922C0DC01DF4B26D75 /* AKConvolutionAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKConvolutionAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKConvolutionAudioUnit.h; sourceTree = "<group>"; };
+		74B153E7D8F481FCC6472CF10197E4DE /* AKFormantFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFormantFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFormantFilterAudioUnit.h; sourceTree = "<group>"; };
+		7955A5E10E4A9D8C2E5EE40CD1ACB361 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = "MobileCenter-SDK-iOS/MobileCenterDistributeResources.bundle/en.lproj"; sourceTree = "<group>"; };
+		7BBB29A9422D62B3A430EC7AEB301D21 /* AKMorphingOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMorphingOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMorphingOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
+		7CD8325C14D37803C5D2F70B103FA362 /* AKBitCrusherAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBitCrusherAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBitCrusherAudioUnit.h; sourceTree = "<group>"; };
+		7DAC50932F51D4C4363EFF97CDEAF018 /* AKBandPassButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBandPassButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBandPassButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
+		7E55545232BEA98E399443E69FF21ECF /* AKPWMOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPWMOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPWMOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
 		7FA4973624F60B2A2E8CF87EFE4A1A04 /* Pods-pianopal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pianopal-umbrella.h"; sourceTree = "<group>"; };
-		801A7430F3710A4CCEDAFAA33A649E93 /* AKKorgLowPassFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKKorgLowPassFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKKorgLowPassFilterAudioUnit.h; sourceTree = "<group>"; };
-		81051B188ADF5F68A9B4C3D782695EA0 /* AKMetalBarAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMetalBarAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMetalBarAudioUnit.h; sourceTree = "<group>"; };
-		826C9DDA84F9B2D40400429ACFF84EC9 /* AKCostelloReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKCostelloReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKCostelloReverbAudioUnit.h; sourceTree = "<group>"; };
-		843F6D75BE795755511E685D2456DCEC /* EZOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZOutput.h; path = iOS/AudioKit.framework/Headers/EZOutput.h; sourceTree = "<group>"; };
+		7FCD42514F608F002FF0AB165D3E5DCA /* AKTubularBellsAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTubularBellsAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTubularBellsAudioUnit.h; sourceTree = "<group>"; };
+		8246891DCB45195C2080EA7B5F1AF1A5 /* AKOfflineRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOfflineRenderer.h; path = iOS/AudioKit.framework/Headers/AKOfflineRenderer.h; sourceTree = "<group>"; };
+		8398D3D741214DD526DF730173A683B9 /* AKPhaseDistortionOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaseDistortionOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaseDistortionOscillatorAudioUnit.h; sourceTree = "<group>"; };
+		83C9B50B716D3D48FFC4D4FD770B54C2 /* AKMetalBarAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMetalBarAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMetalBarAudioUnit.h; sourceTree = "<group>"; };
 		846DF374219F2220DD8B9AD3EAC00E46 /* Pods-pianopal-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pianopal-resources.sh"; sourceTree = "<group>"; };
-		86B9780E3872A2004DDF8839B54ECD91 /* AKLowShelfParametricEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKLowShelfParametricEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKLowShelfParametricEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
+		84A6D0555618F52D15708BF4A09AF5A2 /* AKClarinetAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKClarinetAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKClarinetAudioUnit.h; sourceTree = "<group>"; };
+		8A48BDAB4A6955989B8C90EB7380E79A /* AKRhodesPianoAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKRhodesPianoAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKRhodesPianoAudioUnit.h; sourceTree = "<group>"; };
+		8B90D48624558C9A096DBB7D27D5D838 /* AKMorphingOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMorphingOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMorphingOscillatorAudioUnit.h; sourceTree = "<group>"; };
 		8C34B057A39338C3EC2DFB31C7E13E76 /* Pods-pianopal-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pianopal-acknowledgements.plist"; sourceTree = "<group>"; };
-		90EBBEBEA523A699EF5B19CCB9C8C0A8 /* EZAudioUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioUtilities.h; path = iOS/AudioKit.framework/Headers/EZAudioUtilities.h; sourceTree = "<group>"; };
+		8FDD55D9D990A13695B67DEFEFB65F95 /* EZAudioPlotGL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlotGL.h; path = iOS/AudioKit.framework/Headers/EZAudioPlotGL.h; sourceTree = "<group>"; };
+		92C34AAF6F41C59488E74A11225C26C3 /* AKVariableDelayAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKVariableDelayAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKVariableDelayAudioUnit.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		951561BEC071B712F70AA7EAFFDFECEF /* AKBrownianNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBrownianNoiseAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBrownianNoiseAudioUnit.h; sourceTree = "<group>"; };
-		97122AE96EEEEA428C20C60702E0694F /* AKShakerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKShakerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKShakerAudioUnit.h; sourceTree = "<group>"; };
-		987C164DEEF46F7CED3D4BBA6B25BB03 /* AKClipperAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKClipperAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKClipperAudioUnit.h; sourceTree = "<group>"; };
-		98D4FED6FCEF0D69495A181D66DDB0EF /* EZAudioFloatData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFloatData.h; path = iOS/AudioKit.framework/Headers/EZAudioFloatData.h; sourceTree = "<group>"; };
-		9940BC339852FCD31B994222FF980A79 /* AKMorphingOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMorphingOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMorphingOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
-		997CC20ACF8390B2643ADCC7B27BF781 /* AKPWMOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPWMOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPWMOscillatorAudioUnit.h; sourceTree = "<group>"; };
-		9AB8F3E10CE17836A0DE2BA0EB9236FD /* AKResonantFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKResonantFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKResonantFilterAudioUnit.h; sourceTree = "<group>"; };
-		9C6D27822B5EB97D8B0E65B9ADB5A863 /* AKBandPassButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBandPassButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBandPassButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
-		A0485E2F5F2100EE1C049CAC3C28F666 /* EZAudioFileMarker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFileMarker.h; path = iOS/AudioKit.framework/Headers/EZAudioFileMarker.h; sourceTree = "<group>"; };
-		A3370713EBAC413ED3A3F6DE54241999 /* EZAudioPlotGL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlotGL.h; path = iOS/AudioKit.framework/Headers/EZAudioPlotGL.h; sourceTree = "<group>"; };
-		A8A012E5E83D6A5E8FBD857110C4E9B0 /* AKFrequencyTrackerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFrequencyTrackerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFrequencyTrackerAudioUnit.h; sourceTree = "<group>"; };
-		AAC01F575D0029805C05D2271F996E73 /* AKPannerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPannerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPannerAudioUnit.h; sourceTree = "<group>"; };
-		AB7B3B16040D1F2FE9DC648BA0FAA6F6 /* AKSporthStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKSporthStack.h; path = iOS/AudioKit.framework/Headers/AKSporthStack.h; sourceTree = "<group>"; };
-		AE21E5246046BA1F31DEEAE360D5A1AA /* EZAudioFFT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFFT.h; path = iOS/AudioKit.framework/Headers/EZAudioFFT.h; sourceTree = "<group>"; };
-		AE253261226D14A3D8423194032D6E52 /* AKHighPassButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKHighPassButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKHighPassButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
-		AFDA4B2644E156AC1694515F275B5515 /* AKBoosterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBoosterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBoosterAudioUnit.h; sourceTree = "<group>"; };
-		B93E023E846D67B75AB3D2ED47B6E806 /* AKToneFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKToneFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKToneFilterAudioUnit.h; sourceTree = "<group>"; };
-		B996A768EB8B9A2FE8C78BE1EF561866 /* AKTremoloAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTremoloAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTremoloAudioUnit.h; sourceTree = "<group>"; };
-		BB992D0C5EE69976720D6052567BD49B /* AKRhodesPianoAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKRhodesPianoAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKRhodesPianoAudioUnit.h; sourceTree = "<group>"; };
+		948E9C999A412A4FA4B332D29C39EF80 /* AKOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOscillatorAudioUnit.h; sourceTree = "<group>"; };
+		94CBD988649CCF8FFCE618CC7CB8965A /* EZAudioFloatData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFloatData.h; path = iOS/AudioKit.framework/Headers/EZAudioFloatData.h; sourceTree = "<group>"; };
+		955AC13B686C178D54FCFAC46B93C25B /* AKWhiteNoiseAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKWhiteNoiseAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKWhiteNoiseAudioUnit.h; sourceTree = "<group>"; };
+		969782CDFB30AF6BDCEB619DBF5AEA58 /* EZAudioDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioDevice.h; path = iOS/AudioKit.framework/Headers/EZAudioDevice.h; sourceTree = "<group>"; };
+		9C5B3C7BAD4449F55BC07BCB51FFA18D /* AKPhaseLockedVocoderAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaseLockedVocoderAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaseLockedVocoderAudioUnit.h; sourceTree = "<group>"; };
+		A22C348B92A6844E2EEE5E5835FF9B2F /* AKOperationGeneratorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOperationGeneratorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOperationGeneratorAudioUnit.h; sourceTree = "<group>"; };
+		A341A4D65E49F3A4E38FDFFE43F6EA46 /* MobileCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterAnalytics.framework; path = "MobileCenter-SDK-iOS/MobileCenterAnalytics.framework"; sourceTree = "<group>"; };
+		A59007BD0ECD9F8959891C321AF9E243 /* MobileCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterCrashes.framework; path = "MobileCenter-SDK-iOS/MobileCenterCrashes.framework"; sourceTree = "<group>"; };
+		A5E2F2C979CB75D6005E0195FCC33111 /* AKChowningReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKChowningReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKChowningReverbAudioUnit.h; sourceTree = "<group>"; };
+		A8592832D549DD9299CB5F069F57D4A3 /* EZAudioFileMarker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFileMarker.h; path = iOS/AudioKit.framework/Headers/EZAudioFileMarker.h; sourceTree = "<group>"; };
+		A906DD3926F6592E2B6061FC9889DBB2 /* AKPeakingParametricEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPeakingParametricEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPeakingParametricEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
+		AC75763945951DB5F1A8F608383BC606 /* AKModalResonanceFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKModalResonanceFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKModalResonanceFilterAudioUnit.h; sourceTree = "<group>"; };
+		B019593C185E91F48F85F57C933C8B96 /* AudioKit-Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AudioKit-Swift.h"; path = "iOS/AudioKit.framework/Headers/AudioKit-Swift.h"; sourceTree = "<group>"; };
+		B204E4B7EB3DBBA8EDCBE334EC312E7F /* AKSporthStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKSporthStack.h; path = iOS/AudioKit.framework/Headers/AKSporthStack.h; sourceTree = "<group>"; };
+		B82B7AAAF23D7D8CC3818C444D6D3CDE /* AKCostelloReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKCostelloReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKCostelloReverbAudioUnit.h; sourceTree = "<group>"; };
+		BB7516A3449268A8E5ED9FFCBD9F71AF /* AKDripAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKDripAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKDripAudioUnit.h; sourceTree = "<group>"; };
+		BD7B4EE8B464CD6D3212D599B22C3428 /* AKOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
+		BDD17A543AE11A354D2DD52644672348 /* AKFlatFrequencyResponseReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFlatFrequencyResponseReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFlatFrequencyResponseReverbAudioUnit.h; sourceTree = "<group>"; };
 		BF6EF9C7298BB5A83666E8C6DC42332C /* Pods-pianopal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pianopal-dummy.m"; sourceTree = "<group>"; };
-		C8315B199535752C00AB0AA2A54950FB /* AKBandRejectButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBandRejectButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBandRejectButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
-		CC16AAB3ED2FB404D078C8613D6FD9D9 /* AKOperationEffectAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOperationEffectAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOperationEffectAudioUnit.h; sourceTree = "<group>"; };
-		CD581CECF49E8E0350731CDD82C9E36D /* AKAmplitudeTrackerAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAmplitudeTrackerAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAmplitudeTrackerAudioUnit.h; sourceTree = "<group>"; };
-		CE7391C54BC584A3CB85C55E295993A3 /* AKRolandTB303FilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKRolandTB303FilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKRolandTB303FilterAudioUnit.h; sourceTree = "<group>"; };
-		CF8C5B872F4D8B975C1B2DEE025639C4 /* AKModalResonanceFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKModalResonanceFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKModalResonanceFilterAudioUnit.h; sourceTree = "<group>"; };
+		C029BCE21C86577A43706EC0444D2915 /* EZRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZRecorder.h; path = iOS/AudioKit.framework/Headers/EZRecorder.h; sourceTree = "<group>"; };
+		C5B93E79A2B6AD4289CEA33926BA4302 /* AKKorgLowPassFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKKorgLowPassFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKKorgLowPassFilterAudioUnit.h; sourceTree = "<group>"; };
+		C9EB17D984B5CD12CCA72DBE8B58908A /* AKDynamicRangeCompressorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKDynamicRangeCompressorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKDynamicRangeCompressorAudioUnit.h; sourceTree = "<group>"; };
+		CB571A3C3BCFCB001F901E408EC4A104 /* Pods_pianopal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_pianopal.framework; path = "Pods-pianopal.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9B222917CF727E7A3D1A6BC545CBC /* MobileCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenter.framework; path = "MobileCenter-SDK-iOS/MobileCenter.framework"; sourceTree = "<group>"; };
+		CBD0060C29570748813C04AD1DBFAB48 /* EZAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudio.h; path = iOS/AudioKit.framework/Headers/EZAudio.h; sourceTree = "<group>"; };
+		CCED45956A61294C930BF355DC7D3E14 /* AKLowShelfParametricEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKLowShelfParametricEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKLowShelfParametricEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
+		D10C101E7A92ADF77AD35F62637BC002 /* EZAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioPlayer.h; path = iOS/AudioKit.framework/Headers/EZAudioPlayer.h; sourceTree = "<group>"; };
 		D18B7297CA8C62498FAA3878844CD170 /* Pods-pianopal-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pianopal-frameworks.sh"; sourceTree = "<group>"; };
-		D228D0B229F6EBA1C3ECD744024FAE21 /* AKFlatFrequencyResponseReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFlatFrequencyResponseReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFlatFrequencyResponseReverbAudioUnit.h; sourceTree = "<group>"; };
-		D546B46F091B9D42AEEFEE093C5C389E /* AKMoogLadderAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKMoogLadderAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKMoogLadderAudioUnit.h; sourceTree = "<group>"; };
-		D682ACFA39DB4C16F3C853EB4A89B6DF /* AKPhaseDistortionOscillatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaseDistortionOscillatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaseDistortionOscillatorAudioUnit.h; sourceTree = "<group>"; };
-		DA20A4E34DA2DA69479E7634E2062A87 /* AKChowningReverbAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKChowningReverbAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKChowningReverbAudioUnit.h; sourceTree = "<group>"; };
-		DAB65536A4ED19A760893B9E17C76ECC /* Pods_pianopal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_pianopal.framework; path = "Pods-pianopal.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB1EA7D523CC44114149485A8F715D07 /* EZAudioDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioDevice.h; path = iOS/AudioKit.framework/Headers/EZAudioDevice.h; sourceTree = "<group>"; };
-		DB9DDB7414C438F360DD56DC018921A7 /* AudioKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AudioKit.h; path = iOS/AudioKit.framework/Headers/AudioKit.h; sourceTree = "<group>"; };
-		E02C7FB2F3632C28362B304039B75204 /* AKBitCrusherAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBitCrusherAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBitCrusherAudioUnit.h; sourceTree = "<group>"; };
-		E076297A33D71C135FD5197F4E166255 /* AKPluckedStringAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPluckedStringAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPluckedStringAudioUnit.h; sourceTree = "<group>"; };
-		E32C64C2829C195496E8AEE8A653C707 /* AKAmplitudeEnvelopeAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAmplitudeEnvelopeAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAmplitudeEnvelopeAudioUnit.h; sourceTree = "<group>"; };
-		E64A8907E8EB3813E0EFEEB857B5C748 /* AKPhaseLockedVocoderAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaseLockedVocoderAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaseLockedVocoderAudioUnit.h; sourceTree = "<group>"; };
-		E9CDD81624F1C0700E923F2358DCE230 /* EZMicrophone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZMicrophone.h; path = iOS/AudioKit.framework/Headers/EZMicrophone.h; sourceTree = "<group>"; };
-		EC3DCD069EAD3B5B9B39CF435EFE25D8 /* AKPWMOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPWMOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPWMOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
+		D418FA81DCBBE503FD3704C678289B17 /* AKHighShelfParametricEqualizerFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKHighShelfParametricEqualizerFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKHighShelfParametricEqualizerFilterAudioUnit.h; sourceTree = "<group>"; };
+		D4BBE20933311F87890B86DE30A281EB /* EZAudioFloatConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFloatConverter.h; path = iOS/AudioKit.framework/Headers/EZAudioFloatConverter.h; sourceTree = "<group>"; };
+		D569943E6705B23BED463399377A30AF /* AKTesterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKTesterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKTesterAudioUnit.h; sourceTree = "<group>"; };
+		D6C9F396988029905FCF5806DDBB25B5 /* AKPhaseDistortionOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaseDistortionOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaseDistortionOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
+		D8B9AC2EB8D99858CFFE1E698E89B40F /* AKAmplitudeEnvelopeAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKAmplitudeEnvelopeAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKAmplitudeEnvelopeAudioUnit.h; sourceTree = "<group>"; };
+		DA873D77EB6EF43CDE1FED73C411291F /* AKToneComplementFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKToneComplementFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKToneComplementFilterAudioUnit.h; sourceTree = "<group>"; };
+		E0561BED71C38E9F6EBC589CF8EF5E1B /* MobileCenterDistributeResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MobileCenterDistributeResources.bundle; path = MobileCenterDistributeResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E175A2F19E5573BD4440E55C54F513C4 /* EZMicrophone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZMicrophone.h; path = iOS/AudioKit.framework/Headers/EZMicrophone.h; sourceTree = "<group>"; };
+		EA51ED48D6834D671CBFAE39371EFDD8 /* EZAudioFFT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZAudioFFT.h; path = iOS/AudioKit.framework/Headers/EZAudioFFT.h; sourceTree = "<group>"; };
 		EEA47ED19C0EAF81ED664F35E0A76DE5 /* Pods-pianopal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pianopal.release.xcconfig"; sourceTree = "<group>"; };
-		EF33A924EE9CD643CA29586BEF530A98 /* AKFMOscillatorBankAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFMOscillatorBankAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFMOscillatorBankAudioUnit.h; sourceTree = "<group>"; };
-		EFC6C5FE51DAF625A73FAE528F121C02 /* AKOperationGeneratorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKOperationGeneratorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKOperationGeneratorAudioUnit.h; sourceTree = "<group>"; };
-		F5140BC2B94A99B6E2A39369E057DCC1 /* AKVariableDelayAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKVariableDelayAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKVariableDelayAudioUnit.h; sourceTree = "<group>"; };
-		F54FA6766745A4366D2D114A82CDDDFD /* AKDCBlockAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKDCBlockAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKDCBlockAudioUnit.h; sourceTree = "<group>"; };
+		EFB76FD2F92E41F4CA5968A17096AF6B /* AKPhaserAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKPhaserAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKPhaserAudioUnit.h; sourceTree = "<group>"; };
+		F0256774176446ADA6BD528988635A33 /* AKResonantFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKResonantFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKResonantFilterAudioUnit.h; sourceTree = "<group>"; };
+		F7F2144AAA3FD06688E94150E37ECE4F /* AKHighPassButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKHighPassButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKHighPassButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
+		F9B9ECDB31C9D6D11A3AE88E0C72DEB6 /* AKBandRejectButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKBandRejectButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKBandRejectButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
+		FA7981F589D0A2C0F79297ABCB999B44 /* AKStringResonatorAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKStringResonatorAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKStringResonatorAudioUnit.h; sourceTree = "<group>"; };
+		FCB7EDBE7B3697374F3B0740736F9D06 /* AKFluteAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKFluteAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKFluteAudioUnit.h; sourceTree = "<group>"; };
+		FD1268D2388540711357F891CF42E2D3 /* AKLowPassButterworthFilterAudioUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKLowPassButterworthFilterAudioUnit.h; path = iOS/AudioKit.framework/Headers/AKLowPassButterworthFilterAudioUnit.h; sourceTree = "<group>"; };
+		FFD949449A0B341C8CF754A1D545CACE /* EZOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EZOutput.h; path = iOS/AudioKit.framework/Headers/EZOutput.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5B46A0592CEF1150902602FE4FE1DE32 /* Frameworks */ = {
+		827F8AC29CCB240143D7DFF5C6803131 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C35EF28B322DBEF2AC7D44914AEA835 /* Foundation.framework in Frameworks */,
+				B8F778B1D515F3FBFBEFBDCA243E45D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC06A10BC9922B42A95E8B6CFBC7928 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BC8D4EA13F63CBFC573C2D4E4F25931 /* MobileCenter */ = {
+		08F4B7EA8D5C268137ECA5ACB3A1863C /* Distribute */ = {
 			isa = PBXGroup;
 			children = (
-				6F9E8692F7C8C69E714584A5888999AB /* Analytics */,
-				A41A9D8D00C08C29CB9DD4471E5B788D /* Core */,
-				415BE98E8022CA39536FAED3EBF4AD90 /* Crashes */,
+				348E9A8E129DD9D4616256314C7CB146 /* Frameworks */,
+				C8575C4368EFB6F363504AE3497CB84C /* Resources */,
+			);
+			name = Distribute;
+			sourceTree = "<group>";
+		};
+		20B22D3FEB5ED7CDE1F0166802CCFC9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B2AEF67419D13F9A79C2A92CD6C21CB /* AudioKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24FEFFA951EDAD4F29A07F2FB8B80FE0 /* MobileCenter */ = {
+			isa = PBXGroup;
+			children = (
+				7EC66D7DC1B844F3A238E20FE2EAF034 /* Analytics */,
+				2759FA1319F84EC7B1826713A7FB7565 /* Core */,
+				839DCA09255FC41A368B69B1FD1CA717 /* Crashes */,
+				08F4B7EA8D5C268137ECA5ACB3A1863C /* Distribute */,
+				B1EB89E8E5B21016E9DC446C873260A2 /* Support Files */,
 			);
 			name = MobileCenter;
 			path = MobileCenter;
 			sourceTree = "<group>";
 		};
-		287CC88D5D7E4C460B2728A35EA5668A /* Frameworks */ = {
+		2759FA1319F84EC7B1826713A7FB7565 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				671E85B251790102560099C56C865206 /* AudioKit.framework */,
+				874FD84DF1F205BA6D8C720BFB1632B9 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		330A1D3967EF01414FB221F818097037 /* AudioKit */ = {
+			isa = PBXGroup;
+			children = (
+				D8B9AC2EB8D99858CFFE1E698E89B40F /* AKAmplitudeEnvelopeAudioUnit.h */,
+				3818F6E78BFF19645688DB0BE95B5A42 /* AKAmplitudeTrackerAudioUnit.h */,
+				47A3D5D2C79CFCD3B499AD9E0B32306E /* AKAudioUnit.h */,
+				4F8428D5ABA672B2E561F0B173163192 /* AKAutoWahAudioUnit.h */,
+				69F3675B134BEFAE5E3D7899B4AF5BAD /* AKBalancerAudioUnit.h */,
+				7DAC50932F51D4C4363EFF97CDEAF018 /* AKBandPassButterworthFilterAudioUnit.h */,
+				F9B9ECDB31C9D6D11A3AE88E0C72DEB6 /* AKBandRejectButterworthFilterAudioUnit.h */,
+				7CD8325C14D37803C5D2F70B103FA362 /* AKBitCrusherAudioUnit.h */,
+				2A8EE05318A1AB04668B9EC80A062E4E /* AKBoosterAudioUnit.h */,
+				0125336D9D4B0B41280833D79489386C /* AKBrownianNoiseAudioUnit.h */,
+				A5E2F2C979CB75D6005E0195FCC33111 /* AKChowningReverbAudioUnit.h */,
+				84A6D0555618F52D15708BF4A09AF5A2 /* AKClarinetAudioUnit.h */,
+				635AC7A0B25294E52D0C179ED5092590 /* AKClipperAudioUnit.h */,
+				4C1DE24C5CAA6DD990CD4DA4A2D04DAD /* AKCombFilterReverbAudioUnit.h */,
+				73B0C9A8C8C05A922C0DC01DF4B26D75 /* AKConvolutionAudioUnit.h */,
+				B82B7AAAF23D7D8CC3818C444D6D3CDE /* AKCostelloReverbAudioUnit.h */,
+				4E4C972A1584B33B2FE0F6B6F28097B5 /* AKDCBlockAudioUnit.h */,
+				BB7516A3449268A8E5ED9FFCBD9F71AF /* AKDripAudioUnit.h */,
+				C9EB17D984B5CD12CCA72DBE8B58908A /* AKDynamicRangeCompressorAudioUnit.h */,
+				37D55150E851ADD4C35423A82CBA77D0 /* AKEqualizerFilterAudioUnit.h */,
+				BDD17A543AE11A354D2DD52644672348 /* AKFlatFrequencyResponseReverbAudioUnit.h */,
+				FCB7EDBE7B3697374F3B0740736F9D06 /* AKFluteAudioUnit.h */,
+				5AA1164D8784C41CF79A4816FEC8DEAE /* AKFMOscillatorAudioUnit.h */,
+				013F8AF2D780F66F0012B37711114F73 /* AKFMOscillatorBankAudioUnit.h */,
+				74B153E7D8F481FCC6472CF10197E4DE /* AKFormantFilterAudioUnit.h */,
+				22F7F14B942C5FA7D60BEA94BEAA6D4B /* AKFrequencyTrackerAudioUnit.h */,
+				F7F2144AAA3FD06688E94150E37ECE4F /* AKHighPassButterworthFilterAudioUnit.h */,
+				D418FA81DCBBE503FD3704C678289B17 /* AKHighShelfParametricEqualizerFilterAudioUnit.h */,
+				C5B93E79A2B6AD4289CEA33926BA4302 /* AKKorgLowPassFilterAudioUnit.h */,
+				FD1268D2388540711357F891CF42E2D3 /* AKLowPassButterworthFilterAudioUnit.h */,
+				CCED45956A61294C930BF355DC7D3E14 /* AKLowShelfParametricEqualizerFilterAudioUnit.h */,
+				3CD21BAAEA28C4150DB82B48838C4F79 /* AKMandolinAudioUnit.h */,
+				83C9B50B716D3D48FFC4D4FD770B54C2 /* AKMetalBarAudioUnit.h */,
+				AC75763945951DB5F1A8F608383BC606 /* AKModalResonanceFilterAudioUnit.h */,
+				5F679235F8C2AA93A2A008D1F9293DD0 /* AKMoogLadderAudioUnit.h */,
+				8B90D48624558C9A096DBB7D27D5D838 /* AKMorphingOscillatorAudioUnit.h */,
+				7BBB29A9422D62B3A430EC7AEB301D21 /* AKMorphingOscillatorBankAudioUnit.h */,
+				8246891DCB45195C2080EA7B5F1AF1A5 /* AKOfflineRenderer.h */,
+				51E41FFAA564B63981A488EA39128E9D /* AKOperationEffectAudioUnit.h */,
+				A22C348B92A6844E2EEE5E5835FF9B2F /* AKOperationGeneratorAudioUnit.h */,
+				948E9C999A412A4FA4B332D29C39EF80 /* AKOscillatorAudioUnit.h */,
+				BD7B4EE8B464CD6D3212D599B22C3428 /* AKOscillatorBankAudioUnit.h */,
+				052375F433BB2BC3DBCBEBAC6AECA809 /* AKPannerAudioUnit.h */,
+				A906DD3926F6592E2B6061FC9889DBB2 /* AKPeakingParametricEqualizerFilterAudioUnit.h */,
+				8398D3D741214DD526DF730173A683B9 /* AKPhaseDistortionOscillatorAudioUnit.h */,
+				D6C9F396988029905FCF5806DDBB25B5 /* AKPhaseDistortionOscillatorBankAudioUnit.h */,
+				9C5B3C7BAD4449F55BC07BCB51FFA18D /* AKPhaseLockedVocoderAudioUnit.h */,
+				EFB76FD2F92E41F4CA5968A17096AF6B /* AKPhaserAudioUnit.h */,
+				6B7E667F4E66C1FFA43C823005B3842D /* AKPinkNoiseAudioUnit.h */,
+				3141FF2533EC2FC619A0A257A5866F2B /* AKPitchShifterAudioUnit.h */,
+				4CCEE03090E7ED7C2802A4FD6CA8F2B9 /* AKPluckedStringAudioUnit.h */,
+				0198907EB53D8B2A57F1021A69DF53AD /* AKPWMOscillatorAudioUnit.h */,
+				7E55545232BEA98E399443E69FF21ECF /* AKPWMOscillatorBankAudioUnit.h */,
+				F0256774176446ADA6BD528988635A33 /* AKResonantFilterAudioUnit.h */,
+				8A48BDAB4A6955989B8C90EB7380E79A /* AKRhodesPianoAudioUnit.h */,
+				3F0225AFC281504E5EE37C82FAA75454 /* AKRolandTB303FilterAudioUnit.h */,
+				01B10735C6AA53E83E8646295539108E /* AKShakerAudioUnit.h */,
+				B204E4B7EB3DBBA8EDCBE334EC312E7F /* AKSporthStack.h */,
+				1FFEDF134CD6D12E540BFA371B6A635E /* AKStereoFieldLimiterAudioUnit.h */,
+				FA7981F589D0A2C0F79297ABCB999B44 /* AKStringResonatorAudioUnit.h */,
+				107DA4F8E74C146115671DF29C6064EC /* AKTanhDistortionAudioUnit.h */,
+				D569943E6705B23BED463399377A30AF /* AKTesterAudioUnit.h */,
+				124B95D73BC99C25D05D49BBFAD5C417 /* AKThreePoleLowpassFilterAudioUnit.h */,
+				DA873D77EB6EF43CDE1FED73C411291F /* AKToneComplementFilterAudioUnit.h */,
+				4759D2A00A0E04B71B10497A22A3B0E2 /* AKToneFilterAudioUnit.h */,
+				54D381C7935825AD0BC6A08B81078D16 /* AKTremoloAudioUnit.h */,
+				7FCD42514F608F002FF0AB165D3E5DCA /* AKTubularBellsAudioUnit.h */,
+				92C34AAF6F41C59488E74A11225C26C3 /* AKVariableDelayAudioUnit.h */,
+				955AC13B686C178D54FCFAC46B93C25B /* AKWhiteNoiseAudioUnit.h */,
+				1B805AC6EAD99FE215F7C934342D9F85 /* AKZitaReverbAudioUnit.h */,
+				489E8F273B96DB0E884B9C7154FD6BD8 /* AudioKit.h */,
+				B019593C185E91F48F85F57C933C8B96 /* AudioKit-Swift.h */,
+				CBD0060C29570748813C04AD1DBFAB48 /* EZAudio.h */,
+				969782CDFB30AF6BDCEB619DBF5AEA58 /* EZAudioDevice.h */,
+				306414BC30C5C9F7BE295E7DA5CEB757 /* EZAudioDisplayLink.h */,
+				EA51ED48D6834D671CBFAE39371EFDD8 /* EZAudioFFT.h */,
+				30D4475216547403C4FACC44063BF86E /* EZAudioFile.h */,
+				A8592832D549DD9299CB5F069F57D4A3 /* EZAudioFileMarker.h */,
+				D4BBE20933311F87890B86DE30A281EB /* EZAudioFloatConverter.h */,
+				94CBD988649CCF8FFCE618CC7CB8965A /* EZAudioFloatData.h */,
+				D10C101E7A92ADF77AD35F62637BC002 /* EZAudioPlayer.h */,
+				40FB143937F916C12BF0D1E745AF61DC /* EZAudioPlot.h */,
+				8FDD55D9D990A13695B67DEFEFB65F95 /* EZAudioPlotGL.h */,
+				5F8B422F40227C118F3E40D93C4E9D10 /* EZAudioUtilities.h */,
+				E175A2F19E5573BD4440E55C54F513C4 /* EZMicrophone.h */,
+				FFD949449A0B341C8CF754A1D545CACE /* EZOutput.h */,
+				1E64D76CB0D8DABBDDD44034D13D5A3E /* EZPlot.h */,
+				C029BCE21C86577A43706EC0444D2915 /* EZRecorder.h */,
+				047F21971942110293288929CA4A8A24 /* TPCircularBuffer.h */,
+				20B22D3FEB5ED7CDE1F0166802CCFC9D /* Frameworks */,
+			);
+			name = AudioKit;
+			path = AudioKit;
+			sourceTree = "<group>";
+		};
+		348E9A8E129DD9D4616256314C7CB146 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				132D4B266A304350967667FC7CDC0BAA /* MobileCenterDistribute.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		415BE98E8022CA39536FAED3EBF4AD90 /* Crashes */ = {
-			isa = PBXGroup;
-			children = (
-				FDA255F6E525334E63D59EF84298C7D6 /* Frameworks */,
-			);
-			name = Crashes;
-			sourceTree = "<group>";
-		};
-		6F9E8692F7C8C69E714584A5888999AB /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				C34A1DB2B121CB3574A4A2B34C321716 /* Frameworks */,
-			);
-			name = Analytics;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -173,10 +308,26 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				C452F8CE271755529DA057937776D39A /* Pods */,
-				D284412389FC6921EE6028706D6A442C /* Products */,
+				FFEF9B89446075FB143F00A878BCC55F /* Pods */,
+				F4190B5B6A94CD181FFFC1158675F502 /* Products */,
 				DC79C301BC538B7E5658F17222642376 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		7EC66D7DC1B844F3A238E20FE2EAF034 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				8051D5FF79BD31237A389C1A07B88436 /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		8051D5FF79BD31237A389C1A07B88436 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A341A4D65E49F3A4E38FDFFE43F6EA46 /* MobileCenterAnalytics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		82B527477298EDB79B1413C46238A69E /* Pods-pianopal */ = {
@@ -197,110 +348,37 @@
 			path = "Target Support Files/Pods-pianopal";
 			sourceTree = "<group>";
 		};
-		A41A9D8D00C08C29CB9DD4471E5B788D /* Core */ = {
+		839DCA09255FC41A368B69B1FD1CA717 /* Crashes */ = {
 			isa = PBXGroup;
 			children = (
-				E77E9E885540CB4DD27FBF9B0C132FFC /* Frameworks */,
+				BA7E6B147DCF67BA1A94BF268DD02016 /* Frameworks */,
 			);
-			name = Core;
+			name = Crashes;
 			sourceTree = "<group>";
 		};
-		B6AD0E2D03EC5813FA7E66BC491175B0 /* AudioKit */ = {
+		874FD84DF1F205BA6D8C720BFB1632B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E32C64C2829C195496E8AEE8A653C707 /* AKAmplitudeEnvelopeAudioUnit.h */,
-				CD581CECF49E8E0350731CDD82C9E36D /* AKAmplitudeTrackerAudioUnit.h */,
-				48FEFF6D08893BB142725B8ACA393701 /* AKAudioUnit.h */,
-				2D5148592C077B5643E840D829519369 /* AKAutoWahAudioUnit.h */,
-				07E3837C040F78D8603D066D643AF182 /* AKBalancerAudioUnit.h */,
-				9C6D27822B5EB97D8B0E65B9ADB5A863 /* AKBandPassButterworthFilterAudioUnit.h */,
-				C8315B199535752C00AB0AA2A54950FB /* AKBandRejectButterworthFilterAudioUnit.h */,
-				E02C7FB2F3632C28362B304039B75204 /* AKBitCrusherAudioUnit.h */,
-				AFDA4B2644E156AC1694515F275B5515 /* AKBoosterAudioUnit.h */,
-				951561BEC071B712F70AA7EAFFDFECEF /* AKBrownianNoiseAudioUnit.h */,
-				DA20A4E34DA2DA69479E7634E2062A87 /* AKChowningReverbAudioUnit.h */,
-				0FD18E02D190F5A292186628B4E9A9AE /* AKClarinetAudioUnit.h */,
-				987C164DEEF46F7CED3D4BBA6B25BB03 /* AKClipperAudioUnit.h */,
-				0D3F33B3DF3028DAB3EF8ECED6278A64 /* AKCombFilterReverbAudioUnit.h */,
-				7D0CF63CB7DC1C3BCB0572F497D6B25C /* AKConvolutionAudioUnit.h */,
-				826C9DDA84F9B2D40400429ACFF84EC9 /* AKCostelloReverbAudioUnit.h */,
-				F54FA6766745A4366D2D114A82CDDDFD /* AKDCBlockAudioUnit.h */,
-				0B3CF2F53E8945CC216C36F5D66C180C /* AKDripAudioUnit.h */,
-				73D9969688F9742F847F583003A13F06 /* AKDynamicRangeCompressorAudioUnit.h */,
-				31B3E6B4064AD94088D7F76EA56823CA /* AKEqualizerFilterAudioUnit.h */,
-				D228D0B229F6EBA1C3ECD744024FAE21 /* AKFlatFrequencyResponseReverbAudioUnit.h */,
-				75C9297B0202FDA12A80572A3183FAD1 /* AKFluteAudioUnit.h */,
-				040C6E1DC6AF125EBA0E9F44B0941B25 /* AKFMOscillatorAudioUnit.h */,
-				EF33A924EE9CD643CA29586BEF530A98 /* AKFMOscillatorBankAudioUnit.h */,
-				4FFB32392DF6A243A8E0A7B2B1D4BEF5 /* AKFormantFilterAudioUnit.h */,
-				A8A012E5E83D6A5E8FBD857110C4E9B0 /* AKFrequencyTrackerAudioUnit.h */,
-				AE253261226D14A3D8423194032D6E52 /* AKHighPassButterworthFilterAudioUnit.h */,
-				447C9929F8AB3FDE8B4977C3B3F77B8D /* AKHighShelfParametricEqualizerFilterAudioUnit.h */,
-				801A7430F3710A4CCEDAFAA33A649E93 /* AKKorgLowPassFilterAudioUnit.h */,
-				3DC35E42EEAEE92C900035E32D4158BF /* AKLowPassButterworthFilterAudioUnit.h */,
-				86B9780E3872A2004DDF8839B54ECD91 /* AKLowShelfParametricEqualizerFilterAudioUnit.h */,
-				488FF0048549ABE3D4B57EE16CB299D9 /* AKMandolinAudioUnit.h */,
-				81051B188ADF5F68A9B4C3D782695EA0 /* AKMetalBarAudioUnit.h */,
-				CF8C5B872F4D8B975C1B2DEE025639C4 /* AKModalResonanceFilterAudioUnit.h */,
-				D546B46F091B9D42AEEFEE093C5C389E /* AKMoogLadderAudioUnit.h */,
-				485C661450367D25435DBD6FA9F3B4E9 /* AKMorphingOscillatorAudioUnit.h */,
-				9940BC339852FCD31B994222FF980A79 /* AKMorphingOscillatorBankAudioUnit.h */,
-				5716A39A576922FFB13498093F9A6911 /* AKOfflineRenderer.h */,
-				CC16AAB3ED2FB404D078C8613D6FD9D9 /* AKOperationEffectAudioUnit.h */,
-				EFC6C5FE51DAF625A73FAE528F121C02 /* AKOperationGeneratorAudioUnit.h */,
-				2E75380323F98706E6C0359AE0287550 /* AKOscillatorAudioUnit.h */,
-				51AD90E1A54851ABFD17D2B60DA6D558 /* AKOscillatorBankAudioUnit.h */,
-				AAC01F575D0029805C05D2271F996E73 /* AKPannerAudioUnit.h */,
-				026F120203D86893A9A40335D3D7CFB3 /* AKPeakingParametricEqualizerFilterAudioUnit.h */,
-				D682ACFA39DB4C16F3C853EB4A89B6DF /* AKPhaseDistortionOscillatorAudioUnit.h */,
-				381A4532107CD03F66B3CCD2A7B51B37 /* AKPhaseDistortionOscillatorBankAudioUnit.h */,
-				E64A8907E8EB3813E0EFEEB857B5C748 /* AKPhaseLockedVocoderAudioUnit.h */,
-				3958056F32194A38D0321D9579692008 /* AKPhaserAudioUnit.h */,
-				50B87531D1341108FACAA8086414E54D /* AKPinkNoiseAudioUnit.h */,
-				773524D5058B05F5017B148AA0102D2B /* AKPitchShifterAudioUnit.h */,
-				E076297A33D71C135FD5197F4E166255 /* AKPluckedStringAudioUnit.h */,
-				997CC20ACF8390B2643ADCC7B27BF781 /* AKPWMOscillatorAudioUnit.h */,
-				EC3DCD069EAD3B5B9B39CF435EFE25D8 /* AKPWMOscillatorBankAudioUnit.h */,
-				9AB8F3E10CE17836A0DE2BA0EB9236FD /* AKResonantFilterAudioUnit.h */,
-				BB992D0C5EE69976720D6052567BD49B /* AKRhodesPianoAudioUnit.h */,
-				CE7391C54BC584A3CB85C55E295993A3 /* AKRolandTB303FilterAudioUnit.h */,
-				97122AE96EEEEA428C20C60702E0694F /* AKShakerAudioUnit.h */,
-				AB7B3B16040D1F2FE9DC648BA0FAA6F6 /* AKSporthStack.h */,
-				2B782603D1B19292C9342960AD661DD9 /* AKStereoFieldLimiterAudioUnit.h */,
-				4C75CD6313A916A6FB861D44835A1BB9 /* AKStringResonatorAudioUnit.h */,
-				14E351C7F66BC97F1137E48932A3C28D /* AKTanhDistortionAudioUnit.h */,
-				2823492C2EA68390F3E6B04797E37941 /* AKTesterAudioUnit.h */,
-				163E6A79051277AEB3122ED13B692235 /* AKThreePoleLowpassFilterAudioUnit.h */,
-				00C86539B1D8A8B9154688352785DDD7 /* AKToneComplementFilterAudioUnit.h */,
-				B93E023E846D67B75AB3D2ED47B6E806 /* AKToneFilterAudioUnit.h */,
-				B996A768EB8B9A2FE8C78BE1EF561866 /* AKTremoloAudioUnit.h */,
-				4926B86B3E0CB9B561E83C56E558B51F /* AKTubularBellsAudioUnit.h */,
-				F5140BC2B94A99B6E2A39369E057DCC1 /* AKVariableDelayAudioUnit.h */,
-				5EA34C458597DCF515F831F86474F1CA /* AKWhiteNoiseAudioUnit.h */,
-				12C5F53090E17CCB622A357D4195AFE0 /* AKZitaReverbAudioUnit.h */,
-				DB9DDB7414C438F360DD56DC018921A7 /* AudioKit.h */,
-				297E18419A14539ADB6ECC1C1E90D175 /* AudioKit-Swift.h */,
-				17CBD61756AD25454F3184150300768D /* EZAudio.h */,
-				DB1EA7D523CC44114149485A8F715D07 /* EZAudioDevice.h */,
-				2725166611912F8E42207D814472B9B4 /* EZAudioDisplayLink.h */,
-				AE21E5246046BA1F31DEEAE360D5A1AA /* EZAudioFFT.h */,
-				72FC7B084BC0F2EC8B7D794AEFB26630 /* EZAudioFile.h */,
-				A0485E2F5F2100EE1C049CAC3C28F666 /* EZAudioFileMarker.h */,
-				29F3253CE0B1D78E56CA7758BBB27C6A /* EZAudioFloatConverter.h */,
-				98D4FED6FCEF0D69495A181D66DDB0EF /* EZAudioFloatData.h */,
-				38B0037A9A9846A5B218F4303A803172 /* EZAudioPlayer.h */,
-				32A06C5D0FD430D8A4A079B246EA749B /* EZAudioPlot.h */,
-				A3370713EBAC413ED3A3F6DE54241999 /* EZAudioPlotGL.h */,
-				90EBBEBEA523A699EF5B19CCB9C8C0A8 /* EZAudioUtilities.h */,
-				E9CDD81624F1C0700E923F2358DCE230 /* EZMicrophone.h */,
-				843F6D75BE795755511E685D2456DCEC /* EZOutput.h */,
-				0C65B29EAAA0A1C17190C8F9412D867B /* EZPlot.h */,
-				27CFA9147AC1A8B997D41FD7A259E3C1 /* EZRecorder.h */,
-				2C5AD115247919833F5CC2ACD28D09F6 /* TPCircularBuffer.h */,
-				287CC88D5D7E4C460B2728A35EA5668A /* Frameworks */,
+				CBA9B222917CF727E7A3D1A6BC545CBC /* MobileCenter.framework */,
 			);
-			name = AudioKit;
-			path = AudioKit;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1EB89E8E5B21016E9DC446C873260A2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				23128E66475E8624227B0465854D1527 /* ResourceBundle-MobileCenterDistributeResources-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MobileCenter";
+			sourceTree = "<group>";
+		};
+		BA7E6B147DCF67BA1A94BF268DD02016 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A59007BD0ECD9F8959891C321AF9E243 /* MobileCenterCrashes.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -311,29 +389,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C34A1DB2B121CB3574A4A2B34C321716 /* Frameworks */ = {
+		C8575C4368EFB6F363504AE3497CB84C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7EE27F86ABD42228FD96E67FB3D9C5E9 /* MobileCenterAnalytics.framework */,
+				15F59695B08E0381920B42BCB0AB2B6A /* de.lproj */,
+				7955A5E10E4A9D8C2E5EE40CD1ACB361 /* en.lproj */,
+				03BAC9F79FC9DBD100DACC77AC9BA88D /* fr.lproj */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C452F8CE271755529DA057937776D39A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B6AD0E2D03EC5813FA7E66BC491175B0 /* AudioKit */,
-				1BC8D4EA13F63CBFC573C2D4E4F25931 /* MobileCenter */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D284412389FC6921EE6028706D6A442C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DAB65536A4ED19A760893B9E17C76ECC /* Pods_pianopal.framework */,
-			);
-			name = Products;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -352,51 +415,71 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		E77E9E885540CB4DD27FBF9B0C132FFC /* Frameworks */ = {
+		F4190B5B6A94CD181FFFC1158675F502 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76CB94E3929A733D50C81A1C031F11D8 /* MobileCenter.framework */,
+				E0561BED71C38E9F6EBC589CF8EF5E1B /* MobileCenterDistributeResources.bundle */,
+				CB571A3C3BCFCB001F901E408EC4A104 /* Pods_pianopal.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		FDA255F6E525334E63D59EF84298C7D6 /* Frameworks */ = {
+		FFEF9B89446075FB143F00A878BCC55F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2DC25A797F7FF8560575611A0BDBCFA5 /* MobileCenterCrashes.framework */,
+				330A1D3967EF01414FB221F818097037 /* AudioKit */,
+				24FEFFA951EDAD4F29A07F2FB8B80FE0 /* MobileCenter */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1300D0797431467F2A66F854F3FDBC76 /* Headers */ = {
+		3A396C56572A15EF009DED12754F1454 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E94172CA1B7E6B2CDEB09C8BBE67229 /* Pods-pianopal-umbrella.h in Headers */,
+				7DC5DDD4DE5DF79196A18FD20BF8A9D1 /* Pods-pianopal-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2691C22669CD44C930B3F17748A9263F /* Pods-pianopal */ = {
+		35C0FDEB6348D853A717AE3774C29863 /* MobileCenter-MobileCenterDistributeResources */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C8B42F0C6B2566E9C6A2E14C4C744FA /* Build configuration list for PBXNativeTarget "Pods-pianopal" */;
+			buildConfigurationList = 91F08F1BCEA20F679FDA4D6A0BD9AF03 /* Build configuration list for PBXNativeTarget "MobileCenter-MobileCenterDistributeResources" */;
 			buildPhases = (
-				229DE692FBC34F20550F56C080EDD3C9 /* Sources */,
-				5B46A0592CEF1150902602FE4FE1DE32 /* Frameworks */,
-				1300D0797431467F2A66F854F3FDBC76 /* Headers */,
+				85D8B80BDABF45F710CB3C8B502384AC /* Sources */,
+				BEC06A10BC9922B42A95E8B6CFBC7928 /* Frameworks */,
+				095C60D45F1F1BC01324ADE3A09B1D06 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = "MobileCenter-MobileCenterDistributeResources";
+			productName = "MobileCenter-MobileCenterDistributeResources";
+			productReference = E0561BED71C38E9F6EBC589CF8EF5E1B /* MobileCenterDistributeResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		BFD50E078AF027D72A9CBD685D407F5C /* Pods-pianopal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1AEDF3D558D9D46CC962574F66DDA4F /* Build configuration list for PBXNativeTarget "Pods-pianopal" */;
+			buildPhases = (
+				DE2406D8E9D97A4B8D2784AB78E9B5F9 /* Sources */,
+				827F8AC29CCB240143D7DFF5C6803131 /* Frameworks */,
+				3A396C56572A15EF009DED12754F1454 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				020F24D5DCB7B115DBA78DC00F2499D7 /* PBXTargetDependency */,
+			);
 			name = "Pods-pianopal";
 			productName = "Pods-pianopal";
-			productReference = DAB65536A4ED19A760893B9E17C76ECC /* Pods_pianopal.framework */;
+			productReference = CB571A3C3BCFCB001F901E408EC4A104 /* Pods_pianopal.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -416,25 +499,55 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = D284412389FC6921EE6028706D6A442C /* Products */;
+			productRefGroup = F4190B5B6A94CD181FFFC1158675F502 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2691C22669CD44C930B3F17748A9263F /* Pods-pianopal */,
+				35C0FDEB6348D853A717AE3774C29863 /* MobileCenter-MobileCenterDistributeResources */,
+				BFD50E078AF027D72A9CBD685D407F5C /* Pods-pianopal */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		095C60D45F1F1BC01324ADE3A09B1D06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1135D350303C04167E1E6781761A72A /* de.lproj in Resources */,
+				348D6909889C1E8E9F9B36EC18DF8B90 /* en.lproj in Resources */,
+				F8BDB3D75FDD76D6C3421C6B038413F9 /* fr.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		229DE692FBC34F20550F56C080EDD3C9 /* Sources */ = {
+		85D8B80BDABF45F710CB3C8B502384AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16FB528A8C00150123F7EC9C2039B1C5 /* Pods-pianopal-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE2406D8E9D97A4B8D2784AB78E9B5F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB7748D53C10C49BA5F76440DB7B9C5E /* Pods-pianopal-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		020F24D5DCB7B115DBA78DC00F2499D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MobileCenter-MobileCenterDistributeResources";
+			target = 35C0FDEB6348D853A717AE3774C29863 /* MobileCenter-MobileCenterDistributeResources */;
+			targetProxy = 3D5F8CE0097DA63D1C74E7A870BD8AD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		157AF0CD5E5AB2A2E74D3B8ECD865185 /* Release */ = {
@@ -481,43 +594,7 @@
 			};
 			name = Release;
 		};
-		44A1D3B26C8A7638CB1976DB5300593E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E3DE06BB63FD04121DFB06579BB179A /* Pods-pianopal.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pianopal/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pianopal/Pods-pianopal.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pianopal;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		ACE5CF3EA75655B7EC4A593AA75BFBC8 /* Release */ = {
+		2D7F37F212B8D42E8A8ACC20501C532A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EEA47ED19C0EAF81ED664F35E0A76DE5 /* Pods-pianopal.release.xcconfig */;
 			buildSettings = {
@@ -550,6 +627,22 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		69B72B9AB9C56C5CA6FACCCD9B1984A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MobileCenter";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/MobileCenter/ResourceBundle-MobileCenterDistributeResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = MobileCenterDistributeResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -601,6 +694,58 @@
 			};
 			name = Debug;
 		};
+		E0378956A2A3E613CA96CE049E8F364C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MobileCenter";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/MobileCenter/ResourceBundle-MobileCenterDistributeResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = MobileCenterDistributeResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F725F926CFF15B4216D8040C50E91754 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3DE06BB63FD04121DFB06579BB179A /* Pods-pianopal.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-pianopal/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pianopal/Pods-pianopal.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pianopal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -613,11 +758,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C8B42F0C6B2566E9C6A2E14C4C744FA /* Build configuration list for PBXNativeTarget "Pods-pianopal" */ = {
+		91F08F1BCEA20F679FDA4D6A0BD9AF03 /* Build configuration list for PBXNativeTarget "MobileCenter-MobileCenterDistributeResources" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				44A1D3B26C8A7638CB1976DB5300593E /* Debug */,
-				ACE5CF3EA75655B7EC4A593AA75BFBC8 /* Release */,
+				E0378956A2A3E613CA96CE049E8F364C /* Debug */,
+				69B72B9AB9C56C5CA6FACCCD9B1984A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1AEDF3D558D9D46CC962574F66DDA4F /* Build configuration list for PBXNativeTarget "Pods-pianopal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F725F926CFF15B4216D8040C50E91754 /* Debug */,
+				2D7F37F212B8D42E8A8ACC20501C532A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

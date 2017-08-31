@@ -8,15 +8,18 @@ PODS:
   - MobileCenter/Core (0.11.0)
   - MobileCenter/Crashes (0.11.0):
     - MobileCenter/Core
+  - MobileCenter/Distribute (0.11.0):
+    - MobileCenter/Core
 
 DEPENDENCIES:
   - AudioKit
   - MobileCenter
+  - MobileCenter/Distribute
 
 SPEC CHECKSUMS:
   AudioKit: 7823de92f3c9570178d2347042867b6a93be1464
   MobileCenter: 918ffeab6f98aa0d9b617906d406f59e6bdbcbe2
 
-PODFILE CHECKSUM: d4887065d245ceb9b975648d966dbf49e64a269b
+PODFILE CHECKSUM: 0f34a1c1ad489d23ffcd52f684ae4a3bf0aeec43
 
 COCOAPODS: 1.2.0

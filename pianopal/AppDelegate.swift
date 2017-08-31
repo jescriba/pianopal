@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCenter
+import MobileCenterDistribute
 import MobileCenterAnalytics
 import MobileCenterCrashes
 
@@ -31,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         MSMobileCenter.start("1b02900f-c851-4e3d-98f0-3da7f232ad6c", withServices:[
+          MSDistribute.self,
           MSAnalytics.self,
           MSCrashes.self
         ])
