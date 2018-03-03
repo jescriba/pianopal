@@ -76,17 +76,19 @@ class AudioEngine {
     }
     
     func stop() {
-        if (scalePlayer!.isPlaying) {
-            scalePlayer?.stop()
-        }
-        if (!chordPlayers.isEmpty) {
-            for chordPlayer in chordPlayers {
-                if (chordPlayer.isPlaying) {
-                    chordPlayer.stop()
-                }
-                audioEngine?.disconnectNodeInput(chordPlayer)
+        DispatchQueue.global().async {
+            if (self.scalePlayer!.isPlaying) {
+                self.scalePlayer?.stop()
             }
-            chordPlayers.removeAll()
+            if (!self.chordPlayers.isEmpty) {
+                for chordPlayer in self.chordPlayers {
+                    if (chordPlayer.isPlaying) {
+                        chordPlayer.stop()
+                    }
+                    self.audioEngine?.disconnectNodeInput(chordPlayer)
+                }
+                self.chordPlayers.removeAll()
+            }
         }
     }
 }

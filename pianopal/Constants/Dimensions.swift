@@ -9,9 +9,9 @@ import UIKit
 import Foundation
 
 struct Dimensions {
-    static let toolBarHeight = 50
+    static let statusBarHeight = UIApplication.shared.statusBarFrame.height
     static let toolBarWidth = UIScreen.main.bounds.width
-    static let toolbarRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 8)
+    static let toolbarRect = CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 8)
     static let pianoRect = CGRect(x: 0, y: UIScreen.main.bounds.height / 8, width: UIScreen.main.bounds.width, height: 7 * UIScreen.main.bounds.height / 8)
     static let pianoScrollRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 7 * UIScreen.main.bounds.height / 8)
     static let menuButtonRect = CGRect(x: 0, y: 0, width: 50, height: UIScreen.main.bounds.height / 8)

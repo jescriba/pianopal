@@ -46,11 +46,19 @@ class PianoNavigationViewController: UINavigationController, UIPopoverPresentati
         let settingsStoryboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
         settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "settingsStoryboard") as? SettingsViewController
         
+        // Xcode 9 nav bar struggles https://stackoverflow.com/questions/46138245/how-to-change-navigationbar-height-in-ios-11/46138389
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = Colors.toolBarBackground
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
+        
         UINavigationBar.appearance().titleTextAttributes = ["Font": Fonts.toolbarTitle!]
+        UINavigationBar.appearance()
         navigationController?.navigationBar.isHidden = true
-        customNavigationBar.layer.shadowOpacity = 0.5
         customNavigationBar.isTranslucent = false
         customNavigationBar.barTintColor = Colors.toolBarBackground
+        customNavigationBar.backgroundColor = Colors.toolBarBackground
+        customNavigationBar.shadowImage = UIImage()
         customNavigationBar.setItems([customNavigationItem], animated: false)
         view.addSubview(customNavigationBar)
 
